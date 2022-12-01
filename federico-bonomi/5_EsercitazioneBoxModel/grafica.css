@@ -57,7 +57,7 @@ nav a
     color: white;
     padding: 5px 10px;
     margin-left: 5px;
-    background-color: blueviolet;
+    background-color: black;
     text-decoration: none;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
@@ -78,15 +78,16 @@ article
 
 footer
 {
-    background-color: blue;
+    background-color: rgb(0, 255, 85);
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.5rem;
     padding: 1.5rem;
 }
 
 nav a:hover
 {
-    color: darkred;
-    background-color: aquamarine;
+    color: rgb(225, 255, 1);
+    background-color: rgb(38, 0, 255);
+    text-decoration: underline;
 }
