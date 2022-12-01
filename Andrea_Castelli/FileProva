@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <style>
+            p
+            {
+                color: red;
+                width: 50%;
+                display: inline-block;
+            }
+
+            img
+            {
+                margin-right: 2rem;
+                vertical-align: top;
+                float: left;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Titolo</h1>        
+        La Bretagna è una regione storica e amministrativa della Francia;
+
+        <p>Essa forma un vasto promontorio verso la Manica e l'Oceano Atlantico. La lingua ufficiale è il francese, mentre le lingue regionali sono il bretone ed il gallo; il suo nome bretone, Breizh, viene abbreviato abitualmente con BZH.
+        La Bretagna storica, comprendente anche il dipartimento della Loira Atlantica.</p>
+        
+        L'attuale regione amministrativa francese della Bretagna è  composta da 4 dipartimenti: Côtes-d'Armor/Aodoù-an-Arvor (22), Ille-et-Vilaine/Ill ha Gwilen (35), Morbihan (56), Finistère/Penn-ar-Bed (29). Sono inclusi nella regione 15 arrondissement, 102 cantoni e 1270 comuni.
+        La Bretagna storica comprendeva anche il territorio grossomodo coincidente con l'attuale dipartimento della Loira Atlantica, che oggi fa invece parte della regione amministrativa Paesi della Loira; l'attuale capoluogo del dipartimento, Nantes, era in effetti la capitale del Ducato di Bretagna, e tuttora vi si può visitare il Castello dei duchi di Bretagna. 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Brittany_%28Gwenn_ha_du%29.svg/280px-Flag_of_Brittany_%28Gwenn_ha_du%29.svg.png">
+        La questione del ricongiungimento del dipartimento della Loira Atlantica alla regione amministrativa bretone è un tema piuttosto discusso in Francia. Includendo questo dipartimento, nel cui blasone è presente l'armellino, la regione storica bretone si può considerare estesa su 34.023 km² e con 4.106.966 abitanti al Censimento del 2005.</p>
+
+        <ul>
+            <li>a</li>
+            <li>b</li>
+        </ul>
+
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+    </body>
+</html>
