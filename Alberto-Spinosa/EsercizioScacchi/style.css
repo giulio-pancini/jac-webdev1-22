@@ -1,0 +1,79 @@
+*{
+    background-color: beige;
+}
+
+body{
+    margin: 0px;
+}
+
+/* -----HEADER----- */
+
+header{
+    margin: 0;
+}
+
+header img{
+    width: 100%;
+    
+}
+
+h1 {
+    font-size: 60px;
+    color: brown;
+    margin-left: 16px;
+}
+
+/* -----NAV----- */
+
+nav{
+    text-align: right;
+    background-color: rgb(115, 27, 27);
+    font-size: 35px;
+    padding: 1rem
+}
+
+nav a{
+    background-color: rgb(115, 27, 27);
+    margin-right: 2em;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a:visited{
+    color: yellow;
+}
+
+nav a:hover{
+    color: red;
+}
+
+
+
+
+
+/* -----ARTICLE----- */
+
+article{
+    padding: 2rem
+}
+
+h2{
+    color:rgb(115, 27, 27);
+    font-size: 30px;
+}
+
+.piece{
+    width: 360px;
+    height: 360px;
+}   
+
+/* -----FOOTER----- */
+
+#paragrafo-piedi{
+    background-color: rgb(115, 27, 27);
+    color: white;
+    margin: 0;
+    padding: 1rem;
+}
