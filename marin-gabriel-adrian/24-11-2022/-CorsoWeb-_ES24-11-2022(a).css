@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: lemonchiffon;
+}
+
+header {
+    padding: 1rem;
+    text-align: center;
+    border-image: 3rem;
+}
+
+h1 {
+    padding: 0.4em;
+    font-size: 10rem;
+    color: darkcyan;
+}
+
+article {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.4rem;
+    padding-right: 1rem;
+    text-align: left;
+}
+
+footer {
+    background-color: black;
+    max-width: 30rem;
+    padding-left: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+section {
+    border-top: 1px solid darkslategrey;
+}
+
+#Chess {
+    padding: 0.3rem;
+}
+
+#Pawn {
+    padding: 0.2rem 0.3rem;
+}
+
+#Pawn img {
+    height: 15rem;
+    width: 15rem;
+}
+
+#Tower {
+    padding: 0.4rem 0.2rem;
+}
+
+#Tower img {
+    max-width: 30rem;
+}
+
+#Horse {
+    padding: 0.4rem;
+}
+
+#Bishop {
+    padding: 0.2rem 0.1rem;
+}
+
+#Queen {
+    padding: 0.6rem;
+}
+
+#King {
+    padding: 0.5rem 0.6rem;
+}
+
+nav{
+    text-align: left;
+}
+
+nav a:hover {
+    background-color:black;
+    color: white;
+}
