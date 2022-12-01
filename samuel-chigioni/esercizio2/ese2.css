@@ -1,0 +1,58 @@
+* {
+    background-color:bisque;
+}
+
+nav{
+    text-align: right;
+    background-color:brown;
+    font-size: x-large;
+    line-height: 100px;
+}
+h1{
+    font-size: 50px;
+    color: black;
+}
+
+#fotoitaliamondo{
+    height: 600px;
+    width: 100%;
+}
+.link-nav {
+    color: black;
+    background-color: brown;
+}
+html {
+    border: 1rem solid white;
+}
+article {
+
+    margin: 100px;
+}
+body {
+    margin: 0px;
+}
+footer {
+
+    color: black;
+    font-size: x-large;
+    background-color: blue;
+    text-align: center;
+}
+article p {
+
+    text-align: center;
+}
+/*commento*/
+
+nav a {
+    background-color: blueviolet;
+    padding: 5px 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+nav a:visited{
+    color:blue
+}
+nav a:hover{
+
+    color:chartreuse
+}
