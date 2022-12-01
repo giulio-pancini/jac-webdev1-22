@@ -1,0 +1,33 @@
+p{
+    color: #ff0000;
+    width: 47rem;
+}
+
+img {
+    width: 30rem;
+    height: 30rem;
+    margin-right: 2rem;
+    float: left;
+}
+
+strong {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    vertical-align: top; /*alineamento del blocco, all'interno di elementi inline o inline-block*/
+}
+
+body {
+    padding-bottom: 20%;
+    background-color:thistle;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ol li{
+    display: inline-block;
+    background-color:cadetblue;
+    width: 5rem;
+}
