@@ -8,11 +8,7 @@ body{
 
 /* -----HEADER----- */
 
-header{
-    margin: 0;
-}
-
-header img{
+#scacchiera{
     width: 100%;
     
 }
@@ -26,10 +22,13 @@ h1 {
 /* -----NAV----- */
 
 nav{
+    position: sticky;
+    top: 0px;
+
     text-align: right;
     background-color: rgb(115, 27, 27);
-    font-size: 35px;
-    padding: 1rem
+    font-size: 30px;
+    padding: 5px;
 }
 
 nav a{
@@ -49,8 +48,14 @@ nav a:hover{
     color: red;
 }
 
+nav ol li{
+    display: inline-block;
+    background-color: rgb(115, 27, 27);
+}
 
-
+nav ol {
+    background-color: rgb(115, 27, 27);
+}
 
 
 /* -----ARTICLE----- */
@@ -69,6 +74,31 @@ h2{
     height: 360px;
 }   
 
+
+/* -----SECTION----- */
+
+section img {
+    float:left;
+    margin-right: 3rem;
+}
+
+section p {
+    height: 25rem;
+}
+
+
+/* -----DIV----- */
+
+div {
+    position: fixed;
+    bottom: 50px; left: 83rem;
+    background-color: brown;
+    width: 50px;
+    height: 50px;
+    margin: 2rem;
+}
+
+
 /* -----FOOTER----- */
 
 #paragrafo-piedi{
@@ -76,4 +106,5 @@ h2{
     color: white;
     margin: 0;
     padding: 1rem;
+    text-align: right;
 }
