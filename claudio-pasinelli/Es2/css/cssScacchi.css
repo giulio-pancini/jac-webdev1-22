@@ -25,11 +25,13 @@ header#intestazione h1
 header#intestazione nav
 {
     background-color: rgb(251, 183, 82);
+    position: sticky;
+    top: 0px;
 }
-header#intestazione nav ul
+header#intestazione nav ol
 {
     margin-bottom: 0px;
-    list-style-type: none;
+    /* list-style-type: none; */
     text-align: right;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
@@ -38,7 +40,7 @@ header#intestazione nav ul
     font-size: 1.5rem;
     margin-top: 0;
 }
-header#intestazione nav ul li
+header#intestazione nav ol li
 {
     display: inline-block;
     padding-right: 0.7rem;
@@ -50,7 +52,7 @@ header#intestazione nav ul li
     border-color: rgb(255, 238, 214);
     transition: all 0.3s;
 }
-header#intestazione nav ul li:hover
+header#intestazione nav ol li:hover
 {
     transform: scale(1.05);
 }
@@ -75,7 +77,7 @@ header#intestazione nav a
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3;
 }
-header#intestazione nav ul li a:hover
+header#intestazione nav ol li a:hover
 {
     color: rgb(255, 252, 249);
     background-color: rgb(255, 227, 71);
@@ -120,16 +122,39 @@ h2
     margin-left: 3rem;
     margin-bottom: 1rem;
 }
-section#primaParte, section#secondaParte, section#terzaParte, section#quartaParte
+article.primo section
 {
     background-color: rgb(232, 196, 143);
+    clear: both;
+    min-height: 175px;
 }
-img
+section#contattaci
 {
-    width: 15%;
-    height: 15%;
+    position: fixed;
+    background-color: aqua;
+    right: 0.5rem;
+    top: 45rem;
+}
+section#partiScacchi h1
+{
+    margin-top: 0;
     margin-left: 3rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    color: rgb(183 44 44);
+}
+section#partiScacchi li
+{
+    margin-left: 3rem;
+}
+article.primo section img
+{
+    /* width: 15%; */
+    height: 120px;
+    min-height: 60px;
+    margin-left: 3rem;
+    margin-right: 0.5rem;
+    float: left;
 }
 footer
 {
