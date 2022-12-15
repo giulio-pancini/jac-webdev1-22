@@ -1,0 +1,71 @@
+<DOCTYPE html>
+    <body>
+    
+
+         <script>
+            // Variabile numerica
+            let a = 5
+            console.log('il valore di a è: ' + a /*commento inline*/);
+
+            /*commento
+            multiline
+            */
+
+            const b = 'pippo';
+            console.log('il valore di b è ' + b);
+
+
+            let studenti =[ "agostin", "anzani", " Bergamelli", "Claudi"];
+            console.log(studenti);
+
+            //variabile oggetto
+            let studente = {
+                nome: "Marco",
+                cognome:"Rossi",
+                nascita:"2003",
+                classe: "ICT",
+            }
+            console.log(studente);
+
+            //funzioni
+            function massimo(v1, v2) {
+                if (v1 > v2) {
+                    return v1;
+                } else {
+                    return v2;
+                }
+            }
+
+            let x = massimo(3, 42);
+            console.log(x);
+
+            let y = 3
+            console.log(massimo(y, 42));
+
+            //if alternativo
+            function massimoAlternativo(v1, v2) {
+                return (v1 > v2) 
+                    ? v1
+                    : v2
+            }
+
+            // if alternativo (operatorie ternario)
+            function massimoAlternativo(v1, v2) {
+                let risultato = (v1 > v2) 
+                    ? v1
+                    : v2
+
+                    return risultato;
+            }
+
+            function massimoFraQuattroNumeri(n1, n2, n3, n4){
+               let m1 = massimo(n1, n2);
+               let m2 = massimo(m1, m3);
+               let m3 = massimo(m1, m2);
+
+               return massimo(m1, m2);
+            }
+            console.log(massimoFraQuattroNumeri(42, 57, 23, 12));
+        </script>
+    </body>
+</html>
