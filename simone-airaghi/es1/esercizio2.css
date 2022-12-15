@@ -1,0 +1,50 @@
+header img {
+    height: 100%;
+    width: 100%
+}
+
+* {
+    background-color: rgb(212, 165, 255);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+header nav {
+    background-color: yellow;
+}
+
+nav {
+    text-align: right;
+    background-color: yellow;
+    padding: 10px;
+}
+
+a {
+    background-color: yellow;
+    margin: 1rem;
+    color: rgb(255, 255, 255);
+}
+
+#footer {
+    background-color: yellow;
+
+}
+
+article {
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+nav a{
+    background-color: rgb(195, 131, 255);
+    padding: 4px;
+    text-decoration: none;
+}
+
+/*max-widht e min-widht danno largheza massima e minima per le immagini*/
