@@ -1,7 +1,4 @@
 
-span {
-  content: "\265F";
-}
  body{
 	background-image:linear-gradient(rgba(0, 78, 72, 0.679),rgb(7, 219, 212), rgb(253, 253, 253) );
 	color : blue;
@@ -40,6 +37,7 @@ height:auto;
 margin-top: 5px;
 margin:0px;
 padding:0px;
+
 }
 .footer{
 	color:black;
@@ -48,6 +46,7 @@ padding:0px;
 	margin:0px;
 	padding:0px;
 	}
+
 p{
 	color:black;
 	margin:0px;
@@ -74,6 +73,7 @@ top: 0%;
 max-height: 50px;
 min-height: 50px;
 }
+
 #pedone{
 	margin-top: 0px;
 
