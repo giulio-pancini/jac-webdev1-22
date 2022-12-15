@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+         
+
+    </head>
+
+      <body>
+
+         <script>
+             function Moltiplica(n1){
+
+                return n1*1000;
+
+
+             }
+             let m = Moltiplica(2);
+             console.log(m);
+            
+            
+             function NomeCompleto(nome,cognome){
+                 
+               
+                return nome+cognome;
+             }
+
+             let n = NomeCompleto('Nicolo','Mignani')
+             console.log(n);
+
+             function AnnoNascita(nascita){
+
+                 if(nascita<18){
+
+                    return 'young';
+
+                 }else if(nascita>65){
+
+                    return 'old';
+                
+                }else{
+
+                    return 'adult';
+
+                 }
+
+             }
+             let et=AnnoNascita(22);
+             console.log(et);
+
+
+
+
+             
+             
+             function TrovaMinDiciotto([eta1,eta2,eta3,eta4]){
+               
+                  let e = [eta1,eta2,eta3,eta4];
+                   let a =[];  
+                  for(let i=0;i<4;i++){
+                    if(e[i]<18){
+                        
+                       a[i]=e[i];
+
+                     }
+                  } 
+                  return a;
+             }
+            
+              
+              let nascite = [14,12,35,18];
+            
+              console.log(TrovaMinDiciotto(nascite));
+
+               let p1={Nome:"Mario",Cognome:"Rossi",Eta:21};
+               let p2={Nome:"Luigi",Cognome:"Verdi",Eta:11};
+               let p3={Nome:"Ciro",Cognome:"Esposito",Eta:16};
+               let array=[p1,p2,p3];
+             
+               function TrovaMinOgg(array){
+                   let c= [];
+                   let j =0;
+                  for(let i=0;i<array.length;i++){
+
+                     if(array[i].Eta<18){
+
+                     c[i]=array[i];
+                        j++;
+                     }
+
+                    
+                  }
+               return c;
+          }
+          console.log(TrovaMinOgg);
+         
+
+            </script>
+
+
+
+
+
+
+      </body>
