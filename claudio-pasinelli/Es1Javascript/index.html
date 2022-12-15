@@ -50,15 +50,14 @@
         console.log(controlloEta(nascita3));
 
         //funzione che, data un array di date di nascita, restituisce un array con tutti i minori di 18
-         function controlloEtaMinorenni ([anno1, anno2, anno3, anno4, anno5, anno6])
+         function controlloEtaMinorenni (nascite)
         {
-            const anni = [anno1,anno2,anno3,anno4,anno5,anno6];
             const anniMinorenni=[];
             
-            for(let i=0; i<anni.length; i++)
+            for(let i=0; i<nascite.length; i++)
             {
-                if((2022-anni[i])<18)
-                    anniMinorenni[i]=anni[i];
+                if((2022-nascite[i])<18)
+                    anniMinorenni.push(nascite[i]);
             }
             return anniMinorenni;
         }
@@ -67,15 +66,14 @@
         console.log(controlloEtaMinorenni(nascita4));
 
         //funzione che, dato un array di persone, restituisce un array con tutti i minori di 18
-        function personeMinorenni ([persone])
+        function personeMinorenni (persone)
         {
-            const personeTot=[persona1,persona2,persona3];
             const personeMinorenni=[];
 
-            for(let i=0; i<personeTot.length;i++)
+            for(let i=0; i<persone.length;i++)
             {
-                if((2022-personeTot[i].dataNascita)<18)
-                    personeMinorenni[i]=personeTot[i];
+                if((2022-persone[i].dataNascita)<18)
+                    personeMinorenni.push(persone[i]);
             }
             return personeMinorenni;
         }
@@ -97,8 +95,10 @@
             cognome:"Bianchi",
             dataNascita:2011,
         };
+
         const persone=[persona1,persona2,persona3];
         console.log(personeMinorenni(persone));
+        
     </script>
 </body>
 </html>
