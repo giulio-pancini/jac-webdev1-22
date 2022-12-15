@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Esempio con Header, Article, Section</title>
+    <style>
+      body {
+        background-color: #ffd447;
+        margin: 0;
+      }
+
+      header {
+        margin: 0;
+      }
+
+      h1 {
+        color: #ffaa00;
+        font-size: 3rem;
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        color: #995500;
+      }
+
+      nav {
+        text-align: right;
+        background-color: #ffaa00;
+        padding: 0.6rem;
+      }
+
+      a {
+        color: #990000;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 0.5rem;
+      }
+
+      article {
+        padding: 2rem;
+      }
+
+      footer {
+        padding: 2rem;
+        color: white;
+        background-color: #995500;
+      }
+
+      #header-image {
+        width: 100%;
+        height: auto;
+      }
+
+      img {
+        height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Gli scacchi</h1>
+
+      <nav>
+        <a href="pieces/pawn.html">Il pedone</a>
+        <a href="pieces/pawn.html">La torre</a>
+      </nav>
+
+      <img id="header-image" src="chess-header.jpg" />
+    </header>
+
+    <article>
+      <p>
+        Gli scacchi sono un gioco che...<a href="pieces/pawn.html"
+          >leggi altro</a
+        >
+      </p>
+
+      <section>
+        <h2>Il pedone</h2>
+        <img src="pieces/pawn.jpg" />
+        <p>Il pedone si muove... <a href="pieces/pawn.html">leggi altro</a></p>
+      </section>
+
+      <section>
+        <h2>La torre</h2>
+        <img src="pieces/tower.jpg" />
+        <p>La torre si muove... <a href="pieces/tower.html">leggi altro</a></p>
+      </section>
+
+      <section>
+        <h2>La regina</h2>
+        <img src="pieces/queen.webp" />
+        <p>La regina si muove... <a href="pieces/queen.html">leggi altro</a></p>
+      </section>
+    </article>
+
+    <footer>Copyright ...</footer>
+  </body>
+</html>
