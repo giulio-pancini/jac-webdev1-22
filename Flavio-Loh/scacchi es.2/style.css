@@ -1,0 +1,65 @@
+/*sistemare l'ordine, quindi tenere vicini ad esempio header ecc*/
+body {
+    background-color: rgb(182, 220, 124);
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 80px;
+    color: chocolate;
+    margin-left: 15px;
+}
+
+h2 {
+    color: rgb(125, 65, 21);
+}
+
+header img {
+    height: 1000px;
+    width: 100%;
+}
+
+.pedine {
+    width: 400px;
+}
+
+a {
+    color: chocolate;
+}
+
+header {
+    margin: 0;
+}
+
+article {
+    padding: 2em;
+}
+
+nav {
+    padding: 0.6em;
+    font-size: 40px;
+    background-color: rgb(162, 162, 240);
+    text-align: right;
+}
+
+footer {
+    background-color: rgb(162, 162, 240);
+    font-size: 20px;
+    padding: 0.6em;
+}
+
+nav a {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: blueviolet;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+nav a:visited {
+    color:black;
+}
+nav a:hover {
+    background-color: aliceblue;
+}
