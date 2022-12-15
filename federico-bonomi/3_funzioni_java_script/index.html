@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio JavaScript</title>
+</head>
+<body>
+    <script>
+
+        let persona=
+        {
+            nome:"Federico",
+            cognome:"Bonomi",
+            annoNascita:2008
+        }
+
+        let persona2=
+        {
+            nome:"Samanta",
+            cognome:"Scalvinoni",
+            annoNascita:1972
+        }
+
+        let persona3=
+        {
+            nome:"Glisente",
+            cognome:"Scalvinoni",
+            annoNascita:1943
+        }
+
+        let persona4=
+        {
+            nome:"Lorenzo",
+            cognome:"Fona",
+        }
+        
+        function moltiplicaXmille(n)
+        {
+            return n*1000;  
+        }
+
+        let a=5;
+        console.log(a+' moltiplicato per 1000 è: '+moltiplicaXmille(a));
+
+        function nomeCompleto(nome, cognome)
+        {
+            return nome+" "+cognome;
+        }
+
+        let nome="Lorenzo";
+        let cognome="Fona";
+        console.log("Il nome completo di "+nome+"+"+cognome+" è "+nomeCompleto(nome,cognome));
+
+        function nomeCompletoOggetto(a)
+        {
+            return a.nome+" "+a.cognome;
+        }
+
+        console.log("Il nome completo di "+persona4.nome+"+"+persona4.cognome+" è "+nomeCompletoOggetto(persona4));
+
+        function eta(annoNascita)
+        {
+            let anni=2022-annoNascita;
+            if(anni<18)
+            {
+                return "young";
+            }
+            else if(anni>65)
+            {
+                return "old";
+            }
+            else
+            {
+                return "adult";
+            }
+        }
+
+        console.log("categoria di età: "+persona.annoNascita+": "+eta(persona.annoNascita));
+        console.log("categoria di età: "+persona2.annoNascita+": "+eta(persona2.annoNascita));
+        console.log("categoria di età: "+persona3.annoNascita+": "+eta(persona3.annoNascita));
+
+
+        function arrayMinorenni(a=[])
+        {
+            let b=[];
+            let puntatore=0;
+            for(let i=0;i<a.length;i++)
+            {
+                let anni=2022-a[i];
+                if(anni<18)
+                {
+                    b[puntatore]=a[i]
+                    puntatore++;
+                }
+            }
+            return b;
+        }
+
+        let anniNascita=["1972", "2006" ,"2003" ,"2015"];
+        console.log("Tra quelli nati nei seguenti anni: "+anniNascita+" i seguenti sono minorenni: "+arrayMinorenni(anniNascita))
+
+        function arrayPersoneMinorenni(a=[])
+        {
+            let b=[];
+            let puntatore=0;
+            for(let i=0;i<a.length;i++)
+            {
+                let anni=2022-a[i].annoNascita;
+                if(anni<18)
+                {
+                    b[puntatore]=a[i]
+                    puntatore++;
+                }
+            }
+            return b;
+        }
+
+        let persone=
+        [
+            {
+                nome:"Federico",
+                cognome:"Bonomi",
+                annoNascita:2003
+            },
+            {
+                nome:"Andrea",
+                cognome:"Scalvinoni",
+                annoNascita:2005
+            },
+            {
+                nome:"Andrea",
+                cognome:"Andreoli",
+                annoNascita:2006
+            },
+            {
+                nome:"Samanta",
+                cognome:"Scalvinoni",
+                annoNascita:1972
+            }
+        ];
+
+        console.log(persone);
+        console.log(arrayPersoneMinorenni(persone));
+
+    </script>
+</body>
+</html>
