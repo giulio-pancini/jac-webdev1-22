@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <script>
+            // funzione che moltiplica un numero per 1000
+            let x
+            function numeroPerMille(x) {
+                return x*1000
+            }
+            console.log(numeroPerMille(8))
+
+            // funzione che, dati nome e cognome, restituisce il nome completo
+            let persona = {
+                nome: 'Mattia',
+                cognome: 'Vianelli'
+            }
+            console.log('il nome della persona è: ', persona.nome, persona.cognome)
+
+            // funzione che, dato un anno di nascita, restituisce "young" se l'età è <18, "old" se è >65, altrimenti "adult"
+            let annoNascita
+            function anni(annoNascita) {
+                età = 2022 - annoNascita
+                if (età < 18) {
+                    return 'young'
+                } else if (età > 65) {
+                    return 'old'
+                } else {
+                    return 'adult'
+                }
+            }
+            console.log(anni(1900))
+
+            // funzione che, dato un array di date di nascita, restituisce un array con tutti i minorenni        
+            function minorenni(dateIniziali) {
+                let dateMinorenni = []
+                
+                dateIniziali.forEach(function(data) {
+                    if (data > 2004) {
+                        dateMinorenni.push(data)
+                    } 
+                })
+                return (dateMinorenni)
+            }
+            console.log(minorenni([2010, 2020, 2000, 1996, 1950]))
+
+            // funzione che, dato un array di persone, restituisce il nome dei minorenni
+            function funzioneEtà(dataDiNascita) {
+                let arrayStudenti = []
+                
+                dataDiNascita.forEach(function(nonSoIlNome) {
+                    if (nonSoIlNome.nascita > 2004) {
+                            arrayStudenti.push(nonSoIlNome.nome)
+                    }
+                })
+                return (arrayStudenti)
+            }
+            console.log(funzioneEtà([
+                {nome: 'Mattia', nascita: 2002}, 
+                {nome: 'Lara', nascita: 2005}, 
+                {nome: 'Paolo', nascita: 2018},
+                {nome: 'Andrea', nascita: 1980}
+            ]))
+
+        </script>
+    </body>
+</html>
