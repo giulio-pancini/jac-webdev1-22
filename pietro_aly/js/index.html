@@ -9,15 +9,73 @@
         return " il nome completo" +  nome + " " + cognome
     }
 
-    function anno(eta){
-        if (2022 - eta){
-            
-            else ()
+    function nominativo(nome, cognome) {
+            return 'il tuo nome completo è ' + nome + ' ' + cognome;
         }
-    }
+        console.log(nomeCompleto('', ''));
+    
+        function eta(anno){
+            if(2022-anno <18 )
+            console.log("young"); 
+        }
+        if (2022-anno > 65 ){
+            console.log("old"); 
+        }
+        if(2022-anno >18 && 2022 - anno < 65)
+            console.log("adult"); 
+        }
+        
+        let date = [1923, 2005, 2001, 1987, 2006];
+        function minorenni(dateNascita) {
+            let outputDate = [];
+            for(let i=0; i<dateNascita.length; i++) {
+                if(YoungAdultOld(dateNascita[i])=='young') {
+                    outputDate.push(dateNascita[i]);
+                }
+            }   
+            return outputDate;
+        }
+        console.log(minorenni(date));
+        console.log('filtro per ');
+        console.log(date);
 
 
-}
+        let arrPersone = [
+            {
+                nome: 'Andrea',
+                cognome: 'Dolci',
+                anno: 2008
+            },
+            {
+                nome: 'dio',
+                cognome: 'simone',
+                anno: 1907
+            },
+            {
+                nome: 'rossella',
+                cognome: 'malara',
+                anno: 2030
+            },
+            {
+                nome: 'ciro',
+                cognome: 'lodio',
+                anno: 2009
+            }
+           
+        ]
+        function minorenniArrPers(dataNascita) {
+            let outputDate = [];
+            for(let i=0; i<dataNascita.length; i++) {
+                if(YoungAdultOld(dataNascita[i].anno)=='young') {
+                    outputDate.push(dataNascita[i].anno);  
+                }
+            }   
+            return outputDate;    
+        }
+        console.log(minorenniArrPers(arrPersone));
+        //se si stampano nello stesso console log non lo mostra bene
+        console.log('filtro per ');
+        console.log(arrPersone);
 
 
 </script>
