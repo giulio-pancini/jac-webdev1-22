@@ -3,10 +3,16 @@
 }
 
 nav{
+    
     text-align: right;
     background-color:brown;
     font-size: x-large;
     line-height: 100px;
+   
+}
+div nav{
+    position: sticky;
+    top:0px;
 }
 h1{
     font-size: 50px;
@@ -41,6 +47,8 @@ footer {
 article p {
 
     text-align: center;
+    display: block;
+height: 20rem;
 }
 /*commento*/
 
@@ -55,4 +63,24 @@ nav a:visited{
 nav a:hover{
 
     color:chartreuse
+}
+article img{
+    float: left;
+    margin-right:  3rem;
+}
+nav ol li {
+display: inline-block;
+background-color: brown;
+
+}
+nav ol{
+    background-color: brown;
+}
+section div{
+    background-color: darkred;
+    width: 80px;
+    height: 100px;
+    position: fixed;
+    bottom: 50px;
+    left: 83rem;
 }
