@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Funzioni Javascript</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            ol li {
+                font-size: 1.5rem;
+                margin: 1.5rem;
+                background-color: bisque;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1><u>Creare le seguenti funzioni in Javascript:</u></h1>
+        <ol>
+            <li>Moltiplica un numero per 1000</li>
+            <li>Dati nome e cognome, restituisce il nome completo</li>
+            <li>Dato anno di nascita, restituisce "young" se minorenne, "old" se over 65, altrimenti "adult"</li>
+            <li>Dato un array di date di nascita, restituisce un array con tutti i minorenni</li>
+            <li>Dato un array di persone, restituisce un array con tutti i maggiorenni</li>
+        </ol>
+        <script>
+            function moltiplicazione(n) {
+                return n + ' * 1000 = ' + n * 1000;
+            }
+            console.log(moltiplicazione(5));
+
+            function nomeCompleto(nome, cognome) {
+                return 'Nome completo per nome: "' + nome + '" e cognome: "' + cognome + '" => ' + nome + ' ' + cognome;
+            }
+            console.log(nomeCompleto('Mario', 'Rossi'));
+
+            function eta(anno) {
+                let eta = 2022 - anno;
+                let risultato;
+                if (eta < 18) {
+                    risultato = "young";
+                } else if (eta > 65) {
+                    risultato = "old";
+                } else {
+                    risultato = "adult";
+                }
+                return 'Persona nata nel ' + anno + ': ' + risultato;
+            }
+            console.log(eta(2001));
+            console.log(eta(2006));
+            console.log(eta(1935));
+
+            function minorenni(nascite) {
+                let minorenni = [];
+                for (let i = 0; i < nascite.length; i++) {
+                    if ((2022 - nascite[i]) < 18) {
+                        minorenni.push(nascite[i]);
+                    }
+                }
+                console.log('Minorenni tra [' + nascite + ']');
+                return minorenni;
+            }
+            console.log(minorenni([2000, 2006, 2004, 2008, 2010]));
+
+            function maggiorenni(persone) {
+                let maggiorenni = [];
+                for (let i = 0; i < persone.length; i++) {
+                    if ((2022 - persone[i].nascita) > 18) {
+                        maggiorenni.push(persone[i]);
+                    }
+                }
+                console.log('Maggiorenni tra: ');
+                console.log(persone);
+                return maggiorenni;
+            }
+            console.log(maggiorenni([   { nome: 'Mario', nascita: '2001' },
+                                        { nome: 'Luca', nascita: '1935' },
+                                        { nome: 'Marco', nascita: '2015' },
+                                        { nome: 'Giovanni', nascita: '2012' },
+                                        { nome: 'Franco', nascita: '1999' },
+                                    ]));
+        </script>
+    </body>
+
+</html>

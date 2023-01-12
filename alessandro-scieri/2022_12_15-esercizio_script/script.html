@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esempio Javascript</title>
+    </head>
+    <body>
+        <script>
+            let a = 5;
+            console.log('Il valore di a è: ' + a);
+            const b = 'pippo';
+            console.log('Il valore di b è: ' + b);
+
+            let studenti = ['Agostini', 'Arcimboldi', 'Arnoldi'];
+            console.log(studenti);
+
+            let studente = {
+                nome: 'Marco',
+                cognome: 'Rossi',
+                nascita: '2002',
+                classe: 'ICT',
+            }
+            console.log(studente);
+
+            function massimo(v1, v2){
+                if (v1>v2) {
+                    return v1
+                }
+                else {
+                    return v2
+                }
+            }
+
+            function numeroMassimo(n1, n2, n3, n4) {
+                let max1 = massimo(n1, n2);
+                let max2 = massimo(n3, n4);
+
+                return massimo(max1, max2);
+            }
+            console.log(numeroMassimo(11, 22, 33, 44));
+        </script>
+    </body>
+</html>
