@@ -1,0 +1,92 @@
+html {
+    font-size: 100px;
+}
+
+body {
+    background-color: ivory;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Formula1_logo {
+    font-size: 100%;
+    padding-top: 0.1rem;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+}
+
+#Ferrari {
+    float: left;
+    margin: 0.1rem;
+    margin-top: 0;
+    vertical-align: middle;
+}
+
+nav {
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.2rem;
+    background-color:crimson;
+    padding: 0.1rem;
+    list-style-type: none;
+    position: sticky;
+    top: 0;
+}
+
+/*a {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}*/
+
+p {
+    font-size: 0.15rem;
+    text-align: justify;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+}
+
+h3 {
+    font-size: 0.2rem;
+    padding: 1%;
+    margin: 0;
+}
+
+footer {
+    background-color: hsl(0, 2%, 67%);
+    text-align: center;
+    position: relative;
+}
+
+ol li {
+    display: inline-block;
+    padding-left: 0.05rem;
+    padding-right: 0.05rem;
+}
+
+#div1 {
+    border: solid;
+    border-radius: 8%;
+    border-color: red;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    position: relative;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+}
+
+/* #Contatti {
+    margin: auto;
+    justify-content: center;
+
+    color: red;
+    font-size: 0.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}  */
+
+/* la nav finisce sotto le immagini float perchè il float porta sopra gli elementi; per risolvere <<z-index: 1000>>;
