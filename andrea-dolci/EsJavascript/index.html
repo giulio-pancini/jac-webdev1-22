@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 5;
+        console.log('il valore di a è ' + a); 
+
+        const b = 'pippo';
+        console.log('il valore di b è ' + b);
+
+        /*errore in console, perchè b è const
+        b = 'pluto';*/
+
+        let arrayStudenti = ["Rossi", "Martini", "Bianchi", "Neri"];
+        console.log(arrayStudenti);
+
+        let oggettoStudente = {
+            nome: "Andrea",
+            cognome: "Dolci", 
+            nascita: 2003, 
+            classe: "ict22"
+        }
+        console.log(oggettoStudente);
+
+        //massimo è a tutti gli effetti una variabile con all'interno una funzione
+        function massimo(v1, v2) {
+            /* ESEMPIO DI IF ALTERNATIVO (Operatore ternario)
+                return (v1>v2) 
+                    ? v1 
+                    : v2
+
+                OPPURE
+
+                let risultato = (v1>v2) 
+                    ? v1 
+                    : v2
+                return risultato;
+
+            */ 
+            if(v1>v2) {
+                return v1;
+            }
+            else {
+                return v2;
+            }
+        }
+        console.log(massimo(5, 87));
+
+        function maxQuattroNum(n1, n2, n3, n4) {
+            let m1 = massimo(n1, n2);
+            let m2 = massimo(n3, n4);
+
+            return massimo(m1, m2);
+        }
+        console.log(maxQuattroNum(406, 943, 1156, 2104));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funzioni</title>
+</head>
+<body>
+    <script>
+        function moltMille(n) {
+            return n*1000;
+        }
+        console.log('il tuo numero moltiplicato per 1000 risulta ' + moltMille(72));
+
+
+        function nomeCompleto(nome, cognome) {
+            return 'il tuo nome completo è ' + nome + ' ' + cognome;
+        }
+        console.log(nomeCompleto('Andrea', 'Dolci'));
+
+
+        function YoungAdultOld(anno) {
+            if ((2022-anno)<18) {
+                return 'young';
+            } else if((2022-anno)>65) {
+                return 'old';
+            } else {
+                return 'adult';
+            }
+        }
+        console.log(YoungAdultOld(2003));
+
+
+        let date = [1923, 2005, 2001, 1987, 2006];
+        function minorenni(dateNascita) {
+            let outputDate = [];
+            for(let i=0; i<dateNascita.length; i++) {
+                if(YoungAdultOld(dateNascita[i])=='young') {
+                    outputDate.push(dateNascita[i]);
+                }
+            }   
+            return outputDate;
+        }
+        console.log(minorenni(date));
+        console.log('filtro per ');
+        console.log(date);
+
+
+        let arrPersone = [
+            {
+                nome: 'Andrea',
+                cognome: 'Dolci',
+                anno: 2008
+            },
+            {
+                nome: 'Mario',
+                cognome: 'Rossi',
+                anno: 1900
+            },
+            {
+                nome: 'Luca',
+                cognome: 'Bianchi',
+                anno: 2000
+            },
+            {
+                nome: 'Marta',
+                cognome: 'Verdi',
+                anno: 2006
+            }
+           
+        ]
+        function minorenniArrPers(dataNascita) {
+            let outputDate = [];
+            for(let i=0; i<dataNascita.length; i++) {
+                if(YoungAdultOld(dataNascita[i].anno)=='young') {
+                    outputDate.push(dataNascita[i].anno);  
+                }
+            }   
+            return outputDate;    
+        }
+        console.log(minorenniArrPers(arrPersone));
+        //se si stampano nello stesso console log non lo mostra bene
+        console.log('filtro per ');
+        console.log(arrPersone);
+
+
+    </script>
+    
+</body>
+</html>
