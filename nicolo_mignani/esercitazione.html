@@ -59,9 +59,9 @@
                   let e = [eta1,eta2,eta3,eta4];
                    let a =[];  
                   for(let i=0;i<4;i++){
-                    if(e[i]<18){
+                    if(e[i]<=18){
                         
-                       a[i]=e[i];
+                       a.push(e[i]);
 
                      }
                   } 
@@ -85,8 +85,8 @@
 
                      if(array[i].Eta<18){
 
-                     c[i]=array[i];
-                        j++;
+                     c.push(array[i]);
+                        
                      }
 
                     
