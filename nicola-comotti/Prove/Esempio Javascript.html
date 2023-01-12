@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Esempio Javascript</title>
+    </head>
+
+    <body>
+        <script>
+            let a = 5;
+            console.log('Il valore di a è: ' + a);
+
+            const b = 'pippo';
+            console.log('Il valore di b è: ' + b);
+
+            //b = 'pluto';
+
+            let studenti = ["Gianni", "Marco", "Mario"];
+            console.log(studenti);
+
+            let studente = {
+                nome: "Mario",
+                cognome: "Rossi",
+                nascita: "2001",
+                classe: "ICT"
+            }
+            console.log(studente);
+
+            function massimo(v1, v2) {
+                if (v1 > v2) {
+                    return v1;
+                } else {
+                    return v2;
+                }
+            }
+            console.log(massimo(5, 7));
+
+            function massimoAlternativo(v1, v2) {
+                return (v1 > v2) ? v1 : v2 //operatore ternario
+            }
+
+            function maxQuattroNumeri(n1, n2, n3, n4) {
+                let m1 = massimo(n1, n2);
+                let m2 = massimo(n3, n4);
+                return massimo(m1, m2);
+            }
+            console.log(maxQuattroNumeri(42, 56, 23, 16));
+        </script>
+    </body>
+
+</html>
