@@ -3,7 +3,7 @@
 
     <head>
 
-        <h1>ciao</h1> <h1 id="Titolo"></h1>
+        <h1 id="Titolo">ciao</h1> 
       <input></input>
       <button onclick="SovrascriviTitolo()">Aggiungi</button>
     </head>
@@ -26,9 +26,10 @@
           }
 
           }
+          
           function SovrascriviTitolo(){
              const ElementoTitolo= document.getElementById("Titolo");
-              ElementoTitolo.innerText=RestitiusciTesto();
+              ElementoTitolo.innerText=ElementoTitolo.innerText+" "+RestitiusciTesto();
           
           }
 
