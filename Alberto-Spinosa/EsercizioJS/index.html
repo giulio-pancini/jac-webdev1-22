@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+//a
+        function moltiplicatoreNumero(n1){
+            n1 *= 1000;
+            return n1;
+        }
+
+        console.log(moltiplicatoreNumero(5));
+
+        function nomeCognome(nome, cognome){
+            return nome + ' ' + cognome;
+        }
+
+        console.log(nomeCognome('Alberto','Spinosa'));
+
+        function eta(anno){
+            
+            if((anno <= 2004)&&(anno >= 1957)){
+                return 'adult';
+            }else if(anno > 2004){
+                return 'young';
+            }else if (anno <= 1957){
+                return 'old';
+            }
+
+        }
+        console.log(eta(1946));
+
+        function detectiveMinorenni(anni = []){
+
+            var minorenni = [];
+
+            for (var i = 0; i < anni.length; i++){
+                if (anni[i] > 2004){
+                    minorenni.push(anni[i]);
+                }
+            }
+            return minorenni;
+        }
+
+        console.log(detectiveMinorenni([2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007]));
+
+    </script>
+</body>
+</html>l
