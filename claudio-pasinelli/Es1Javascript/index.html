@@ -12,6 +12,9 @@
         <title>Esempio Javascript</title>
     </header>
     <script>
+        const dataAttuale=new Date();
+        let annoAttuale=dataAttuale.getFullYear();
+        
         //funzione che moltiplica un numero per 1000
         function moltiplicaMille(a)
         {
@@ -27,17 +30,17 @@
             return nmCompleto=nome+" "+cognome;
         }
 
-        let nome="sas";
+        let nome="Mr. sas";
         let cognome="sos";
         console.log(nomeCompleto(nome,cognome))
 
-        //funzione che, dato un numero di anni nascita, restituisce "young" se l'età è minore di 18 o "old" se età >65
-        //altrimenti "adult"
+        /*funzione che, dato un numero di anni nascita, restituisce "young" se l'età è minore di 18 o "old" se età >65
+        altrimenti "adult"*/
         function controlloEta(anno)
         {
-            if ((2022-anno)<18)
+            if ((annoAttuale-anno)<18)
                 return "young";
-            else if ((2022-anno)>65)
+            else if ((annoAttuale-anno)>65)
                 return "old";
             return "adult";
         }
@@ -49,14 +52,14 @@
         console.log(controlloEta(nascita2));
         console.log(controlloEta(nascita3));
 
-        //funzione che, data un array di date di nascita, restituisce un array con tutti i minori di 18
-         function controlloEtaMinorenni (nascite)
+        //funzione che, dato un array di date di nascita, restituisce un array con tutti i minori di 18
+        function controlloEtaMinorenni (nascite)
         {
             const anniMinorenni=[];
             
             for(let i=0; i<nascite.length; i++)
             {
-                if((2022-nascite[i])<18)
+                if((annoAttuale-nascite[i])<18)
                     anniMinorenni.push(nascite[i]);
             }
             return anniMinorenni;
@@ -69,15 +72,34 @@
         function personeMinorenni (persone)
         {
             const personeMinorenni=[];
-
+            
             for(let i=0; i<persone.length;i++)
             {
-                if((2022-persone[i].dataNascita)<18)
+                if((annoAttuale-persone[i].dataNascita)<18)
                     personeMinorenni.push(persone[i]);
             }
             return personeMinorenni;
         }
-        const persona1=
+        
+        const persone=
+        [
+            {
+                nome:"Claudio",
+                cognome:"Pasinelli",
+                dataNascita:2003,
+            },
+            {
+                nome:"Alessandro",
+                cognome:"Tiraboschi",
+                dataNascita:2004,
+            },
+            {
+                nome:"Mattia",
+                cognome:"Bianchi",
+                dataNascita:2011,
+            },
+        ]
+/*         const persona1=
         {
             nome:"Claudio",
             cognome:"Pasinelli",
@@ -96,9 +118,9 @@
             dataNascita:2011,
         };
 
-        const persone=[persona1,persona2,persona3];
+        const persone=[persona1,persona2,persona3]; */
         console.log(personeMinorenni(persone));
-        
+
     </script>
 </body>
 </html>

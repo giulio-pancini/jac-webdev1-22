@@ -24,18 +24,22 @@
       }
 
       nav {
-        text-align: right;
+        display: inline-block;
         background-color: #ffaa00;
         padding: 0.6rem;
+        display:inline-block
       }
 
       a {
         color: #990000;
+        
       }
 
       nav a {
         color: white;
         margin: 0 0.5rem;
+        
+        
       }
 
       article {
@@ -56,6 +60,7 @@
       img {
         height: 200px;
       }
+      
     </style>
   </head>
 
@@ -64,12 +69,17 @@
       <h1>Gli scacchi</h1>
 
       <nav>
-        <a href="pieces/pawn.html">Il pedone</a>
-        <a href="pieces/pawn.html">La torre</a>
+        <ol>
+        <li><a href="pieces/pawn.html">La torre</a></li>
+        <li><a href="pieces/pawn.html">il pedone </a></li>
+        <li><a href="pieces/pawn.html">il cavallo</a></li>
+        </ol>
       </nav>
 
       <img id="header-image" src="chess-header.jpg" />
     </header>
+
+    
 
     <article>
       <p>
@@ -95,6 +105,18 @@
         <img src="pieces/queen.webp" />
         <p>La regina si muove... <a href="pieces/queen.html">leggi altro</a></p>
       </section>
+
+      <div>
+        <h3>Elenco delgi pezzi di scacchi</h3>
+        <ul>
+          <li>il torri</li>
+          <li>il cavallo</li>
+          <li>il pedone</li>
+        </ul>
+      </div>
+      
+
+
     </article>
 
     <footer>Copyright ...</footer>
