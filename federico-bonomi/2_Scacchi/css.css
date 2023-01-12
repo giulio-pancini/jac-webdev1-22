@@ -1,0 +1,140 @@
+html 
+{
+    background-color: #f8ea6e;
+}
+
+#mainImage
+{
+    width: 100%;
+    height: 100%;
+}
+
+section 
+{
+    clear: both;
+}
+
+.pezziScacchi 
+{
+    width: 350px;
+    height: 300px;
+    position: relative;
+    float: left;
+    margin-bottom: 35px;
+}
+
+h2 
+{
+    color: rgb(135, 23, 23);
+}
+
+h1 
+{
+    color: brown;
+    font-size: 60px;
+    padding-left: 1rem;
+    text-align: center;
+}
+
+a 
+{
+    color: brown;
+}
+
+section 
+{
+    padding-bottom: 0.5rem;
+}
+
+nav 
+{
+    text-align: right;
+    background-color: orange;
+    padding: 0.8rem;
+}
+
+nav a
+{
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: blueviolet;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body
+{
+    margin: 0;
+    position: static;
+}
+p
+{
+    padding-left: 0.5rem;
+}
+
+article
+{
+    padding-left: 0.5rem;
+}
+
+footer
+{
+    background-color: blue;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+}
+
+nav a:hover
+{
+    color: darkred;
+    background-color: aquamarine;
+}
+ol li
+{
+    display: inline-block;
+}
+section
+{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    display: block;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+#indice
+{
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+
+#box
+{
+    position: fixed;
+    right: 0.6rem;
+    bottom: 2rem;
+    background: blue;
+    color: white;
+    padding: 2rem;
+}
+
+#box:hover
+{
+    padding-bottom: 1rem;
+}
+
+#box:hover img
+{
+    display: block;
+    width: 2.5rem;
+    height: 3rem;
+    margin: auto;
+    float: none;
+}

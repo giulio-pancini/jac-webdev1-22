@@ -1,76 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>scacchi</title>
-    <style>
-        *{
-            background-color: navajowhite;
+<html>
+  <head>
+    <title>Esempio con Header, Article, Section</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-        }
-        nav{
+  <body>
+    <header>
+      <h1>Gli scacchi</h1>
+      <img id="header-image" src="chess-header.jpg">
+    </header>
+    <nav>
+      <ol>
+        <li>
+          <a href="pieces/pawn.html">Il pedone</a>
+        </li><li>
+          <a href="pieces/tower.html">La torre</a>            
+        </li><li>
+          <a href="pieces/horse.html">Il cavallo</a>
+        </li>
+      </ol>
+    </nav>
 
-        }
-        #linknav{
-            
-        }
-        #maintitle {
-            color: black;
-            font-size: 60px;
-        }
+    <article>
+      <p>
+        Gli scacchi sono un gioco che... bla bla bla bla <a href="pieces/pawn.html"
+          >leggi altro</a
+        >
+      </p>
+      <section>
+        <h2>I pezzi degli scacchi</h2>
+        <ul>
+          <li>Il pedone</li>
+          <li>La torre</li>
+          <li>Il cavallo</li>
+          <li>L'alfiere</li>
+          <li>La regina</li>
+          <li>Il re</li>
+        </ul>
+      </section>
 
-        #mainImage{
-            height: 1000px;
-            width: 100%;
-        }
-        .pedine {
-            width: 400px;
-        }
-        a {
-            color: blueviolet;
-        }
-    </style>
-</head>
+      <section>
+        <h2>Il pedone</h2>
+        <img src="pieces/pawn.jpg" />
+        <p>Il pedone si muove... <a href="pieces/pawn.html">leggi altro</a></p>
+      </section>
 
+      <section>
+        <h2>La torre</h2>
+        <img src="pieces/tower.jpg" />
+        <p>La torre si muove... <a href="pieces/tower.html">leggi altro</a></p>
+      </section>
 
-<body>
-    <h1 id="maintitle">Gli scacchi</h1>
-    <img id="mainImage" src="scacchiera.jpg">
-    <p>Gli scacchi sono un gioco che... <a href="#">leggi altro</a></p>
+      <section>
+        <h2>La regina</h2>
+        <img src="pieces/queen.webp" />
+        <p>La regina si muove... <a href="pieces/queen.html">leggi altro</a></p>
+      </section>
+    </article>
 
-    <h2>il pedone</h2>
-    <img src="images/pedone.jpeg" >
-    <p>Il pedone si muove... <a href="images/pedone.html">leggi altro</a></p>
+    <a id="contacts" href="contacts.html">Contattaci!
+      <img src="mail.svg">
+    </a>
 
-    <h2>la torre</h2>
-    <img src="images/torre.jpeg">
-    <p>La torre si muove... <a href="#">leggi altro</a></p>
-
-    <h2>il cavallo</h2>
-    <img src="images/cavallo.jpg">
-    <p>Il cavallo si muove... <a href="#">leggi altro</a></p>
-
-    <h2>l'alfiere</h2>
-    <img src="images/alfiere.jpg">
-    <p>L'alfiere si muove... <a href="#">leggi altro</a></p>
-
-    <h2>la regina</h2>
-    <img src="images/regina.jpg">
-    <p>La regina si muove... <a href="#">leggi altro</a></p>
-
-    <h2>il re</h2>
-    <img src="images/king.png">
-    <p>Il re si muove... <a href="#">leggi altro</a></p>
-
-
-    <ol>
-        <li>pedone</li>
-        <li>torre</li>
-        <li>cavallo</li>
-        <li>Il cavallo</li>
-        <li>L'alfiere</li>
-        <li>La regina</li>
-        <li>Il re</li>
-    </ol>
-</body>
-
+    <footer>Copyright ...</footer>
+  </body>
 </html>
