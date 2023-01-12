@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Esercizio funzioni</title>
+</head>
+
+<body>
+    <script>
+        /* Punto 1 */
+        function moltiplicazione(num) {
+            return num * 1000;
+        }
+        console.log(moltiplicazione(9));
+
+        /* Punto 2 */
+        function nomeCompleto(nome, cognome) {
+            return (nome + " " + cognome);
+        }
+        console.log(nomeCompleto('Mario', 'Rossi'));
+
+        /* Punto 3 */
+        function annoDiNascita(anno) {
+            if (anno > 2004) {
+                return ("young");
+            }
+            else if (anno < 1957) {
+                return ("old");
+            }
+            else {
+                return ("adult");
+            }
+        }
+        console.log(annoDiNascita(2002));
+        console.log(annoDiNascita(1920));
+
+        /* Punto 4 */
+        let dateDiNascitaEsempio = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010];
+        function dateDiNascitaMinori(dateDiNascita) {
+            let risultato = [];
+            for (let i = 0; i < dateDiNascita.length; i++) {
+                if (dateDiNascita[i] > 2004) {
+                    risultato.push(dateDiNascita[i])
+                }
+            }
+            return risultato;
+        }
+        console.log(dateDiNascitaMinori(dateDiNascitaEsempio));
+        console.log(dateDiNascitaMinori([2022, 2005, 1980, 2006]));
+
+        /* Punto 5 */
+
+    </script>
+</body>
+</html>

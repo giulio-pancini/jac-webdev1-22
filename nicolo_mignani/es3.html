@@ -5,7 +5,7 @@
         
         body{
              margin: 0px;
-            background-color: rgb(186, 7, 7);
+            background-color: brown;
             
         }
 
@@ -15,7 +15,8 @@
         height: auto;
         padding: 10px;
         background-color: gray;
-        
+        position: sticky;
+        top: 0px;
 
 
       }
@@ -29,8 +30,8 @@
       .one{
         width:55px;
         height: 20px;
-        margin:10px;
-         background-color: rgb(186, 7, 7);
+        display:inline-block;
+         background-color: brown;
          padding-left: 10px;
          padding-right: -10px;
          margin-left: 1100px;
@@ -38,6 +39,7 @@
       .one a{
 
         text-decoration: none;
+        color:wheat;
       }
       .one a:hover{
 
@@ -46,9 +48,8 @@
       .two{
         width:50px;
         height: 20px;
-        margin:10px;
-        margin-top: -30px;
-         background-color: rgb(186, 7, 7);
+         margin-top: -20px;
+         background-color: brown;
          padding-left: 10px;
          padding-right: -10px;
          margin-left: 1200px;
@@ -61,13 +62,14 @@
       .two a{
 
         text-decoration: none;
+        color:wheat;
       }
       .three{
         width:50px;
         height: 20px;
-        margin:10px;
-        margin-top: -30px;
-         background-color: rgb(186, 7, 7);
+        
+         margin-top: -20px;
+         background-color: brown;
          padding-left: 10px;
          padding-right: -10px;
          margin-left: 1300px;
@@ -82,29 +84,60 @@
 
         text-decoration: none;
         padding-left: 10px;
+        color:wheat;
       }
     
       .corpo{
         width: auto;
-        height: 300px;
+        height: 1000px;
         
         
       }
 
      .corpo p{
-      bottom: 350px;
-      width: 200px;
-      margin-left: 100px;
-      position:absolute;
+    
+      float:left;
+      width: 350px;
+      padding-left: 50px;
+      padding-top: 30px;
+      
 
      }
       .corpo img{
 
-        
-        padding-left: 500px;
+       float:left;
+        padding-left: 100px;
          width: 500px;
          height: 300px;
       }
+
+      .corpo ul{
+
+         
+        float: left;
+        padding-left: 150px;
+        padding-top: 30px;
+        
+
+      }
+      .corpo li{
+          
+        font-size: 30px;
+        
+
+      }
+
+      
+       .fix{
+        
+        background-color: green;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        
+
+
+       }
 
     </style>
    </head>
@@ -134,21 +167,35 @@
            </div>
            <div class="corpo">
       
-            
+            <p>Gli scacchi sono un gioco di strategia che si svolge su una tavola quadrata detta scacchiera, 
+             formata da 64 caselle (o "case") di due colori alternati, 
+             sulla quale ogni giocatore dispone di 16 pezzi (bianchi o neri; per traslato, "il Bianco" e "il Nero" designano i due sfidanti): un re, una donna (o "regina"), due alfieri, due cavalli, due torri e otto pedoni; 
+            ogni casella può essere occupata da un solo pezzo, che può catturare o "mangiare" il pezzo avversario andando a occuparne la casella; 
+            obiettivo del gioco è dare scacco matto, ovvero minacciare la cattura del re avversario in modo tale che l'altro giocatore non abbia mosse legali.</p>
+           
             <img src="scacchi.jpg">
             
-              <div class="testo">
-
-
-               <p>Gli scacchi sono un gioco di strategia che si svolge su una tavola quadrata detta scacchiera, formata da 64 caselle (o "case") di due colori alternati, 
-                sulla quale ogni giocatore dispone di 16 pezzi</p>
-
-            </div>
+             
+            <ul>
+            <li>re</li>
+            <li>regina</li>
+            <li>alfiere</li>
+            <li>cavalli</li>
+            <li>torre</li>
+            <li>pedone</li>
+             </ul> 
            
           
           
           </div>
-          
+         
+
+           <div class="fix">
+           <p>Contattaci</p>
+         
+
+
+          </div>
           
          
 
