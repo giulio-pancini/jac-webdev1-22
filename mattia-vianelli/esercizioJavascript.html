@@ -23,7 +23,7 @@
             // funzione che, dato un anno di nascita, restituisce "young" se l'età è <18, "old" se è >65, altrimenti "adult"
             let annoNascita
             function anni(annoNascita) {
-                età = 2022 - annoNascita
+                let età = 2022 - annoNascita
                 if (età < 18) {
                     return 'young'
                 } else if (età > 65) {
@@ -32,9 +32,9 @@
                     return 'adult'
                 }
             }
-            console.log(anni(1900))
+            console.log(anni(2000))
 
-            // funzione che, dato un array di date di nascita, restituisce un array con tutti i minorenni        
+            // funzione che, dato un array di date di nascita, restituisce un array con le date dei minorenni        
             function minorenni(dateIniziali) {
                 let dateMinorenni = []
                 
@@ -47,7 +47,7 @@
             }
             console.log(minorenni([2010, 2020, 2000, 1996, 1950]))
 
-            // funzione che, dato un array di persone, restituisce il nome dei minorenni
+            // funzione che, dato un array di persone, restituisce un array con il nome dei minorenni
             function funzioneEtà(dataDiNascita) {
                 let arrayStudenti = []
                 
@@ -60,9 +60,9 @@
             }
             console.log(funzioneEtà([
                 {nome: 'Mattia', nascita: 2002}, 
-                {nome: 'Lara', nascita: 2005}, 
                 {nome: 'Paolo', nascita: 2018},
-                {nome: 'Andrea', nascita: 1980}
+                {nome: 'Lara', nascita: 2004}, 
+                {nome: 'Andrea', nascita: 2020}
             ]))
 
         </script>
