@@ -1,0 +1,21 @@
+<DOCTYPE html>
+    <html>
+            <head>
+                <h1 id="title"></h1>
+            </head>
+
+            <body>
+                
+                <script>
+
+                    
+
+                    const ElementoTitolo=document.getElementById("titolo")
+
+                    ElementoTitolo.innerText="BOH";
+                </script>
+
+
+
+            </body>
+    <html>
