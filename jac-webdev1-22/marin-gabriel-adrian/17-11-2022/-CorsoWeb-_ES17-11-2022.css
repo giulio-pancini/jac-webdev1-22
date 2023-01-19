@@ -1,0 +1,57 @@
+h1{
+    color: forestgreen;
+    font-size: 90px;
+}
+
+h2{
+    color:darkseagreen;
+    font-size: 60px;
+}
+
+body{
+    background-color:burlywood;
+}
+
+a{
+    color: #ff0000;
+}
+
+#Chess{
+    size: 120%;
+}
+
+#Pawn{
+    size: 40%;
+    width: 30%;
+    height: 30%;
+}
+
+#Tower{
+    size: 60%;
+    width: 10%;
+    height: 40%;
+}
+
+#Horse{
+    size: 40%;
+    width: 70%;
+    height: 50%;
+}
+
+#Bishop{
+    size: 80%;
+    width: 30%;
+    height: 30%;
+}
+
+#Queen{
+    size: 100%;
+    width: 50%;
+    height: 50%;
+}
+
+#King{
+    size: 50%;
+    width: 90%;
+    height: 100%;
+}
