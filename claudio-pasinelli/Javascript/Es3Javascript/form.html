@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio form</title>
+
+    <style>
+        form
+        {
+            margin-left: 1rem;
+        }
+
+        input
+        {
+            display: block;
+        }
+
+        div input
+        {
+            display: inline-block;
+        }
+        
+        input[type="checkbox"]
+        {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="titolo">Esempio form</h1>
+    <form action="form.php" method="POST">
+        <label for="nome">Nome: <input type="text" name="nome" id="nome"></label>
+        <label for="cognome">Cognome: <input type="text" name="cognome" id="cognome"></label>
+        <label for="nascita">Data nascita: <input type="date" name="nascita" id="nascita"></label>
+        <div>
+            <div>Sesso:</div>
+            <label>Maschio<input type="radio" name="sesso" value="Maschio" id="maschio"></label>
+            <label>Femmina<input type="radio" name="sesso" value="Femmina" id="femmina"></label>
+        </div>
+        <label for="colore">Colore:<input type="range" id="colore"></label>
+        <label for=""><input type="checkbox" name="condizioni" id="condizioni">Accetto le condizioni</label>
+        <label for="invia"><input type="submit"></label>
+    </form>
+
+    <script>
+
+    </script>
+</body>
+</html>
