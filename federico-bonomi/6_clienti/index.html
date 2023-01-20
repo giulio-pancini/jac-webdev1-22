@@ -23,7 +23,7 @@
             <!--Date in input-->
             <label>
                 Data di nascita:
-                <input type="date" name="data">
+                <input type="date" id="data">
             </label>
 
             <!--Caselle selezionabili collegate-->
@@ -58,7 +58,7 @@
             function aggiungi()
             {
                 const nuovoElScheda=document.createElement('section');
-                nuovoElScheda.innerText="\n\nNome: "+document.getElementById('nome').value+"\nCognome: "+document.getElementById('cognome').value;
+                nuovoElScheda.innerText="----------\nNome: "+document.getElementById('nome').value+"\nCognome: "+document.getElementById('cognome').value+"\nData di nascita: "+document.getElementById("data").value;
                 const elementoSchede=document.getElementById('schede');
                 nuovoElScheda.setAttribute('class','scheda');
                 elementoSchede.appendChild(nuovoElScheda);
