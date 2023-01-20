@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div input {
+            display: inline-block;
+        }
+    </style>
+
+<body>
+    <form>
+        <label> Nome:<input id="gay" type="text" placeholder="scrivi qua"></label>
+        <label> Cognome:<input id="cogn" type="text" placeholder="scrivi qua"></label>
+        <label>data nascita: <input id="data" type="date"> </label>
+        <div id="str">sesso:
+            <div>
+                <label> m:<input name="sesso" type="radio" value="M"> </label>
+                <label> f:<input name="sesso" type="radio" value="F"> </label>
+            </div>
+        </div>
+        <button onclick="clickButton()" type="button">invio</button>
+    </form>
+    
+    
+    <section id="schede"></section>
+
+
+</body>
+<script>
+    function clickButton(){
+    const nuovoElScheda = document.createElement("section");
+    nuovoElScheda.innerText = "Ciao sono un nuovo elemento";
+    const elementoSchede = document.getElementById("schede"); //qua è dove piazzo il mio elemento
+    elementoSchede.appendChild(nuovoElScheda);
+    nuovoElScheda.setAttribute("scheda1", "scheda2");
+
+    const nome = document.getElementById("gay");
+    const cognome = document.getElementById("cogn");
+    const nascita = document.getElementById("data");
+    nuovoElScheda.innerText = nome.value + " " + cognome.value + " " + nascita.value;
+    }
+</script>
+</head>
+
+</html>
