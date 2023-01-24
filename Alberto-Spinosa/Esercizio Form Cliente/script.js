@@ -1,7 +1,10 @@
 //inserimento di una section all'interno della section schede nel documento HTML
 function aggiungiScheda() {
 
-    if (document.querySelector('input[name="checkbox"]:checked').value) {
+    //Controllo se le condizioni vengono accettate
+    const check = document.getElementById("checkSesso");
+
+    if (check.checked) {
         //Prendo il valore dalle textbox
         const nome = document.getElementById("txtNome");
         const cognome = document.getElementById("txtCognome");
