@@ -23,7 +23,7 @@
             <!--Date in input-->
             <label>
                 Data di nascita:
-                <input type="date" name="data">
+                <input type="date" id="data">
             </label>
 
             <!--Caselle selezionabili collegate-->
@@ -33,12 +33,17 @@
                 </div>
                 <label>
                     M:
-                    <input name="sesso" type="radio" value="M">
+                    <input name="sesso" type="radio" value="Maschio">
                 </label>
     
                 <label>
                     F:
-                    <input name="sesso" type="radio" value="F">
+                    <input name="sesso" type="radio" value="Femmina">
+                </label>
+
+                <label>
+                    Altro:
+                    <input name="sesso" type="radio" value="Altro">
                 </label>
             </div>
             
@@ -58,10 +63,26 @@
             function aggiungi()
             {
                 const nuovoElScheda=document.createElement('section');
-                nuovoElScheda.innerText="\n\nNome: "+document.getElementById('nome').value+"\nCognome: "+document.getElementById('cognome').value;
+                const gender=getSesso();
+                nuovoElScheda.innerText="----------\nNome: "+document.getElementById('nome').value+"\nCognome: "+document.getElementById('cognome').value+"\nData di nascita: "+document.getElementById("data").value+gender;
                 const elementoSchede=document.getElementById('schede');
                 nuovoElScheda.setAttribute('class','scheda');
                 elementoSchede.appendChild(nuovoElScheda);
+            }
+
+            function getSesso() 
+            {
+                var element = document.getElementsByName('sesso');
+
+                for(i = 0; i < element.length; i++) 
+                {
+                    if(element[i].checked)
+                    {
+                        const sesso="\nSesso: "+element[i].value;
+                        return sesso;
+                    }
+                        
+                }
             }
         </script>
 
