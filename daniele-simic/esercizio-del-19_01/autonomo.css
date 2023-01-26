@@ -21,6 +21,11 @@ input{
      display:inline-block;
  }
  
+section.scheda{
+    font-size: 2rem;
+
+}
+
  button{
      font-size: 3rem;
      margin: 2rem;

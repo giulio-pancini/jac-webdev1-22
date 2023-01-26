@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box ;
+}
+
+
+* {
+    background-color: beige;
+    
+   }
+h1,h2,h3 {
+    margin: 200px;
+}
+   h1 {
+            color: darkgoldenrod;
+            font-size: x-large;
+           
+    } 
+    h2 { 
+            color: brown;
+            font-size: larger;
+    }
+    h3 {
+            color: aquamarine;
+            font-size: larger;
+    }
+
+    #scacchi {
+
+    width: 1000px;
+    height: 400px;
+
+    }
+#foto {
+
+    padding: 400px;
+
+}
+#boh {
+   border: 1rem solid red;
+    width: 100px;
+   height: 100px;
+}
+ 
