@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esempio di gestione delle form e modifica DOM</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form>
+            <ul>
+                <li><label>Nome: <input type="text" id="inputNome"></label></li>
+                <li><label>Cognome: <input type="text" id="inputCognome"></label></li>
+            </ul>
+            <button type="button" onclick="aggiungiContatto()">Invia</button>
+        </form>
+        <ul id="schedeContatti">
+
+        </ul>
+
+        <script>
+            function aggiungiContatto() {
+                const schedaNuovoContatto = document.createElement("LI");
+                const rigaNome = document.createElement("P");
+                const rigaCognome = document.createElement("P");
+
+                rigaNome.innerText = document.getElementById("inputNome").value;
+                rigaCognome.innerText = document.getElementById("inputCognome").value;
+
+                schedaNuovoContatto.appendChild(rigaNome);
+                schedaNuovoContatto.appendChild(rigaCognome);
+
+                // La riga seguente equivale a:
+                // const 
+                // 
+                document.getElementById("schedeContatti").appendChild(schedaNuovoContatto);
+            }
+        </script>
+    </body>
+</html>
