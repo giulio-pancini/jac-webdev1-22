@@ -22,12 +22,12 @@
         function aggiungiLista() {
         const li = document.createElement("li");
         const testo = document.createElement("p");
-        li.appendChild("lista");
+        li.appendChild("ul");
         testo.appendChild("li");
         const input = document.getElementsByTagName('input');
         testo.innerText ="  nome: " + input[0].value +
           "    cognome " + input[1].value;
-        const elementoSchede = document.getElementById("lista");
+        const elementoSchede = document.getElementById(ul);
         elementoSchede.appendChild(ul);
         testo.setAttribute('class', 'lista');
     }
