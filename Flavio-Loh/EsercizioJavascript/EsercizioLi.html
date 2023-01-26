@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
-<html>
+
     <head>
-        
     </head>
 
     <body>
-        <form>
+        <h1>ciao</h1>
         
-        <ul id = "listaAnagrafica">
-        <li>
-        <label>nome:<input type= "text" placeholder="nome"> </label> 
-        <label> cognome: <input type= "text" placeholder="cognome"></label>
-        </li>
+        <ul id = "ListaAnagrafica">
+            <li>
+                <label>Nome:<input name = "nome" type= "text" placeholder="nome"> </label>
+                <label>Cognome: <input name = "cognome" type= "text" placeholder="cognome"></label>
+            </li>
         </ul>
-        <button onclick = "CreaNuovaSezione()"> invio</button> 
+
+        <p> clicca per creare nuovo form</p>
+        <button onclick ="CreaNuovaSezione()"> invio</button> 
             
-        </form>
+        
 
         <script>
-            function CreaNuovaSezione(){
+            function CreaNuovaSezione()
+            {
             const element = document.createElement("li");
-            const node =  document.createElement("p");
-            node.appendChild(element);
-            document.getElementById("ListaAnagrafica").appendChild(node);
+            const element1 =  document.createElement("p");
+            
+            element.appendChild(element1);
+            document.getElementById("ListaAnagrafica").appendChild(element);
+           
+           
             }
            
         </script>
@@ -32,7 +37,6 @@
     </body>
 
 
-</html>
 
 
 </html>
