@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="form.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form id="form">
+    <label> nome: <input name="nome" type="text" placeholder="mario"></label> 
+        
+        <label for="cognome">cognome:</label> <input name="cognome" id="cognome">
+        <button onclick="aggiungiLista()" type="button"> Aggiungi</button>
+    </form>
+
+    <ul id="lista">
+    </ul>
+</body>
+    <script>
+        function aggiungiLista() {
+        const li = document.createElement("li");
+        const testo = document.createElement("p");
+        li.appendChild("lista");
+        testo.appendChild("li");
+        const input = document.getElementsByTagName('input');
+        testo.innerText ="  nome: " + input[0].value +
+          "    cognome " + input[1].value;
+        const elementoSchede = document.getElementById("lista");
+        elementoSchede.appendChild(ul);
+        testo.setAttribute('class', 'lista');
+    }
+    
+    </script>
