@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <form>
+        
+        <ul id = "listaAnagrafica">
+        <li>
+        <label>nome:<input type= "text" placeholder="nome"> </label> 
+        <label> cognome: <input type= "text" placeholder="cognome"></label>
+        </li>
+        </ul>
+        <button onclick = "CreaNuovaSezione()"> invio</button> 
+            
+        </form>
+
+        <script>
+            function CreaNuovaSezione(){
+            const element = document.createElement("li");
+            const node =  document.createElement("p");
+            node.appendChild(element);
+            document.getElementById("ListaAnagrafica").appendChild(node);
+            }
+           
+        </script>
+
+    </body>
+
+
+</html>
+
+
+</html>
