@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESEMPIO JAVASCRIPT</title>
+</head>
+<body>
+    <script>
+      /*  let a = 5;
+        console.log ("il valore di a è: " + a);
+
+        const b = "pippo"
+        console.log ("all'interno di b c'è: " + b) 
+
+        let studenti = ["simic", "airaghi", "pancini", "barachetti", "dolci"];
+        console.log (studenti); 
+
+        let talenti = {
+            name: "daniele",
+            cognome: "simic",
+            nascita: 2003,
+            classe: "ict",
+        }
+        console.log (talenti)
+
+        function max (v1, v2) {
+            if (v1 > v2){
+                return v1;
+            } else {
+                return v2;
+            }
+        }
+
+ //un altro modo per scrivere la funzione con if ed else è così//
+        function massimoAlternativo (v1,v2){
+        return (v1 > v2)
+            ? v1
+            : v2
+            }
+
+        let x = max(3,42);
+        console.log(x);
+//la stessa cosa la posso scrivere anche così//
+        console.log(max(4.32));
+
+       function  maxQuattroNumeri (n1, n2, n3, n4) { 
+            let m1 = max(n1. n2);
+            let m2 = max(n3,n4);
+            let m3 = max(m1,m2);
+            
+            return m3;
+            
+            console.log(maxQuattroNumeri(m3));
+        }*/
+         //esercizio 1//
+        function moltiplicazione (v1){
+           let risultato = v1*1000;
+            return risultato;
+        }
+        console.log (moltiplicazione(10));
+
+         //esercizio 2//
+        function nomeCompleto (nome, cognome) {
+            let nomeIntero = nome + cognome;
+            return nomeIntero;
+        }
+        console.log(nomeCompleto('alessia  '+'lucido'));
+           
+         //esercizio 3//
+        function selettore (anno) {
+            if(2022 - anno < 18 ){
+                return "young";
+            } if (2022 - anno > 65) {
+                return "old";
+            } else {
+                return "adult";
+            }
+            }
+        console.log(selettore);
+             //esercizio 4//
+
+            
+            
+            function filtro(date){
+                let risultato = [];
+                for(let k = 0; k < date.length; k++);
+                if (any >= 18){
+                    risultato.push(date[k]);
+                }
+            return risultato;
+            }
+
+            let minorenni = [filtro]
+          console.log(filtro([1975,2003,2008,1999,2015]));
+
+
+
+
+    </script>
+</body>
+</html>
