@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        input {display: block;
+        }
+        div input{
+            display: inline-block;
+        }
+        input[type="checkbox"] {  /* con le quadre agisco solo sugli attributi*/
+            display: inline-block;
+        }
+    </style>
     <form>
         <label> Nome: <input type="text" placeholder="mario"> </label> 
         <label for="Cognome">Cognome:</label>     <!--questi sono due modi per creare l stesso tipo di input-->    
@@ -27,8 +37,10 @@
         nuovoElScheda.innerText="Nuovo elemento";
         const elementoSchede = document.getElementById("schede");
         elementoSchede.appendChild(nuovoElScheda);
-        nuovoElScheda.setAttribute("class","schede");
+        //nuovoElScheda.setAttribute("class","schede");
 
     }
+
+
 </script>
 </html>
