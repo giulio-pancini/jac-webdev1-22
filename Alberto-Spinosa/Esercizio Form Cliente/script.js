@@ -13,6 +13,7 @@ function aggiungiScheda() {
         const maschio = document.getElementById("radioSessoM");
         const femmina = document.getElementById("radioSessoF");
 
+
         //Creo un nuovo elemento di tipo "section" e lo associamo alla costante "nuovoElemento"
         const nuovoElemento = document.createElement('section');
         //Recupero le proprieta della sezione schede
@@ -44,19 +45,16 @@ function aggiungiScheda() {
         const paragrafoData = document.createElement("P");
         const stringaData = document.createTextNode("Data di nascita: " + data.value);
         paragrafoData.appendChild(stringaData);
-        nuovoElemento.appendChild(paragrafoData);
+        nuovoElemento.appendChild(paragrafoData);        
+
+        const selectedRadioButton = document.querySelector('input[name="sesso"]:checked');
+        const sessoSelezionato = selectedRadioButton.value;
 
         const paragrafoSesso = document.createElement("P");
-        if (maschio.value == undefined) {
-            const stringaSesso = document.createTextNode("Sesso: " + femmina.value);
-            paragrafoSesso.appendChild(stringaSesso);
-            nuovoElemento.appendChild(paragrafoSesso);
-        } else {
-            const stringaSesso = document.createTextNode("Sesso: " + maschio.value);
-            paragrafoSesso.appendChild(stringaSesso);
-            nuovoElemento.appendChild(paragrafoSesso);
-        }
-
+        const stringaSesso = document.createTextNode("Sesso: " + sessoSelezionato);
+        paragrafoSesso.appendChild(stringaSesso);
+        nuovoElemento.appendChild(paragrafoSesso); 
+   
         i++;
 
     } else {
