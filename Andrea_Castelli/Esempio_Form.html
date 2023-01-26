@@ -18,6 +18,22 @@
                 display: inline-block;
             }
         </style>
+
+
+        <script>
+            function creaSection()
+            {
+                const nuovoElScheda=document.createElement("section");
+                /*nuovoElScheda.innerText="Ciao sono un nuovo elemento";*/
+                let testo=document.getElementById("frase");
+                nuovoElScheda.innerText=testo.value;
+
+
+                const elementoSchede=document.getElementById("scheda");
+                elementoSchede.appendChild(nuovoElScheda);
+                nuovoElScheda.setAttribute("class", "scheda");
+            }
+        </script>
     </head>
 
     <body>
@@ -35,8 +51,13 @@
             <div>Sesso:<label>M <input type="radio" name="sesso" value="M"> F<input type="radio" name="sesso" value="F"></label></div>
             <br>
             <label>Accetto le condizioni di servizio: <input type="checkbox"></label>
-            <br>
-            <button>Invio</button>
+            <br><br><br>
+            <lable><input type="text" id="frase" placeholder="Scrivi qualcosa..."></lable>
+            <input type="button" name="button" value="Invia" onclick="creaSection()">
         </form>
+
+        <section id="scheda">
+            
+        </section>
     </body>
 </html>

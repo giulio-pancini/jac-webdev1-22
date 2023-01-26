@@ -14,16 +14,19 @@
 
 <body>
     <form>
-        <label> Nome:<input id="gay" type="text" placeholder="scrivi qua"></label>
-        <label> Cognome:<input id="cogn" type="text" placeholder="scrivi qua"></label>
-        <label>data nascita: <input id="data" type="date"> </label>
-        <div id="str">sesso:
+        <label> Nome: <input id="gay" type="text" placeholder="scrivi qua"></label>
+        <label> Cognome: <input id="cogn" type="text" placeholder="scrivi qua"></label>
+        <label>Data di nascita: <input id="data" type="date"> </label>
+        <div id="str">Sesso:
             <div>
-                <label> m:<input name="sesso" type="radio" value="M"> </label>
-                <label> f:<input name="sesso" type="radio" value="F"> </label>
+                <label > m:<input forname="sesso" type="radio" value="Maschio" id="man"> </label>
+                <label > f:<input name="sesso" type="radio" value="Femmina" for="woman"> </label>
+                Altro... <input> 
             </div>
         </div>
-        <button onclick="clickButton()" type="button">invio</button>
+        <label> <input type="checkbox" >Accetto le condizioni generali e la politica di riservatezza</label>
+        <br>
+        <button onclick="clickButton()" type="button">Invia i tuoi dati</button>
     </form>
     
     
@@ -32,9 +35,10 @@
 
 </body>
 <script>
+    let turno = 1;
     function clickButton(){
     const nuovoElScheda = document.createElement("section");
-    nuovoElScheda.innerText = "Ciao sono un nuovo elemento";
+   // nuovoElScheda.innerText = "Ciao sono un nuovo elemento" + ;         come stampare qualcosa in un box
     const elementoSchede = document.getElementById("schede"); //qua è dove piazzo il mio elemento
     elementoSchede.appendChild(nuovoElScheda);
     nuovoElScheda.setAttribute("scheda1", "scheda2");
@@ -42,8 +46,23 @@
     const nome = document.getElementById("gay");
     const cognome = document.getElementById("cogn");
     const nascita = document.getElementById("data");
-    nuovoElScheda.innerText = nome.value + " " + cognome.value + " " + nascita.value;
+
+    /*
+    const maschio = document.getElementById("man");
+    const femmina = document.getElementById("woman");
+    let sesso = " ";
+    if (maschio.checked){
+        sesso = 'maschio';
+    }else if (femmina.checked){
+        sesso = 'femmina';
     }
+    */
+
+    nuovoElScheda.innerText = "Cliente numero " + turno + "\nNome: " + nome.value + "\nCognome: " + cognome.value + "\nData di nascita: " + nascita.value;
+    turno++
+    }
+
+    
 </script>
 </head>
 
