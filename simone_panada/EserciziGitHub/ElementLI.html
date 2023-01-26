@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+    </head>
+    <body>
+        <h1>VI ODIO</h1>
+        
+        <ul id="ListaAnagrafica"> 
+            <li>
+               <p>
+                <label>Nome:<input name="nome" type="text" placeholder="Nome"></label>
+                <label>Cognome:<input name="cognome" type="text" placeholder="Cognome"></label>
+               </p>
+           </li>
+        </ul>
+           <p>Clicca per Creare nuovo form</p>
+           <button onclick="CreaNuovaSezione()">invio</button>
+        
+        <script>
+            function CreaNuovaSezione() 
+            {
+            const list = document.createElement("li");
+
+            const paragraph = document.createElement("p");
+            list.appendChild(paragraph);
+            document.getElementById("ListaAnagrafica").appendChild(list);
+            }
+        </script>
+    </body>
+</html>
