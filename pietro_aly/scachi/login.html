@@ -66,10 +66,30 @@
     <option value="3">opzione 3 </option>
     <option value="4">opzione 4 </option>
     <br>
+  <form>
+    <button type="button" onclick="creaElemento()">Crea nuovo elemento</button>
+  </form>
+  <section id="scheda"> </section>
+</body>
+<script>
+  let cont=1;
+  function creaElemento() {
+      const nuovoElemento = document.createElement('section');
+      nuovoElemento.innerText = "Sono l'elemento numero: " + cont;
 
-    <input type="submit" value="Invio"><br>
+      const sectionEsistente = document.getElementById('scheda');
+
+      sectionEsistente.appendChild(nuovoElemento);
+
+      cont++;
+  }
+  </script>
+
+
+   
     <input type="reset" value="Reset" /><br>
     <button type="button" onclick="alert('pulsante di java')">pulsante d'allarem!</button>
-        <p></p>
     
-      </form>
+     
+    
+    
