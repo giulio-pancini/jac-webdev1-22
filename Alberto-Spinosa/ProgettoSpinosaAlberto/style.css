@@ -1,0 +1,79 @@
+/*
+?   STRUTTURA PAGINA
+
+    Navbar (responsive) che manda alle varie sezioni della pagina
+
+    Immagine logo fast food orizzantale, da fondo a fondo => per la visualizzazione da telefono
+     provare a modificare il formato o sostituire direttamente la foto
+
+    Section con all'interno diversi article (3 o 4 per fila)
+
+    Section che continene la tabella con il riepilogo dell'acquisto
+
+    Footer con contatti
+
+*/
+
+body {
+    margin: 0px;
+}
+
+h1 {
+    margin-left: 16px;
+    font-size: 40px;
+}
+
+/** ---NAVBAR--- **/
+
+nav {
+    text-align: right;
+    font-size: 30px;
+    padding: 1px;
+    background-color: red;
+}
+
+nav a {
+    margin-right: 2em;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+nav a img {
+    height: 50px;
+    width: 50px;
+}
+
+nav ul li {
+    display: inline-block
+}
+
+/** ---SEZIONE CIBO--- **/
+
+.food article{
+    display: inline;
+    padding: 7rem;
+    margin: 20px;
+}
+
+.food article img {
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+}
+
+.food article div{
+    display: inline; 
+}
+
+.food article div p {
+    text-align: justify;
+    display: block;
+    border: 1px solid black; 
+    padding: 10px;
+   
+}
+
+
+
+
