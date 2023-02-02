@@ -1,0 +1,150 @@
+
+body
+{
+    margin-top: 0px;
+    background-color: rgba(255, 255, 255);
+}
+/* cambiare nome id */
+section#corpo
+{
+    border-color: rgb(255, 202, 89);
+    border-width: 0.2rem;
+    border-style: solid;
+    margin-top: 0px;
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    background-color: rgb(230, 254, 255);
+}
+header
+{
+    position: sticky;
+    top: 0px;
+}
+h1#titolo
+{
+    border-color: rgb(255, 202, 89);
+    border-width: 0.2rem;
+    border-style: solid;
+    border-top: 0rem;
+    border-left: 0rem;
+    border-right: 0rem;
+    margin-bottom: 0rem;
+    margin-top: 0px;
+    background-color: rgba(255, 225, 103, 0.979);
+}
+nav#menu
+{
+    background-color: rgb(255, 241, 223);
+}
+nav#menu li
+{
+    display: inline-block;
+    list-style: none;
+    padding: 0.2rem;
+}
+nav#menu ul
+{
+    border-color: rgb(255, 202, 89);
+    border-width: 0.2rem;
+    border-style: solid;
+    border-top: 0rem;
+    border-left: 0rem;
+    border-right: 0rem;
+    margin-top: 0rem;
+}
+/* cambiare i nomi id */
+article#articolo
+{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-content: center;
+}
+article#articolo section#parte1
+{
+    flex: 1;
+    margin-right: 0.75rem;
+    order: 1;
+}
+article#articolo section#parte2
+{
+    flex: 1;
+    order: 2;
+    border-color: rgb(255, 202, 89);
+    border-width: 0.2rem;
+    border-style: solid;
+    background-color: rgba(255, 224, 100, 0.5);
+}
+article#articolo section#parte2 ul#listaTracce
+{
+    padding-right: 40px;
+}
+article#articolo section#parte2 ul#listaTracce li
+{
+    background-color: rgb(255, 251, 236, 0.5);
+    list-style: none;
+}
+article#articolo section#parte2 ul#listaTracce li p
+{
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+article#articolo section#parte2 ul#listaTracce li button#delContatto
+{
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+}
+/* cambiare i nomi degli id */
+article#articolo2
+{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.75rem;
+}
+/* FORM */
+button
+{
+    margin-top: 0.2rem;
+}
+form div input
+{
+    display: inline-block;
+}
+form input
+{
+    display: block;
+    margin-top: 0.2rem;
+    width: fit-content;
+}
+/* FORM */
+
+footer#piePagina
+{
+    border-color: rgb(255, 202, 89);
+    border-width: 0.2rem;
+    border-style: solid;
+    border-bottom: 0rem;
+    border-left: 0rem;
+    border-right: 0rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 1.75rem;
+    background-color: rgba(0, 254, 237, 0.658);
+}
+section#qualcosa
+{
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+section#qualcosa h1
+{
+    flex: 1;
+}
+section#qualcosa button
+{
+    width: 2%;
+    height: 2%;
+}
