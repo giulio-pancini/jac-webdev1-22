@@ -20,15 +20,18 @@
 </body>
     <script>
         function aggiungiLista() {
+        const ul = document.getElementById("lista");
         const li = document.createElement("li");
         const testo = document.createElement("p");
-        li.appendChild("lista");
-        testo.appendChild("li");
+        const testo2 = document.createElement("p");
+
+        ul.appendChild(li);
+        li.appendChild(testo);
+        li.appendChild(testo2)
         const input = document.getElementsByTagName('input');
-        testo.innerText ="  nome: " + input[0].value +
-          "    cognome " + input[1].value;
+        testo.innerText ="  nome: " + input[0].value;
+        testo2.innerText= "    cognome " + input[1].value;
         const elementoSchede = document.getElementById("lista");
-        elementoSchede.appendChild(ul);
         testo.setAttribute('class', 'lista');
     }
     
