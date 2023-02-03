@@ -24,23 +24,55 @@
         <!-- cambiare nome id -->
         <article id="articolo">
             <section id="parte1">
-                <form name="contatto">
+                <h1>Inserisci le tue tracce musicali</h1>
+                <form id="traccia" name="traccia">
                     <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
-                    <label for="cognome">Cognome: <input type="text" name="cognome" id="cognome" required></label>
-                    <label for="indirizzo">Indirizzo: <input type="text" name="indirizzo" id="indirizzo" required></label>
-                    <label for="email">Email: <input type="email" name="email" id="email" required></label>
-                    <div>
-                        <div>Sesso:</div>
-                        <label>Maschio<input type="radio" name="sesso" value="Maschio" id="maschio"></label>
-                        <label>Femmina<input type="radio" name="sesso" value="Femmina" id="femmina"></label>
-                    </div> 
-                    <label for="dataNascita">Data di nascita: <input type="date" name="dataNascita" id="dataNascita" required></label>
-                    <button type="button" onclick="creaContatto()">Invia</button>
+                    <label for="mese">Mese:</label>
+                    <select id="mese" name="mese">
+                        <option value="0"></option>
+                        <option value="gennaio">Gennaio</option>
+                        <option value="febbraio">Febbraio</option>
+                        <option value="marzo">Marzo</option>
+                        <option value="aprile">Aprile</option>
+                        <option value="maggio">Maggio</option>
+                        <option value="giugno">Giugno</option>
+                        <option value="luglio">Luglio</option>
+                        <option value="agosto">Agosto</option>
+                        <option value="settembre">Settembre</option>
+                        <option value="ottobre">Ottobre</option>
+                        <option value="novembre">Novembre</option>
+                        <option value="dicembre">Dicembre</option>
+                    </select>
+                    <button type="button" onclick="creaTraccia()">Invia</button>
                 </form>
             </section>
             <section id="parte2">
                 <ul id="listaTracce">
                     <h1>Lista delle tracce</h1>
+                    <ul id="lista1">
+                    </ul>
+                    <ul id="lista2">
+                    </ul>
+                    <ul id="lista3">
+                    </ul>
+                    <ul id="lista4">
+                    </ul>
+                    <ul id="lista5">
+                    </ul>
+                    <ul id="lista6">
+                    </ul>
+                    <ul id="lista7">
+                    </ul>
+                    <ul id="lista8">
+                    </ul>
+                    <ul id="lista9">
+                    </ul>
+                    <ul id="lista10">
+                    </ul>
+                    <ul id="lista11">
+                    </ul>
+                    <ul id="lista12">
+                    </ul>
                 </ul>
             </section>
         </article>
@@ -53,12 +85,6 @@
         <footer id="piePagina">
             footer
         </footer>
-        <!-- test per le liste -->
-        <section id="qualcosa">
-            <h1>Titolo bello</h1>
-            <button>X</button>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores recusandae itaque, expedita tempore reiciendis quasi dignissimos tenetur, harum rerum unde sapiente, cupiditate alias libero voluptatibus ut eligendi est tempora!</p>
-        </section>
     </section>
 </body>
 </html>
