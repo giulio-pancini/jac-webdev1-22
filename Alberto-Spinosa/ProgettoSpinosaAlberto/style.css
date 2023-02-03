@@ -50,29 +50,25 @@ nav ul li {
 
 /** ---SEZIONE CIBO--- **/
 
-.food article{
-    display: inline;
-    padding: 7rem;
-    margin: 20px;
-}
-
-.food article img {
-    height: 200px;
-    width: 200px;
-    margin-top: 50px;
-}
-
-.food article div{
-    display: inline; 
-}
-
-.food article div p {
-    text-align: justify;
-    display: block;
-    border: 1px solid black; 
+.grid-container {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
     padding: 10px;
-   
-}
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .grid-item img {
+    height: 75px;
+    width: 75;
+  }
 
 
 
