@@ -1,0 +1,169 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1d2033;
+}
+#divLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+#logo {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+}
+h1 {
+    text-align: center;
+    margin-top: 1rem;
+    color: white;
+    font-size: 1.8rem;
+}
+#loghiSocial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+span {
+    padding: 0.5rem;
+}
+#contenitoreRiga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+}
+#rigaGrigia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    background-color: #908e9740;
+    height: 2px;
+    width: 23rem;
+}
+#or {
+    background-color: #1d2033;
+    text-align: center;
+    width: 2rem;
+}
+#contenitoreLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22rem;
+}
+form {
+    padding: 1rem;
+    width: auto;
+}   
+label {
+    display: block;
+    padding-bottom: 0.4rem;
+    padding-top: 0.9rem;
+    font-size: 0.8rem;
+    color: white;
+    font-weight: bold;
+}
+#paragrafoRegistrati {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #235fe3;
+}
+
+/* INPUT */
+#username, #password {
+    height: 2.1rem;
+    width: 22rem;
+    background-color: #131420;
+    color: white;
+    padding-left: 0.8rem;
+    font-size: 1rem;
+    border: 0.15rem solid grey;
+    border-radius: 0.5rem;
+}
+#labelCheckboxRicordami {
+    display: flex;
+    align-items: center;
+}
+#checkboxRicordami {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+input:hover {
+    box-shadow: 0px 0px 2rem #0c0e15;
+}
+
+
+/* LINK */
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    color: #235fe3;
+}
+
+/* PULSANTI */
+button {
+    border-radius: 0.5rem;
+}
+.buttonLoghi {
+    height: 3rem;
+    width: 3rem;
+}
+#buttonAccedi {
+    margin-top: 0.5rem;
+    /* estetica pulsante */
+    height: 2.4rem;
+    width: 23.3rem;
+    background-color: #235fe3;
+    border: none;
+    /* testo */
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+#buttonRegistrati {
+    margin-top: 0.5rem;
+    /* estetica pulsante */
+    height: 2.5rem;
+    width: 23.3rem;
+    background-color: #131420;
+    border: 0.15rem solid #235fe3;
+    /* testo */
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;  
+}
+button:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    box-shadow: 0px 0px 2rem rgb(41, 48, 76);
+} 
+
+/* BARRA DI SCORRIMENTO */
+::-webkit-scrollbar {
+    width: 0.5rem; /* larghezza della barra di scorrimento */
+    background-color: #1d2033; /* colore di sfondo della barra di scorrimento */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #53535e; /* colore della parte mobile della barra di scorrimento */
+    border-radius: 10rem; /* bordo arrotondato della parte mobile della barra di scorrimento */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #1d2033; /* colore della parte fissa della barra di scorrimento */
+  }
+
+/* NON FUNZIONA */
+  @media (max-width: 800px) {
+    html {
+        font-size: 60px;
+    }
+  }
