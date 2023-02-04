@@ -1,0 +1,26 @@
+body{
+    
+    background-color: white;
+}
+
+#nav_primaria{
+ 
+    background-color: rgb(186, 160, 98);
+    height: 50px;
+    width:auto;
+}
+#title{
+    font-size: 25px;
+}
+
+#nav_secondaria {
+    margin: none; 
+    font-size: 10px;
+    background-color:antiquewhite;
+
+}
+
+.nav_secondaria_class{
+    margin: 20px;
+    display: inline-block
+}
