@@ -31,17 +31,34 @@
         {
             display: inline-block;
             background-color: darkviolet;
-            color: white;
-            padding: 0.2em 0.4em;
-            margin-bottom: 0.2em;
+
         }
         @media (max-width:960px) /* se la risoluzione passa i 960px  */
         {
             .only-mobile
             {
-                display: none;
+                display: block; /* si vedrà il sito per telefono  */
             }
-            li 
+            p
+            {
+                color: darkgoldenrod; /*il p cambierà colore*/
+            }
+            article
+            {
+                column-count: 2; /*verrà modificato il count delle colonne*/
+            }
+            .only-desktop
+            {
+                display: none; /* il sito per il pc verrà nascosto  */
+            }
+            .only-tablet
+            {
+                display: none; /* e anche per il tablet  */
+            }
+        }
+        @media (max-width:600px)
+        {
+            .only-mobile
             {
                 display: none;
             }
@@ -66,40 +83,13 @@
                 display: none;
             }
         }
-        @media (max-width:600px)
-        {
-            .only-mobile
-            {
-                display: block; /* si vedrà il sito per telefono  */
-            }
-            li 
-            {
-                display: block;
-            }
-            p
-            {
-                color: darkgoldenrod; /*il p cambierà colore*/
-            }
-            article
-            {
-                column-count: 2; /*verrà modificato il count delle colonne*/
-            }
-            .only-desktop
-            {
-                display: none; /* il sito per il pc verrà nascosto  */
-            }
-            .only-tablet
-            {
-                display: none; /* e anche per il tablet  */
-            }
-        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <button class="only-mobile" onclick="toggleMenu()">BOTTONE BELLO</button>
-            <ul class="only-mobile" id="expanded-menu">
+            <button class="only-mobile">BOTTONE BELLO</button>
+            <ul>
                 <li>Voce menu1</li>
                 <li>Voce menu2</li>
                 <li>Voce menu3</li>
@@ -112,10 +102,11 @@
     <h1 class="only-mobile">TELEFONOOOOOOOOOOOOOOOOOOOOOOOO</h1>
     <h1 class="only-tablet">TABLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET</h1>
     <h1 class="only-desktop">DESKTOPPPPPPPPPPPPPPPPPPPPPPPP</h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perferendis nisi repellat nostrum, beatae quasi harum tempora in iste nam qui earum reprehenderit modi accusamus facere illo dolor, excepturi ipsa.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quia numquam ipsam quo officiis! Sunt itaque neque dignissimos, harum odio reprehenderit nihil voluptas cum, nostrum laudantium, consectetur recusandae natus ex!
-    </p>
+    <section class="only-mobsile">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perferendis nisi repellat nostrum, beatae quasi harum tempora in iste nam qui earum reprehenderit modi accusamus facere illo dolor, excepturi ipsa.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quia numquam ipsam quo officiis! Sunt itaque neque dignissimos, harum odio reprehenderit nihil voluptas cum, nostrum laudantium, consectetur recusandae natus ex!
+        </p>
     <article>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eligendi tempore assumenda ab voluptas repellat. Eaque maxime eos ex debitis suscipit, beatae qui, excepturi magni a consectetur vero quaerat aut!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam vel error aliquid asperiores eos voluptatem, in earum dolorem nam quis tenetur velit debitis. Quo quaerat recusandae officiis, possimus repudiandae unde?
@@ -123,17 +114,5 @@
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae totam saepe ut libero voluptatem, quod blanditiis eveniet dolore iure voluptas dolor aut, rem voluptatum numquam sequi quas vero fugiat harum.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ducimus corrupti consequatur fuga et quos sunt possimus ratione dolorem repellendus, quisquam quo excepturi ad magnam in molestiae asperiores obcaecati id.
     </article>
-
-    <script>
-        function toggleMenu()
-        {
-            const expMenuElement = document.getElementById("expanded-menu");
-
-            if(expMenuElement.style.display!="block")
-                expMenuElement.style.display="block";
-            else
-                expMenuElement.style.display="none";
-        }
-    </script>
 </body>
 </html>

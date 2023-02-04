@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi</title>
+
+    <style>
+       
+     ul  {
+        
+  list-style-type: none;
+  padding: 0;
+  
+
+    }
+
+
+      h1{
+        text-align: center;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 50px;
+       }
+       
+        
+       img {
+            border: 1px #ddd solido;
+            border-radius: 4px;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 30%;
+            margin:auto;
+            
+            
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 100px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: 0px;
+            
+            
+            
+        }
+
+        
+
+        section {
+            margin-left: 150px;
+            /* Same as the width of the sidenav */
+            font-size: 28px;
+            /* Increased text to enable scrolling */
+            padding: 0px 10px;
+            padding-left: 50px
+            
+        }
+
+        header {
+            position: sticky;
+            top: 3px;
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            
+        }
+
+        #navMenu li{
+            display: inline-block;
+            padding: 10px;
+            
+            
+
+        }
+
+        #navMenu  {
+            background-color: rgba(17, 17, 17, 0.922);
+            width: 100%;
+            position: sticky;
+            top: 5px;
+            
+            
+           
+            
+        }
+
+        #nigiri {
+            border-width: 3px;
+            border-color: black;
+            border-style: double;
+
+        }
+
+        #hosomaki {
+            border-width: 3px;
+            border-color: black;
+            border-style: double;
+            margin-top: 10px;
+        }
+
+        #temaki {
+            border-width: 3px;
+            border-color: black;
+            border-style: double;
+            margin-top: 10px;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Sushi da Simo</h1>
+    <header>
+        <nav>
+            <ul id="navMenu">
+                <li> <a href="index.html">Home</a></li>
+                <li>
+                    <form><label>Tavolo:<input type="number" style="width: 40px;"></label></form>
+                </li>
+                <li> <a href="#">Riepilogo ordine</a> 
+                </li>
+                    
+            </ul>
+        </nav>
+
+    </header>
+    <nav>
+        <ul class="sidenav">
+            <li> <button>Nigiri</button> </li>
+            <li> <button>Hosomaki</button> </li>
+            <li> <button>Temaki</button> </li>
+        </ul>
+    </nav>
+
+    <section id="nigiri">
+        <h2>Nigiri</h2>
+        <p>5€/pz</p>
+        <img src="images/NighiriSalmon.png">
+        <img src="images/NighiriTonno.png">
+        <img src="images/NighiriGambero.png">
+
+    </section>
+
+    <section id="hosomaki">
+        <h2>Hosomaki</h2>
+        <p>3€/pz</p>
+        <img src="images/hosomaki-tonno.png">
+        <img src="images/Hosomaki-salmone.png">
+        <img src="images/HOSOMAKI-AVOCADO.png">
+
+
+    </section>
+
+    <section id="temaki">
+        <h2>Temaki</h2>
+        <p>7€/pz</p>
+        <img src="images/temaki-salmone.png">
+        <img src="images/temaki-tonno.png">
+        <img src="images/TemakiGambero.png">
+
+    </section>
+
+</body>
+
+</html>
