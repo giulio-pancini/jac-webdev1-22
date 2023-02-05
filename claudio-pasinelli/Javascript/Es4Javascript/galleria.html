@@ -122,7 +122,15 @@
                         }
                     }
                 }
+                //resetto il valore del contenuto del form dopo che è stato utilizzato per creare il contatto
+                document.getElementById('nome').value = '';
+                document.getElementById('cognome').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('indirizzo').value = '';
+                document.querySelector('input[name="sesso"]:checked').checked = false;
+                document.getElementById('dataNascita').value = '';
 
+                //creo il bottone per eliminare il contatto
                 const bottoneElimina = document.createElement("button");
                 bottoneElimina.setAttribute('id','delContatto');
                 bottoneElimina.setAttribute('onclick','eliminaContatto('+idContatto+')');
