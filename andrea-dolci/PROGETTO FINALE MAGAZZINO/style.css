@@ -32,6 +32,29 @@ button:hover{
     display: none;
 }
 
+#aliExpress header h1, #amazon header h1, #barilla header h1{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 41%;
+}
+
+#aliExpress header button, #amazon header button, #barilla header button{
+    display: inline-block;
+    font-size: 0.8em;
+    margin-bottom: 0.4em;
+    width: 20em;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+}
+
+#aliExpress article, #amazon article, #barilla article{
+    width: 95%;
+    position: relative;
+    right: 27%;
+}
+
 table {
     margin: 0 auto;
     border-collapse: collapse;
@@ -53,6 +76,8 @@ th {
 tr:nth-child(even) {
     background-color: rgba(156, 155, 155, 0.379);
 }
+
+
 
 
   
