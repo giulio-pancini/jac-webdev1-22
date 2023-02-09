@@ -12,10 +12,10 @@ h1{
         border: 1px #ddd solido;
         border-radius: 4px;
         padding: 20px;
-        width: 15%;
-        height: 15%px;
+        width:6rem;
         border-radius: 30%;
         margin:auto;
+        
          
         
         
@@ -55,17 +55,20 @@ h1{
         text-align: center;
         display: inline-block;
         width: 100%;
-        margin-left: 160px;
+        padding-left: 160px;
         
         
     }
     
     header nav {
+        
         position: sticky;
         top: 5px;
+        
     }
 
     #UlnavMenu li{
+        
         display: inline-block;
         padding: 10px;
         
@@ -113,4 +116,8 @@ h1{
         display: none;
     }
 
-    
+    .img{
+        text-align: center;
+        display: block;
+        
+    }
