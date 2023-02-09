@@ -183,12 +183,22 @@ button {
 }
   
 
-
-
 .button :visited {
     color:black;
 }
 .button :hover {
     background-color: aliceblue;
 }
+
+
+
+#buttonCarrello{
+   text-align: center;
+}
+
+#textCarrello{
+    position: relative;
+    left: 43%;
+}
+
 
