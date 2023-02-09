@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    
+    <script>
+        const lista = ['primo', 'secondo', 'terzo'];
+        const primoEl = lista[0];
+        for(i = 0; i<lista.length; i++){
+            const elementoCorrente = lista[i];
+            console.log(elementoCorrente);
+        }
+        for(let i in lista){   //questa è una semplificazione del ciclo for
+            const elementoCorrente = lista[i]; //in questo modo estraggo l'indice
+            console.log(elementoCorrente);
+        }
+
+        for(let elementoCorrente of lista) { //questo è direttamente "primo", "secondo", "terzo"
+            console.log(elementoCorrente);
+        }
+
+        const oggetto = { //in javascript gli oggetti non hanno indici numerici
+            
+            nome : "pippo",
+            cognome : "rossi",
+            eta : "42",
+            indirizzo : { //posso avere anche un oggetto all'interno di un oggetto
+                via : "",
+                citta : "",
+                cap : "",
+            },
+            //posso anche mettere le funzioni
+        } //per gli oggetti non è garantito che vada in ordine
+
+        console.log(oggetto['nome']);
+
+        oggetto['sesso'] = "m";
+        
+        const mappa = new Map();
+        mappa.set("prossi", "paolorossi@gmail.com");
+        mappa.set("s.manzoni", "saramanzo2000.sm@gmail.com");
+
+        mappa.get("prossi");
+        //questa funzione mi restituirà tutta la mappa
+        mappa.get("saramanzo2000.sm@gmail.com")
+        //in questo caso invece mi restituisce la mappa di s.manzoni
+    </script>
+
+
+</body>
+</html>
