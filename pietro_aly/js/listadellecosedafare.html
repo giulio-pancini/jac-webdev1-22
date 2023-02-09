@@ -7,18 +7,15 @@ body {
   min-width: 250px;
 }
 
-/* Include the padding and border in an element's total width and height */
 * {
   box-sizing: border-box;
 }
 
-/* Remove margins and padding from the list */
 ul {
   margin: 0;
   padding: 0;
 }
 
-/* Style the list items */
 ul li {
   cursor: pointer;
   position: relative;
@@ -28,31 +25,26 @@ ul li {
   font-size: 18px;
   transition: 0.2s;
   
-  /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
   background: #f9f9f9;
 }
 
-/* Darker background-color on hover */
 ul li:hover {
   background: #ddd;
 }
 
-/* When clicked on, add a background color and strike out text */
 ul li.checked {
   background: #888;
   color: #fff;
   text-decoration: line-through;
 }
 
-/* Add a "checked" mark when clicked on */
 ul li.checked::before {
   content: '';
   position: absolute;
@@ -66,7 +58,6 @@ ul li.checked::before {
   width: 7px;
 }
 
-/* Style the close button */
 .close {
   position: absolute;
   right: 0;
@@ -79,7 +70,7 @@ ul li.checked::before {
   color: white;
 }
 
-/* Style the header */
+
 .header {
   background-color: #f44336;
   padding: 30px 40px;
@@ -87,14 +78,13 @@ ul li.checked::before {
   text-align: center;
 }
 
-/* Clear floats after the header */
+
 .header:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Style the input */
 input {
   margin: 0;
   border: none;
@@ -105,7 +95,7 @@ input {
   font-size: 16px;
 }
 
-/* Style the "Add" button */
+
 .addBtn {
   padding: 10px;
   width: 25%;
@@ -127,22 +117,22 @@ input {
 <body>
 
 <div id="myDIV" class="header">
-  <h2 style="margin:5px">My To Do List</h2>
-  <input type="text" id="myInput" placeholder="Title...">
+  <h1 style="margin:5px">LISTA DELLE COSE DA FARE</h1>
+  <input type="text" id="myInput" placeholder="...">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
 <ul id="myUL">
-  <li>Hit the gym</li>
-  <li class="checked">Pay bills</li>
-  <li>Meet George</li>
-  <li>Buy eggs</li>
-  <li>Read a book</li>
-  <li>Organize office</li>
+  <li>Andare in palestra</li>
+  <li class="checked">Mangiare meglio </li>
+  <li>Partire </li>
+  <li>Fare soldi</li>
+  <li> organizare lo studio</li>
+  <li>studiare </li>
 </ul>
 
 <script>
-// Create a "close" button and append it to each list item
+
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -153,7 +143,6 @@ for (i = 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -163,7 +152,6 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-// Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
@@ -171,14 +159,13 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
-// Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
-    alert("You must write something!");
+    alert("NON HAI SCRITTO NIENTE!");
   } else {
     document.getElementById("myUL").appendChild(li);
   }
