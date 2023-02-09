@@ -1,49 +1,79 @@
-#Title
-{
-    text-align: center;
-}
-#Instructions
-{
-    text-align: center;
-}
-form 
-{
-    text-align: center;
+@media (max-width:960px) {
+    #Title {
+        text-align: center;                                                                                                                                                             
+    }
+
+    #Instructions {
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    #RollIt {
+        text-align: center;
+    }
+
+    li {
+        text-align: center;
+        list-style-type: none;
+        border-bottom: 2px solid black;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    #rolls {
+        border-bottom: 2px solid black;
+    }
+
+    #DiceRolls {
+        text-align: center;
+        padding: 0px;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+    }
+
 }
 
-#RollIt
+@media (min-width:961px) 
 {
-    text-align: center;
-}
+    #rolls, form 
+    {
+        float: left;
+        width: 45%;
+    }
 
-li 
-{
-    text-align: center;
-    list-style-type: none; 
-    border-bottom: 2px solid black;
-}
+    #rolls
+    {
+       position: relative;
+       left: 31.5%;
+    }
 
-p
-{
-    text-align: center;
-}
+    #DiceRolls 
+    {
+        float: right;
+        width: 45%;
+    }
 
-#rolls
-{
-    border-bottom: 2px solid black;
-}
+    footer
+    {
+        position:fixed;
+        bottom:0;
+        left:0;
+    }
 
-#DiceRolls 
-{
-    text-align: center;
-    border: 50px;
+    li {
+        text-align: center;
+        list-style-type: none;
+        border: 2px solid black;
+    }
+    
 }
-
-footer
-{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-}
-
