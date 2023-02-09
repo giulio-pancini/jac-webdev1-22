@@ -1,4 +1,15 @@
 @media (max-width:960px) {
+
+    .only-mobile 
+    {
+        display: block;
+    }
+
+    .only-desktop
+    {
+        display: none;
+    }
+
     #Title {
         text-align: center;                                                                                                                                                             
     }
@@ -45,10 +56,34 @@
 
 @media (min-width:961px) 
 {
+    .only-mobile 
+    {
+        display: none;
+    }
+
+    .only-desktop
+    {
+        display: block;
+    }
+    
+    #TitleDesktop
+    {
+        text-align: center;
+    }
+
     #rolls, form 
     {
         float: left;
-        width: 45%;
+        width: 35%;
+    }
+
+    form
+    {
+        padding-top: 10px;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+        border: 2px solid black;
     }
 
     #rolls
@@ -73,7 +108,7 @@
     li {
         text-align: center;
         list-style-type: none;
-        border: 2px solid black;
+        border: 2px solid gray;
+        margin-bottom: 5px;
     }
-    
 }
