@@ -1,0 +1,41 @@
+#Title
+{
+    text-align: center;
+}
+#Instructions
+{
+    text-align: center;
+}
+form 
+{
+    text-align: center;
+    
+}
+
+#RollIt
+{
+    text-align: center;
+}
+
+li 
+{
+   list-style-type: none; 
+}
+
+p
+{
+    text-align: center;
+}
+
+#DiceRolls 
+{
+    text-align: center;
+    border: 50px;
+}
+
+footer
+{
+    position: absolute;
+    bottom: 5px;
+}
+
