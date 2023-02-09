@@ -2,7 +2,7 @@
 body
 {
     margin-top: 0px;
-    background-color: rgba(255, 255, 255);
+    background-color: rgb(68, 72, 87);
 }
 /* cambiare nome id */
 section#corpo
@@ -13,7 +13,7 @@ section#corpo
     margin-top: 0px;
     margin-left: 3.5rem;
     margin-right: 3.5rem;
-    background-color: rgb(230, 254, 255);
+    background-color: rgb(255, 255, 255);
     min-width: fit-content;
 }
 header
@@ -42,6 +42,7 @@ nav#menu li
     display: inline-block;
     list-style: none;
     padding: 0.2rem;
+    align-items: center;
 }
 nav#menu ul
 {
@@ -53,28 +54,63 @@ nav#menu ul
     border-right: 0rem;
     margin-top: 0rem;
 }
+nav#menu a.zoom
+{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: transform 0.2s;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.2rem;
+    border-style: solid;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    background-color: rgb(251, 246, 188);
+    border-radius: 12%;
+}
+nav#menu a.zoom:hover
+{  
+    background-color: rgb(255, 202, 89);
+    color: rgb(255, 255, 255);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+nav#menu a.active.zoom
+{
+    background-color: #2196F3;
+    color: white;
+}
+
 /* cambiare i nomi id */
-article#articolo
+article#formTracce
 {
     display: flex;
     flex-wrap: wrap-reverse;
     align-content: center;
-    gap: 2.5rem;
 }
-article#articolo section#formAggiunta
+article#formTracce section#formAggiunta
 {
     flex: 0.5;
     order: 1;
-    background-color: rgb(255 255 255);
+    background-color: rgb(230, 254, 255);
     border-color: rgb(255, 202, 89);
     border-width: 0.2rem;
     border-style: solid;
-    margin-left: 5rem;
-    padding-left: 0.75rem;
-    padding-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    padding-left: 40px;
+    padding-right: 0.75rem;
+    padding-bottom: 2rem;
     min-width: fit-content;
 }
-article#articolo section#listaTraccePerMese
+article#formTracce section#listaTraccePerMese
 {
     flex: 0.5;
     order: 2;
@@ -82,18 +118,18 @@ article#articolo section#listaTraccePerMese
     border-width: 0.2rem;
     border-style: solid;
     background-color: rgba(255, 224, 100, 0.5);
-    margin-right: 5rem;
+    margin-top: 1.5rem;
     margin-left: 2.5rem;
+    margin-right: 2.5rem;
     min-width: fit-content;
 }
-article#articolo section#listaTraccePerMese ul#listaTracce
+article#formTracce section#listaTraccePerMese ul#listaTracce
 {
     padding-right: 40px;
 }
-article#articolo section#listaTraccePerMese ul#listaTracce ul
+article#formTracce section#listaTraccePerMese ul#listaTracce ul
 {
     background-color: rgb(255 247 165);
-    padding-bottom: 0rem;
     padding-right: 0px;
     border-color: rgb(255, 255, 255);
     border-style: solid;
@@ -102,7 +138,7 @@ article#articolo section#listaTraccePerMese ul#listaTracce ul
     opacity: 0;
 }
 
-article#articolo section#listaTraccePerMese ul#listaTracce ul h1
+article#formTracce section#listaTraccePerMese ul#listaTracce ul h1
 {
     font-size: small;
     color: rgb(108, 108, 108);
@@ -112,11 +148,19 @@ article#articolo section#listaTraccePerMese ul#listaTracce ul h1
     border-right: 0px;
     border-style: dashed;
 }
-article#articolo section#listaTraccePerMese ul#listaTracce li
+article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom
 {
     background-color: rgb(255, 251, 236, 0.5);
     list-style: none;
     width: auto;
+    transition: transform .2s;
+}
+article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom:hover
+{
+    -ms-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+    color: blue;
 }
 /* cambiare i nomi degli id */
 article#articolo2
@@ -125,7 +169,7 @@ article#articolo2
     margin-right: 1.5rem;
     margin-top: 1.75rem;
 }
-/* FORM */
+/* FORM TRACCIA */
 form#traccia button
 {
     margin-top: 0.2rem;
@@ -136,7 +180,7 @@ form#traccia input
     margin-top: 0.2rem;
     width: fit-content;
 }
-/* FORM */
+/* FORM TRACCIA */
 
 footer#piePagina
 {
@@ -158,7 +202,7 @@ section.canzone
     flex-direction: row;
     flex: 1;
     order: 2;
-    margin-bottom: 0.25rem;
+    margin-bottom: 2.75rem;
     border-color: rgb(255, 255, 255);
     border-width: 0.2rem;
     border-style: solid;
@@ -210,11 +254,43 @@ section.titoloESort button.zoom
     width: fit-content;
     height: fit-content;
     margin-top: 1rem;
+    transition: transform .2s;
 }
 section.titoloESort button.zoom:hover
 {
-    -ms-transform: scale(1.25);
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
     color: blue;
+}
+
+
+/* roba per il popup */
+
+li.elementoTraccia.zoom.tip 
+{
+    transition-duration: 2s;
+    cursor: help;
+}
+li.elementoTraccia.zoom.tip span
+{
+    display: none;
+}
+li.elementoTraccia.zoom.tip:hover span
+{
+    border-color: rgb(255, 255, 255);
+    border-width: 0.2rem;
+    border-style: solid;
+    padding: 5px 5px 5px 5px;
+    z-index: 100;
+    background:#f0f0f0 no-repeat 100%;
+    left: 60px;
+    top: -40px;
+    font-size: small;
+    height: fit-content;
+    width: fit-content;
+    display: block;
+    position: absolute;
+    text-decoration: none;
+    color:black;
 }
