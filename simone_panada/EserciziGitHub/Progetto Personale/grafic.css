@@ -19,7 +19,9 @@ form
 
 li 
 {
-   list-style-type: none; 
+    text-align: center;
+    list-style-type: none; 
+    border
 }
 
 p
@@ -35,7 +37,9 @@ p
 
 footer
 {
-    position: absolute;
-    bottom: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
 }
 
