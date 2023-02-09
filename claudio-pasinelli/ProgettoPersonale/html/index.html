@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- mettere il titolo del documento -->
     <title>Document</title>
-    <link rel="stylesheet" href="../Css/css.css">
-    <script src="../Js/javascript.js"></script>
+    <link rel="stylesheet" href="../css/css.css">
+    <script src="../js/traccia.js"></script>
+    <script src="../js/gallery.js"></script>
+    <style></style>
 </head>
 <body>
     <!-- cambiare nome id -->
@@ -16,14 +18,14 @@
             <h1 id="titolo">Titolo</h1>
             <nav id="menu">
                 <ul>
-                    <li><button>Home</button></li>
-                    <li><button>altro1</button></li>
-                    <li><button>altro2</button></li>
+                    <li><a class="active zoom" href="#home">Home</a></li>
+                    <li><a class="zoom" href="#about">About</a></li>
+                    <li><a class="zoom" href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
         <!-- cambiare nome id -->
-        <article id="articolo">
+        <article id="formTracce">
             <section id="formAggiunta">
                 <h1>Inserisci le tue tracce musicali</h1>
                 <form id="traccia" name="traccia">
@@ -50,6 +52,7 @@
             <section id="listaTraccePerMese">
                 <ul id="listaTracce">
                     <h1>Lista delle tracce</h1>
+                    <p id="testoPerNoTracce">Qui troverai la lista di tutte le tue canzoni, ordinate per il mese in cui verranno suonate.</p>
                     <ul id="lista1">
                     </ul>
                     <ul id="lista2">
@@ -79,8 +82,8 @@
         </article>
         <article id="articolo2">
             <section>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores deserunt inventore sequi iusto harum? Praesentium, mollitia! Exercitationem, autem iusto, doloremque suscipit consequuntur laudantium aliquid nam libero molestiae, odit magni nulla!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit, vero dolorum rem quod laboriosam aut impedit expedita, harum voluptates repellendus veritatis! Natus sequi eius facere dolore numquam, iure optio.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores deserunt inventore sequi iusto harum? Praesentium, mollitia! Exercitationem, autem iusto, doloremque suscipit consequuntur laudantium aliquid nam libero molestiae, odit magni nulla!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit, vero dolorum rem quod laboriosam aut impedit expedita, harum voluptates repellendus veritatis! Natus sequi eius facere dolore numquam, iure optio.
             </section>
         </article>
         <footer id="piePagina">

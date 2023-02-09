@@ -12,14 +12,40 @@ body{
 }
 
 
-/* ALTRO----------------------------------------*/
+/*FORM*/
+form{
+    border: solid;
+    background-color: black;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+    form label, div{
+        color: white;
+    }
+
 input{
     display: block;
 }
 
+
 input[type="checkbox"]{
     display: inline-block;
 }
+
+input[type="radio"]{
+    display: inline-block;
+}
+
+#shop{
+    height: 40px;
+    width: 100px;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: black;
+    font-weight: bold;
+}
+
 /*
 #userBox{
     border: 1px solid rgb(rgb(0, 0, 0));
@@ -27,3 +53,7 @@ input[type="checkbox"]{
     width:400px;
 }
 */
+#dl{
+
+}
+
