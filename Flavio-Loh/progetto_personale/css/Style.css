@@ -8,12 +8,13 @@
     background-color: rgb(244, 244, 244);
 }
 
-body{
+#Body_Carrello{
+    margin: 0;
     background-color: white;
 }
+
 #nav_primaria{
     background-color: rgb(244, 244, 244);
-
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -36,8 +37,6 @@ body{
     width: 48px;
     position: relative;
     right: 15%;
-   
-    
 }
 
 #nav_secondaria {
@@ -175,8 +174,6 @@ body{
 
 
 
-
-
 button {
     padding: 10px 20px;
     background-color: lightblue;
@@ -187,4 +184,11 @@ button {
   
 
 
+
+.button :visited {
+    color:black;
+}
+.button :hover {
+    background-color: aliceblue;
+}
 

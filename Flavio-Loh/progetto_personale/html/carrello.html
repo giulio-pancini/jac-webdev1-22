@@ -5,11 +5,10 @@
     <title>carrello</title>
     
     <link rel="stylesheet" type="text/css" href="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\css\Style.css">
-    <script src="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\javascript\Function.js"></script>
-
+   
 </head>
 
-<body>
+<body id="Body_Carrello">
     <nav id= "nav_primaria">
 
     <a href="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\ProgettoPersonale.html" id = "Title">
@@ -18,8 +17,7 @@
         </h1>
     </a>
 
-    
-    
+
     </nav>
 
     <nav id = "nav_secondaria" >
@@ -60,19 +58,21 @@
     
 
     
- 
-    <table id="cart">
+    <h2>Il tuo carrello</h2>
+    <table>
         <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Prezzo</th>
-          </tr>
+            <tr>
+                <th>Nome</th>
+                <th>Prezzo</th>
+            </tr>
         </thead>
-        <tbody>
-          <!-- I prodotti verranno inseriti qui -->
+        <tbody id="cart-items">
         </tbody>
-      </table>
+    </table>
       
+
+    <script src="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\javascript\Function.js"></script>
+
 </body>
 
 
