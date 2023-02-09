@@ -24,15 +24,16 @@
         const li = document.createElement("li");
         const testo = document.createElement("p");
         const testo2 = document.createElement("p");
+        const input = document.getElementsByTagName('input');
+        const elementoSchede = document.getElementById("lista");
 
         ul.appendChild(li);
         li.appendChild(testo);
         li.appendChild(testo2)
-        const input = document.getElementsByTagName('input');
-        testo.innerText ="  nome: " + input[0].value;
-        testo2.innerText= "    cognome " + input[1].value;
-        const elementoSchede = document.getElementById("lista");
-        testo.setAttribute('class', 'lista');
+        
+        testo.innerText ="  Nome: " + input[0].value;
+        testo2.innerText= "    Cognome: " + input[1].value;
+        testo.setAttribute('class', 'lista'); 
     }
     
     </script>
