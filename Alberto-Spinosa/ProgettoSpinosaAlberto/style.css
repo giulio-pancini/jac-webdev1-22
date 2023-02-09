@@ -21,6 +21,7 @@ body {
 h1 {
     margin-left: 16px;
     font-size: 40px;
+    text-align: center;
 }
 
 /** ---NAVBAR--- **/
@@ -103,4 +104,9 @@ nav ul li {
 
 .empty {
     padding: 1.3rem;
+}
+
+.counter {
+    display: inline;
+    
 }
