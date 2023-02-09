@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+   
+    <head>
+     
+     <style>
+             body{
+              
+              margin: 0px;
+              background-color: white;
+  
+            }
+  
+            .fascia{
+           
+             
+              padding: 10px;
+              background-color: black;
+              position: sticky;
+              top: 0px;
+   
+         }
+           
+         h1{
+             display: inline;
+             color:orange;
+              
+            }
+        
+         a{
+  
+          text-decoration: none;
+          color: orange;
+         
+         }
+         a :hover{
+  
+          color: black;
+  
+         }
+            
+        .home{
+          display: inline;
+          padding-left: 600px;
+        }  
+        
+        
+        .info{
+  
+      display: inline;
+      padding-left: 50px;
+        }   
+        .contatti{
+  
+        display: inline;
+        padding-left: 50px;
+         
+        }   
+  
+       .prenota{
+          width: 150px;
+          height: 50px;
+          background-color: orange;
+          display: inline;
+          margin-left: 150px;
+          padding-bottom: 9px;
+          padding-top: 9px;
+          border-radius: 5px;
+      
+      } 
+  
+      .prenota a{
+          padding-right: 15px;
+          padding-left: 15px;
+          padding-top: 5;
+          color: black; 
+            
+      }
+
+      .corpo{
+        width: auto;
+        height: 1000px;
+        
+      }
+      .corpo h1{
+ 
+         text-align: center;
+      }
+
+    .corpo table{
+         
+        width: 60%;
+        height:  20%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+    table, td, tr
+			{
+				border: 5px solid;
+				
+				border-color: black;
+				border-collapse: collapse;
+				font-size: 26px;
+			}
+      
+    .corpo td{
+      
+    background-color: orange;
+
+
+    }
+    .Tabtd{
+
+         text-align: center;
+
+    }
+
+   .corpo select{
+       
+         width: 100%;
+         height: 100%;
+         font-weight: bold;
+		 font-size:24px;
+   }
+  
+   .corpo input[type="date"]{
+        width: 98%;
+        height: 100%;  
+        font-weight: bold;
+	    font-size:24px;
+
+
+   }
+
+
+     </style>
+
+   </head>
+      
+     <body>
+     <div class="fascia">
+           
+     <h1>VIAGGIA CON NOI</h1>
+     
+      <div class="home">
+       
+          <a href="Progetto_Nicolo_Mignani.html">HOME</a>
+
+      </div>
+
+     <div class="info">
+
+          <a href="">INFO AZIENDA</a>
+
+      </div>
+     
+     
+      <div class="prenota">
+
+           <a href="Prenota.html">PRENOTA</a>
+
+      </div>
+
+  </div>
+  
+  
+  
+  <div class="corpo">
+   <h1>Compila la tabella</h1>
+  
+  
+  <form>
+    <table>
+        <tr>
+            <td>
+                <b>Pacchetto:</b>
+            </td>
+            
+            <td>
+                <b>Compagnia Aerea:</b>
+            </td>
+
+            
+            <td>
+                <b>Data inizio partenza:</b>
+            </td>
+            
+            <td>
+                <b>Data Rientro:</b>
+            </td>
+        </tr>
+
+          <tr>
+             <td class="TabTd">
+                 <select>
+                    <option value="No">Nessuno</option>
+                    <option value="FA">Famiglia</option>
+					<option value="CO">Convenienza</option>
+					<option value="LU">Lusso</option>
+                 </select>
+             </td>
+             <td class="TabTd">
+                <select>
+                   <option value="RY">Ryanair</option>
+                   <option value="WI">Wizz Air</option>
+                   <option value="EA">EasyJet</option>
+                   <option value="EU">Eurowings</option>
+                </select>
+            </td>
+
+            <td>
+              
+                <input type="date" name="data">
+
+            </td>
+
+
+            <td>
+              
+                <input type="date" name="datari">
+
+            </td>
+
+          </tr>
+
+</div>
+
+
+     </body>
+
+
+
+
+
+
+
+</html>
