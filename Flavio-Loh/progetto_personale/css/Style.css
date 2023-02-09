@@ -1,0 +1,53 @@
+.normal_body{
+    margin: 0;
+    background-color: white;
+}
+
+body{
+    background-color: green;
+}
+#nav_primaria{
+ 
+    background-color: rgb(244, 244, 244);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+ 
+#Title{
+    font-size: 20px;
+    color: black;
+    text-align: left;
+    position: relative;
+    left: 3%;
+    text-decoration: none;
+}
+
+
+#mainImage{
+    height: 45px;
+    width: 45px;
+    position: relative;
+    right: 2%;
+}
+
+#nav_secondaria {
+    font-size: 10px;
+    background-color:rgb(255, 255, 255);
+}
+
+.nav_secondaria_class{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    margin: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 65px;
+    display: inline-block;
+    border: 2px;  
+    background-color: rgb(244, 244, 244);
+}
