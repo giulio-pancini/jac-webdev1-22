@@ -32,13 +32,14 @@ let nomeMese="";
 
 function creaTraccia()
 {
-    let mese=0;
     if (document.getElementById("nome").value=="")
         alert("Non hai compilato tutte le caselle!");
     else if (document.getElementById("mese").value=="0")
         alert("Hai dimenticato di indicare il mese!");
     else
     {
+        document.getElementById("testoPerNoTracce").style.visibility = "hidden";
+        document.getElementById("testoPerNoTracce").style.display = "none";
         if(document.getElementById("mese").value=="Gennaio")
         {
             meseUsato=1;
@@ -47,7 +48,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -69,6 +69,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -85,7 +86,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -107,6 +107,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -123,7 +124,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -145,6 +145,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -161,7 +162,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -183,6 +183,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -199,7 +200,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -221,6 +221,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -237,7 +238,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -259,6 +259,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -275,7 +276,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -297,6 +297,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -313,7 +314,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -335,6 +335,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -351,7 +352,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -373,6 +373,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -389,7 +390,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -411,6 +411,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -427,7 +428,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -449,6 +449,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -465,7 +466,6 @@ function creaTraccia()
                 //mese = ul
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
-                mese.style.paddingBottom = "1rem";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
                 mese.style.marginBottom = "0.5rem";
@@ -487,6 +487,7 @@ function creaTraccia()
                 bottoneSortMese.setAttribute('onclick','sortListDir('+meseUsato+')');
                 bottoneSortMese.setAttribute('id','buttonSort'+meseUsato);
                 bottoneSortMese.setAttribute('class','zoom');
+                bottoneSortMese.setAttribute('title','Ordina le tracce');
                 bottoneSortMese.innerText='Ordina';
 
                 sectionMese.appendChild(bottoneSortMese);
@@ -501,12 +502,18 @@ function creaTraccia()
 
         const nuovaTraccia = document.createElement("li");
         nuovaTraccia.setAttribute('id','traccia'+idTraccia);
+        nuovaTraccia.setAttribute('class','elementoTraccia zoom tip');
+
         const listaTracce = document.getElementById("lista"+meseUsato);
         listaTracce.appendChild(nuovaTraccia);
-
+        
         const sectionTraccia = document.createElement("section");
         sectionTraccia.setAttribute('class','canzone');
         nuovaTraccia.appendChild(sectionTraccia);
+        
+        const descrizioneTraccia = document.createElement("span");
+        descrizioneTraccia.innerText=document.getElementById("nome").value;
+        nuovaTraccia.appendChild(descrizioneTraccia);
 
         for (let i = 0; i < oggetti.length; i++)
         {
@@ -530,6 +537,7 @@ function creaTraccia()
         bottoneElimina.setAttribute('onclick','eliminaTraccia('+idTraccia+')');
         bottoneElimina.innerText="X";
         sectionTraccia.appendChild(bottoneElimina);
+
         
         const contattoIntero = document.getElementById("traccia"+idTraccia.toString());
 
@@ -574,6 +582,12 @@ function eliminaTraccia(id)
         arrayTracce.splice(indice,1);
         tracciaDaEliminare.remove();
 
+        if(arrayTracce.length==0)
+        {
+            document.getElementById("testoPerNoTracce").style.visibility = "visible";
+            document.getElementById("testoPerNoTracce").style.display = "block";
+        }
+
         //gennaio
         if(arrayGennaio.length!=1 && arrayGennaio.includes(id))
         {
@@ -601,7 +615,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -634,7 +647,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -667,7 +679,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -700,7 +711,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -733,7 +743,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -766,7 +775,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -799,7 +807,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -832,7 +839,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -865,7 +871,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -898,7 +903,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -931,7 +935,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -964,7 +967,6 @@ function eliminaTraccia(id)
                 
                 mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingBottom = "0rem";
                 mese.style.paddingRight = "00px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
@@ -976,7 +978,8 @@ function eliminaTraccia(id)
 }
 function sortListDir(numeroLista)
 {
-    var list, i, switching, b, shouldSwitch, dir, switchcount = 0;
+    let list, i, switching, b, shouldSwitch, dir, switchcount = 0;
+    const bottoneSortMese=document.getElementById('buttonSort'+numeroLista);
     list = document.getElementById('lista'+numeroLista);
     switching = true;
     // imposto la direzione del sorting a ascendente
@@ -990,48 +993,50 @@ function sortListDir(numeroLista)
         // faccio il loop per tutti gli elementi
         for (i = 0; i < (b.length - 1); i++)
         {
-        //parto dicendo che il cambio d'ordine non è completato
-        shouldSwitch = false;
-        /*controllo se il prossimo elemento debba essere rimpiazzato con quello attuale
-        a seconda della direzione del sorting (ascendente asc o decrescente desc)*/
-        if (dir == "asc")
-        {
-            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase())
+            //parto dicendo che il cambio d'ordine non è completato
+            shouldSwitch = false;
+            /*controllo se il prossimo elemento debba essere rimpiazzato con quello attuale
+            a seconda della direzione del sorting (ascendente asc o decrescente desc)*/
+            if (dir == "asc")
             {
-            /*se il prossimo elemento è alfabeticamente inferiore di quello attuale,
-            si marchia come un cambio d'ordine e si rompre il ciclo*/
-            shouldSwitch = true;
-            break;
+                if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase())
+                {
+                    /*se il prossimo elemento è alfabeticamente inferiore di quello attuale,
+                    si marchia come un cambio d'ordine e si rompre il ciclo*/
+                    bottoneSortMese.setAttribute('title','Ordina le tracce crescente');
+                    shouldSwitch = true;
+                    break;
+                }
             }
-        }
-        else if (dir == "desc")
-        {
-            if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase())
+            else if (dir == "desc")
             {
-            /*se il prossimo elemento è alfabeticamente superiore di quello attuale,
-            si marchia come un cambio d'ordine e si rompre il ciclo*/
-            shouldSwitch= true;
-            break;
+                if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase())
+                {
+                    /*se il prossimo elemento è alfabeticamente superiore di quello attuale,
+                    si marchia come un cambio d'ordine e si rompre il ciclo*/
+                    bottoneSortMese.setAttribute('title','Ordina le tracce decrescente');
+                    shouldSwitch= true;
+                    break;
+                }
             }
-        }
         }
         if (shouldSwitch)
         {
-        /*se il cambio d'ordine è stato marchiato, lo si compie e si dice che è avvenuto*/
-        b[i].parentNode.insertBefore(b[i + 1], b[i]);
-        switching = true;
-        //ogni volta che un cambio d'ordine viene fatto, incremento lo switchcount di 1
-        switchcount ++;
+            /*se il cambio d'ordine è stato marchiato, lo si compie e si dice che è avvenuto*/
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+            //ogni volta che un cambio d'ordine viene fatto, incremento lo switchcount di 1
+            switchcount ++;
         }
         else
         {
-        /*se il cambio d'ordine non è avvenuto e la direzione è "asc",
-        la si cambia a "desc" e si ricomincia il ciclo*/
-        if (switchcount == 0 && dir == "asc")
-        {
-            dir = "desc";
-            switching = true;
-        }
+            /*se il cambio d'ordine non è avvenuto e la direzione è "asc",
+            la si cambia a "desc" e si ricomincia il ciclo*/
+            if (switchcount == 0 && dir == "asc")
+            {
+                dir = "desc";
+                switching = true;
+            }
         }
     }
 }
