@@ -1,0 +1,103 @@
+header h1
+{
+    text-align: center;
+}
+
+body
+{
+    background-color: lightgray;
+}
+
+.nuovaDomanda
+{
+    margin: auto;
+}
+
+#inputDomanda, .inputRisposta
+{
+    height: 5rem;
+    width: 15rem;
+}
+form input
+{
+    display: block;
+    margin-top: 0.2rem;
+    width: fit-content;
+}
+
+ul li
+{
+    list-style-type: none;
+}
+
+li
+{
+    display: inline-block;
+}
+form
+
+{
+    padding: 0.2em;
+    margin-bottom: 2em;
+}
+
+article
+{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-content: center;
+}
+article section#sezioneDomanda
+{
+    flex: 1;
+    margin-right: 0.75rem;
+    order: 1;
+}
+article section#sezioneRisposte
+{
+    flex: 1;
+    order: 2;
+    border-width: 0.2rem;
+    border-style: solid;
+}
+
+div
+{
+    text-align: center;
+}
+
+.domanda
+{
+    border-width: 0.2rem;
+    border: solid;
+    border-radius: 5%;
+    border-color: gainsboro;
+    background-color: rgb(230, 230, 230);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 1rem;
+}
+
+.domanda input
+{
+    margin: auto;
+}
+
+.risposta
+{
+    display: block;
+    background-color: aqua;
+    border-width: 0.2rem;
+}
+
+.compari
+{
+    display: block;
+}
+
+.scompari
+{
+    display: none;
+}
