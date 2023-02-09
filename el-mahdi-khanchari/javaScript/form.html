@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,39 +9,44 @@
 
 
     <style>
-        input
-        {
+        input {
             display: block;
         }
-        div input
-        {
-            display: inline-block;
-        }
-        input[type="checkbox"]
-        {
-            display: inline-block;
-        }
-        
 
+        div input {
+            display: inline-block;
+        }
+
+        input[type="checkbox"] {
+            display: inline-block;
+        }
     </style>
 
 
 </head>
+
 <body>
-    <form> 
+    <form>
         <label>Nome : <input type="text" placeholder="@xxxxx"></label>
         <label for="cognome"> Cognome : </label>
         <input id="cognome">
-        <label >Data di nascita : <input type="date"></label>
-        <span>Sesso : </span> 
+        <label>Data di nascita : <input type="date"></label>
+        <span>Sesso : </span>
         <div>
-        <label >M <input name="sesso" type="radio" value="M"></label>
-        <label >F <input name= "sesso"type="radio" value="M"></label>
+            <label>M <input name="sesso" type="radio" value="M"></label>
+            <label>F <input name="sesso" type="radio" value="M"></label>
         </div>
-        <label ><input type="checkbox">Accetto le condizioni</label>
-        <button>Invio</button>
-
+        <label><input type="checkbox">Accetto le condizioni</label>
+        <button type ="button" onclick="clickHerPerNuovo()">Invio</button>
     </form>
     
+        <ul id="shceda">
+
+        </ul>
+    
+
+    <script src="run.js"></script>
 </body>
+
 </html>
+    
