@@ -1,7 +1,7 @@
 const addToCartButton = document.querySelectorAll(".add-to-cart");
 
 addToCartButton.forEach(button => {
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     // Recupera i dati dall'elemento button
     const name = this.dataset.name;
     const price = this.dataset.price;
@@ -56,6 +56,63 @@ for (const item of cart) {
     row.appendChild(nameCell);
     row.appendChild(priceCell);
 
+    // Aggiungi il pulsante di rimozione
 
     cartTable.appendChild(row);
 }
+cart = sessionStorage.getItem("cart");
+
+if (cart) {
+    // Se esiste, lo converte in un oggetto JavaScript
+    cart = JSON.parse(cart);
+} else {
+    // Se non esiste, lo crea
+    cart = [];
+}
+
+// Recupera la tabella del carrello dalla pagina
+cartTable = document.querySelector("#cart-items");
+
+// Itera sul carrello per creare le righe della tabella
+for (const item of cart) {
+    // Crea una riga per l'articolo
+    const row = document.createElement("tr");
+
+    // Crea le celle per i dati dell'articolo
+    const nameCell = document.createElement("td");
+    nameCell.textContent = item.name;
+
+    const priceCell = document.createElement("td");
+    priceCell.textContent = item.price;
+
+    // Crea una cella per il pulsante rimuovi
+    const removeButtonCell = document.createElement("td");
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Rimuovi";
+    removeButton.addEventListener("click", function() {
+        // Trova la posizione dell'articolo nel carrello
+        const index = cart.indexOf(item);
+
+        // Rimuove l'articolo dal carrello
+        cart.splice(index, 1);
+
+        // Memorizza il carrello nella session storage
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        // Rimuove la riga dalla tabella
+        row.remove();
+    });
+
+    // Aggiunge il pulsante alla cella
+    removeButtonCell.appendChild(removeButton);
+
+    // Aggiunge le celle alla riga
+    row.appendChild(nameCell);
+    row.appendChild(priceCell);
+    row.appendChild(removeButtonCell);
+
+    // Aggiunge la riga alla tabella
+    cartTable.appendChild(row);
+}
+
+
