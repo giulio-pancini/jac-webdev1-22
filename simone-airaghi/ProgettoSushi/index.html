@@ -6,171 +6,203 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sushi</title>
-
-    <style>
-       
-     ul  {
-        
-  list-style-type: none;
-  padding: 0;
-  
-
-    }
-
-
-      h1{
-        text-align: center;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-size: 50px;
-       }
-       
-        
-       img {
-            border: 1px #ddd solido;
-            border-radius: 4px;
-            padding: 20px;
-            width: 200px;
-            height: 200px;
-            border-radius: 30%;
-            margin:auto;
-            
-            
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 100px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 0px;
-            
-            
-            
-        }
-
-        
-
-        section {
-            margin-left: 150px;
-            /* Same as the width of the sidenav */
-            font-size: 28px;
-            /* Increased text to enable scrolling */
-            padding: 0px 10px;
-            padding-left: 50px
-            
-        }
-
-        header {
-            position: sticky;
-            top: 3px;
-            text-align: center;
-            display: inline-block;
-            width: 100%;
-            
-        }
-
-        #navMenu li{
-            display: inline-block;
-            padding: 10px;
-            
-            
-
-        }
-
-        #navMenu  {
-            background-color: rgba(17, 17, 17, 0.922);
-            width: 100%;
-            position: sticky;
-            top: 5px;
-            
-            
-           
-            
-        }
-
-        #nigiri {
-            border-width: 3px;
-            border-color: black;
-            border-style: double;
-
-        }
-
-        #hosomaki {
-            border-width: 3px;
-            border-color: black;
-            border-style: double;
-            margin-top: 10px;
-        }
-
-        #temaki {
-            border-width: 3px;
-            border-color: black;
-            border-style: double;
-            margin-top: 10px;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    
+    
 </head>
 
-<body>
-    <h1>Sushi da Simo</h1>
+<body >
+   
+    <div id="riepilogo">
+    
+        <body>
+           <h2>Sushi da Simo</h2>
+            <nav id="navmenu2">
+                <ul id="UlnavMenu2">
+                    <li> <button type="button" onclick="toggleHome()">Home</button></li>
+                    <li> <button>Invia l'ordine</button> </li>
+                </ul>
+            </nav>
+            <table>
+                <tr>
+                    <th>Quantità</th>
+                    <th>Prezzo (€)</th>
+                    <th>Descrizione</th>
+                    <th>Elimina</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                    <td><i class="fas fa-trash-alt"></i></td>
+                </tr>
+                
+            </table>
+            
+        </body>
+    </div>
+  
+  
+    <div id="home">
     <header>
-        <nav>
-            <ul id="navMenu">
-                <li> <a href="index.html">Home</a></li>
+        <h1>Sushi da Simo</h1>
+        <nav id="navmenu">
+            <ul id="UlnavMenu">
+                <li><button>Home</button></li>
                 <li>
-                    <form><label>Tavolo:<input type="number" style="width: 40px;"></label></form>
+                    <form>
+                        <label>Tavolo:<input type="number" style="width: 40px;"></label>
+                    </form>
                 </li>
-                <li> <a href="#">Riepilogo ordine</a> 
-                </li>
+                <li><button type="button" onclick="toggle()">Riepilogo ordine</button></li> 
+                
                     
             </ul>
         </nav>
 
     </header>
+
+    
+
     <nav>
         <ul class="sidenav">
-            <li> <button>Nigiri</button> </li>
-            <li> <button>Hosomaki</button> </li>
-            <li> <button>Temaki</button> </li>
+            <li> <button id="button1">Nigiri</button> </li>
+            <li> <button id="button2">Hosomaki</button> </li>
+            <li> <button id="button3">Temaki</button> </li>
+            <li> <button id="button4">Dolci</button> </li>
+            <li> <button id="button5">Bibite</button> </li>
+            <li> <button id="button6">Dessert</button> </li>
         </ul>
     </nav>
 
     <section id="nigiri">
         <h2>Nigiri</h2>
         <p>5€/pz</p>
-        <img src="images/NighiriSalmon.png">
+        <div class="img">
+        <img src="images/NighiriSalmon.png" onclick="#" >
         <img src="images/NighiriTonno.png">
-        <img src="images/NighiriGambero.png">
-
-    </section>
-
-    <section id="hosomaki">
-        <h2>Hosomaki</h2>
-        <p>3€/pz</p>
-        <img src="images/hosomaki-tonno.png">
-        <img src="images/Hosomaki-salmone.png">
-        <img src="images/HOSOMAKI-AVOCADO.png">
-
-
-    </section>
-
-    <section id="temaki">
-        <h2>Temaki</h2>
-        <p>7€/pz</p>
+        <img src="images/Nigiri-gambero-cotto-600x600.png">
+        <br>
         <img src="images/temaki-salmone.png">
         <img src="images/temaki-tonno.png">
         <img src="images/TemakiGambero.png">
+        </div>
 
     </section>
+    
+    <section id="hosomaki">
+        <h2>Hosomaki</h2>
+        <p>3€/pz</p>
+        
+        <div class="img">
+        <img src="images/hosomaki-tonno.png">
+        <img src="images/Hosomaki-salmone.png">
+        <img src="images/HOSOMAKI-AVOCADO.png">
+        </div>
+        
+    </section>
+    
+    <section id="temaki">
+        <h2>Temaki</h2>
+        <p>7€/pz</p>
+        <div class="img">
+        <img src="images/temaki-salmone.png">
+        <img src="images/temaki-tonno.png">
+        <img src="images/TemakiGambero.png">
+        </div>
+    </section>
+    
+    <section id="temaki">
+        <h2>Temaki</h2>
+        <p>7€/pz</p>
+       <div class="img">
+        <img src="images/temaki-salmone.png">
+        <img src="images/temaki-tonno.png">
+        <img src="images/TemakiGambero.png">
+        </div>
+    </section>
+    
+    <section id="temaki">
+        <h2>Temaki</h2>
+        <p>7€/pz</p>
+        <div class="img">
+            <img src="images/temaki-salmone.png">
+            <img src="images/temaki-tonno.png">
+            <img src="images/TemakiGambero.png">
+            </div>
+        
+    </section>
+</div>
+    
+    <script>
+        
+        const button1 = document.getElementById("button1");
+        const button2 = document.getElementById("button2");
+        const button3 = document.getElementById("button3");
+        
+        button1.addEventListener("click", function () {
+            window.scroll({
+                top: 50,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
 
+        button2.addEventListener("click", function () {
+            window.scroll({
+                top: 500,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
+
+        button3.addEventListener("click", function () {
+            window.scroll({
+                top: 800,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
+
+        function toggle(){
+            const home = document.getElementById('home');
+            const divRiepilogo = document.getElementById('riepilogo');
+
+            home.style.display = 'none';
+            divRiepilogo.style.display = 'block';
+
+           
+        }
+
+        function toggleHome(){
+          
+            const home = document.getElementById('home');
+            const divRiepilogo = document.getElementById('riepilogo');
+          
+            home.style.display = 'block';
+            divRiepilogo.style.display = 'none';
+
+        }
+
+        
+        
+        
+        
+    </script>
 </body>
 
 </html>
