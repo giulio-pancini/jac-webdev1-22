@@ -1,3 +1,6 @@
+const button = document.getElementById("RollIt");
+button.addEventListener("click", CreateNewRollSection());
+
 function CreateNewRollSection() 
 {
    const ul = document.getElementById("DiceRolls");
@@ -5,10 +8,10 @@ function CreateNewRollSection()
    const writtenName = document.createElement("p");
    const dices = document.createElement("p");
    ul.appendChild(li);
-   li.appendChild(p);
+   li.appendChild(writtenName);
+   li.appendChild(dices);
    const name = document.getElementById("inpName");
    const dicesRolled = document.getElementById("inpDice");
-   writtenName.innerText = "Nome: " + name.value;
-   dices.innerText = "Dice Rolled: "; //TODO
+   writtenName.innerText = "Name: " + name.value;
+   dices.innerText = "Dice Rolled: " + dicesRolled.value; 
 }
-

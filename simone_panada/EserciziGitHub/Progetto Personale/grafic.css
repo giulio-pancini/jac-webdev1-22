@@ -25,11 +25,12 @@ p
 #DiceRolls 
 {
     text-align: center;
+    border: 50px;
 }
 
 footer
 {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
 }
 
