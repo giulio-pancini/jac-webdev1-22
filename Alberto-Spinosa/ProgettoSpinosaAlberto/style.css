@@ -26,7 +26,8 @@ h1 {
 
 /** ---NAVBAR--- **/
 
-nav {
+nav { 
+    overflow: hidden;  
     text-align: right;
     font-size: 30px;
     padding: 1px;
@@ -109,4 +110,29 @@ nav ul li {
 .counter {
     display: inline;
     
+}
+
+
+/** ---CARRELLO--- **/
+
+.cart {
+    margin: 3rem;
+}
+
+/** ---FOOTER--- **/
+
+footer {    
+    background-color: red;
+    border: 2px solid black;    
+}
+
+footer ul li {
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 250px;
+    padding-top: 30px;
+}
+
+footer ul li img {
+    height: 50px;
 }

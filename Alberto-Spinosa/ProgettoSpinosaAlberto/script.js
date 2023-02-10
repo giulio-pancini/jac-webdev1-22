@@ -37,7 +37,29 @@ document.getElementById("burger1").addEventListener("click", function () {
 });
 */
 
+/*
+    APPEND CHILD SCHEME:
+
+    TABLE
+        THEAD
+        TBODY
+            TR
+                TH
+                TD
+    
+    modifica degli ingredienti o dalla tabella carrello o prima dell'acquisto
+
+    prima dell'aggiunta al carrello: 
+        td ingredienti: hover per visualizzare la lista di ingredienti
+        button a fianco dell'ingrediente: cliccando ho viene tolto il testo o viene colorato di rosso (magari utilizzare l'alert per avvisare l'utente)
+
+    dopo l'aggiunta al carrello:
+        nella tabella poter selezionare un prodotto, creerà una nuova tabella (temporanea(?))
+
+*/
+
 function showDetails() {
     
     const expandElementItem = document.getElementById("expand-item");
 }
+
