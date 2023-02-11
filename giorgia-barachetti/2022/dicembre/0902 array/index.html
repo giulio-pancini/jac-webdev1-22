@@ -23,7 +23,7 @@
       }
 
       /* Ciclo for .. in, cicla da solo sugli indici, quindi mi evita di usare length e ++ */
-      console.log("### Ciclo for..in");
+      console.log("### Ciclo for..in"); // il primo sara0
       for (let k in giocatori) {
         const elementoCorrente = giocatori[k];
         console.log(elementoCorrente);
@@ -64,16 +64,30 @@
 
       puntiPerGiocatore.forEach(
         /* Il forEach per le mappe passa due parametri alla funzione, valore e chiave */
-        (punti /*valore*/, giocatore /*chiave*/) => {
-          console.log(giocatore + " ha fatto " + punti + " punti in carriera");
-          console.log(`${giocatore} ha fatto ${punti} punti in carriera`);
-        }
+        (punti /*valore*/, giocatore /*chiave*/) =>
+          console.log(giocatore + " ha fatto " + punti + " punti in carriera")
+          console.log(`$(giocatore) + ha fatto + $(punti) + " punti in carriera`) //alt 96
+
       );
 
       // Altri usi delle funzioni freccia
       console.log("Solo i giocatori con piu' di ventimila punti");
-      const piuDiVentimila = giocatori.filter(giocatore => puntiPerGiocatore.get(giocatore) > 20_000);
+      const piuDiVentimila = giocatori.filter(giocatore => puntiPerGiocatore.get(giocatore) > 20000);
       console.log(piuDiVentimila);
+      //oppure scritto
+      function piudiVentimilaPunti(){
+        if (puntiPerGiocatore.get(giocatore)>20_000){
+          return true;
+        }else{
+          return false;
+        }
+
+      }
+      //oppure scritto
+      function piudiVentimilaPunti(){
+        return puntiPerGiocatore.get(giocatore)>20_000;
+      }
+
 
       console.log("Estraggo il cognome di ogni giocatore");
       const soloCognomi = giocatori.map(giocatore => giocatore.substring(giocatore.indexOf(" ") + 1));

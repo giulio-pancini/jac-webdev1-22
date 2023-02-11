@@ -6,7 +6,7 @@
     Immagine logo fast food orizzantale, da fondo a fondo => per la visualizzazione da telefono
      provare a modificare il formato o sostituire direttamente la foto
 
-    Section con all'interno diversi article (3 o 4 per fila)
+    Section con all'interno diversi article (3 per fila)
 
     Section che continene la tabella con il riepilogo dell'acquisto
 
@@ -21,11 +21,13 @@ body {
 h1 {
     margin-left: 16px;
     font-size: 40px;
+    text-align: center;
 }
 
 /** ---NAVBAR--- **/
 
-nav {
+nav { 
+    overflow: hidden;  
     text-align: right;
     font-size: 30px;
     padding: 1px;
@@ -40,6 +42,7 @@ nav a {
 }
 
 nav a img {
+    margin-top: 10px;
     height: 50px;
     width: 50px;
 }
@@ -51,25 +54,85 @@ nav ul li {
 /** ---SEZIONE CIBO--- **/
 
 .grid-container {
-    margin-top: 5rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: #2196F3;
     padding: 10px;
-  }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.grid-item {
+    
     padding: 20px;
     font-size: 30px;
     text-align: center;
-  }
 
-  .grid-item img {
+}
+
+.grid-item:hover {
+    background-color: rgb(222, 23, 23);
+}
+
+.grid-item img {
     height: 75px;
     width: 75;
-  }
+}
+
+.grid-container ul li {
+    text-align: center;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: red;
+    --bs-btn-border-color:  red;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #d70b0b;
+    --bs-btn-hover-border-color: #ca0a0a;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #ca0a0a;
+    --bs-btn-active-border-color: #be0a0a;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #fd0d0d;
+    --bs-btn-disabled-border-color: #fd0d0d;
+}
+
+.card-body{
+    min-height: 209px;
+}
 
 
+.empty {
+    padding: 1.3rem;
+}
+
+.counter {
+    display: inline;
+    
+}
 
 
+/** ---CARRELLO--- **/
+
+.cart {
+    margin: 3rem;
+}
+
+/** ---FOOTER--- **/
+
+footer {    
+    background-color: red;
+    border: 2px solid black;    
+}
+
+footer ul li {
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 250px;
+    padding-top: 30px;
+}
+
+footer ul li img {
+    height: 50px;
+}
