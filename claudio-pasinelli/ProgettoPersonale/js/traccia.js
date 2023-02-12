@@ -510,10 +510,7 @@ function creaTraccia()
         const sectionTraccia = document.createElement("section");
         sectionTraccia.setAttribute('class','canzone');
         nuovaTraccia.appendChild(sectionTraccia);
-        
-        const descrizioneTraccia = document.createElement("span");
-        descrizioneTraccia.innerText=document.getElementById("nome").value;
-        nuovaTraccia.appendChild(descrizioneTraccia);
+        sectionTraccia.setAttribute('title','Titolo: '+document.getElementById("nome").value+'\nPrezzo: '+document.getElementById("prezzo").value+'€');
 
         for (let i = 0; i < oggetti.length; i++)
         {
@@ -524,9 +521,16 @@ function creaTraccia()
                 valore.innerText = oggetti[i].value;
                 sectionTraccia.appendChild(valore);
             }
+            else if(oggetti[i].id==="prezzo")
+            {
+                valore.innerText = oggetti[i].value+"€";
+                valore.setAttribute("class","prezzo");
+                sectionTraccia.appendChild(valore);
+            }
         }
         //resetto il valore del contenuto del form dopo che è stato utilizzato per creare la traccia
         document.getElementById('nome').value = '';
+        document.getElementById('prezzo').value = '';
         document.getElementById('mese').value = '0';
 
         //creo il bottone (la 'X') per eliminare la traccia
@@ -537,7 +541,6 @@ function creaTraccia()
         bottoneElimina.setAttribute('onclick','eliminaTraccia('+idTraccia+')');
         bottoneElimina.innerText="X";
         sectionTraccia.appendChild(bottoneElimina);
-
         
         const contattoIntero = document.getElementById("traccia"+idTraccia.toString());
 
