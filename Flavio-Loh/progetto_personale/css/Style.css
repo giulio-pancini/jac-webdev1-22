@@ -192,13 +192,14 @@ button {
 
 
 
-#buttonCarrello{
-   text-align: center;
-}
 
-#textCarrello{
-    position: relative;
-    left: 43%;
+#Carrello{
+
+padding: 0px;
+border: 2px solid black;
+text-align: center;
+margin : 0px;
+      
 }
 
 
