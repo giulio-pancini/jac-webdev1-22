@@ -4,51 +4,52 @@
 <head>
     <title>carrello</title>
     
-    <link rel="stylesheet" type="text/css" href="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\css\Style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Style.css">
    
 </head>
 
 <body id="Body_Carrello">
     <nav id= "nav_primaria">
 
-    <a href="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\ProgettoPersonale.html" id = "Title">
-        <h1 >
-            Foodspring
-        </h1>
-    </a>
+        <a href="../ProgettoPersonale.html" id = "Title">
+            <h1 >
+                Foodspring
+            </h1>
+        </a>
 
 
     </nav>
 
     <nav id = "nav_secondaria" >
-        <a href="Shake_proteici.html" class = "nav_secondaria_class"> 
+        <a href="../html/Shake_proteici.html" class = "nav_secondaria_class"> 
             Shake proteici
         </a>
 
-        <a href="barrette.html" class = "nav_secondaria_class">
+        <a href="../html/barrette.html" class = "nav_secondaria_class">
             barrette 
         </a>
 
-        <a href="snack.html" class = "nav_secondaria_class"> 
+        <a href="../html/snack.html" class = "nav_secondaria_class"> 
             snack 
         </a>
 
-        <a href="Integratori.html" class = "nav_secondaria_class"> 
+        <a href="../html/Integratori.html" class = "nav_secondaria_class"> 
             Integratori 
         </a>
 
-        <a href="aminoacidi.html" class = "nav_secondaria_class"> 
+        <a href="../html/aminoacidi.html" class = "nav_secondaria_class"> 
             aminoacidi 
         </a>
-        <a href="Impasti.html" class = "nav_secondaria_class"> 
+        
+        <a href="../html/Impasti.html" class = "nav_secondaria_class"> 
             Impasti & preparati 
         </a>
 
-        <a href="Creme.html" class = "nav_secondaria_class"> 
+        <a href="../html/Creme.html" class = "nav_secondaria_class"> 
             Creme spalmabili 
         </a>
 
-        <a href="Muesli.html" class = "nav_secondaria_class">
+        <a href="../html/Muesli.html" class = "nav_secondaria_class">
             Muesli & porridge 
         </a>
 
@@ -57,21 +58,32 @@
     </nav>
     
 
-    
-    <h2>Il tuo carrello</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Prezzo</th>
-            </tr>
-        </thead>
-        <tbody id="cart-items">
-        </tbody>
-    </table>
-      
 
-    <script src="C:\Jac\jac-webdev1-22\Flavio-Loh\progetto_personale\javascript\Function.js"></script>
+   
+
+
+
+    <section id = "Carrello">
+        <h2>Il tuo carrello</h2> 
+       
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Nome</th>
+                        <th>Prezzo</th>
+                        <th>Azione</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="cart-items">
+                </tbody>
+
+            </table>
+   </section>
+
+    <script src="../javascript/Function.js"></script>
 
 </body>
 

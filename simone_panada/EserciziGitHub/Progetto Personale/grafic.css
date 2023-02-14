@@ -1,41 +1,114 @@
-#Title
-{
-    text-align: center;
+@media (max-width:960px) {
+
+    .only-mobile 
+    {
+        display: block;
+    }
+
+    .only-desktop
+    {
+        display: none;
+    }
+
+    #Title {
+        text-align: center;                                                                                                                                                             
+    }
+
+    #Instructions {
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    #RollIt {
+        text-align: center;
+    }
+
+    li {
+        text-align: center;
+        list-style-type: none;
+        border-bottom: 2px solid black;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    #rolls {
+        border-bottom: 2px solid black;
+    }
+
+    #DiceRolls {
+        text-align: center;
+        padding: 0px;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+    }
+
 }
-#Instructions
+
+@media (min-width:961px) 
 {
-    text-align: center;
-}
-form 
-{
-    text-align: center;
+    .only-mobile 
+    {
+        display: none;
+    }
+
+    .only-desktop
+    {
+        display: block;
+    }
     
-}
+    #TitleDesktop
+    {
+        text-align: center;
+    }
 
-#RollIt
-{
-    text-align: center;
-}
+    #rolls, form 
+    {
+        float: left;
+        width: 35%;
+    }
 
-li 
-{
-   list-style-type: none; 
-}
+    form
+    {
+        padding-top: 10px;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+        border: 2px solid black;
+    }
 
-p
-{
-    text-align: center;
-}
+    #rolls
+    {
+       position: relative;
+       left: 31.5%;
+    }
 
-#DiceRolls 
-{
-    text-align: center;
-    border: 50px;
-}
+    #DiceRolls 
+    {
+        float: right;
+        width: 45%;
+    }
 
-footer
-{
-    position: absolute;
-    bottom: 5px;
-}
+    footer
+    {
+        position:fixed;
+        bottom:0;
+        left:0;
+    }
 
+    li {
+        text-align: center;
+        list-style-type: none;
+        border: 2px solid gray;
+        margin-bottom: 5px;
+    }
+}

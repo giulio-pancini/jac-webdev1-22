@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="css/footer.css">
-    href="css/header.css" href="css/article.css" href="css/footer.css"
     <title>SHOP</title>
 </head>
 <body>
@@ -54,7 +53,7 @@
                     <p>EQUIPE</p>
                     <p>Supreme saddle in double leather</p>
                     <p class="price" >958.00</p>
-                    <button onclick="">ADD TO CART</button>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
 
                 <section class="jumpSaddle">
@@ -63,18 +62,17 @@
                     <P>EQUIPE</P>
                     <p>Jumping saddle Theorema in double leather (width 26cm)</p>
                     <p class="price">3019.50</p>
-                    <button onclick="">ADD TO CART</button>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
-                <!--
                     
                     <section class="jumpSaddle">
                         <img class="imgjump" src="images/img-article/img-jumping/jump3.webp">
                         <h1>PRO SADDLE</h1>
                         <p>PRO LIGHT</p>
                         <p>English synthetic jumping saddle</p>
-                        <p class="price" >290</p>
+                        <p class="price">290.00</p>
+                        <button class="buy" onclick="addToCart()">ADD TO CART</button>
                     </section>
-                -->
                 
                 <hr>
             </section>
@@ -89,6 +87,7 @@
                     <p></p>
                     <p></p>
                     <p class="price" ></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 
                 <section class="dreSaddle">
@@ -97,6 +96,7 @@
                     <p></p>
                     <p></p>
                     <p class="price"></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 
                 <section class="dreSaddle">
@@ -105,6 +105,7 @@
                     <p></p>
                     <p></p>
                     <p class="price"></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
             </section>
             <!--TREKKING---------------------------------------------------->
@@ -117,6 +118,7 @@
                     <p></p>
                     <p></p>
                     <p class="price"></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 
                 <hr>
@@ -132,6 +134,7 @@
                     <p></p>
                     <p></p>
                     <p class="price"></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 
                 <section class="dreSaddle">
@@ -140,91 +143,47 @@
                     <p></p>
                     <p></p>
                     <p class="price"></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 <hr>
             </section>
         </section>
         
-<!--
-    <section id="shopChart">
-    </section>
--->
-    
-
-
-
+        <!--
+            <section id="shopChart">
+            </section>
+        -->
+        
+        
+        
+        
     </article> 
-     
+    
     <form>
         <section>
-            <label><input id="name" placeholder="Name" required></label>
-            <label><input id="surname" placeholder="Surname" required></label>
-            <label><input id="mail" placeholder="E-mail" required></label>
-            <label><input id="address" placeholder="Address" required></label>
-            <label><input id="phone" placeholder="Phone number" required></label>
-            
-            <div>How would you like to pay?
-                <div>
-                    <label for="paypal">Paypal<input name="Cpagamento" type="radio" value="paypal" id="paypal"></label>
-                    <label for="visa">Visa<input name="Cpagamento" type="radio" value="visa" id="visa"></label>
+            <label>Name: <input id="name" type="text" placeholder="Donald" ></label>
+                <label>Surname: <input id="surname"  type="text" placeholder="Trump" ></label>
+                <label>E-mail: <input id="mail" type="email" placeholder="john@example.com" ></label>
+                <label>Address: <input id="address" type="text" placeholder="132, My Street, Kingston" ></label>
+                <label>Phone number: <input id="phone" type="tel" placeholder="(555) 555-1234" ></label>
+                
+                <div>How would you like to pay?
+                    <div>
+                        <label for="paypal">Paypal<input name="Cpagamento" type="radio" value="paypal" id="paypal"></label>
+                        <label for="visa">Visa<input name="Cpagamento" type="radio" value="visa" id="visa"></label>
+                    </div>
                 </div>
-            </div>
-
-            <label> <input id="cond" type="checkbox" required>I have read and agree to the Terms of Service and Privacy Policy</label>
+                
+                <label> <input id="cond" type="checkbox">I have read and agree to the Terms of Service and Privacy Policy</label>
             
-            <button onclick="user()" type="button">BUY</button>
+            <button id="shop" onclick="user()" type="button">BUY</button>
             <!--stampa in una section le scritte come fosse pacco amazon e chiedi se va bene o se c'e da cambaire qualcosa-->
         </section>
     </form>
     
-            <section id="userBox"></section>
+   <!--  <section id="userBox"></section>-->
+   <dl id="dl"></dl>
 
-    <script>
-        function user(){
-     const sections = document.createElement("section");
-    
-     const contenuto = document.getElementById("userBox"); 
-     contenuto.appendChild(sections);
-     //sections.setAttribute("scheda1", "scheda2");
- 
-     const Cname = document.getElementById("name");
-     const Csurname = document.getElementById("surname");
-     const Cmail = document.getElementById("mail");
-     const Caddress = document.getElementById("address");
-     const Cphone = document.getElementById("phone");
-     
-     const Cpaypal = document.getElementById("paypal");
-     const Cvisa = document.getElementById("visa");
-     // const altro = document.getElementById("altro"); COOUPONNNNNNNNNNNNN
-    
-     let Cpagamento = " ";
-     if (Cpaypal.checked){
-        Cpagamento = 'Pagamento con PayPal';
-     }else if (Cvisa.checked){
-        Cpagamento = 'Pagamento con PayPal';
-     }
-     
-    
-     const Ccondiz = document.getElementById("cond");
-     let cond = '';
-     if(Ccondiz.checked){
-         cond = 'Terms of Service and Privacy Policy approved.'
-     }else{
-         cond = 'The Terms of Service and the Privacy Policy must be approved to continue!'
-     }
-     
-     sections.innerText = name.value + " " + surname.value 
-                             + "\n" + mail.value + " " + phone.value 
-                             + "\n" + address.value + ' ' + mail.value
-                             + '\n' + Cpagamento +'\n' + cond;
-     }
- 
- 
- 
-         const jumpButt = document.getElementById("")
-         //function 
-         </script>
-    
     <footer>
         <section><!--LOGO-->
             
@@ -254,7 +213,82 @@
     
     <form>
     </form>
+    <script>
+        function addToCart(){
 
+        }
+
+        function user(){
+                   const dl = document.getElementById("dl")
+                   const dt = document.createElement("dt");
+                   const dd = document.createElement("dd");
+                   const dd2 = document.createElement("dd");
+                   const dd3 = document.createElement("dd");
+                   const dd4 = document.createElement("dd");
+                   const dd5 = document.createElement("dd");
+                   const dd6 = document.createElement("dd");
+                   const dd7 = document.createElement("dd");
+
+                   dl.appendChild(dt);
+
+                   dt.appendChild(dd);
+                   dt.appendChild(dd2);
+                   dt.appendChild(dd3);
+                   dt.appendChild(dd4);
+                   dt.appendChild(dd5);
+                   dt.appendChild(dd6);
+                   dt.appendChild(dd7);
+
+                   
+                  const Cname = document.getElementById("name");
+                  const Csurname = document.getElementById("surname");
+                  const Cmail = document.getElementById("mail");
+                  const Caddress = document.getElementById("address");
+                  const Cphone = document.getElementById("phone");
+                  
+                  const Cpaypal = document.getElementById("paypal");
+                  const Cvisa = document.getElementById("visa");
+                  
+                  let Cpagamento = " ";
+                  if (Cpaypal.checked){
+                      Cpagamento = 'Pay with PayPal';
+                    }else if (Cvisa.checked){
+                        Cpagamento = 'Pay with Visa';
+                    }
+                    
+                    const Ccondiz = document.getElementById("cond");
+                    let cond = '';
+                    if(Ccondiz.checked){
+                        cond = 'Terms of Service and Privacy Policy approved.'
+                    }else{
+                        cond = 'The Terms of Service and the Privacy Policy must be approved to continue!'
+                    }
+
+
+
+                  dt.value ='Name'
+                  dd.innerText=Cname.value;
+                  
+                  dt.value='\nSurname'
+                  dd2.innerText=Csurname.value;
+                
+                  dt.value='\nAddress:'
+                  dd3.innerText=Caddress.value;
+                  
+                  dt.value='\nMail:'
+                  dd4.innerText=Cmail.value;
+                  
+                  dt.value='\Phone number:'
+                  dd5.innerText=Cphone.value;
+                  
+                  dt.value='\n:'
+                  dd6.innerText=Cpagamento;    
+                  //doest print the condition
+                  dd7.innerText=Ccondiz;               
+                 
+                }
+                 //function 
+                 </script>
    
 </body>
 </html>

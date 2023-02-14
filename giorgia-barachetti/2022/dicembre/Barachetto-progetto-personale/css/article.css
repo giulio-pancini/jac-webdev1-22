@@ -71,6 +71,11 @@ article #allSaddles{
     margin-right:50px;
 }
 
+
+
+
+
+
     /*section delle saddles*/
     article #jumping{
     margin: 50px;
@@ -106,6 +111,21 @@ article #allSaddles{
             margin:0;
         }
         
+        .price{
+            margin-bottom:3px;
+        }
+
+        .buy{
+        height: 40px;
+        width: 100px;
+        background-color: black;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: bold;
+        }
+    
+        
+
         article #dressage{
         margin: 50px;
         margin-bottom:15px;
