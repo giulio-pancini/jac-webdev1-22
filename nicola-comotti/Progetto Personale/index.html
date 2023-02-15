@@ -4,57 +4,68 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Progetto personale</title>
+        <title>MyFitness</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <header>
-            <button>=</button>
-            <h1 id="titolo">Gym4U</h1>
+            <h1 id="titolo">MyFitness</h1>
+            <button class="only-mobile" onclick="toggleMenu()">=</button>
+            <nav>
+                <ul class="only-desktop" id="menu">
+                    <li>
+                        menu1
+                    </li>
+                    <li>
+                        menu2
+                    </li>
+                    <li>
+                        menu3
+                    </li>
+                    <li>
+                        menu4
+                    </li>
+                </ul>
+            </nav>
         </header>
-        <nav id="menu">
-            <ul>
-                <li>
-                    menu1
-                </li>
-                <li>
-                    menu2
-                </li>
-                <li>
-                    menu3
-                </li>
-                <li>
-                    menu4
-                </li>
-            </ul>
-        </nav>
-        <section>
-        <aside>
-            <form>
-                <strong>NUOVO ESERCIZIO</strong>
-                <label>
-                    Scheda di appartenenza:
-                    <select>
-                        <optgroup label="Seleziona scheda">
-                            <option value="none"></option>
+        <article class="row">
+            <aside class="column">
+                <form>
+                    <strong>NUOVO ESERCIZIO</strong>
+                    <label>
+                        Scheda di appartenenza:
+                        <select id="sceltaScheda">
+                            <option value="none" selected disabled>Seleziona scheda</option>
                             <option value="push">Push</option>
                             <option value="pull">Pull</option>
                             <option value="legs">Legs</option>
-                        </optgroup>
-                    </select>
-                </label>
-                <label>Nome esercizio: <input type="text"></label>
-                <label>Peso: <input type="number" min="0" placeholder="Kg"></label>
-                <label>Ripetizioni: <input type="number" min="0"></label>
-                <label>Recupero: <input type="number" step="30" min="0" max="180" placeholder="Secondi"></label>
-                <button type="button" id="addExe" onclick="addExe()">Aggiungi</button>
-            </form>
-        </aside>
-        <article>
-            Schede create
+                        </select>
+                    </label>
+                    <label>Nome esercizio: <input id="nome" type="text"></label>
+                    <label>Peso: <input id="peso" type="number" min="0" placeholder="Kg"></label>
+                    <label>Serie: <input id="serie" type="number" min="0"></label>
+                    <label>Ripetizioni: <input id="rep" type="number" min="0"></label>
+                    <label>Recupero: <input id="rest" type="number" step="30" min="0" placeholder="Secondi"></label>
+                    <button type="button" id="addEs" onclick="addExe()">Aggiungi</button>
+                </form>
+            </aside>
+            <section class="column">
+                <strong>SCHEDE</strong>
+                <ul id="listaSchede">
+                    <li class="scheda" id="schedaPush">
+                        <h2>PUSH</h2>
+                    </li>
+                    <li class="scheda" id="schedaPull">
+                        <h2>PULL</h2>
+                    </li>
+                    <li class="scheda" id="schedaLegs">
+                        <h2>LEGS</h2>
+                    </li>
+                </ul>
+                <!-- <button id="addScheda" onclick="addScheda()">Nuova Scheda</button> -->
+            </section>
         </article>
-        </section>
         <footer>Footer</footer>
         <script src="app.js"></script>
     </body>
