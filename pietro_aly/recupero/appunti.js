@@ -8,3 +8,16 @@ function test (){
 }
 
 test();
+
+
+function test2(nome , pass){
+if(nome == "ciao"){
+if(pass=="coa"){
+console.log("entrato")
+}else{
+    console.log("no")
+}
+}else{
+console.log("paramentro vuoto")
+}
+}
