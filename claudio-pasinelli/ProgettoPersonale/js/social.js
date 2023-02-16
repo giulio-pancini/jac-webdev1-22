@@ -1,19 +1,27 @@
-// FARE I CONTROLLI DI SOMIGLIANZA!!!!!!!
+// FARE I CONTROLLI DI DUPLICATI!!!!!!!
 
 let idSocial=1;
 let arraySocial=[];
 
-function creaElementoSocial()
+/*async*/ function creaElementoSocial()
 {
+    let youtube;
+    let youtubeMusic;
+    let appleMusic;
+    let deezer;
+    let spotify;
+    let soundcloud;
+
     if (document.getElementById("nomeSocial").value=="")
         alert("Non hai inserito il nome del social!");
     else if (document.getElementById("link").value=="")
         alert("Non hai inserito il link del social!");
-    else if(document.getElementById("nomeSocial").value!="youtube" && document.getElementById("nomeSocial").value!="deezer" && document.getElementById("nomeSocial").value!="apple music" && document.getElementById("nomeSocial").value!="soundcloud" && document.getElementById("nomeSocial").value!="youtube music" && document.getElementById("nomeSocial").value!="spotify")
+
+    else if(similarity(document.getElementById("nomeSocial").value,"youtube")<0.8 && similarity(document.getElementById("nomeSocial").value,"deezer")<0.8 && similarity(document.getElementById("nomeSocial").value,"youtube music")<0.8 && similarity(document.getElementById("nomeSocial").value,"spotify")<0.8 && similarity(document.getElementById("nomeSocial").value,"apple music")<0.8 && similarity(document.getElementById("nomeSocial").value,"soundcloud")<0.8)
     {
         alert("Ci dispiace, ma non conosciamo il sito!");
         document.getElementById('nomeSocial').value = '';
-    }    
+    }
     else
     {
         //array di oggetti che contiene i social
@@ -28,18 +36,36 @@ function creaElementoSocial()
         // sectionSocial.setAttribute('class','canzone');
         listaSocial.appendChild(sectionSocial);
 
-        if(document.getElementById("nomeSocial").value==="youtube")
+        if(similarity(document.getElementById("nomeSocial").value,"youtube")>=0.8)
+        {
             sectionSocial.setAttribute('title','Youtube\nLink: '+document.getElementById("link").value);
-        else if(document.getElementById("nomeSocial").value==="deezer")
+            youtube=true;
+        }
+        else if(similarity(document.getElementById("nomeSocial").value,"deezer")>=0.8)
+        {
             sectionSocial.setAttribute('title','Deezer\nLink: '+document.getElementById("link").value);
-        else if(document.getElementById("nomeSocial").value==="soundcloud")
+            deezer=true;
+        }
+        else if(similarity(document.getElementById("nomeSocial").value,"soundcloud")>=0.8)
+        {
             sectionSocial.setAttribute('title','SoundCloud\nLink: '+document.getElementById("link").value);
-        else if(document.getElementById("nomeSocial").value==="spotify")
+            soundcloud=true;
+        }
+        else if(similarity(document.getElementById("nomeSocial").value,"spotify")>=0.8)
+        {
             sectionSocial.setAttribute('title','Spotify\nLink: '+document.getElementById("link").value);
-        else if(document.getElementById("nomeSocial").value==="youtube music")
+            spotify=true;
+        }
+        else if(similarity(document.getElementById("nomeSocial").value,"youtube music")>=0.8)
+        {
             sectionSocial.setAttribute('title','Youtube Music\nLink: '+document.getElementById("link").value);
-        else if(document.getElementById("nomeSocial").value==="apple music")
+            youtubeMusic=true;
+        }
+        else if(similarity(document.getElementById("nomeSocial").value,"apple music")>=0.8)
+        {
             sectionSocial.setAttribute('title','Apple Music\nLink: '+document.getElementById("link").value);
+            appleMusic=true;
+        }
 
         for (let i = 0; i < oggetti.length; i++)
         {
@@ -47,10 +73,11 @@ function creaElementoSocial()
             let immagine = document.createElement("img");
             let figcaption = document.createElement("figcaption");
             let linkTesto = document.createElement("a");
-
+            
             if(oggetti[i].id==="nomeSocial")
             {
-                if(oggetti[i].value==="youtube")
+                risultatoSimilarita=similarity(oggetti[i].value,"youtube");
+                if(youtube)
                 {
                     linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/youtube.png");
@@ -59,7 +86,7 @@ function creaElementoSocial()
                     linkImmagine.appendChild(immagine);
                     sectionSocial.appendChild(linkImmagine);
                 }
-                else if(oggetti[i].value==="deezer")
+                else if(deezer)
                 {
                     linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/deezer.png");
@@ -68,7 +95,7 @@ function creaElementoSocial()
                     linkImmagine.appendChild(immagine);
                     sectionSocial.appendChild(linkImmagine);
                 }
-                else if(oggetti[i].value==="soundcloud")
+                else if(soundcloud)
                 {
                     linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/soundcloud.png");
@@ -76,8 +103,9 @@ function creaElementoSocial()
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
                     sectionSocial.appendChild(linkImmagine);
+                    soundcloud=true;
                 }
-                else if(oggetti[i].value==="spotify")
+                else if(spotify)
                 {
                     linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/spotify.png");
@@ -86,7 +114,7 @@ function creaElementoSocial()
                     linkImmagine.appendChild(immagine);
                     sectionSocial.appendChild(linkImmagine);
                 }
-                else if(oggetti[i].value==="youtube music")
+                else if(youtubeMusic)
                 {
                     linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/youtube_music.png");
@@ -95,7 +123,7 @@ function creaElementoSocial()
                     linkImmagine.appendChild(immagine);
                     sectionSocial.appendChild(linkImmagine);
                 }
-                else if(oggetti[i].value==="apple music")
+                else if(appleMusic)
                 {
                     linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/apple_music.png");
@@ -107,7 +135,38 @@ function creaElementoSocial()
             }
             else if(oggetti[i].id==="link")
             {
-                linkTesto.innerText = oggetti[i].value;
+                // if(await isLinkValid(oggetti[i]))
+                // {
+                    // if(youtube)
+                    //     linkTesto.innerText = "Youtube";
+                    // else if(deezer)
+                    //     linkTesto.innerText = "Deezer";
+                    // else if(soundcloud)
+                    //     linkTesto.innerText = "SouncCloud";
+                    // else if(spotify)
+                    //     linkTesto.innerText = "Spotify";
+                    // else if(youtubeMusic)
+                    //     linkTesto.innerText = "Youtube Music";
+                    // else if(appleMusic)
+                    //     linkTesto.innerText = "Apple Music";
+                    // linkTesto.setAttribute("href",oggetti[i].value);
+                    // figcaption.appendChild(linkTesto);
+                    // sectionSocial.appendChild(figcaption);
+                // }
+                // else
+                //     alert("La pagina da te inserita non è disponibile!");
+                if(youtube)
+                    linkTesto.innerText = "Youtube";
+                else if(deezer)
+                    linkTesto.innerText = "Deezer";
+                else if(soundcloud)
+                    linkTesto.innerText = "SouncCloud";
+                else if(spotify)
+                    linkTesto.innerText = "Spotify";
+                else if(youtubeMusic)
+                    linkTesto.innerText = "Youtube Music";
+                else if(appleMusic)
+                    linkTesto.innerText = "Apple Music";
                 linkTesto.setAttribute("href",oggetti[i].value);
                 figcaption.appendChild(linkTesto);
                 sectionSocial.appendChild(figcaption);
@@ -122,3 +181,58 @@ function creaElementoSocial()
         idSocial++;
     }
 }
+
+// async function isLinkValid(link)
+// {
+//     const linkResponse = await fetch(link);
+//     if(linkResponse.status==404)
+//         return false;
+//     return true; 
+// }
+
+function similarity(s1, s2)
+{
+    let longer = s1;
+    let shorter = s2;
+    if (s1.length < s2.length)
+    {
+      longer = s2;
+      shorter = s1;
+    }
+    let longerLength = longer.length;
+    if (longerLength == 0)
+      return 1.0;
+    return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+}
+
+  function editDistance(s1, s2)
+  {
+    s1 = s1.toLowerCase();
+    s2 = s2.toLowerCase();
+
+    let costs = new Array();
+    for (let i = 0; i <= s1.length; i++)
+    {
+        let lastValue = i;
+        for (let j = 0; j <= s2.length; j++)
+        {
+            if (i == 0)
+            costs[j] = j;
+            else
+            {
+                if (j > 0)
+                {
+                    let newValue = costs[j - 1];
+                    if (s1.charAt(i - 1) != s2.charAt(j - 1))
+                    newValue = Math.min(Math.min(newValue, lastValue),
+                        costs[j]) + 1;
+                    costs[j - 1] = lastValue;
+                    lastValue = newValue;
+                }
+            }
+        }
+        if (i > 0)
+            costs[s2.length] = lastValue;
+    }
+    return costs[s2.length];
+  }
