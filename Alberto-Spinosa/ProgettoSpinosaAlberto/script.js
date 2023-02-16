@@ -58,8 +58,3 @@ document.getElementById("burger1").addEventListener("click", function () {
 
 */
 
-function showDetails() {
-    
-    const expandElementItem = document.getElementById("expand-item");
-}
-
