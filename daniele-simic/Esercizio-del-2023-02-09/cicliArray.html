@@ -83,6 +83,37 @@
         //questa funzione mi restituirà tutta la mappa
         mappa.get("s.manzoni")
         //ricorda che il primo parametro è la chiave che poi ti restituisce tutta la mappa
+
+        const giocatori = [
+        "Kevin Durant",
+        "LeBron James",
+        "Jayson Tatum",
+        "Nikola Jokic",
+        "Kawhi Leonard",
+      ];
+
+        console.log("### Mappe");
+      let puntiPerGiocatore = new Map();
+      puntiPerGiocatore.set("Kevin Durant", 25321);
+      puntiPerGiocatore.set("LeBron James", 38923);
+      puntiPerGiocatore.set("Jayson Tatum", 12903);
+      puntiPerGiocatore.set("Nikola Jokic", 16342);
+      puntiPerGiocatore.set("Kawhi Leonard", 21045);
+
+      puntiPerGiocatore.forEach(
+        /* Il forEach per le mappe passa due parametri alla funzione, valore e chiave */
+        (punti /*valore*/, giocatore /*chiave*/) =>
+          console.log(giocatore + " ha fatto " + punti + " punti in carriera")
+      );
+
+      // Altri usi delle funzioni freccia
+      console.log("Solo i giocatori con piu' di ventimila punti");
+      const piuDiVentimila = giocatori.filter(giocatore => puntiPerGiocatore.get(giocatore) > 20000);
+      console.log(piuDiVentimila);
+
+      console.log("Estraggo il cognome di ogni giocatore");
+      const soloCognomi = giocatori.map(giocatore => giocatore.substring(giocatore.indexOf(" ") + 1));
+      console.log(soloCognomi);
     </script>
 
 
