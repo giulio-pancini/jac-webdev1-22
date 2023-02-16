@@ -15,7 +15,9 @@
 
 </head>
 
+
 <body>
+   
     <section id="navbar">
         <div class="logo">
             <img src="Images/logo.png" alt="">
@@ -66,14 +68,20 @@
         <p class="center para-font">Tramite cuochi selezionati e specializati che hanno studiato anni e anni , noi ti diamo la possibilità di avere un panino che ti farà ballare le tue papille gustative</p>
         <h2  class="h-secondary center btn-heading">Panini</h2>
         
-       
+        <style>
+            
+          </style>
         <div class="burger-container">
             <div class="burger-item">
                 <img id="myImg" src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 1</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae<br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                    <button type="button" onclick="crea()">ORDINA</button>
+                  
+                    <button class="button" onclick="printMessage(1)">Panino 1</button>
+
+
+
                    
             </div>
             <div class="burger-item">
@@ -81,7 +89,8 @@
                 <h2 class="center color-primary burger-heading">Burger 2</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                    <button type="button" onclick="crea()">ORDINA</button>
+                    <button class="button" onclick="printMessage(2)">Panino 2</button>
+
 
             </div>
             <div class="burger-item">
@@ -89,8 +98,35 @@
                 <h2 class="center color-primary burger-heading">Burger 3</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
-                
+                    <button class="button" onclick="printMessage(3)">Panino 3</button>
+
+    
+                    <script>
+                   
+                     
+                   var messages = ["", "", ""];
+var counter = [0, 0, 0];
+
+function printMessage(panino) {
+  var messageelement = document.createElement("div");
+  messageelement.className = "message";
+  counter[panino - 1]++;
+  var message = "Panino " + panino + " (" + counter[panino - 1] + ")";
+  
+  // Check if a message for this panino already exists
+  if (messages[panino - 1]) {
+    // If it does, update the existing message
+    messages[panino - 1].innerText = message;
+  } else {
+    // If it doesn't, create a new message element
+    messageelement.innerText = message;
+    document.getElementById("message-container").appendChild(messageelement);
+    messages[panino - 1] = messageelement;
+  }
+}
+   
+                      </script>
+
             </div>
            
         </div>
@@ -101,24 +137,42 @@
                 <h2 class="center color-primary burger-heading">Burger 1</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae<br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
+                    <button class="button" onclick="printMessage2(1)">Bevanda 1</button>
             </div>
             <div class="burger-item">
                 <img id="myImg" src="Images/burger.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 2</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
+                    <button class="button" onclick="printMessage2(2)">Bevanda 2</button>
             </div>
             <div class="burger-item">
                 <img id="myImg" src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 3</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
+                    <button class="button" onclick="printMessage2(3)">Bevanda 3</button>
                 
             </div>
-           
+            <script>
+            function printMessage2(bevande) {
+                var messageelement2 = document.createElement("div");
+                messageelement2.className = "message";
+                counter[bevande - 1]++;
+                var message = "bevande " + bevande + " (" + counter[bevande - 1] + ")";
+                
+                // Check if a message for this panino already exists
+                if (messages[bevande - 1]) {
+                  // If it does, update the existing message
+                  messages[bevande - 1].innerText = message;
+                } else {
+                  // If it doesn't, create a new message element
+                  messageelement2.innerText = message;
+                  document.getElementById("message-container").appendChild(messageelement2);
+                  messages[bevande - 1] = messageelement2;
+                }
+              }
+            </script>
         </div>
         <h2  class="h-secondary center btn-heading">bevande </h2>
         <div class="burger-container">
@@ -127,26 +181,27 @@
                 <h2 class="center color-primary burger-heading">Burger 1</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae<br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
+                    <button class="button" onclick="printMessage3(1)" id="bev1"> 1</button>
             </div>
             <div class="burger-item">
                 <img id="myImg" src="Images/burger.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 2</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
+                    <button class="button" onclick="printMessage3(2)" id="bev2"> 2</button>
             </div>
             <div class="burger-item">
                 <img id="myImg" src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 3</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                <a href="" class="order-btn">ORDER NOW</a>
+                
+                <button class="button" onclick="printMessage3(3)" id="bev3"> 3</button>
                 
             </div>
-           
+            
         </div>
- 
+        <div id="message-container"></div>
 
 <div id="myModal" class="modal">
     <span class="close">&times;</span>
