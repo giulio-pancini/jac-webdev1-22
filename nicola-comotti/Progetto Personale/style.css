@@ -1,30 +1,216 @@
+@font-face {
+    font-family: zekton;
+    src: url(Utils/zekton\ rg.otf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: cornflowerblue;
     text-align: center;
-    font-family: sans-serif;
+    font-family: zekton;
+    margin: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: navy;
+    color: whitesmoke;
+    z-index: 1000;
 }
 
 #titolo {
     display: inline-block;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: lighter;
+    font-weight: bold;
+    font-size: 2.5em;
+    margin: 0.3em auto;
+    width: 100%;
 }
 
-nav > ul > li {
-    display: inline-block;
+nav>ul {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(39, 80, 116);
 }
 
-form > strong {
+article {
+    margin-bottom: 3em;
+}
+
+strong {
     display: block;
-    margin: 2em auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 1.5em auto;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
-form > label {
+form {
+    margin: 2em auto;
+    width: fit-content;
+    padding: 0 2em;
+    border: 2px solid whitesmoke;
+    border-radius: 50px;
+    background-color: rgb(80, 108, 217);
+    box-shadow: 10px 5px 5px navy;
+}
+
+form>label {
     display: block;
     margin: 0.5em auto;
 }
 
-#addExe {
-    margin-top: 3em;
+select {
+    font-family: zekton;
+    width: 10em;
+}
+
+option[value="none"] {
+    font-weight: bold;
+    font-style: italic;
+}
+
+input {
+    font-family: zekton;
+}
+
+input[type="number"] {
+    width: 6em;
+}
+
+#addEs {
+    margin: 3em;
+}
+
+#listaSchede {
+    list-style-type: none;
+    margin: 2em auto;
+    padding: 0;
+}
+
+.scheda {
+    border: 2px solid whitesmoke;
+    border-radius: 50px;
+    background-color: rgb(80, 108, 217);
+    box-shadow: 10px 5px 5px navy;
+    padding: 2em;
+    margin: 0.5em;
+}
+
+.scheda>h2 {
+    margin: 0 0 1em 0;
+}
+
+.esercizio {
+    margin: 0.5em 0 0 0;
+    padding: 0.5em;
+    border: 2px solid whitesmoke;
+    border-radius: 30px;
+    background-color: lightskyblue;
+}
+
+.esercizio>p {
+    display: inline-block;
+    margin: 0.5em 0 0 0;
+}
+
+.esercizio>h3 {
+    margin: 0;
+}
+
+.esercizio>button {
+    position: relative;
+    left: 1.5em;
+    top: -1em;
+    padding: 0.4em;
+    background-color: midnightblue;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+}
+
+.esercizio>button>img {
+    height: 1.3em;
+    width: 1.3em;
+    position: relative;
+    top: 0.1em;
+}
+
+footer {
+    background-color: navy;
+    color: whitesmoke;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1em 0;
+}
+
+/* DESKTOP */
+@media (min-width: 850px) {
+
+    .only-mobile {
+        display: none;
+    }
+
+    .only-desktop {
+        display: block;
+    }
+
+    nav>ul>li {
+        display: inline-block;
+        margin: 1em;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .row::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+
+    .only-mobile {
+        display: block;
+    }
+
+    .only-desktop {
+        display: none;
+    }
+
+    header>button {
+        position: fixed;
+        left: 2em;
+        top: 1.5em;
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+    }
+
+    #menuMobile {
+        max-width: 50%;
+        position: absolute;
+    }
+
+    #menuMobile>li {
+        display: block;
+        margin: 1.5em 3em;
+    }
+
+    article {
+        margin-bottom: 4em;
+    }
+
 }
