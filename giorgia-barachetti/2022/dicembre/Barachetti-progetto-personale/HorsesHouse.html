@@ -9,20 +9,19 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="css/footer.css">
+    <script src="functions.js"></script>
     <title>SHOP</title>
 </head>
-<body>
+<body id="siteBody">
 
     <!--menu-->
     <header>
         <nav>
             <!-- <li>CHI SIAMO</li>-->
-            <li id="logo"><img src="../images/img-header/"></li>
+            <li id="logo"><span class="material-symbols-outlined"></span></li>
             <li><a href=""></a>CONTACTS</li> <!--LINKA ILFOOTER-->
             <li><a href=""><img id="imgshoppchart" src="img-header/trolley.png"></li> 
-            <li><span class="material-symbols-outlined">
-                    search
-                    </span></li>
+            <li><span id="search" class="material-symbols-outlined">search</span></li>
                 <!--CARRELLO //IMMAGINE //// BUTTON LINKAA PAGINA DI SHOP--> 
         </nav>
     </header>
@@ -82,11 +81,11 @@
                 <h1 id="tytle2">DRESSAGE</h1>
                 
                 <section class="dreSaddle">
-                    <img class="imgdres" src="">
-                    <h1></h1>
-                    <p></p>
-                    <p></p>
-                    <p class="price" ></p>
+                    <img class="imgdres" src="images/img-article/">
+                    <h1>SADDLE POOL</h1>
+                    <p>REINING BUTTERFLY 2040</p>
+                    <p>Greased leather, bow in ralide, Rawhide inserts in the knob, seat and brackets</p>
+                    <p class="price">1 432,90</p>
                     <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 
@@ -113,7 +112,16 @@
                 <h1 id="tytle3">TREKKING</h1>
                 
                 <section class="trekSaddle">
-                    <img class="imgdres" src="">
+                    <img class="imgtrek" src="">
+                    <h1></h1>
+                    <p></p>
+                    <p></p>
+                    <p class="price"></p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
+                </section>
+
+                <section class="trekSaddle">
+                    <img class="imgtrek" src="">
                     <h1></h1>
                     <p></p>
                     <p></p>
@@ -129,42 +137,45 @@
                 <h1 id="tytle4">WESTERN</h1>
                 
                 <section class="westSaddle">
-                    <img class="imgdres" src="">
-                    <h1></h1>
-                    <p></p>
-                    <p></p>
-                    <p class="price"></p>
+                    <img class="imgwest" src="images/img-article/img-western/saddle2.jpg">
+                    <h1>REINING BUTTERFLY 2040</h1>
+                    <p>POOL'S</p>
+                    <p>Greased leather, bow in ralide, Rawhide inserts in the knob, seat and brackets.</p>
+                    <p class="price">1 432.90</p>
+                    <button class="buy" onclick="addToCart()">ADD TO CART</button>
+                </section>
+
+                <section class="westSaddle">
+                    <img class="imgwest" src="images/img-article/img-western/saddle3.jpg">
+                    <h1>GENUINE CUTTER 7070</h1>
+                    <p>POOL'S</p>
+                    <p>Rough out leather, basket tooling. Suede seat. </p>
+                    <p class="price">1.490.00 </p>
                     <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 
-                <section class="dreSaddle">
-                    <img class="imgdres" src="">
-                    <h1></h1>
-                    <p></p>
-                    <p></p>
-                    <p class="price"></p>
+                <section class="westSaddle">
+                    <img class="imgwest" src="images/img-article/img-western/saddle4.jpg">
+                    <h1>BILLY COOK PRO ARABIAN</h1>
+                    <p>POOL'S</p>
+                    <p>Seat in suede leather.</p>
+                    <p class="price">2350.00</p>
                     <button class="buy" onclick="addToCart()">ADD TO CART</button>
                 </section>
                 <hr>
             </section>
         </section>
-        
-        <!--
-            <section id="shopChart">
-            </section>
-        -->
-        
-        
-        
-        
+
     </article> 
     
-    <form>
+    <form id="userForm">
+        <section id="sectionCart">
+        </ul><!--cart-->
         <section>
             <label>Name: <input id="name" type="text" placeholder="Donald" ></label>
-                <label>Surname: <input id="surname"  type="text" placeholder="Trump" ></label>
+            <label>Surname: <input id="surname"  type="text" placeholder="Trump" ></label>
+            <label>Address: <input id="address" type="text" placeholder="132, My Street, Kingston" ></label>
                 <label>E-mail: <input id="mail" type="email" placeholder="john@example.com" ></label>
-                <label>Address: <input id="address" type="text" placeholder="132, My Street, Kingston" ></label>
                 <label>Phone number: <input id="phone" type="tel" placeholder="(555) 555-1234" ></label>
                 
                 <div>How would you like to pay?
@@ -176,119 +187,49 @@
                 
                 <label> <input id="cond" type="checkbox">I have read and agree to the Terms of Service and Privacy Policy</label>
             
-            <button id="shop" onclick="user()" type="button">BUY</button>
+            <button id="shopButton" onclick="user()" type="button">BUY</button>
             <!--stampa in una section le scritte come fosse pacco amazon e chiedi se va bene o se c'e da cambaire qualcosa-->
         </section>
+        
+        <dl id="dl"></dl><!--userInformations-->
     </form>
     
    <!--  <section id="userBox"></section>-->
-   <dl id="dl"></dl>
+
+
+
 
     <footer>
-        <section><!--LOGO-->
-            
+        <section class="x" id="logoFooter"><!--LOGO-->
+            <span id="iconLogoFooter" class="material-symbols-outlined"> diversity_2 </span>
         </section>
         
-        <section> <!--SEDI-->
-            <h1>LOCATIONS</h1>
+        <section class="x" id="locationFooter"> <!--SEDI-->
+            <h1>LOCATION</h1>
+            <p><span class="material-symbols-outlined">distance</span>GFHDJSKLAMC NXVF</p>
             <p></p>
         </section>
         
-        <section><!--CONTATTI-->
+        <section class="x" id="contactsFooter"><!--CONTATTI-->
             <h1>CONTACT US</h1>
-            <p><img src="img-footer/phone.png">+1 408 552 6981</p>
-            <p><img scr="img-footer/">infotombinishop@gmail.com</p>
+            <p><span id="iconCall" class="material-symbols-outlined">call</span>+1 408 552 6981</p>
+            <p><span class="material-symbols-outlined">mail</span>infotombinishop@gmail.com</p>
         </section>
         
-        <section><!--ORARI-->
-            <h1>x</h1>
+        <section class="x" id="hourFooter"><!--ORARI-->
+            <h1>SCHEDULE</h1>
             <p></p>
         </section>
         
-        <section><!--SOCIAL-->
-            <h1>y</h1>
+        <section class="x" id="socialFooter"><!--SOCIAL-->
+            <h1>FOLLOW US ON...</h1>
             <p></p>
         </section>
     </footer>
     
     <form>
     </form>
-    <script>
-        function addToCart(){
-
-        }
-
-        function user(){
-                   const dl = document.getElementById("dl")
-                   const dt = document.createElement("dt");
-                   const dd = document.createElement("dd");
-                   const dd2 = document.createElement("dd");
-                   const dd3 = document.createElement("dd");
-                   const dd4 = document.createElement("dd");
-                   const dd5 = document.createElement("dd");
-                   const dd6 = document.createElement("dd");
-                   const dd7 = document.createElement("dd");
-
-                   dl.appendChild(dt);
-
-                   dt.appendChild(dd);
-                   dt.appendChild(dd2);
-                   dt.appendChild(dd3);
-                   dt.appendChild(dd4);
-                   dt.appendChild(dd5);
-                   dt.appendChild(dd6);
-                   dt.appendChild(dd7);
-
-                   
-                  const Cname = document.getElementById("name");
-                  const Csurname = document.getElementById("surname");
-                  const Cmail = document.getElementById("mail");
-                  const Caddress = document.getElementById("address");
-                  const Cphone = document.getElementById("phone");
-                  
-                  const Cpaypal = document.getElementById("paypal");
-                  const Cvisa = document.getElementById("visa");
-                  
-                  let Cpagamento = " ";
-                  if (Cpaypal.checked){
-                      Cpagamento = 'Pay with PayPal';
-                    }else if (Cvisa.checked){
-                        Cpagamento = 'Pay with Visa';
-                    }
-                    
-                    const Ccondiz = document.getElementById("cond");
-                    let cond = '';
-                    if(Ccondiz.checked){
-                        cond = 'Terms of Service and Privacy Policy approved.'
-                    }else{
-                        cond = 'The Terms of Service and the Privacy Policy must be approved to continue!'
-                    }
-
-
-
-                  dt.value ='Name'
-                  dd.innerText=Cname.value;
-                  
-                  dt.value='\nSurname'
-                  dd2.innerText=Csurname.value;
-                
-                  dt.value='\nAddress:'
-                  dd3.innerText=Caddress.value;
-                  
-                  dt.value='\nMail:'
-                  dd4.innerText=Cmail.value;
-                  
-                  dt.value='\Phone number:'
-                  dd5.innerText=Cphone.value;
-                  
-                  dt.value='\n:'
-                  dd6.innerText=Cpagamento;    
-                  //doest print the condition
-                  dd7.innerText=Ccondiz;               
-                 
-                }
-                 //function 
-                 </script>
+   
    
 </body>
 </html>
