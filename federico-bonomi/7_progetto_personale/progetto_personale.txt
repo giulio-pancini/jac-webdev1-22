@@ -26,7 +26,7 @@ Progetto forum:
             1.2)Quando viene inserito una domanda deve venire stampata a lato la data e l'ora dell'inserimento.
         2)Gli altri utenti possano rispondere.
         3)Poter nascondere le risposte di una specifica domanda.
-        3)Poter eliminare una domnda (quando una domanda viene cancellata vengono cancellate anche le risposte al dato commento).
+        3)Poter eliminare una domanda (quando una domanda viene cancellata vengono cancellate anche le risposte alla domanda).
         
 
     Entità:

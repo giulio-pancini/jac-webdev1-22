@@ -1,9 +1,39 @@
 let indice=0;
 let indiceRisposta=0;
+let listaDomande=new Array();
 
 function inserisciDomanda()
 {
+    
+    if(document.getElementById('nomeUtenteDomanda').value=='')
+    {
+        alert("Inserisci il nome utente");
+        return;
+    }
+    else if(document.getElementById('titolo').value=='')
+    {
+        alert("Inserisci il titolo");
+        return;
+    }
+    else if(document.getElementById('inputDomanda').value=='')
+    {
+        alert("Inserisci la domanda");
+        return;
+    }
+
+    //creo un oggetto con gli elementi della domanda
+    const elementoArray=
+    {
+        id: indice,
+        nomeUtente: document.getElementById('nomeUtenteDomanda').value,
+        titolo: document.getElementById('titolo').value.toUpperCase(),
+        domanda: document.getElementById('inputDomanda').value,
+        risposte : new Array()
+    }
+    listaDomande.push(elementoArray);
+    
     indice++;
+
     const nuovaDomanda = document.createElement('li');
 
     //creo il bottone per eliminare la domanda
@@ -103,6 +133,29 @@ function creaSezione(inputId, tipo)
 
 function aggiungiRisposta(parametro)
 {
+    if(document.getElementById(`nomeUtente${parametro}`).value=='')
+    {
+        alert("Inserisci il nome utente");
+        return;
+    }
+    else if(document.getElementById(`inputRisposta${parametro}`).value=='')
+    {
+        alert("Inserisci la risposta");
+        return;
+    }
+
+    const oggettoRisposta=
+    {
+        indiceDomanda: `${parametro}`-1,
+        nomeUtente: document.getElementById(`nomeUtente${parametro}`).value,
+        risposta: document.getElementById(`inputRisposta${parametro}`).value
+    }
+
+    listaDomande[`${parametro}`-1].risposte.push(oggettoRisposta);
+    console.log(oggettoRisposta.indiceDomanda);
+    console.log(oggettoRisposta.nomeUtente);
+    console.log(oggettoRisposta.risposta);
+
     indiceRisposta++;
     const nuovaRisposta = document.createElement('li');
     //bottone elimina
@@ -169,4 +222,41 @@ function nascondiRisposte(parametro, bottoneCommenti)
 function elimina(indice)
 {
     document.getElementById(indice).remove();
+}
+
+function cercaDomanda()
+{
+    if(document.getElementById("inputCerca").value=="")
+    {
+        alert("Inserici il parametro di ricerca");
+    }
+    else
+    {
+        let indiceArray=0;
+        const input=document.getElementById("inputCerca").value.toUpperCase();
+        for(let i=1;i<=listaDomande.length;i++)
+        {
+            if(listaDomande[indiceArray].titolo===input)
+            {
+                console.log("sono uguali");
+            }
+            else
+            {
+                const elemento=document.getElementById(`domanda${i}`);
+                elemento.setAttribute("class","scompari");
+            }
+            indiceArray++;
+        }
+        document.getElementById("inputCerca").value="";
+    }
+    
+}
+
+function mostraDomande()
+{
+    for(let i=1;i<=listaDomande.length;i++)
+        {
+            const elemento=document.getElementById(`domanda${i}`);
+            elemento.setAttribute("class","domanda");
+        }
 }
