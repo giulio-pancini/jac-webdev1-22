@@ -11,20 +11,36 @@
     <body>
         <header>
             <h1 id="titolo">MyFitness</h1>
-            <button class="only-mobile" onclick="toggleMenu()">=</button>
+            <button class="only-mobile" onclick="toggleMenu()">
+                <img src="Utils/white-burger-menu.png" alt="Menu">
+            </button>
             <nav>
-                <ul class="only-desktop" id="menu">
+                <ul class="only-mobile" id="menuMobile" style="display: none;">
                     <li>
-                        menu1
+                        Home
                     </li>
                     <li>
-                        menu2
+                        Lista Esercizi
                     </li>
                     <li>
-                        menu3
+                        Piani di Allenamento
                     </li>
                     <li>
-                        menu4
+                        Contatti
+                    </li>
+                </ul>
+                <ul class="only-desktop" id="menuDesktop">
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        Lista Esercizi
+                    </li>
+                    <li>
+                        Piani di Allenamento
+                    </li>
+                    <li>
+                        Contatti
                     </li>
                 </ul>
             </nav>
@@ -63,7 +79,7 @@
                         <h2>LEGS</h2>
                     </li>
                 </ul>
-                <!-- <button id="addScheda" onclick="addScheda()">Nuova Scheda</button> -->
+                <!-- <button id="buttonScheda" onclick="addScheda()">Nuova Scheda</button> -->
             </section>
         </article>
         <footer>Footer</footer>

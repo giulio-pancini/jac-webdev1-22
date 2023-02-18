@@ -1,6 +1,6 @@
 @font-face {
     font-family: zekton;
-    src: url(Media/zekton\ rg.otf);
+    src: url(Utils/zekton\ rg.otf);
 }
 
 * {
@@ -21,11 +21,11 @@ header {
     right: 0;
     background-color: navy;
     color: whitesmoke;
+    z-index: 1000;
 }
 
 #titolo {
     display: inline-block;
-    font-family: zekton;
     font-weight: bold;
     font-size: 2.5em;
     margin: 0.3em auto;
@@ -45,7 +45,6 @@ article {
 strong {
     display: block;
     margin: 1.5em auto;
-    font-family: zekton;
     font-weight: bold;
     font-size: 1.5em;
 }
@@ -56,6 +55,8 @@ form {
     padding: 0 2em;
     border: 2px solid whitesmoke;
     border-radius: 50px;
+    background-color: rgb(80, 108, 217);
+    box-shadow: 10px 5px 5px navy;
 }
 
 form>label {
@@ -94,6 +95,8 @@ input[type="number"] {
 .scheda {
     border: 2px solid whitesmoke;
     border-radius: 50px;
+    background-color: rgb(80, 108, 217);
+    box-shadow: 10px 5px 5px navy;
     padding: 2em;
     margin: 0.5em;
 }
@@ -119,6 +122,23 @@ input[type="number"] {
     margin: 0;
 }
 
+.esercizio>button {
+    position: relative;
+    left: 1.5em;
+    top: -1em;
+    padding: 0.4em;
+    background-color: midnightblue;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+}
+
+.esercizio>button>img {
+    height: 1.3em;
+    width: 1.3em;
+    position: relative;
+    top: 0.1em;
+}
+
 footer {
     background-color: navy;
     color: whitesmoke;
@@ -131,7 +151,7 @@ footer {
 }
 
 /* DESKTOP */
-@media (min-width: 851px) {
+@media (min-width: 850px) {
 
     .only-mobile {
         display: none;
@@ -151,7 +171,7 @@ footer {
         width: 50%;
         padding: 10px;
     }
-    
+
     .row::after {
         content: "";
         display: table;
@@ -174,12 +194,19 @@ footer {
     header>button {
         position: fixed;
         left: 2em;
-        top: 2em;
+        top: 1.5em;
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
     }
 
-    nav>ul>li {
-        display: inline-block;
-        margin: 1em;
+    #menuMobile {
+        max-width: 50%;
+        position: absolute;
+    }
+
+    #menuMobile>li {
+        display: block;
+        margin: 1.5em 3em;
     }
 
     article {
