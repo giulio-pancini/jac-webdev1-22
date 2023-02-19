@@ -139,26 +139,26 @@ input[type=submit]:hover {
 <div class="container">
   <form action="">
     <div class="row">
-      <h2 style="text-align:center">Login with Social Media or Manually</h2>
+      <h2 style="text-align:center">Login</h2>
       <div class="vl">
-        <span class="vl-innertext">or</span>
+        <span class="vl-innertext">O</span>
       </div>
 
       <div class="col">
         <a href="#" class="fb btn">
-          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+          <i class="fa fa-facebook fa-fw"></i> Login con Facebook
          </a>
         <a href="#" class="twitter btn">
-          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+          <i class="fa fa-twitter fa-fw"></i> Login con Twitter
         </a>
         <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-          </i> Login with Google+
+          </i> Login con Google+
         </a>
       </div>
 
       <div class="col">
         <div class="hide-md-lg">
-          <p>Or sign in manually:</p>
+          
         </div>
 
         <input type="text" name="username" placeholder="Username" required>
@@ -168,25 +168,24 @@ input[type=submit]:hover {
 
 <script>
 function myFunction() {
-  // Get the text field
+  
   var copyText = document.getElementById("myInput");
 
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
   
-  // Alert the copied text
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+
+ 
+  navigator.clipboard.writeText(copyText.value);
+
   alert("Copied the text: " + copyText.value);
+  
 }
 </script>
 
-<input  onclick="myFunction()" type="submit" value="Login + copy password ">
+<input  onclick="myFunction()" type="submit" value="Login + copy password "   >
 
       </div>
-      
     </div>
   </form>
 </div>
@@ -194,10 +193,10 @@ function myFunction() {
 <div class="bottom-container">
   <div class="row">
     <div class="col">
-      <a href="login2.html" style="color:white" class="btn">Sign up</a>
+      <a href="login2.html" style="color:white" class="btn">cra profilo</a>
     </div>
     <div class="col">
-      <a href="#" style="color:white" class="btn">Forgot password?</a>
+      <a href="#" style="color:white" class="btn">password dimenticata ?</a>
     </div>
   </div>
 </div>

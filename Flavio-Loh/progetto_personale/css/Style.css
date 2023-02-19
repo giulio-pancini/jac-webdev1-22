@@ -13,6 +13,33 @@
     background-color: white;
 }
 
+
+#Carrello{
+    margin-top : 10px;
+    border-collapse: collapse;
+    border: 2px solid black; 
+    width: 500px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+          
+}
+table {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 5px;
+  }
+  
+
 #nav_primaria{
     background-color: rgb(244, 244, 244);
     height: 50px;
@@ -67,7 +94,7 @@
     color: white;
 }
 
- .StoryText{
+.StoryText{
     width: 60%;
     margin-top: 5%;
     
@@ -191,14 +218,5 @@ button {
 }
 
 
-
-#buttonCarrello{
-   text-align: center;
-}
-
-#textCarrello{
-    position: relative;
-    left: 43%;
-}
 
 
