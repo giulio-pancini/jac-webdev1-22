@@ -24,22 +24,23 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 128, 0.5);
     color: whitesmoke;
     z-index: 1000;
 }
 
 #titolo {
-    display: inline-block;
+    background-color: rgb(0, 0, 100);
+    display: block;
     font-size: 2.5em;
-    margin: 0.3em auto;
+    padding: 0.3em;
+    margin: 0;
     width: 100%;
 }
 
 nav>ul {
     margin: 0;
     padding: 0;
-    background-color: rgb(39, 80, 116, 0.5);
+    background-color: rgb(35, 59, 117);
 }
 
 article {
@@ -72,6 +73,10 @@ form>label {
 select {
     font-family: zekton;
     width: 10em;
+    background-color: rgba(0, 0, 128, 0.8);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
 }
 
 option[value="none"] {
@@ -81,6 +86,10 @@ option[value="none"] {
 
 input {
     font-family: zekton;
+    background-color: rgba(0, 0, 128, 0.8);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
 }
 
 input[type="number"] {
@@ -90,6 +99,8 @@ input[type="number"] {
 #addEs {
     margin: 3em;
     font-family: zekton;
+    padding: 1em;
+    border-radius: 15px;
 }
 
 #listaSchede {
@@ -220,7 +231,6 @@ footer {
         max-width: 50%;
         position: absolute;
         border-bottom-right-radius: 30px;
-        background-color: rgb(39, 80, 116);
     }
 
     #menuMobile>li {
