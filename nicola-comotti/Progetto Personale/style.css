@@ -8,7 +8,12 @@
 }
 
 body {
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
+    background-image: url(Utils/Background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
     font-family: zekton;
     margin: 0;
@@ -19,14 +24,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: navy;
+    background-color: rgba(0, 0, 128, 0.5);
     color: whitesmoke;
     z-index: 1000;
 }
 
 #titolo {
     display: inline-block;
-    font-weight: bold;
     font-size: 2.5em;
     margin: 0.3em auto;
     width: 100%;
@@ -35,14 +39,15 @@ header {
 nav>ul {
     margin: 0;
     padding: 0;
-    background-color: rgb(39, 80, 116);
+    background-color: rgb(39, 80, 116, 0.5);
 }
 
 article {
-    margin-bottom: 3em;
+    padding-bottom: 0.5em;
 }
 
 strong {
+    color: whitesmoke;
     display: block;
     margin: 1.5em auto;
     font-weight: bold;
@@ -55,8 +60,8 @@ form {
     padding: 0 2em;
     border: 2px solid whitesmoke;
     border-radius: 50px;
-    background-color: rgb(80, 108, 217);
-    box-shadow: 10px 5px 5px navy;
+    background-color: rgba(0, 0, 128, 0.4);
+    color: whitesmoke;
 }
 
 form>label {
@@ -84,19 +89,20 @@ input[type="number"] {
 
 #addEs {
     margin: 3em;
+    font-family: zekton;
 }
 
 #listaSchede {
     list-style-type: none;
-    margin: 2em auto;
+    margin: 2em 1em;
     padding: 0;
 }
 
 .scheda {
     border: 2px solid whitesmoke;
     border-radius: 50px;
-    background-color: rgb(80, 108, 217);
-    box-shadow: 10px 5px 5px navy;
+    background-color: rgba(0, 0, 128, 0.4);
+    color: whitesmoke;
     padding: 2em;
     margin: 0.5em;
 }
@@ -110,7 +116,8 @@ input[type="number"] {
     padding: 0.5em;
     border: 2px solid whitesmoke;
     border-radius: 30px;
-    background-color: lightskyblue;
+    background-color: rgba(0, 0, 128, 0.4);
+    position: relative;
 }
 
 .esercizio>p {
@@ -123,12 +130,12 @@ input[type="number"] {
 }
 
 .esercizio>button {
-    position: relative;
-    left: 1.5em;
-    top: -1em;
+    position: absolute;
+    right: -1.3em;
+    top: -0.75em;
     padding: 0.4em;
     background-color: midnightblue;
-    border-radius: 10px;
+    border-radius: 50px;
     border: 2px solid whitesmoke;
 }
 
@@ -160,8 +167,13 @@ footer {
     .only-desktop {
         display: block;
     }
+    
+    nav.only-desktop>ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
 
-    nav>ul>li {
+    nav.only-desktop>ul>li {
         display: inline-block;
         margin: 1em;
     }
@@ -199,18 +211,21 @@ footer {
         border: none;
     }
 
+    header>button :active {
+        background-color: rgba(111, 111, 111, 0.8);
+        border-radius: 5px;
+    }
+
     #menuMobile {
         max-width: 50%;
         position: absolute;
+        border-bottom-right-radius: 30px;
+        background-color: rgb(39, 80, 116);
     }
 
     #menuMobile>li {
         display: block;
         margin: 1.5em 3em;
-    }
-
-    article {
-        margin-bottom: 4em;
     }
 
 }
