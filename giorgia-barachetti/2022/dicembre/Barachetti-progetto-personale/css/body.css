@@ -10,7 +10,7 @@ body{
     font-size: 15px;
     text-decoration: none;
     background-color: rgb(38,38,38);
-    border: 7px solid rgb(213, 162, 105);
+    border: 7px solid rgb(143, 112, 78);
 }
 
 
@@ -23,11 +23,12 @@ form{
     padding: 0;
     margin-bottom: 0;
 }
-
+/*
     form label, div{
         color: white;
         opacity:0.8;
     }
+    */
 /*
     form > ul,section,dl{
         display: inline-block
