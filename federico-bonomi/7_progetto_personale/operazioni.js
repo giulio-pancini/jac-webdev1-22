@@ -227,7 +227,10 @@ function eliminaDomanda(id, indiceDomanda)
 {
     document.getElementById(id).remove();
     const x=indiceDomanda-1;
-    delete listaDomande[x];
+    listaDomande[x]=null;
+    listaDomande.forEach(element=>{
+        console.log(element);
+    })
 }
 
 //elimina una risposta lasciando uno spazio vuoto nell'array
@@ -270,15 +273,19 @@ function cercaDomanda()
         const input=document.getElementById("inputCerca").value.toUpperCase();
         for(let i=1;i<=listaDomande.length;i++)
         {
-            if(listaDomande[indiceArray].titolo===input)
+            if(listaDomande[indiceArray]!=null)
             {
-                console.log("sono uguali");
+                if(listaDomande[indiceArray].titolo===input)
+                {
+                    console.log("sono uguali");
+                }
+                else
+                {
+                    const elemento=document.getElementById(`domanda${i}`);
+                    elemento.setAttribute("class","scompari");
+                }
             }
-            else
-            {
-                const elemento=document.getElementById(`domanda${i}`);
-                elemento.setAttribute("class","scompari");
-            }
+            
             indiceArray++;
         }
         document.getElementById("inputCerca").value="";
@@ -288,9 +295,14 @@ function cercaDomanda()
 
 function mostraDomande()
 {
+    let indiceArray=0;
     for(let i=1;i<=listaDomande.length;i++)
         {
-            const elemento=document.getElementById(`domanda${i}`);
-            elemento.setAttribute("class","domanda");
+            if(listaDomande[indiceArray]!=null)
+            {
+                const elemento=document.getElementById(`domanda${i}`);
+                elemento.setAttribute("class","domanda");
+            }
+            indiceArray++;
         }
 }
