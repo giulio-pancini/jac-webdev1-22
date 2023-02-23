@@ -4,23 +4,28 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MyFitness</title>
+        <title>MyFitnessHub</title>
+        <link rel="icon" href="Utils/dumbell-favicon.png">
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <header>
-            <button class="only-mobile" onclick="toggleMenu()">
+            <button class="only-mobile" id="menuToggle" onclick="toggleMenu()">
                 <img src="Utils/white-burger-menu.png" alt="Menu">
             </button>
-            <h1 id="titolo">MyFitness</h1>
+            <h1 id="titolo">MyFitnessHub</h1>
+            <button id="login">
+                <img src="Utils/white-user.png">
+                <p class="only-desktop">Login</p>
+            </button>
             <nav class="only-desktop">
                 <ul id="menuDesktop">
                     <li>
                         Home
                     </li>
                     <li>
-                        Lista Esercizi
+                        Database Esercizi
                     </li>
                     <li>
                         Piani di Allenamento
@@ -36,7 +41,7 @@
                         Home
                     </li>
                     <li>
-                        Lista Esercizi
+                        Database Esercizi
                     </li>
                     <li>
                         Piani di Allenamento
