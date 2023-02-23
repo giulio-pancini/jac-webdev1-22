@@ -4,27 +4,50 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MyFitness</title>
+        <title>MyFitnessHub</title>
+        <link rel="icon" href="Utils/dumbell-favicon.png">
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <header>
-            <h1 id="titolo">MyFitness</h1>
-            <button class="only-mobile" onclick="toggleMenu()">=</button>
-            <nav>
-                <ul class="only-desktop" id="menu">
+            <button class="only-mobile" id="menuToggle" onclick="toggleMenu()">
+                <img src="Utils/white-burger-menu.png" alt="Menu">
+            </button>
+            <h1 id="titolo">MyFitnessHub</h1>
+            <button id="login">
+                <img src="Utils/white-user.png">
+                <p class="only-desktop">Login</p>
+            </button>
+            <nav class="only-desktop">
+                <ul id="menuDesktop">
                     <li>
-                        menu1
+                        Home
                     </li>
                     <li>
-                        menu2
+                        Database Esercizi
                     </li>
                     <li>
-                        menu3
+                        Piani di Allenamento
                     </li>
                     <li>
-                        menu4
+                        Contatti
+                    </li>
+                </ul>
+            </nav>
+            <nav class="only-mobile">
+                <ul id="menuMobile" style="display: none;">
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        Database Esercizi
+                    </li>
+                    <li>
+                        Piani di Allenamento
+                    </li>
+                    <li>
+                        Contatti
                     </li>
                 </ul>
             </nav>
@@ -43,10 +66,10 @@
                         </select>
                     </label>
                     <label>Nome esercizio: <input id="nome" type="text"></label>
-                    <label>Peso: <input id="peso" type="number" min="0" placeholder="Kg"></label>
+                    <label>Peso: <input id="peso" type="number" min="0"> Kg</label>
                     <label>Serie: <input id="serie" type="number" min="0"></label>
                     <label>Ripetizioni: <input id="rep" type="number" min="0"></label>
-                    <label>Recupero: <input id="rest" type="number" step="30" min="0" placeholder="Secondi"></label>
+                    <label>Recupero: <input id="rest" type="number" step="30" min="0"> Sec</label>
                     <button type="button" id="addEs" onclick="addExe()">Aggiungi</button>
                 </form>
             </aside>
@@ -63,10 +86,10 @@
                         <h2>LEGS</h2>
                     </li>
                 </ul>
-                <!-- <button id="addScheda" onclick="addScheda()">Nuova Scheda</button> -->
+                <!-- <button id="buttonScheda" onclick="addScheda()">Nuova Scheda</button> -->
             </section>
         </article>
-        <footer>Footer</footer>
+        <!--footer>Footer</footer-->
         <script src="app.js"></script>
     </body>
 
