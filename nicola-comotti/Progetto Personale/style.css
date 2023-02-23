@@ -1,30 +1,241 @@
+@font-face {
+    font-family: zekton;
+    src: url(Utils/zekton\ rg.otf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
+    background-image: url(Utils/Background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
-    font-family: sans-serif;
+    font-family: zekton;
+    margin: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: whitesmoke;
+    z-index: 1000;
 }
 
 #titolo {
-    display: inline-block;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: lighter;
-}
-
-nav > ul > li {
-    display: inline-block;
-}
-
-form > strong {
+    background-color: rgb(0, 0, 100);
     display: block;
-    margin: 2em auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.5em;
+    padding: 0.3em;
+    margin: 0;
+    width: 100%;
 }
 
-form > label {
+nav>ul {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(35, 59, 117);
+}
+
+article {
+    padding-bottom: 0.5em;
+}
+
+strong {
+    color: whitesmoke;
+    display: block;
+    margin: 1.5em auto;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+form {
+    margin: 2em auto;
+    width: fit-content;
+    padding: 0 2em;
+    border: 2px solid whitesmoke;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 128, 0.4);
+    color: whitesmoke;
+}
+
+form>label {
     display: block;
     margin: 0.5em auto;
 }
 
-#addExe {
-    margin-top: 3em;
+select {
+    font-family: zekton;
+    width: 10em;
+    background-color: rgba(0, 0, 128, 0.8);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+option[value="none"] {
+    font-weight: bold;
+    font-style: italic;
+}
+
+input {
+    font-family: zekton;
+    background-color: rgba(0, 0, 128, 0.8);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+input[type="number"] {
+    width: 6em;
+}
+
+#addEs {
+    margin: 3em;
+    font-family: zekton;
+    padding: 1em;
+    border-radius: 15px;
+}
+
+#listaSchede {
+    list-style-type: none;
+    margin: 2em 1em;
+    padding: 0;
+}
+
+.scheda {
+    border: 2px solid whitesmoke;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 128, 0.4);
+    color: whitesmoke;
+    padding: 2em;
+    margin: 0.5em;
+}
+
+.scheda>h2 {
+    margin: 0 0 1em 0;
+}
+
+.esercizio {
+    margin: 0.5em 0 0 0;
+    padding: 0.5em;
+    border: 2px solid whitesmoke;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 128, 0.4);
+    position: relative;
+}
+
+.esercizio>p {
+    display: inline-block;
+    margin: 0.5em 0 0 0;
+}
+
+.esercizio>h3 {
+    margin: 0;
+}
+
+.esercizio>button {
+    position: absolute;
+    right: -1.3em;
+    top: -0.75em;
+    padding: 0.4em;
+    background-color: midnightblue;
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+}
+
+.esercizio>button>img {
+    height: 1.3em;
+    width: 1.3em;
+    position: relative;
+    top: 0.1em;
+}
+
+footer {
+    background-color: navy;
+    color: whitesmoke;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1em 0;
+}
+
+/* DESKTOP */
+@media (min-width: 850px) {
+
+    .only-mobile {
+        display: none;
+    }
+
+    .only-desktop {
+        display: block;
+    }
+    
+    nav.only-desktop>ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    nav.only-desktop>ul>li {
+        display: inline-block;
+        margin: 1em;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .row::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+
+    .only-mobile {
+        display: block;
+    }
+
+    .only-desktop {
+        display: none;
+    }
+
+    header>button {
+        position: fixed;
+        left: 2em;
+        top: 1.5em;
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+    }
+
+    header>button :active {
+        background-color: rgba(111, 111, 111, 0.8);
+        border-radius: 5px;
+    }
+
+    #menuMobile {
+        max-width: 50%;
+        position: absolute;
+        border-bottom-right-radius: 30px;
+    }
+
+    #menuMobile>li {
+        display: block;
+        margin: 1.5em 3em;
+    }
+
 }

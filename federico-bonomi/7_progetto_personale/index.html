@@ -11,10 +11,11 @@
     </header>
     <article>
         <section id="sezioneDomanda">
-            <form>
+            <h1>Inserisci le domande:</h1>
+            <form id="inserisciDomanda">
                 <input type="text" placeholder="Inserisci nome utente" id="nomeUtenteDomanda" class="nuovaDomanda">
                 <input type="text" placeholder="Inserisci il titolo" id="titolo" class="nuovaDomanda">
-                <input type="text" placeholder="Inserisci una nuova domanda" id="domanda" class="nuovaDomanda">
+                <input type="text" placeholder="Inserisci una nuova domanda" id="inputDomanda" class="nuovaDomanda">
                 <div>
                     <button type="button" onclick="inserisciDomanda()" class="nuovaDomanda">Inserisci</button>
                 </div>
@@ -22,11 +23,19 @@
         </section>
 
         <section id="sezioneRisposte">
-            <h1>Domande:</h1>
+            <h1>Sezione domande e risposte:</h1>
+            <form id="ricerca">
+                <input type="text" placeholder="Cerca una domanda" id="inputCerca">
+                <button type="button" onclick="cercaDomanda()">Cerca</button>
+                <button type="button" onclick="mostraDomande()">Mostra tutte le domande</button>
+            </form>
+            
             <ul id="domande"></ul>
         </section>
     </article>
-
+    <footer>
+        <!--TO DO-->
+    </footer>
     
 </body>
 </html>

@@ -1,36 +1,88 @@
-const gameBoard = document.getElementById("game-board");
-const scoreDisplay = document.getElementById("score");
-let score = 0;
-
-let enemyInterval = setInterval(function() {
-  let x = Math.floor(Math.random() * 450);
-  let y = Math.floor(Math.random() * 450);
-  let enemy = document.createElement("div");
-  enemy.classList.add("enemy");
-  enemy.style.left = x + "px";
-  enemy.style.top = y + "px";
-  gameBoard.appendChild(enemy);
-}, 1000);
-
-document.addEventListener("click", function(event) {
-  let x = event.clientX;
-  let y = event.clientY;
-
-  let bullet = document.createElement("div");
-  bullet.classList.add("bullet");
-  bullet.style.left = x + "px";
-  bullet.style.top = y + "px";
-  gameBoard.appendChild(bullet);
-
-  let enemies = document.getElementsByClassName("enemy");
-  for (let i = 0; i < enemies.length; i++) {
-    let enemy = enemies[i];
-    let enemyRect = enemy.getBoundingClientRect();
-
-    if (x >= enemyRect.left && x <= enemyRect.right && y >= enemyRect.top && y <= enemyRect.bottom) {
-      gameBoard.removeChild(enemy);
-      score++;
-      scoreDisplay.innerHTML = "Score: " + score;
+class Snake {
+    constructor(x, y) {
+        this.body = [{x: x, y: y}];
+        this.direction = 'right';
     }
-  }
-});
+
+    move() {
+        let head = {x: this.body[0].x, y: this.body[0].y};
+
+        switch (this.direction) {
+            case 'up':
+                head.y--;
+                break;
+            case 'down':
+                head.y++;
+                break;
+            case 'left':
+                head.x--;
+                break;
+            case 'right':
+                head.x++;
+                break;
+        }
+
+        this.body.unshift(head);
+        this.body.pop();
+    }
+
+    eat(food) {
+        if (this.body[0].x === food.x && this.body[0].y === food.y) {
+            this.body.push(food);
+            return true;
+        }
+
+        return false;
+    }
+
+    collides() {
+        let head = this.body[0];
+
+        for (let i = 1; i < this.body.length; i++) {
+            if (this.body[i].x === head.x && this.body[i].y === head.y) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    setDirection(direction) {
+        switch (direction) {
+            case 'up':
+                if (this.direction !== 'down') {
+                    this.direction = 'up';
+                }
+                break;
+            case 'down':
+                if (this.direction !== 'up') {
+                    this.direction = 'down';
+                }
+                break;
+            case 'left':
+                if (this.direction !== 'right') {
+                    this.direction = 'left';
+                }
+                break;
+            case 'right':
+                if (this.direction !== 'left') {
+                    this.direction = 'right';
+                }
+                break;
+        }
+    }
+}
+
+class Food {
+    constructor() {
+        this.x = Math.floor(Math.random() * 20) * 20;
+        this.y = Math.floor(Math.random() * 20) * 20;
+    }
+}
+
+class Game {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.snake = new
+
