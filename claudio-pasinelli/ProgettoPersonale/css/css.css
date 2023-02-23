@@ -1,21 +1,95 @@
-
+*
+{
+    box-sizing: border-box;
+}
 body
 {
     margin-top: 0px;
     background-color: rgb(68, 72, 87);
 }
+
+section#documento
+{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    gap: 1.75rem;
+}
+
 /* cambiare nome id */
 section#corpo
 {
+    flex: 7;
+    order: 1;
     border-color: rgb(255, 202, 89);
     border-width: 0.2rem;
     border-style: solid;
     margin-top: 0px;
-    margin-left: 3.5rem;
-    margin-right: 3.5rem;
     background-color: rgb(255, 255, 255);
-    min-width: fit-content;
+    min-width: auto;
+    /* max-height: 100vh;
+    overflow-y: auto; */
 }
+
+/* SECTION SOCIAL  */
+section#linkSocial
+{
+    flex: 1;
+    order: 2;
+    background-color: white;
+    min-width: auto;
+    width: auto;
+    border-color: darkkhaki;
+    border-width: 0.2rem;
+    border-style: solid;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    border-radius: 10%;
+}
+section#linkSocial form#social
+{
+    padding: 4%;
+}
+section#linkSocial h1
+{
+    padding-left: 4%;
+    padding-right: 4%;
+}
+section#linkSocial form#social input[type="text"],input[type="link"]
+{
+    display: block;
+    margin-top: 0.2rem;
+    width: fit-content;
+}
+section#linkSocial figure#listaSocial
+{
+    text-align: center;
+}
+section#linkSocial figure#listaSocial a
+{
+    color: darkkhaki;
+}
+section#linkSocial figure#listaSocial img.zoom
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    /* min-width: 128px; */
+    background-color: white;
+    border-radius: 25%;
+    transition: transform .2s;
+}
+section#linkSocial figure#listaSocial img.zoom:hover
+{
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+/* SECTION SOCIAL  */
+
 header
 {
     position: sticky;
@@ -90,42 +164,48 @@ nav#menu a.active.zoom
 /* cambiare i nomi id */
 article#formTracce
 {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    align-content: center;
+    display: grid;
+    /* text-align: center;  */
 }
 article#formTracce section#formAggiunta
 {
-    flex: 0.5;
-    order: 1;
-    background-color: rgb(230, 254, 255);
-    border-color: rgb(255, 202, 89);
+    /* border-color: rgb(255, 202, 89);
     border-width: 0.2rem;
     border-style: solid;
+    background-color: rgb(230, 254, 255); */
     margin-top: 1.5rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
-    padding-left: 40px;
-    padding-right: 0.75rem;
+    padding-left: 4%;
+    padding-right: 4%;
     padding-bottom: 2rem;
     min-width: fit-content;
+    width: fit-content;
+    height: fit-content;
+}
+article#formTracce section#formAggiunta input[type="text"]
+{
+    text-align: center;
+    /* height: 50px;
+    width: 350px; */
 }
 article#formTracce section#listaTraccePerMese
 {
-    flex: 0.5;
-    order: 2;
-    border-color: rgb(255, 202, 89);
+    /* border-color: rgb(255, 202, 89);
     border-width: 0.2rem;
     border-style: solid;
-    background-color: rgba(255, 224, 100, 0.5);
+    background-color: rgba(255, 224, 100, 0.5); */
     margin-top: 1.5rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
     min-width: fit-content;
+    width: fit-content;
 }
 article#formTracce section#listaTraccePerMese ul#listaTracce
 {
     padding-right: 40px;
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
 }
 article#formTracce section#listaTraccePerMese ul#listaTracce ul
 {
@@ -136,6 +216,7 @@ article#formTracce section#listaTraccePerMese ul#listaTracce ul
     border-width: 0rem;
     margin-bottom: 0rem;
     opacity: 0;
+    /* border-radius: 25%; */
 }
 
 article#formTracce section#listaTraccePerMese ul#listaTracce ul h1
@@ -153,7 +234,7 @@ article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom
     background-color: rgb(255, 251, 236, 0.5);
     list-style: none;
     width: auto;
-    transition: transform .2s;
+    transition: box-shadow .3s transform .2s;
 }
 article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom:hover
 {
@@ -161,6 +242,7 @@ article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom:hover
     -webkit-transform: scale(1.01);
     transform: scale(1.01);
     color: blue;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 /* cambiare i nomi degli id */
 article#articolo2
@@ -192,8 +274,12 @@ footer#piePagina
     border-right: 0rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    /* padding-top: 60px; */
     margin-top: 1.75rem;
-    background-color: rgba(0, 254, 237, 0.658);
+    background: grey;
+    grid-row-end: 5000;
+    /* text-align: center; */
+    border: 0px;
 }
 section.canzone
 {
@@ -202,7 +288,7 @@ section.canzone
     flex-direction: row;
     flex: 1;
     order: 2;
-    margin-bottom: 2.75rem;
+    margin-bottom: 1.5rem;
     border-color: rgb(255, 255, 255);
     border-width: 0.2rem;
     border-style: solid;
@@ -216,6 +302,11 @@ section.canzone p
     margin-bottom: 0.5rem;
     text-align: center;
 }
+section.canzone p.prezzo
+{
+    margin-left: 1.5rem;
+    margin-right: 0.5rem;
+}
 section.canzone button.zoom
 {
     background-color: rgb(255 253 232);
@@ -225,7 +316,7 @@ section.canzone button.zoom
     margin-left: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
-    transition: transform .2s;
+    transition: box-shadow .3s transform .2s;
 }
 section.canzone button.zoom:hover
 {
@@ -233,6 +324,7 @@ section.canzone button.zoom:hover
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
     color: blue;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 section.titoloESort
@@ -254,7 +346,7 @@ section.titoloESort button.zoom
     width: fit-content;
     height: fit-content;
     margin-top: 1rem;
-    transition: transform .2s;
+    transition: box-shadow .3s transform .2s;
 }
 section.titoloESort button.zoom:hover
 {
@@ -262,35 +354,41 @@ section.titoloESort button.zoom:hover
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     color: blue;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
+/*MEDIA!!!!!*/
 
-/* roba per il popup */
+@media (min-width: 150px)
+{
+    nav#menu a.zoom {padding: 5%; font-size: 15px; }
+    section#documento {display: grid; }
+}
 
-li.elementoTraccia.zoom.tip 
+@media (min-width: 576px)
 {
-    transition-duration: 2s;
-    cursor: help;
+    /* article#formTracce section#listaTraccePerMese ul#listaTracce ul {padding-left: 0px; padding-right: 0px !important; } */
+    article#formTracce input[type="text"] {width: 90px; }
+    article#formTracce select {width: 90px; }
+    section#documento {display: flex; }
 }
-li.elementoTraccia.zoom.tip span
+
+@media (min-width: 768px)
 {
-    display: none;
+    article#formTracce section#listaTraccePerMese ul#listaTracce ul {padding-left: 40px !important; padding-right: 40px !important; }
+    article#formTracce {grid-template-columns: repeat(1, 1fr); }
+    article#formTracce input[type="text"] {width: fit-content; }
+    article#formTracce select {width: fit-content; }
+    nav#menu a.zoom {padding: 10%; }
+    nav#menu li {display: inline-block; }
+    nav#menu a.zoom {padding: 14px 16px; }
 }
-li.elementoTraccia.zoom.tip:hover span
+
+/* @media (min-width: 700px)
 {
-    border-color: rgb(255, 255, 255);
-    border-width: 0.2rem;
-    border-style: solid;
-    padding: 5px 5px 5px 5px;
-    z-index: 100;
-    background:#f0f0f0 no-repeat 100%;
-    left: 60px;
-    top: -40px;
-    font-size: small;
-    height: fit-content;
-    width: fit-content;
-    display: block;
-    position: absolute;
-    text-decoration: none;
-    color:black;
+} */
+
+@media (min-width: 992px)
+{
+    article#formTracce { grid-template-columns: repeat(2, 1fr); }
 }
