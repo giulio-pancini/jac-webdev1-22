@@ -11,7 +11,7 @@ body
 section#documento
 {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: row;
     gap: 1.75rem;
 }
@@ -27,6 +27,8 @@ section#corpo
     margin-top: 0px;
     background-color: rgb(255, 255, 255);
     min-width: auto;
+    /* max-height: 100vh;
+    overflow-y: auto; */
 }
 
 /* SECTION SOCIAL  */
@@ -41,6 +43,10 @@ section#linkSocial
     border-width: 0.2rem;
     border-style: solid;
     overflow: hidden;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    border-radius: 10%;
 }
 section#linkSocial form#social
 {
@@ -70,7 +76,8 @@ section#linkSocial figure#listaSocial img.zoom
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
+    width: 45%;
+    /* min-width: 128px; */
     background-color: white;
     border-radius: 25%;
     transition: transform .2s;
@@ -162,10 +169,10 @@ article#formTracce
 }
 article#formTracce section#formAggiunta
 {
-    border-color: rgb(255, 202, 89);
+    /* border-color: rgb(255, 202, 89);
     border-width: 0.2rem;
     border-style: solid;
-    background-color: rgb(230, 254, 255);
+    background-color: rgb(230, 254, 255); */
     margin-top: 1.5rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -173,26 +180,21 @@ article#formTracce section#formAggiunta
     padding-right: 4%;
     padding-bottom: 2rem;
     min-width: fit-content;
-    /* width: fit-content; */
-}
-article#formTracce section#listaTraccePerMese
-{
-    border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
-    background-color: rgba(255, 224, 100, 0.5);
-    margin-top: 1.5rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    min-width: fit-content;
     width: fit-content;
+    height: fit-content;
+}
+article#formTracce section#formAggiunta input[type="text"]
+{
+    text-align: center;
+    /* height: 50px;
+    width: 350px; */
 }
 article#formTracce section#listaTraccePerMese
 {
-    border-color: rgb(255, 202, 89);
+    /* border-color: rgb(255, 202, 89);
     border-width: 0.2rem;
     border-style: solid;
-    background-color: rgba(255, 224, 100, 0.5);
+    background-color: rgba(255, 224, 100, 0.5); */
     margin-top: 1.5rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -202,6 +204,8 @@ article#formTracce section#listaTraccePerMese
 article#formTracce section#listaTraccePerMese ul#listaTracce
 {
     padding-right: 40px;
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
 }
 article#formTracce section#listaTraccePerMese ul#listaTracce ul
 {
@@ -212,6 +216,7 @@ article#formTracce section#listaTraccePerMese ul#listaTracce ul
     border-width: 0rem;
     margin-bottom: 0rem;
     opacity: 0;
+    /* border-radius: 25%; */
 }
 
 article#formTracce section#listaTraccePerMese ul#listaTracce ul h1
@@ -283,7 +288,7 @@ section.canzone
     flex-direction: row;
     flex: 1;
     order: 2;
-    margin-bottom: 2.75rem;
+    margin-bottom: 1.5rem;
     border-color: rgb(255, 255, 255);
     border-width: 0.2rem;
     border-style: solid;
@@ -352,20 +357,23 @@ section.titoloESort button.zoom:hover
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
+/*MEDIA!!!!!*/
+
 @media (min-width: 150px)
 {
     nav#menu a.zoom {padding: 5%; font-size: 15px; }
     section#documento {display: grid; }
 }
 
-@media (min-width: 450px)
+@media (min-width: 576px)
 {
-    article#formTracce section#listaTraccePerMese ul#listaTracce ul {padding-left: 0px; padding-right: 0px !important; }
+    /* article#formTracce section#listaTraccePerMese ul#listaTracce ul {padding-left: 0px; padding-right: 0px !important; } */
     article#formTracce input[type="text"] {width: 90px; }
     article#formTracce select {width: 90px; }
     section#documento {display: flex; }
 }
-@media (min-width: 670px)
+
+@media (min-width: 768px)
 {
     article#formTracce section#listaTraccePerMese ul#listaTracce ul {padding-left: 40px !important; padding-right: 40px !important; }
     article#formTracce {grid-template-columns: repeat(1, 1fr); }
@@ -375,10 +383,12 @@ section.titoloESort button.zoom:hover
     nav#menu li {display: inline-block; }
     nav#menu a.zoom {padding: 14px 16px; }
 }
+
 /* @media (min-width: 700px)
 {
 } */
-@media (min-width: 960px)
+
+@media (min-width: 992px)
 {
     article#formTracce { grid-template-columns: repeat(2, 1fr); }
 }

@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -19,6 +20,7 @@
     left: 0px;
     background-color: #ffffff99;
 }
+
 
 
 #navbar .logo img {
@@ -461,3 +463,71 @@ h3 {
         font-size: 16px;
     }
 }
+button {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+    border: #3d2514;
+    width: 30%; 
+    
+
+  }
+  
+  button:hover {
+    background-color: #d1923c;
+  }
+  .button::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: inherit;
+    transition: all .5s ease-in;
+}
+
+.button::before{
+    top: -15px;
+    left: -15px;
+    border-width: 3px 0 0 3px;
+}
+
+.button::after{
+    bottom: -15px;
+    right: -15px;
+    border-width: 0 3px 3px 0;
+}
+
+.button:hover::before,
+.button:hover::after{
+    width: calc(100% + 27px);
+    height: calc(100% + 27px);
+}
+
+.message-container {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .message {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #ffc107;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    box-shadow: 2px 2px 5px #ccc;
+    margin: 10px;
+  }
+  

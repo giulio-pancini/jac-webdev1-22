@@ -24,6 +24,12 @@
 
         <section id="sezioneRisposte">
             <h1>Sezione domande e risposte:</h1>
+            <form id="ricerca">
+                <input type="text" placeholder="Cerca una domanda" id="inputCerca">
+                <button type="button" onclick="cercaDomanda()">Cerca</button>
+                <button type="button" onclick="mostraDomande()">Mostra tutte le domande</button>
+            </form>
+            
             <ul id="domande"></ul>
         </section>
     </article>

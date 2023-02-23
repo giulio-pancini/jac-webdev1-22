@@ -18,7 +18,17 @@
         for(let i in lista){   //questa è una semplificazione del ciclo for
             const elementoCorrente = lista[i]; //in questo modo estraggo l'indice
             console.log(elementoCorrente);
-        }
+        } 
+
+        /*il forEach invece è un metodo dell'array o della mappa che vogliamo ciclare. difatto quando noi 
+        vogliamo ciclare un array scriveremmo: "<nome array>.forEach(funzione)". se io creassi una funzione la
+        potrei utilizzare come variabile per il mio for each. al for each posso passare delle funzioni anonime:
+        arrow function, funzioni standard che utilizzo solo per una volta nel mio codice. Il forEach si occupa
+        di solamente un argomento, quindi nella parentesi tonda posso mettere solamente un argomento. 
+        il forEach, che esiste solo per mappe ed array, è ordinato a sua volta. il .map crea una mappa convertita da un array
+        .filter come dice filtra l'array, .every si assicura che tutti abbiano lo stesso valore, .sort invece ordina 
+        seguendo un ordine da me scelto. se volessi un array senza duplicati userei "set". 
+        */
 
         for(let elementoCorrente of lista) { //questo è direttamente "primo", "secondo", "terzo"
             console.log(elementoCorrente);
@@ -102,7 +112,7 @@
 
       puntiPerGiocatore.forEach(
         /* Il forEach per le mappe passa due parametri alla funzione, valore e chiave */
-        (punti /*valore*/, giocatore /*chiave*/) =>
+        (giocatore /*chiave*/ ,punti /*valore*/ ) =>
           console.log(giocatore + " ha fatto " + punti + " punti in carriera")
       );
 

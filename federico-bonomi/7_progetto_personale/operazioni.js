@@ -1,16 +1,51 @@
 let indice=0;
 let indiceRisposta=0;
+let listaDomande=new Array();
 
 function inserisciDomanda()
 {
+    
+    if(document.getElementById('nomeUtenteDomanda').value=='')
+    {
+        alert("Inserisci il nome utente");
+        return;
+    }
+    else if(document.getElementById('titolo').value=='')
+    {
+        alert("Inserisci il titolo");
+        return;
+    }
+    else if(document.getElementById('inputDomanda').value=='')
+    {
+        alert("Inserisci la domanda");
+        return;
+    }
+    
+    let titoloArrayProvvisorio=new Array();
+    titoloArrayProvvisorio=document.getElementById('titolo').value.toUpperCase().split(" ");
+    //creo un oggetto con gli elementi della domanda
+    const elementoArray=
+    {
+        id: indice,
+        nomeUtente: document.getElementById('nomeUtenteDomanda').value,
+        titolo: document.getElementById('titolo').value.toUpperCase(),
+        //divido il titolo in un array di substringhe
+        titoloArray: titoloArrayProvvisorio,
+        domanda: document.getElementById('inputDomanda').value,
+        risposte : new Array()
+    }
+    listaDomande.push(elementoArray);
+    
     indice++;
+
     const nuovaDomanda = document.createElement('li');
 
     //creo il bottone per eliminare la domanda
     const bottoneElimina=document.createElement("button");
-    bottoneElimina.setAttribute("onclick",`elimina("domanda${indice}")`);
+    bottoneElimina.setAttribute("onclick",`eliminaDomanda("domanda${indice}","${indice}")`);
     bottoneElimina.innerText="Elimina";
     bottoneElimina.setAttribute("class","bottoneElimina");
+    bottoneElimina.setAttribute("id", `"eliminaDomanda${indice}"`)
     nuovaDomanda.appendChild(bottoneElimina);
 
     //creo la data
@@ -103,11 +138,32 @@ function creaSezione(inputId, tipo)
 
 function aggiungiRisposta(parametro)
 {
+    if(document.getElementById(`nomeUtente${parametro}`).value=='')
+    {
+        alert("Inserisci il nome utente");
+        return;
+    }
+    else if(document.getElementById(`inputRisposta${parametro}`).value=='')
+    {
+        alert("Inserisci la risposta");
+        return;
+    }
+
+    const oggettoRisposta=
+    {
+        indiceDomanda: `${parametro}`-1,
+        indiceArrayRisposta: indiceRisposta,
+        nomeUtente: document.getElementById(`nomeUtente${parametro}`).value,
+        risposta: document.getElementById(`inputRisposta${parametro}`).value
+    }
+
+    listaDomande[`${parametro}`-1].risposte.push(oggettoRisposta);
+
     indiceRisposta++;
     const nuovaRisposta = document.createElement('li');
     //bottone elimina
     const bottoneElimina=document.createElement("button");
-    bottoneElimina.setAttribute("onclick",`elimina("risposta${indiceRisposta}")`);
+    bottoneElimina.setAttribute("onclick",`eliminaRisposta("risposta${indiceRisposta}", "${indiceRisposta}", "${parametro-1}")`);
     bottoneElimina.innerText="Elimina";
     bottoneElimina.setAttribute("class","bottoneElimina");
     nuovaRisposta.appendChild(bottoneElimina);
@@ -166,7 +222,75 @@ function nascondiRisposte(parametro, bottoneCommenti)
     }
 }
 
-function elimina(indice)
+//elimina una domanda lasciando uno spazio vuoto nell'array
+function eliminaDomanda(id, indiceDomanda)
 {
-    document.getElementById(indice).remove();
+    document.getElementById(id).remove();
+    const x=indiceDomanda-1;
+    delete listaDomande[x];
+}
+
+//elimina una risposta lasciando uno spazio vuoto nell'array
+function eliminaRisposta(id, indiceRispostaElimina, indiceDomanda)
+{
+    const x=indiceRispostaElimina-1;
+    document.getElementById(id).remove();
+    delete listaDomande[indiceDomanda].risposte[x];
+}
+
+function cercaDomanda()
+{
+    if(document.getElementById("inputCerca").value=="")
+    {
+        alert("Inserici il parametro di ricerca");
+    }
+    else if(document.getElementById("inputCerca").value.split(" ").length==1)
+    {
+        const input=document.getElementById("inputCerca").value.toUpperCase();
+        let uguale=false;
+        for(let i=1;i<=listaDomande.length;i++)
+        {
+            uguale=false;
+            listaDomande[i].titoloArray.array.forEach(element => {
+                if(element===input)
+                {
+                    uguale=true;
+                }
+            });
+            if(uguale==false)
+            {
+                const elemento=document.getElementById(`domanda${i}`);
+                elemento.setAttribute("class","scompari");
+            }
+        }
+    }
+    else
+    {
+        let indiceArray=0;
+        const input=document.getElementById("inputCerca").value.toUpperCase();
+        for(let i=1;i<=listaDomande.length;i++)
+        {
+            if(listaDomande[indiceArray].titolo===input)
+            {
+                console.log("sono uguali");
+            }
+            else
+            {
+                const elemento=document.getElementById(`domanda${i}`);
+                elemento.setAttribute("class","scompari");
+            }
+            indiceArray++;
+        }
+        document.getElementById("inputCerca").value="";
+    }
+    
+}
+
+function mostraDomande()
+{
+    for(let i=1;i<=listaDomande.length;i++)
+        {
+            const elemento=document.getElementById(`domanda${i}`);
+            elemento.setAttribute("class","domanda");
+        }
 }
