@@ -23,6 +23,7 @@
             <img src="Images/logo.png" alt="">
         </div>
         <ul id="list">
+          
             <li><a href="/" class="para-font">Home</a></li>
             <li><a href="#food" class="para-font">I nostri prodotti</a></li>
             <li><a href="#event-container" class="para-font">Chi siamo</a></li>
@@ -68,111 +69,105 @@
         <p class="center para-font">Tramite cuochi selezionati e specializati che hanno studiato anni e anni , noi ti diamo la possibilità di avere un panino che ti farà ballare le tue papille gustative</p>
         <h2  class="h-secondary center btn-heading">Panini</h2>
         
-        <style>
-            
-          </style>
+    
         <div class="burger-container">
             <div class="burger-item">
-                <img id="myImg" src="Images/burger2.png" alt="">
+                <img src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 1</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae<br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                  
-                    <button class="button" onclick="printMessage(1)">Panino 1</button>
-
-
-
-                   
+                <button class="button" onclick="printMessage(1)">Panino 1</button>
             </div>
             <div class="burger-item">
-                <img id="myImg" src="Images/burger.png" alt="">
+                <img src="Images/burger.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 2</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                    <button class="button" onclick="printMessage(2)">Panino 2</button>
-
-
+                <button class="button" onclick="printMessage(2)">Panino 2</button>
             </div>
             <div class="burger-item">
-                <img id="myImg" src="Images/burger2.png" alt="">
+                <img src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 3</h2>
                 <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
                     architecto eos est tempore? Ipsa, totam.</p>
-                    <button class="button" onclick="printMessage(3)">Panino 3</button>
-
-    
-                    <script>
-                   
-                     
-                   var messages = ["", "", ""];
-var counter = [0, 0, 0];
-
-function printMessage(panino) {
-  var messageelement = document.createElement("div");
-  messageelement.className = "message";
-  counter[panino - 1]++;
-  var message = "Panino " + panino + " (" + counter[panino - 1] + ")";
-  
-  // Check if a message for this panino already exists
-  if (messages[panino - 1]) {
-    // If it does, update the existing message
-    messages[panino - 1].innerText = message;
-  } else {
-    // If it doesn't, create a new message element
-    messageelement.innerText = message;
-    document.getElementById("message-container").appendChild(messageelement);
-    messages[panino - 1] = messageelement;
-  }
-}
-   
-                      </script>
-
+                <button class="button" onclick="printMessage(3)">Panino 3</button>
+            </div>
+        </div>
+        
+       
+        
+        <script>
+            var messages = ["", "", ""];
+            var counter1 = [0, 0, 0];
+        
+            function printMessage(panino) {
+                var messageelement = document.createElement("div");
+                messageelement.className = "message";
+                counter1[panino - 1]++;
+                var message = "Panino " + panino + " (" + counter1[panino - 1] + ")";
+        
+                
+                if (messages[panino - 1]) {
+                  
+                    messages[panino - 1].innerText = message;
+                } else {
+               
+                    messageelement.innerText = message;
+                    document.getElementById("message-container").appendChild(messageelement);
+                    messages[panino - 1] = messageelement;
+                }
+            }
+        </script>
+        
             </div>
            
         </div>
         <h2  class="h-secondary center btn-heading">stuzichini</h2>
         <div class="burger-container">
             <div class="burger-item">
-                <img id="myImg" src="Images/burger2.png" alt="">
+                <img id="myImg1" src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 1</h2>
-                <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae<br>
-                    architecto eos est tempore? Ipsa, totam.</p>
-                    <button class="button" onclick="printMessage2(1)">Bevanda 1</button>
-            </div>
-            <div class="burger-item">
-                <img id="myImg" src="Images/burger.png" alt="">
+                <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae<br> architecto eos est tempore? Ipsa, totam.</p>
+                <button class="button" onclick="printMessage2(1)">Bevanda 1</button>
+              </div>
+              <div class="burger-item">
+                <img id="myImg2" src="Images/burger.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 2</h2>
-                <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
-                    architecto eos est tempore? Ipsa, totam.</p>
-                    <button class="button" onclick="printMessage2(2)">Bevanda 2</button>
-            </div>
-            <div class="burger-item">
-                <img id="myImg" src="Images/burger2.png" alt="">
+                <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br> architecto eos est tempore? Ipsa, totam.</p>
+                <button class="button" onclick="printMessage2(2)">Bevanda 2</button>
+              </div>
+              <div class="burger-item">
+                <img id="myImg3" src="Images/burger2.png" alt="">
                 <h2 class="center color-primary burger-heading">Burger 3</h2>
-                <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br>
-                    architecto eos est tempore? Ipsa, totam.</p>
-                    <button class="button" onclick="printMessage2(3)">Bevanda 3</button>
-                
-            </div>
-            <script>
-            function printMessage2(bevande) {
-                var messageelement2 = document.createElement("div");
-                messageelement2.className = "message";
-                counter[bevande - 1]++;
-                var message = "bevande " + bevande + " (" + counter[bevande - 1] + ")";
-                
-                // Check if a message for this panino already exists
-                if (messages[bevande - 1]) {
-                  // If it does, update the existing message
-                  messages[bevande - 1].innerText = message;
-                } else {
-                  // If it doesn't, create a new message element
-                  messageelement2.innerText = message;
-                  document.getElementById("message-container").appendChild(messageelement2);
-                  messages[bevande - 1] = messageelement2;
+                <p class="center">Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit. Repudiandae <br> architecto eos est tempore? Ipsa, totam.</p>
+                <button class="button" onclick="printMessage2(3)">Bevanda 3</button>
+              </div>
+              
+              <script>
+                var listabev = ["", "", ""];
+                var counter2 = [0, 0, 0];
+              
+                function printMessage2(bevande) {
+                  var messageelement2 = document.createElement("div");
+                  messageelement2.className = "message";
+                  counter2[bevande - 1]++;
+                  var message = "Bevanda " + bevande + " (" + counter2[bevande - 1]+ ")";
+              
+                  // Check if a message for this bevanda already exists
+                  if (listabev[bevande - 1]) {
+                    // If it does, update the existing message
+                    listabev[bevande - 1].innerText = message;
+                  } else {
+                    // If it doesn't, create a new message element
+                    messageelement2.innerText = message;
+                    document.getElementById("message-container").appendChild(messageelement2);
+                    listabev[bevande - 1] = messageelement2;
+                  }
                 }
-              }
-            </script>
+              </script>
+              
+              
+
         </div>
         <h2  class="h-secondary center btn-heading">bevande </h2>
         <div class="burger-container">
@@ -197,39 +192,35 @@ function printMessage(panino) {
                     architecto eos est tempore? Ipsa, totam.</p>
                 
                 <button class="button" onclick="printMessage3(3)" id="bev3"> 3</button>
-                
+                <script>
+                    var listades = ["", "", ""];
+                    var counter = [0, 0, 0];
+                  
+                    function printMessage3(desser) {
+                      var messageelement3 = document.createElement("div");
+                      messageelement3.className = "message";
+                      counter[desser - 1]++;
+                      var message = "desser " + desser + " (" + counter[desser - 1] + ")";
+                  
+                      // Check if a message for this bevanda already exists
+                      if (listades[desser - 1]) {
+                        // If it does, update the existing message
+                        listades[desser - 1].innerText = message;
+                      } else {
+                        // If it doesn't, create a new message element
+                        messageelement3.innerText = message;
+                        document.getElementById("message-container").appendChild(messageelement3);
+                        listades[desser - 1] = messageelement3;
+                      }
+                    }
+                  </script>
             </div>
             
         </div>
+        
         <div id="message-container"></div>
 
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
-  </div>
-  
-  <script>
-  var modal = document.getElementById("myModal");
-  var img = document.getElementById("myImg");
-  var modalImg = document.getElementById("img01");
-  var captionText = document.getElementById("caption");
-  img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-  }
-  
- 
-  var span = document.getElementsByClassName("close")[0];
-
-  
-  span.onclick = function() { 
-    modal.style.display = "none";
-  }
-  </script>
-
-
+      
     <section id="event-container">
         <div class="event-item">
             <div class="event-content">

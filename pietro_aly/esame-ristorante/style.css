@@ -468,7 +468,7 @@ button {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #ff0000;
+    background-color: #ffc107;
     border: none;
     border-radius: 4px;
     padding: 12px 24px;
@@ -476,6 +476,8 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.5s ease;
     border: #3d2514;
+    width: 30%; 
+    
 
   }
   
@@ -508,11 +510,11 @@ button {
     width: calc(100% + 27px);
     height: calc(100% + 27px);
 }
-  
+
 .message-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 80%;
+    left: 80%;
     transform: translate(-50%, -50%);
     text-align: center;
   }
@@ -528,3 +530,4 @@ button {
     box-shadow: 2px 2px 5px #ccc;
     margin: 10px;
   }
+  

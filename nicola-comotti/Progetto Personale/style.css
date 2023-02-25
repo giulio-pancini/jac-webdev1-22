@@ -8,7 +8,6 @@
 }
 
 body {
-    /*background-color: cornflowerblue;*/
     background-image: url(Utils/Background.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -17,6 +16,7 @@ body {
     text-align: center;
     font-family: zekton;
     margin: 0;
+    min-width: 424px;
 }
 
 header {
@@ -26,6 +26,18 @@ header {
     right: 0;
     color: whitesmoke;
     z-index: 1000;
+}
+
+header>button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    position: fixed;
+    top: 1.5em;
+}
+
+header>button :active {
+    background-color: rgba(111, 111, 111, 0.8);
+    border-radius: 5px;
 }
 
 #titolo {
@@ -58,7 +70,7 @@ strong {
 form {
     margin: 2em auto;
     width: fit-content;
-    padding: 0 2em;
+    padding: 0 3em;
     border: 2px solid whitesmoke;
     border-radius: 50px;
     background-color: rgba(0, 0, 128, 0.4);
@@ -72,11 +84,11 @@ form>label {
 
 select {
     font-family: zekton;
-    width: 10em;
     background-color: rgba(0, 0, 128, 0.8);
     color: whitesmoke;
     border: 1px solid whitesmoke;
     border-radius: 10px;
+    padding: 0.2em 0;
 }
 
 option[value="none"] {
@@ -90,6 +102,7 @@ input {
     color: whitesmoke;
     border: 1px solid whitesmoke;
     border-radius: 10px;
+    padding: 0.2em 0.5em;
 }
 
 input[type="number"] {
@@ -178,7 +191,27 @@ footer {
     .only-desktop {
         display: block;
     }
-    
+
+    header>#login {
+        right: 5em;
+    }
+
+    header>button :hover {
+        background-color: rgba(111, 111, 111, 0.8);
+        border-radius: 5px;
+    }
+
+    header>#login>p {
+        display: inline-block;
+        font-family: zekton;
+        color: whitesmoke;
+        margin: 0;
+    }
+
+    header>#login>img {
+        vertical-align: middle;
+    }
+
     nav.only-desktop>ul {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -214,17 +247,12 @@ footer {
         display: none;
     }
 
-    header>button {
-        position: fixed;
+    header>#menuToggle {
         left: 2em;
-        top: 1.5em;
-        background-color: rgba(255, 255, 255, 0);
-        border: none;
     }
 
-    header>button :active {
-        background-color: rgba(111, 111, 111, 0.8);
-        border-radius: 5px;
+    header>#login {
+        right: 2em;
     }
 
     #menuMobile {
