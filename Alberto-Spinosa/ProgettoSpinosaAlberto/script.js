@@ -10,3 +10,51 @@
     Carrello (sulla stessa pagina): Tabella con gli ordini visualizzati (filtro ordine?) con la possibilità di eliminarli
     (guardare come eliminare un elemento da un array e aggiornare una tabella senza aggiornare la pagina html)
 */
+
+/*
+const check = false;
+
+document.getElementById("burger1").addEventListener("click", function () {
+
+    if (check == false) {
+
+        const nuovoElementoParagrafo = document.createElement("p");
+        nuovoElementoParagrafo.setAttribute("id", "paragrafoNuovo")
+        const elementoContainer = document.getElementById("contenitore");
+
+        elementoContainer.appendChild(nuovoElementoParagrafo);
+
+        const txt = document.createTextNode("Panino del mcdonald con la mia gang");
+        nuovoElementoParagrafo.appendChild(txt);
+
+        check = true;
+
+    }else if (check == true){
+        var paragrafo = document.getElementById("paragrafoNuovo");
+        paragrafo.parentNode.removeChild(paragrafo);
+    }
+
+});
+*/
+
+/*
+    APPEND CHILD SCHEME:
+
+    TABLE
+        THEAD
+        TBODY
+            TR
+                TH
+                TD
+    
+    modifica degli ingredienti o dalla tabella carrello o prima dell'acquisto
+
+    prima dell'aggiunta al carrello: 
+        td ingredienti: hover per visualizzare la lista di ingredienti
+        button a fianco dell'ingrediente: cliccando ho viene tolto il testo o viene colorato di rosso (magari utilizzare l'alert per avvisare l'utente)
+
+    dopo l'aggiunta al carrello:
+        nella tabella poter selezionare un prodotto, creerà una nuova tabella (temporanea(?))
+
+*/
+

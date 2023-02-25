@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sushi</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     
     
 </head>
@@ -14,14 +15,45 @@
 <body >
    
     <div id="riepilogo">
+    
         <body>
-         <nav>
-            <ul>
-                <li> <button type="button" onclick="toggleHome()">Home</button></li>
-                <li> <button>Invia l'ordine</button> </li>
-            </ul>
-         </nav> 
-    </body>
+           <h2>Sushi da Simo</h2>
+            <nav id="navmenu2">
+                <ul id="UlnavMenu2">
+                    <li> <button type="button" onclick="toggleHome()">Home</button></li>
+                    <li> <button>Invia l'ordine</button> </li>
+                </ul>
+            </nav>
+            <table>
+                <tr>
+                    <th>Quantità</th>
+                    <th>Prezzo (€)</th>
+                    <th>Descrizione</th>
+                    <th>Elimina</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                    <td><i class="fas fa-trash-alt"></i></td>
+                </tr>
+                
+            </table>
+            
+        </body>
     </div>
   
   
@@ -51,21 +83,19 @@
             <li> <button id="button1">Nigiri</button> </li>
             <li> <button id="button2">Hosomaki</button> </li>
             <li> <button id="button3">Temaki</button> </li>
+            <li> <button id="button4">Dolci</button> </li>
+            <li> <button id="button5">Bibite</button> </li>
+            <li> <button id="button6">Dessert</button> </li>
         </ul>
     </nav>
 
     <section id="nigiri">
         <h2>Nigiri</h2>
         <p>5€/pz</p>
-        <div class="img">
         <img src="images/NighiriSalmon.png">
         <img src="images/NighiriTonno.png">
         <img src="images/Nigiri-gambero-cotto-600x600.png">
-        <img src="images/temaki-salmone.png">
-            <img src="images/temaki-tonno.png">
-            <img src="images/TemakiGambero.png">
-        </div>
-
+        
     </section>
     
     <section id="hosomaki">
@@ -161,6 +191,8 @@
             divRiepilogo.style.display = 'none';
 
         }
+
+        
         
         
         
