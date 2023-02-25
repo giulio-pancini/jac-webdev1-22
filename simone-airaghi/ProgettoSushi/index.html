@@ -7,202 +7,265 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sushi</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link href="mainjs.js">
+
 </head>
 
-<body >
-   
+<body>
+
     <div id="riepilogo">
-    
+
         <body>
-           <h2>Sushi da Simo</h2>
+            <h2>Sushi da Simo</h2>
             <nav id="navmenu2">
                 <ul id="UlnavMenu2">
                     <li> <button type="button" onclick="toggleHome()">Home</button></li>
                     <li> <button>Invia l'ordine</button> </li>
                 </ul>
             </nav>
-            <table>
+            <table id="tab">
                 <tr>
                     <th>Quantità</th>
-                    <th>Prezzo (€)</th>
+                    <th>Prezzo cad.(€)</th>
                     <th>Descrizione</th>
                     <th>Elimina</th>
                 </tr>
+
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td id="qta"></td>
+                    <td id="prez"></td>
+                    <td id="desc"></td>
                     <td><i class="fas fa-trash-alt"></i></td>
                 </tr>
+
+
+
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td> 
-                    <td><i class="fas fa-trash-alt"></i></td>
+                    <th>TOTALE</th>
+                    <td id="tot"></td>
                 </tr>
-                
+
+
+
+
             </table>
-            
+
         </body>
     </div>
-  
-  
+
+
     <div id="home">
-    <header>
-        <h1>Sushi da Simo</h1>
-        <nav id="navmenu">
-            <ul id="UlnavMenu">
-                <li><button>Home</button></li>
-                <li>
-                    <form>
-                        <label>Tavolo:<input type="number" style="width: 40px;"></label>
-                    </form>
-                </li>
-                <li><button type="button" onclick="toggle()">Riepilogo ordine</button></li> 
-                
-                    
+        <header>
+            <h1>Sushi da Simo</h1>
+            <nav id="navmenu">
+                <ul id="UlnavMenu">
+                    <li><button>Home</button></li>
+                    <li>
+                        <form>
+                            <label>Tavolo:<input type="number" style="width: 40px;"></label>
+                        </form>
+                    </li>
+                    <li><button type="button" onclick="toggle()">Riepilogo ordine</button></li>
+
+
+                </ul>
+            </nav>
+
+        </header>
+
+
+
+        <nav>
+            <ul class="sidenav">
+                <li> <button id="button1">Nigiri</button> </li>
+                <li> <button id="button2">Hosomaki</button> </li>
+                <li> <button id="button3">Temaki</button> </li>
+                <li> <button id="button4">Dolci</button> </li>
+                <li> <button id="button5">Bibite</button> </li>
+                <li> <button id="button6">Dessert</button> </li>
             </ul>
         </nav>
 
-    </header>
-
-    
-
-    <nav>
-        <ul class="sidenav">
-            <li> <button id="button1">Nigiri</button> </li>
-            <li> <button id="button2">Hosomaki</button> </li>
-            <li> <button id="button3">Temaki</button> </li>
-            <li> <button id="button4">Dolci</button> </li>
-            <li> <button id="button5">Bibite</button> </li>
-            <li> <button id="button6">Dessert</button> </li>
-        </ul>
-    </nav>
-
-    <section id="nigiri">
-        <h2>Nigiri</h2>
-        <p>5€/pz</p>
-        <div class="img">
-        <img src="images/NighiriSalmon.png" onclick="#" >
-        <img src="images/NighiriTonno.png">
-        <img src="images/Nigiri-gambero-cotto-600x600.png">
-        <br>
-        <img src="images/temaki-salmone.png">
-        <img src="images/temaki-tonno.png">
-        <img src="images/TemakiGambero.png">
-        </div>
-
-    </section>
-    
-    <section id="hosomaki">
-        <h2>Hosomaki</h2>
-        <p>3€/pz</p>
-        
-        <div class="img">
-        <img src="images/hosomaki-tonno.png">
-        <img src="images/Hosomaki-salmone.png">
-        <img src="images/HOSOMAKI-AVOCADO.png">
-        </div>
-        
-    </section>
-    
-    <section id="temaki">
-        <h2>Temaki</h2>
-        <p>7€/pz</p>
-        <div class="img">
-        <img src="images/temaki-salmone.png">
-        <img src="images/temaki-tonno.png">
-        <img src="images/TemakiGambero.png">
-        </div>
-    </section>
-    
-    <section id="temaki">
-        <h2>Temaki</h2>
-        <p>7€/pz</p>
-       <div class="img">
-        <img src="images/temaki-salmone.png">
-        <img src="images/temaki-tonno.png">
-        <img src="images/TemakiGambero.png">
-        </div>
-    </section>
-    
-    <section id="temaki">
-        <h2>Temaki</h2>
-        <p>7€/pz</p>
-        <div class="img">
-            <img src="images/temaki-salmone.png">
-            <img src="images/temaki-tonno.png">
-            <img src="images/TemakiGambero.png">
+        <section id="nigiri">
+            <h2>Nigiri</h2>
+            <p>5€/pz</p>
+            <div class="img">
+                <img src="images/NighiriSalmon.png" onclick="aggiugniSushi(1,'Nigiri Salmon', '5€')">
+                <img src="images/NighiriTonno.png">
+                <img src="images/Nigiri-gambero-cotto-600x600.png">
+                <br>
+                <img src="images/temaki-salmone.png">
+                <img src="images/temaki-tonno.png">
+                <img src="images/TemakiGambero.png">
             </div>
-        
-    </section>
-</div>
-    
-    <script>
-        
-        const button1 = document.getElementById("button1");
-        const button2 = document.getElementById("button2");
-        const button3 = document.getElementById("button3");
-        
-        button1.addEventListener("click", function () {
-            window.scroll({
-                top: 50,
-                left: 0,
-                behavior: "smooth"
-            });
-        });
 
-        button2.addEventListener("click", function () {
-            window.scroll({
-                top: 500,
-                left: 0,
-                behavior: "smooth"
-            });
-        });
+        </section>
 
-        button3.addEventListener("click", function () {
-            window.scroll({
-                top: 800,
-                left: 0,
-                behavior: "smooth"
-            });
-        });
+        <section id="hosomaki">
+            <h2>Hosomaki</h2>
+            <p>3€/pz</p>
 
-        function toggle(){
-            const home = document.getElementById('home');
-            const divRiepilogo = document.getElementById('riepilogo');
+            <div class="img">
+                <img src="images/hosomaki-tonno.png">
+                <img src="images/Hosomaki-salmone.png">
+                <img src="images/HOSOMAKI-AVOCADO.png">
+            </div>
 
-            home.style.display = 'none';
-            divRiepilogo.style.display = 'block';
+        </section>
 
-           
-        }
+        <section id="temaki">
+            <h2>Temaki</h2>
+            <p>7€/pz</p>
+            <div class="img">
+                <img src="images/temaki-salmone.png">
+                <img src="images/temaki-tonno.png">
+                <img src="images/TemakiGambero.png">
+            </div>
+        </section>
 
-        function toggleHome(){
-          
-            const home = document.getElementById('home');
-            const divRiepilogo = document.getElementById('riepilogo');
-          
-            home.style.display = 'block';
-            divRiepilogo.style.display = 'none';
+        <section id="temaki">
+            <h2>Temaki</h2>
+            <p>7€/pz</p>
+            <div class="img">
+                <img src="images/temaki-salmone.png">
+                <img src="images/temaki-tonno.png">
+                <img src="images/TemakiGambero.png">
+            </div>
+        </section>
 
-        }
+        <section id="temaki">
+            <h2>Temaki</h2>
+            <p>7€/pz</p>
+            <div class="img">
+                <img src="images/temaki-salmone.png">
+                <img src="images/temaki-tonno.png">
+                <img src="images/TemakiGambero.png">
+            </div>
 
-        
-        
-        
-        
-    </script>
+        </section>
+    </div>
 </body>
+<script>
+
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    const button3 = document.getElementById("button3");
+
+    button1.addEventListener("click", function () {
+        window.scroll({
+            top: 50,
+            left: 0,
+            behavior: "smooth"
+        });
+    });
+
+    button2.addEventListener("click", function () {
+        window.scroll({
+            top: 500,
+            left: 0,
+            behavior: "smooth"
+        });
+    });
+
+    button3.addEventListener("click", function () {
+        window.scroll({
+            top: 800,
+            left: 0,
+            behavior: "smooth"
+        });
+    });
+
+    function toggle() {
+        const home = document.getElementById('home');
+        const divRiepilogo = document.getElementById('riepilogo');
+
+        home.style.display = 'none';
+        divRiepilogo.style.display = 'block';
+
+
+    }
+
+    function toggleHome() {
+
+        const home = document.getElementById('home');
+        const divRiepilogo = document.getElementById('riepilogo');
+
+        home.style.display = 'block';
+        divRiepilogo.style.display = 'none';
+
+    }
+
+
+    /* function aggiugniNigiriSalmon(nome, prezzo, type){
+         const addNigiri = document.createElement("p");
+         const elementoDesc = document.getElementById("desc");
+         const elementoPrez = document.getElementById("prez");
+         const elementoQta = document.getElementById("qta");
+         elementoDesc.innerText = nome;
+         elementoPrez.innerText = prezzo;
+         elementoQta.innerText = mappa.get(type);
+         
+ 
+         
+     }*/
+    let quantitaTotale = 0;
+    function aggiugniSushi(qta, nome, prezzo) {
+        quantitaTotale += qta;
+        const addNigiri = document.createElement("p");
+        const elementoDesc = document.getElementById("desc");
+        const elementoPrez = document.getElementById("prez");
+        const elementoQta = document.getElementById("qta")
+        elementoDesc.innerText = nome;
+        elementoPrez.innerText = prezzo;
+        elementoQta.innerText = quantitaTotale;
+
+
+
+
+
+    }
+
+    function aggiungiNigiriTonno() {
+
+    }
+
+    function aggiungiNigiriGambero() {
+
+    }
+
+    function aggiungiTabella() {
+        const table = document.createElement("table");
+        for (let i = 0; i < 3; i++) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < 3; j++) {
+                const cell = document.createElement("td");
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+        document.body.appendChild(table);
+    }
+
+
+
+    function rimuoviElementi() {
+
+    }
+    function calcoloTotale(){
+        
+    }
+    const mappa = new Map;
+
+
+
+
+
+
+
+
+
+</script>
 
 </html>
