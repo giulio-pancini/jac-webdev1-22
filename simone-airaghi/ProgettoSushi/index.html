@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link href="mainjs.js">
+    
 
 </head>
 
@@ -33,7 +33,7 @@
                     <th>Elimina</th>
                 </tr>
 
-                <tr>
+                <!--<tr>
                     <td id="qta"></td>
                     <td id="prez"></td>
                     <td id="desc"></td>
@@ -45,7 +45,7 @@
                 <tr>
                     <th>TOTALE</th>
                     <td id="tot"></td>
-                </tr>
+                </tr>-->
 
 
 
@@ -92,7 +92,7 @@
             <h2>Nigiri</h2>
             <p>5€/pz</p>
             <div class="img">
-                <img src="images/NighiriSalmon.png" onclick="aggiugniSushi(1,'Nigiri Salmon', '5€')">
+                <img src="images/NighiriSalmon.png" onclick="incrementoSushi(0)">
                 <img src="images/NighiriTonno.png">
                 <img src="images/Nigiri-gambero-cotto-600x600.png">
                 <br>
@@ -108,7 +108,7 @@
             <p>3€/pz</p>
 
             <div class="img">
-                <img src="images/hosomaki-tonno.png">
+                <img id="hosomakiTonno" src="images/hosomaki-tonno.png">
                 <img src="images/Hosomaki-salmone.png">
                 <img src="images/HOSOMAKI-AVOCADO.png">
             </div>
@@ -141,7 +141,7 @@
             <div class="img">
                 <img src="images/temaki-salmone.png">
                 <img src="images/temaki-tonno.png">
-                <img src="images/TemakiGambero.png">
+                <img id="temakiGambero" src="images/TemakiGambero.png">
             </div>
 
         </section>
@@ -177,14 +177,23 @@
         });
     });
 
+   let controllo = false;
     function toggle() {
+       if (controllo == false){
+        for (let i = 0; i < ordine.length; i++) {
+        
+        if (ordine [i].qta>0){
+            creaRiga(i);
+        }
+       }
+       }
         const home = document.getElementById('home');
         const divRiepilogo = document.getElementById('riepilogo');
 
         home.style.display = 'none';
         divRiepilogo.style.display = 'block';
 
-
+       controllo = true; 
     }
 
     function toggleHome() {
@@ -210,8 +219,28 @@
  
          
      }*/
-    let quantitaTotale = 0;
-    function aggiugniSushi(qta, nome, prezzo) {
+    const ordine = [
+        {
+            qta:0,
+            nome:'Nigiri Salmon',
+            prezzo: 5, 
+        },
+        {
+            qta:0,
+            nome:'Hosomaki Tonno',
+            prezzo: 3, 
+        },
+        {
+            qta:0,
+            nome:'Temaki Gambero',
+            prezzo: 7, 
+        },
+        
+        
+    ]
+     
+    /*let quantitaTotale = 0;
+    function aggiungiSushi(qta, nome, prezzo) {
         quantitaTotale += qta;
         const addNigiri = document.createElement("p");
         const elementoDesc = document.getElementById("desc");
@@ -221,31 +250,33 @@
         elementoPrez.innerText = prezzo;
         elementoQta.innerText = quantitaTotale;
 
+    }*/
 
+  
 
+    function creaRiga(indice) {
+        const table = document.getElementById("tab"); 
+        const riga = document.createElement("tr");
+        const qta = document.createElement("td");   
+        const nome = document.createElement("td");
+        const prezzo = document.createElement("td");
+        const elimina = document.createElement("td");
+        qta.innerText = ordine[indice].qta;
+        nome.innerText = ordine [indice].nome;
+        prezzo.innerText = ordine [indice].prezzo;
+        elimina.className = "fas fa-trash-alt";
+        riga.appendChild(qta);
+        riga.appendChild(prezzo);
+        riga.appendChild(nome);
+        riga.appendChild(elimina);
+        table.appendChild(riga);
+        
 
-
+       
     }
 
-    function aggiungiNigiriTonno() {
-
-    }
-
-    function aggiungiNigiriGambero() {
-
-    }
-
-    function aggiungiTabella() {
-        const table = document.createElement("table");
-        for (let i = 0; i < 3; i++) {
-            const row = document.createElement("tr");
-            for (let j = 0; j < 3; j++) {
-                const cell = document.createElement("td");
-                row.appendChild(cell);
-            }
-            table.appendChild(row);
-        }
-        document.body.appendChild(table);
+    function incrementoSushi(indice){
+        ordine[indice].qta++;
     }
 
 
@@ -256,7 +287,14 @@
     function calcoloTotale(){
         
     }
-    const mappa = new Map;
+    
+/* 1 METTERE NEL MIO ARRAY UN OGGETTO PER OGNI SUSHI 
+*  2 RICHIAMARE LA FUNZIONE INCREMENTO SUSHI IN OGNI IMMAGINE, PASSANDO AD OGNUNA LA GIUSTA POSIZIONE NELL'ARRAY
+*  3 SISTEMARE BOOLEAN E FAR SI CHE SI AGGIORNI LA TAGBELLA AD OGNI SWITCH TRA HOME E RIEPILOGO FACENDO SI CHE SI ELIMINI E CHE RIPARTA IL CICLO.
+*/
+
+
+
 
 
 
