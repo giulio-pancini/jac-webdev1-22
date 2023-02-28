@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- mettere il titolo del documento -->
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/css.css">
+    <title>Editor per compositori</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/editorCompositori.css">
     <script src="../js/traccia.js"></script>
     <script src="../js/social.js"></script>
+    <script src="../js/slideshow.js"></script>
     <style></style>
 </head>
 <body>
@@ -52,8 +54,8 @@
                     </form>
                 </section>
                 <section id="listaTraccePerMese">
+                    <h1>Lista delle tracce</h1>
                     <ul id="listaTracce">
-                        <h1>Lista delle tracce</h1>
                         <p id="testoPerNoTracce">Qui troverai la lista di tutte le tue canzoni, ordinate per il mese in cui verranno suonate, non appena le inserirai dal modulo di compilazione.</p>
                         <ul id="lista1">
                         </ul>
@@ -82,10 +84,21 @@
                     </ul>
                 </section>
             </article>
-            <article id="articolo2">
+            <article id="galleriaImmagini">
                 <section>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores deserunt inventore sequi iusto harum? Praesentium, mollitia! Exercitationem, autem iusto, doloremque suscipit consequuntur laudantium aliquid nam libero molestiae, odit magni nulla!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit, vero dolorum rem quod laboriosam aut impedit expedita, harum voluptates repellendus veritatis! Natus sequi eius facere dolore numquam, iure optio.
+                    <h1>Galleria di immagini</h1>
+                    <section id="corpoGalleria">
+                        <button onclick="prevImage()" id="prevImage">&#8592</button>
+                        <section id="slideshow">
+                            <img id="currentImage" src="">
+                        </section>
+                        <button onclick="nextImage()" id="nextImage">&#8594</button>
+                    </section>
+                    <button onclick="deleteImage()" id="deleteImage">Elimina <i class="fas fa-trash-alt"></i> </button>
+                    <form id="immaginiInput">
+                        <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput">
+                        <button type="button" onclick="addImage()">Aggiungi</button>
+                    </form>
                 </section>
             </article>
             <footer id="piePagina">
@@ -99,8 +112,7 @@
                 <label for="link">Link: <input type="url" id="link"></label>
                 <button type="button" onclick="creaElementoSocial()">Invia</button>
             </form>
-            <figure id="listaSocial">
-            </ul>
+            <section id="listaSocial">
         </section>
     </section>
 </body>

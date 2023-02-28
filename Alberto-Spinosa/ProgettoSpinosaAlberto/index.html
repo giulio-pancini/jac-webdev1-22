@@ -13,17 +13,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1>Dah Spinees</h1>
 
-    <!-- NAVBAR -->
-    <nav id="navbar">
-        <ul>
-            <li><a href="#top-burger"><img src="images/burger.png" alt=""></a></li>
-            <li><a href="#top-drink"><img src="images/soda.png" alt=""></a></li>
-            <li><a href="#top-cart"><img src="images/cart.png" alt=""></a></li>
-        </ul>
-    </nav>
+    
+    <header>
+        <!-- NAVBAR -->
+        <nav id="navbar">
+            <ul>
+                <li><a href="#top-burger"><img src="images/burger.png" alt=""></a></li>
+                <li><a href="#top-drink"><img src="images/soda.png" alt=""></a></li>
+                <li><a href="#top-cart"><img src="images/cart.png" alt=""></a></li>
+            </ul>
+        </nav>
+
+        <h1>Dah Spinees</h1>
+    </header>
+    
 
     <!-- SEZIONE PANINI -->
     <section class="grid-container">
@@ -113,7 +117,7 @@
                         <li class="list-group-item">Guoda stagionato</li>
                         <li class="list-group-item">Bacon croccante</li>
                         <li class="list-group-item">Salsa BBQ</li>
-                        <li class="list-group-item"><button class="btn btn-primary">ACQUISTA</button></li>
+                        <li class="list-group-item"><button class="btn btn-primary" onclick="addToCart()">ACQUISTA</button></li>
                     </ul>
                 </div>
             </div>
@@ -208,7 +212,7 @@
     <!-- SEZIONE CARRELLO -->
     <section class="cart" id="top-cart">
         <table class="table table-hover">
-            <thead id="ciao">
+            <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Panino</th>
@@ -216,7 +220,7 @@
                 <th scope="col">Ingredienti</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tableBody">
               <tr>
                 <th scope="row">1</th>
                 <td>Mark</td>

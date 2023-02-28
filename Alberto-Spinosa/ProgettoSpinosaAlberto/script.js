@@ -58,3 +58,19 @@ document.getElementById("burger1").addEventListener("click", function () {
 
 */
 
+let i = 1;
+
+function addToCart() {
+    const newElementTr =  document.createElement('tr');
+    const newElementTh = document.createElement('th');
+    const txt = document.createTextNode(i);
+
+    newElementTh.setAttribute('class', 'scope="row"');
+
+    newElementTr.appendChild(newElementTh);
+    newElementTh.appendChild(txt);
+
+    document.getElementById('tableBody').appendChild(newElementTr);
+
+    i++;
+}
