@@ -36,12 +36,33 @@
                 method: "POST",
                 body: JSON.stringify(requestObject)
             });
+            const scomparsaFormLogin= document.querySelector("form");
+            scomparsaFormLogin.style.display="none";
             if (login.status == 401) {
-                console.log("Login failed");
+                const selectorBody=document.querySelector("body");
+                const sectionDati=document.createElement("section");
+                sectionDati.innerText="Errore nel'inserimento dei dati nella form!";
+                selectorBody.appendChild(sectionDati);
             }
             else {
+                const selectorBody=document.querySelector("body");
+
+                const sectionDati=document.createElement("section");
+
+                selectorBody.appendChild(sectionDati);
                 const responseObject = await login.json();
-                console.log(responseObject.firstName, responseObject.lastName);
+                const elenco = document.createElement("ul");
+                sectionDati.appendChild(elenco);
+                let array=[];
+
+                for (const key in responseObject) {
+                    if (responseObject.hasOwnProperty(key)) {
+                        const list = document.createElement("li");
+                        list.innerText=`${key}: ${responseObject[key]}`;
+                        array.push(list);
+                    }
+                }
+                array.forEach(e=>elenco.appendChild(e));
             }
         }
     </script>
