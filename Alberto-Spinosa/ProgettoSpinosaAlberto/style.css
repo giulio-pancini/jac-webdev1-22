@@ -76,15 +76,9 @@ nav ul li {
     border-radius: 30px;
     transition: .2s ease-in;
     z-index: 1;
+    margin: 10px;
 
 }
-
-/* .grid-item::before,
-.grid-item::after{
-    position: absolute;
-    content: " ";
-    z-index: -1;
-} */
 
 .grid-item:hover{
     background: lightgray;
