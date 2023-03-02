@@ -1,0 +1,40 @@
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    margin-top: 0px;
+    background-color: rgb(68, 72, 87);
+}
+section#section-iscrizione
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    clear:both;
+    overflow:hidden;
+}
+form#formIscrizione
+{
+    display: grid;
+    text-align: left;
+}
+form#formIscrizione input
+{
+    display: inline;
+    width:100%;
+    /* display:block;
+    width:calc(26% - 11px);
+    float:left;
+    padding:6px; */
+}
+label {
+    /* display:block;
+    width:calc(76% - 11px);
+    float:left;
+    padding:6px; */
+ }
