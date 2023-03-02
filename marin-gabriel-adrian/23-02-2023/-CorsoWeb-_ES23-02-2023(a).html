@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAC ESERCIZIO 23-02-2023</title>
-    <script type="module" src="-CorsoWeb-_ES23-02-2023(a).js"></script>
 </head>
 
 <body>
@@ -14,10 +13,38 @@
         <label>password: <input type="password" id="psw"></label>
         <button type="button" onclick="provaLogin()">Login</button>
     </form>
-    <h1>Lista prodotti</h1>
+    <h1>Lista Prodotti</h1>
     <ul id="products">
 
     </ul>
+    <script type="module">
+        const promise = await fetch("http://localhost:8080/EsercizioAPI/api");
+        const respone = await promise.json();
+        console.log(respone);
+        respone.Products.forEach(product => {
+            const e = document.createElement("li");
+            document.getElementById("products").append(e);
+            e.innerText = product;
+        })
+    </script>
+    <script>
+        async function provaLogin() {
+            const userInsert = document.getElementById("user").value;
+            const passwInsert = document.getElementById("psw").value;
+            const requestObject = { "username": userInsert, "password": passwInsert };
+            const login = await fetch("http://localhost:8080/EsercizioAPI/login", {
+                method: "POST",
+                body: JSON.stringify(requestObject)
+            });
+            if (login.status == 401) {
+                console.log("Login failed");
+            }
+            else {
+                const responseObject = await login.json();
+                console.log(responseObject.firstName, responseObject.lastName);
+            }
+        }
+    </script>
 </body>
 
 </html>
