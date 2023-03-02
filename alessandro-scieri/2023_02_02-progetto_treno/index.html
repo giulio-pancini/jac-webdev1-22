@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prenotazione Treno</title>
+        <link rel="stylesheet" href="treno.css">
+    </head>
+    <body>
+        <div class="form-container">
+            <h1>Prenotazione Treno</h1>
+            <form>
+                <label for="partenza">Partenza:</label>
+                <select name="partenza" id="partenza" required>
+                    <option value="">Seleziona partenza</option>
+                    <option value="bergamo">Bergamo</option>
+                </select>
+                <label for="arrivo">Arrivo:</label>
+                <select name="arrivo" id="arrivo" required>
+                    <option value="">Seleziona arrivo</option>
+                    <option value="milano">Milano</option>
+                </select>
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+            </form>
+        </div>
+    </body>
+</html>
