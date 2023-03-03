@@ -12,6 +12,7 @@ function mostraLogin() {
 }
 
 /*  ATTIVAZIONE <button> */
+/* CHIEDERE: posso mettere un ciclo for e non usare gli id ma solo una classe? */
 document.addEventListener("DOMContentLoaded", function() {
 
     const inputLogin1 = document.getElementById("inputLogin1")
