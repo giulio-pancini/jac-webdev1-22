@@ -1,6 +1,6 @@
 function toggleMenu() {
 
-    const expMenuElement = document.getElementById('menu');
+    const expMenuElement = document.getElementById('menuMobile');
     if (expMenuElement.style.display != "block") {
         expMenuElement.style.display = "block";
     } else {
@@ -36,12 +36,18 @@ function addExe() {
     testoRep.innerText = rep + " rep | ";
     const testoRest = document.createElement('p');
     testoRest.innerText = rest + "s rest";
+    const buttonRimuovi = document.createElement('button');
+    const imgBin = document.createElement('img');
+    imgBin.setAttribute('src', 'Utils/white-recycle-bin.png', 'alt', 'Elimina');
+    buttonRimuovi.appendChild(imgBin);
+    buttonRimuovi.setAttribute("onclick", "this.parentElement.style.display = 'none';");
 
     newExe.appendChild(testoNome);
     newExe.appendChild(testoPeso);
     newExe.appendChild(testoSerie);
     newExe.appendChild(testoRep);
     newExe.appendChild(testoRest);
+    newExe.appendChild(buttonRimuovi);
 
     newExe.setAttribute('class', 'esercizio');
 
@@ -67,3 +73,15 @@ function addExe() {
 }
 
 // function addScheda() {}
+
+async function boh() {
+    const response = await fetch("http://localhost:8080/esercizioAPI/listaesercizi");
+            const jsonResponse = await response.json();
+            console.log(jsonResponse);
+
+            jsonResponse.products.forEach(product => {
+                const elemento = document.createElement('li');
+                document.getElementById('prodotti').appendChild(elemento);
+                elemento.innerHTML = product;
+            });
+}

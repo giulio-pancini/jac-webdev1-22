@@ -1,6 +1,6 @@
 @font-face {
     font-family: zekton;
-    src: url(Media/zekton\ rg.otf);
+    src: url(Utils/zekton\ rg.otf);
 }
 
 * {
@@ -8,10 +8,15 @@
 }
 
 body {
-    background-color: cornflowerblue;
+    background-image: url(Utils/Background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
     font-family: zekton;
     margin: 0;
+    min-width: 424px;
 }
 
 header {
@@ -19,33 +24,108 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: navy;
     color: whitesmoke;
+    z-index: 1000;
+}
+
+header>button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    position: fixed;
+    top: 1.4em;
+}
+
+header>button:active {
+    background-color: rgba(111, 111, 111, 0.8);
+    border-radius: 5px;
 }
 
 #titolo {
-    display: inline-block;
-    font-family: zekton;
-    font-weight: bold;
+    background-color: rgb(0, 0, 100);
+    display: block;
     font-size: 2.5em;
-    margin: 0.3em auto;
+    padding: 0.3em;
+    margin: 0;
     width: 100%;
 }
 
-nav>ul {
+nav {
     margin: 0;
     padding: 0;
-    background-color: rgb(39, 80, 116);
+    background-color: rgb(35, 59, 117);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: whitesmoke;
+}
+
+a:hover {
+    color: whitesmoke;
+}
+
+a:active {
+    color: whitesmoke;
 }
 
 article {
-    margin-bottom: 3em;
+    padding-bottom: 0.5em;
+}
+
+h2.muscolo {
+    max-width: fit-content;
+    margin: 0.4em auto 0 auto;
+    padding: 0.3em 1em;
+    color: whitesmoke;
+    background-color: rgba(81, 81, 81, 0.9);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.esercizio-database {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 80%;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 128, 0.6);
+    padding: 1em;
+    margin: 0 auto 1em auto;
+}
+
+.nome-esercizio {
+    color: whitesmoke;
+    width: 100%;
+    margin: auto;
+    height: fit-content;
+}
+
+.contenuto-esercizio {
+    display: grid;
+    grid-template-rows: 20% 70%;
+}
+
+.gif-esercizio {
+    width: 80%;
+    max-width: 200px;
+    border-radius: 30px;
+    margin: auto;
+}
+
+.testo-esercizio {
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    color: whitesmoke;
+    padding: 0.5em;
 }
 
 strong {
+    color: whitesmoke;
     display: block;
     margin: 1.5em auto;
-    font-family: zekton;
     font-weight: bold;
     font-size: 1.5em;
 }
@@ -53,9 +133,11 @@ strong {
 form {
     margin: 2em auto;
     width: fit-content;
-    padding: 0 2em;
+    padding: 0 3em;
     border: 2px solid whitesmoke;
     border-radius: 50px;
+    background-color: rgba(0, 0, 128, 0.4);
+    color: whitesmoke;
 }
 
 form>label {
@@ -65,7 +147,11 @@ form>label {
 
 select {
     font-family: zekton;
-    width: 10em;
+    background-color: rgba(0, 0, 128, 0.8);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    padding: 0.2em 0;
 }
 
 option[value="none"] {
@@ -75,6 +161,11 @@ option[value="none"] {
 
 input {
     font-family: zekton;
+    background-color: rgba(0, 0, 128, 0.8);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    padding: 0.2em 0.5em;
 }
 
 input[type="number"] {
@@ -83,17 +174,22 @@ input[type="number"] {
 
 #addEs {
     margin: 3em;
+    font-family: zekton;
+    padding: 1em;
+    border-radius: 15px;
 }
 
 #listaSchede {
     list-style-type: none;
-    margin: 2em auto;
+    margin: 2em 1em;
     padding: 0;
 }
 
 .scheda {
     border: 2px solid whitesmoke;
     border-radius: 50px;
+    background-color: rgba(0, 0, 128, 0.4);
+    color: whitesmoke;
     padding: 2em;
     margin: 0.5em;
 }
@@ -107,7 +203,8 @@ input[type="number"] {
     padding: 0.5em;
     border: 2px solid whitesmoke;
     border-radius: 30px;
-    background-color: lightskyblue;
+    background-color: rgba(0, 0, 128, 0.4);
+    position: relative;
 }
 
 .esercizio>p {
@@ -117,6 +214,23 @@ input[type="number"] {
 
 .esercizio>h3 {
     margin: 0;
+}
+
+.esercizio>button {
+    position: absolute;
+    right: -1.3em;
+    top: -0.75em;
+    padding: 0.4em;
+    background-color: midnightblue;
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+}
+
+.esercizio>button>img {
+    height: 1.3em;
+    width: 1.3em;
+    position: relative;
+    top: 0.1em;
 }
 
 footer {
@@ -131,7 +245,7 @@ footer {
 }
 
 /* DESKTOP */
-@media (min-width: 851px) {
+@media (min-width: 850px) {
 
     .only-mobile {
         display: none;
@@ -141,9 +255,35 @@ footer {
         display: block;
     }
 
-    nav>ul>li {
+    header>#loginButton {
+        right: 5em;
+    }
+
+    header>button:hover {
+        background-color: rgba(111, 111, 111, 0.8);
+        border-radius: 5px;
+    }
+
+    header>#loginButton>p {
         display: inline-block;
-        margin: 1em;
+        font-family: zekton;
+        color: whitesmoke;
+        margin: 0 0.5em 0 0;
+    }
+
+    header>#loginButton>img {
+        vertical-align: middle;
+    }
+
+    nav.only-desktop {
+        display: flex;
+        height: 3em;
+        align-items: center;
+    }
+
+    nav.only-desktop>a {
+        flex: 1;
+        list-style-type: none;
     }
 
     .column {
@@ -151,7 +291,7 @@ footer {
         width: 50%;
         padding: 10px;
     }
-    
+
     .row::after {
         content: "";
         display: table;
@@ -171,19 +311,23 @@ footer {
         display: none;
     }
 
-    header>button {
-        position: fixed;
+    header>#menuToggle {
         left: 2em;
-        top: 2em;
     }
 
-    nav>ul>li {
-        display: inline-block;
-        margin: 1em;
+    header>#loginButton {
+        right: 2em;
     }
 
-    article {
-        margin-bottom: 4em;
+    #menuMobile {
+        max-width: 50%;
+        position: absolute;
+        border-bottom-right-radius: 30px;
+    }
+
+    #menuMobile>a {
+        display: block;
+        margin: 1.5em 3em;
     }
 
 }
