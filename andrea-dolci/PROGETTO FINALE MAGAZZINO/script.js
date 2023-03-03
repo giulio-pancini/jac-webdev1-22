@@ -96,7 +96,7 @@ function home(idSection){
     const sectionToMakeInvisible = document.getElementById(idSection);
     const sectionLogin = document.getElementById('login');
 
-    sectionLogin.style.display = 'block';
+    sectionLogin.style.display = 'flex';
     sectionToMakeInvisible.style.display = 'none';
 
 }

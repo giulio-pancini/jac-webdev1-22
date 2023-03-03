@@ -2,25 +2,30 @@ body{
     background-color: rgb(211, 211, 211);
 }
 
+#aliExpress header i, #amazon header i, #barilla header i{
+    display: none;
+}
+
+#aliExpress, #amazon, #barilla{
+    display: none;
+}
+
+
 header h1{
     text-align: center;
     color: rgb(0, 51, 102);
-}
-
-article{
-    margin-left: 30%;
-    margin-top: 15em;
+    padding-bottom: 0.3em;
 }
 
 button{
     font-size: 1em;
     display: block;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.4em;
     background-color: rgb(211, 211, 211);
     color: rgb(0, 51, 102);
     border: 1px solid rgb(0, 51, 102);
     border-radius: 1em;
-    height: 3em;
+    height: 2.3em;
     width: 40em;
 }
 
@@ -28,32 +33,77 @@ button:hover{
     background-color: rgba(156, 155, 155, 0.379);
 }
 
-#aliExpress, #amazon, #barilla{
-    display: none;
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12em;
 }
 
-#aliExpress header h1, #amazon header h1, #barilla header h1{
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 41%;
+#login header {
+    margin-bottom: 2rem;
 }
 
-#aliExpress header button, #amazon header button, #barilla header button{
-    display: inline-block;
-    font-size: 0.8em;
-    margin-bottom: 0.4em;
-    width: 20em;
-    position: absolute;
-    top: 18px;
-    right: 10px;
+
+
+/*MOBILE*/
+@media (max-width : 670px){
+    
+    button{
+        width: 28em;
+    }
+
+    header h1, #aliExpress header i, #amazon header i, #barilla header i{
+        font-size: medium;
+    }
+    
 }
 
-#aliExpress article, #amazon article, #barilla article{
-    width: 95%;
-    position: relative;
-    right: 27%;
+/*MOBILE SMALLER, per ridurre le dimensioni del testo e del tasto home*/
+@media (max-width : 584px){
+    
+    header h1, #aliExpress header i, #amazon header i, #barilla header i{
+        font-size: small;
+    }
+    
 }
+
+#aliExpress header, #amazon header, #barilla header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* TABLET */
+@media (max-width : 1096px){
+    #aliExpress header button, #amazon header button, #barilla header button{
+        width: 28em;
+    }
+    
+}
+
+/*Quando display diventa troppo piccolo, scompare il bottone e viene sostituito dall'icona del tasto home*/
+@media (max-width : 845px){
+    #aliExpress header button, #amazon header button, #barilla header button{
+        display: none;
+    }
+
+    #aliExpress header i, #amazon header i, #barilla header i{
+        display: block;
+        padding-bottom: 0.3em;
+    }
+    
+    
+    
+}
+
+
+i.fa-home {
+    color: rgb(0, 51, 102);
+}
+
+
+
 
 table {
     margin: 0 auto;
@@ -76,10 +126,5 @@ th {
 tr:nth-child(even) {
     background-color: rgba(156, 155, 155, 0.379);
 }
-
-
-
-
-  
   
   
