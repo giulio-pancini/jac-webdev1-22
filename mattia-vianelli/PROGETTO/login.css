@@ -1,189 +1,134 @@
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0;
-    background-color: #1d2033;
-    display: flex;
-    justify-content: center;
+/* variabili CSS */
+:root {
+    --color-background: #1d2033;
+    
+    /* <button> e <input> */
+    --color-button: #f44479;
+    --color-input-inside: #131420;
+    --width-input-button: 24rem;
+    --height-input-button: 2.5rem;
+    --thickness-border: 0.15rem;
+    --border-input-select: var(--thickness-border) solid grey;
+    
+    /* scritte */
+    --color-text: white;
+    --margin-top-text: 0.9rem;
+    --margin-bottom-text: 0.2rem;
 }
 
-/* VISUALIZZAZIONE PAGINE DIVERSE */
+/* ------------------------------------ GENERALE ------------------------------------ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--color-background);
+}
+#paginaLogin, #paginaSignin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #paginaSignin {
     display: none;
 }
 
-
-/* ------------------------------------ GENERALE ------------------------------------ */
-#paginaLogin, #paginaSignin {
-    background-color: red;
-    width: 25rem;
-}
+/* -------------------------- TESTO <p> -------------------------- */
 .pLoginRegistrazione {
-    margin-top: 0rem;
-    margin-bottom: 0.2rem;
+    margin-top: var(--margin-top-text);
+    margin-bottom: var(--margin-bottom-text);
+    color: var(--color-text);
 }
 
-    /* pagina login */
-    #contenitoreLogin {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 22rem;
-    }
-    #contenitoreLogin form {
-        padding: 1rem;
-        width: auto;
-    } 
-    #paragrafoRegistrati {
-        text-align: center;
-        margin-bottom: 0.5rem;
-        color: #f44479;
-    }
-
-    /* pagina signin */
-    #divBack {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #contenitoreSignin {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 31rem;
-        margin-bottom: 3rem;
-    }
-    #datiAnagrafici {
-        display: flex;
-    }
-
-/* -------------------------- LABEL -------------------------- */
-#contenitoreLogin label, #contenitoreSignin label {
-    display: block;
-    padding-bottom: 0.4rem;
-    padding-top: 0.9rem;
-    font-size: 0.8rem;
-    color: white;
-    font-weight: bold;
+/* <p> "ricordami" e "accetto i termini" */
+.labelCheckbox p {
+    color: var(--color-text);
 }
 
 /* -------------------------- LOGO -------------------------- */
-#divLogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5rem;
-}
 #logo {
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
     animation-name: App-logo-spin;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-iteration-count: 1;
 }
-#logo:hover {
-    transform: scale(1.1);
-}
-
 @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#logo:hover {
+    transform: scale(1.02);
 }
 
-/* -------------------------- TITOLO -------------------------- */
+/* -------------------------- TITOLO <h1> -------------------------- */
 #paginaLogin h1, #paginaSignin h1 {
-    text-align: center;
     margin-top: 1rem;
-    color: white;
+    color: var(--color-text);
     font-size: 1.8rem;
 }
 
-/* -------------------------- SOCIAL -------------------------- */
+/* -------------------------- PARTE SOCIAL -------------------------- */
 #loghiSocial {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }
-#paginaLogin span, #paginaSignin span {
-    padding: 0.5rem;
+.buttonLoghi {
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    margin: 0.4rem;
+    background-color: white;
 }
 
-/* -------------------------- RIGA GRIGIA -------------------------- */
-#contenitoreRiga {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-}
+/* -------------------------- RIGA -------------------------- */
 #rigaGrigia {
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     color: grey;
     background-color: #908e9740;
     height: 2px;
-    width: 23rem;
+    width: var(--width-input-button);
 }
-#or {
-    background-color: #1d2033;
+#rigaGrigia p {
+    background-color: var(--color-background);
     text-align: center;
     width: 2rem;
 }
 
-/* -------------------------- CASELLE DI INPUT (1/2) -------------------------- */
-#paginaLogin input:hover , #paginaSignin input:hover {
+/* -------------------------- <label> -------------------------- */
+#paginaLogin label, #paginaSignin label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: var(--width-input-button);
+}
+
+/* -------------------------- <input> -------------------------- */
+.inputLoginSignin {
+    height: var(--height-input-button);
+    width: var(--width-input-button);
+    background-color: var(--color-input-inside);
+    color: var(--color-text);
+    padding-left: 0.8rem;
+    font-size: 1rem;
+    border: var(--border-input-select);
+    border-radius: 0.5rem;
+}
+.inputLoginSignin:hover {
     box-shadow: 0px 0px 2rem #0c0e15;
 }
 
-    /* pagina login */
-    #username, #password {
-        height: 2.1rem;
-        width: 22rem;
-        background-color: #131420;
-        color: white;
-        padding-left: 0.8rem;
-        font-size: 1rem;
-        border: 0.15rem solid grey;
-        border-radius: 0.5rem;
-    }
-    
-    /* pagina signin*/
-    #inputNome, #inputCognome {
-        height: 2.1rem;
-        width: 10.3rem;
-        background-color: #131420;
-        color: white;
-        padding-left: 0.8rem;
-        font-size: 1rem;
-        border: 0.15rem solid grey;
-        border-radius: 0.5rem;
-    }
-    #inputNome {
-        margin-right: 0.2rem;
-    }
-    #nuovaPassword {
-        width: 22rem;
-    }
-    .inputEmailUsernamePassword {
-        height: 2.1rem;
-        width: 22rem;
-        background-color: #131420;
-        color: white;
-        padding-left: 0.8rem;
-        font-size: 1rem;
-        border: 0.15rem solid grey;
-        border-radius: 0.5rem;
-    }
-    
-/* -------------------------- CASELLE DI INPUT: CHECKBOX (2/2) -------------------------- */
-
-label#labelCheckboxRicordami, label#LabelCheckboxTermini {
+/* <input> checkbox "ricordami" e "accetta i termini" */
+.labelCheckbox {
     display: flex;
     align-items: center;
+    margin-top: var(--margin-bottom-text);
+    margin-bottom: var(--margin-bottom-text);
 }
 #checkboxRicordami, #checkboxTermini {
     width: 1.3rem;
@@ -192,110 +137,122 @@ label#labelCheckboxRicordami, label#LabelCheckboxTermini {
     cursor: pointer;
 }
 
-/* -------------------------- ELEMENTI BUTTON -------------------------- */
-#paginaLogin button , #paginaSignin button {
+
+/* -------------------------- <button> -------------------------- */
+#paginaLogin button, #paginaSignin button {
     border-radius: 0.5rem;
 }
-.buttonLoghi {
-    height: 3rem;
-    width: 3rem;
+
+/* <button> disabilitati */
+.buttonDisabled {
+    height: var(--height-input-button);
+    width: var(--width-input-button);
+    background-color: var(--color-button);
     border: none;
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: 1rem;
+    opacity: 0.5;
 }
-button:hover {
+
+/* <button> abilitati */
+.buttonEnabled:hover {
     cursor: pointer;
     transform: scale(1.01);
     box-shadow: 0px 0px 2rem rgb(41, 48, 76);
 } 
 
-    /* pagina login */
-    #buttonAccedi {
-        margin-top: 0.5rem;
-        height: 2.4rem;
-        width: 23.3rem;
-        background-color: #f44479;
-        border: none;
-        color: white;
-        font-weight: bold;
-        font-size: 1rem;
-    }
-    #buttonRegistrati {
-        margin-top: 0.5rem;
-        height: 2.5rem;
-        width: 23.3rem;
-        background-color: #131420;
-        border: 0.15rem solid #f44479;
-        color: white;
-        font-weight: bold;
-        font-size: 1rem;  
-    }
+/* <button> "accedi" e "registrati" */
+.buttonAccediRegistrati {
+    height: var(--height-input-button);
+    width: var(--width-input-button);
+    background-color: var(--color-button);
+    border: none;
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: 1rem;
+}
 
-    /* pagina signin */
-    #buttonBack {
-        margin-right: 19rem;
-        margin-top: 1rem;
-        height: 1.8rem;
-        width: 5rem;
-        background-color: #3f3f52;
-        border: none;
-        color: white;
-        font-weight: bold;
-        font-size: 0.8rem;
-    }
-    #buttonRegistratiRegistrazione {
-        margin-top: 0.5rem;
-        height: 2.4rem;
-        width: 23.3rem;
-        background-color: #f44479;
-        border: none;
-        color: white;
-        font-weight: bold;
-        font-size: 1rem;
-    }
+/* <button> "crea account" */
+#buttonCreaAccount {
+    height: var(--height-input-button);
+    width: var(--width-input-button);
+    background-color: var(--color-input-inside);
+    border: var(--thickness-border) solid var(--color-button);
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: 1rem;  
+}
 
-/* -------------------------- LINK -------------------------- */
-    /* pagina login */
-    #paginaLogin a {
-        text-decoration: none;
-    }
-    #paginaLogin a:hover {
-        text-decoration: underline;
-    }
-    #paginaLogin a:visited {
-        color: #f44479;
-    }
+/* <button> "indietro" */
+#divButtonBack {
+    width: var(--width-input-button);
+}
+#buttonBack {
+    height: 1.8rem;
+    width: 5rem;
+    background-color: #3f3f52;
+    border: none;
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
 
-/* -------------------------- SELECT -------------------------- */
-    /* pagina signin */
-    #paginaSignin select {
-        height: 2.5rem;
-        width: 7.55rem;
-        background-color: #131420;
-        color: grey;
-        padding-left: 0.8rem;
-        font-size: 1rem;
-        border: 0.15rem solid grey;
-        border-radius: 0.5rem;
-    }
-    #paginaSignin select:hover {
-        box-shadow: 0px 0px 2rem #0c0e15;
-        cursor: pointer;
-    }
-    #paginaSignin option:focus {
-        color: white;
-    }
+/* -------------------------- <select> -------------------------- */
+#dataDiNascita {
+    display: flex;
+    justify-content: space-between;
+    width: var(--width-input-button);
+    column-gap: 2px;
+}
+#paginaSignin select {
+    height: var(--height-input-button);
+    background-color: var(--color-input-inside);
+    width: 33%;
+    color: grey;
+    padding-left: 0.8rem;
+    font-size: 1rem;
+    border: var(--border-input-select);
+    border-radius: 0.5rem;
+}
+#paginaSignin select:hover {
+    box-shadow: 0px 0px 2rem #0c0e15;
+    cursor: pointer;
+}
+#paginaSignin option:focus {
+    color: var(--color-text);
+}
 
+/* -------------------------- LINK <a> -------------------------- */
+#paginaLogin a {
+    text-decoration: none;
+}
+#paginaLogin a:hover {
+    text-decoration: underline;
+}
+#paginaLogin a:visited {
+    color: var(--color-button);
+}
+
+/* <a> "hai dimenticato la password?" */
+#testoPasswordDimenticata {
+    text-align: center;
+    color: var(--color-button);
+    margin-top: var(--margin-top-text);
+    margin-bottom: var(--margin-top-text);
+}
 
 /* -------------------------- SCROLLBAR -------------------------- */
 ::-webkit-scrollbar {
     width: 0.5rem;
-    background-color: #1d2033;
+    background-color: var(--color-background);
 }
 ::-webkit-scrollbar-thumb {
 background-color: #53535e;
 border-radius: 10rem;
 }
 ::-webkit-scrollbar-track {
-background-color: #1d2033;
+background-color: var(--color-background);
 }
 
 
