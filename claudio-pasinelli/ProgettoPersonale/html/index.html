@@ -20,13 +20,28 @@
             <header>
                 <h1 id="titolo">Titolo</h1>
                 <nav id="menu">
-                    <ul>
-                        <li><a class="active zoom" href="#home">Home</a></li>
-                        <li><a class="zoom" href="#about">About</a></li>
-                        <li><a class="zoom" href="#contact">Contact</a></li>
-                    </ul>
+                    <a class="active zoom" href="#home">Home</a>
+                    <a class="zoom" href="#about">About</a>
+                    <a class="zoom" href="#contact">Contact</a>
                 </nav>
             </header>
+            <article id="galleriaImmagini">
+                <section>
+                    <h1>Galleria di immagini</h1>
+                    <section id="corpoGalleria">
+                        <button onclick="prevImage()" id="prevImage">&#8592</button>
+                        <section id="slideshow">
+                            <img id="currentImage" src="">
+                        </section>
+                        <button onclick="nextImage()" id="nextImage">&#8594</button>
+                    </section>
+                    <button onclick="deleteImage()" id="deleteImage">Elimina <i class="fas fa-trash-alt"></i> </button>
+                    <form id="immaginiInput">
+                        <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput">
+                        <button type="button" onclick="addImage()">Aggiungi</button>
+                    </form>
+                </section>
+            </article>
             <!-- cambiare nome id -->
             <article id="formTracce">
                 <section id="formAggiunta">
@@ -82,23 +97,6 @@
                         <ul id="lista12">
                         </ul>
                     </ul>
-                </section>
-            </article>
-            <article id="galleriaImmagini">
-                <section>
-                    <h1>Galleria di immagini</h1>
-                    <section id="corpoGalleria">
-                        <button onclick="prevImage()" id="prevImage">&#8592</button>
-                        <section id="slideshow">
-                            <img id="currentImage" src="">
-                        </section>
-                        <button onclick="nextImage()" id="nextImage">&#8594</button>
-                    </section>
-                    <button onclick="deleteImage()" id="deleteImage">Elimina <i class="fas fa-trash-alt"></i> </button>
-                    <form id="immaginiInput">
-                        <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput">
-                        <button type="button" onclick="addImage()">Aggiungi</button>
-                    </form>
                 </section>
             </article>
             <footer id="piePagina">

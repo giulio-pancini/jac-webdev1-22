@@ -41,10 +41,12 @@
                     body: JSON.stringify(requestObject)
                 })
 
-                if(await loginResponse.json() == true) {
-                    console.log("nome e password corretti")
+                if(loginResponse.status == 401) {
+                    console.log("credenziali errate")
                 } else {
-                    alert("credenziali errate")
+                    const responseObject=await loginResponse.json()
+                    console.log(responseObject.firstName)
+                    console.log(responseObject.lastName)
                 }
             }
         </script>
