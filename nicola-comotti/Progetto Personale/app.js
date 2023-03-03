@@ -73,3 +73,15 @@ function addExe() {
 }
 
 // function addScheda() {}
+
+async function boh() {
+    const response = await fetch("http://localhost:8080/esercizioAPI/listaesercizi");
+            const jsonResponse = await response.json();
+            console.log(jsonResponse);
+
+            jsonResponse.products.forEach(product => {
+                const elemento = document.createElement('li');
+                document.getElementById('prodotti').appendChild(elemento);
+                elemento.innerHTML = product;
+            });
+}
