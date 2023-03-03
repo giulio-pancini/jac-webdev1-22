@@ -15,7 +15,8 @@
     .normal_body{
 
         margin: 0;
-        background-color: rgb(244, 244, 244);
+        background-color: black;
+
     }
 
     #Body_Carrello{
@@ -28,6 +29,7 @@
         margin-top : 10px;
         border-collapse: collapse;
         border: 2px solid black; 
+        border-radius: 10px;
         width: 500px;
         text-align: center;
         display: block;
@@ -138,20 +140,12 @@
     }
 
 
-
-
-
-
-
-
-
-
-
     #Border{
-        border: 1px solid black;
+        border: 1px solid white;
         display: flex;
         flex-direction: column;
         
+        border-radius: 10px;
         width: 300px;
 
         
@@ -162,6 +156,7 @@
 
         padding: 10px;
         float: left;
+        background-color: white;
     }
 
     #image1 {
@@ -171,19 +166,22 @@
 
 
     #Border2{
-        border: 1px solid black;
+        border: 1px solid white;
         display: flex;
         flex-direction: column;
         
+        border-radius: 10px;
         width: 300px;
 
         margin-left: 55px;
         margin-top: 20px;
         margin-right: 55px;
+        background-color: white;
         margin-bottom: 20px;
 
         padding: 10px;
         float: left;
+        
     }
 
     #image2 {
@@ -193,10 +191,10 @@
 
 
     #Border3{
-        border: 1px solid black;
+        border: 1px solid white;
         display: flex;
         flex-direction: column;
-        
+        border-radius: 10px;
         width: 300px;
 
         margin-left: 60px;
@@ -206,6 +204,7 @@
 
         padding: 10px;
         float: left;
+        background-color: white;
     }
 
     #image3 {
@@ -285,9 +284,6 @@
         list-style: none;
         
       }
-    
-      
-      
     
     #nav_primaria{
         background-color: rgb(244, 244, 244);
@@ -404,12 +400,6 @@
         position:relative;
         left:30%;
     }
-    
-    
-    
-    
-    
-    
     
     #Border{
         border: 1px solid black;
