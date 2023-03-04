@@ -2,50 +2,66 @@
 {
     box-sizing: border-box;
 }
-body
+:root
 {
-    margin-top: 0px;
-    background-color: rgb(68, 72, 87);
+    --colore-scuro:rgb(68, 72, 87);
+    --colore-chiaro: rgb(255, 255, 255);
+    --colore-mezzo-chiaro: rgb(242, 242, 242);
+    --colore-oro: darkkhaki;
 }
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-section#documento
-{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 1.75rem;
-}
-
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+      background: linear-gradient(transparent, var(--colore-oro));
+      border-radius: 6px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(transparent, #00c6ff);
+  }
 /* cambiare nome id */
 section#corpo
 {
-    flex: 7;
-    order: 1;
-    border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
+    background-color: var(--colore-chiaro);
     margin-top: 0px;
-    background-color: rgb(255, 255, 255);
     min-width: auto;
     height: fit-content;
     /* max-height: 100vh; */
     /* overflow-y: auto; */
+    margin-left: 160px;
 }
 
 /* SECTION SOCIAL  */
+
+section#side-nav
+{
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    background-color: rgb(50, 54, 67);
+    color: var(--colore-chiaro);
+    border: solid var(--colore-chiaro);
+    border-width: 0px 2px 0px 0px;
+}
+
 section#linkSocial
 {
-    flex: 1;
-    order: 2;
-    background-color: white;
     min-width: auto;
     width: auto;
-    border-color: darkkhaki;
-    border-width: 0.2rem;
-    border-style: solid;
     overflow: hidden;
-    position: sticky;
-    top: 0;
     height: fit-content;
     border-radius: 10%;
 }
@@ -57,6 +73,8 @@ section#linkSocial h1
 {
     padding-left: 4%;
     padding-right: 4%;
+    border-width: 0px 0px 2px 0px;
+    border-style: groove;
 }
 section#linkSocial form#social input[type="text"],input[type="url"]
 {
@@ -76,16 +94,16 @@ section#linkSocial section#listaSocial section
 }
 section#linkSocial section#listaSocial a
 {
-    color: darkkhaki;
+    color: var(--colore-oro);
 }
 section#linkSocial section#listaSocial img.zoom
 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 45%;
+    width: 35%;
     /* min-width: 128px; */
-    background-color: white;
+    background-color: var(--colore-chiaro);
     border-radius: 25%;
     transition: transform .2s;
 }
@@ -97,56 +115,46 @@ section#linkSocial section#listaSocial img.zoom:hover
 }
 /* SECTION SOCIAL  */
 
-header
-{
+header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--colore-scuro);
     position: sticky;
-    top: 0px;
-}
-h1#titolo
-{
-    border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
-    border-top: 0rem;
-    border-left: 0rem;
-    border-right: 0rem;
-    margin-bottom: 0rem;
-    margin-top: 0px;
-    background-color: rgba(255, 225, 103, 0.979);
-}
+    top: 0;
+  }
+
 nav#menu
 {
-    background-color: rgb(255, 241, 223);
-    border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
-    border-top: 0rem;
-    border-left: 0rem;
-    border-right: 0rem;
     margin-top: 0rem;
     display: flex;
     justify-content: left;
 }
-nav#menu a.zoom
+nav#menu a#logout
 {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    transition: transform 0.2s;
-    border-color: rgb(255, 255, 255);
-    border-width: 0.2rem;
-    border-style: solid;
-    border-top: 0px;
-    border-right: 0px;
-    border-bottom: 0px;
-    margin-left: 2rem;
-    background-color: rgb(251, 246, 188);
-    border-radius: 12%;
+    background-color: red;
+    color: white
 }
+
+nav#menu a.zoom {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: transform 0.2s;
+    border-color: var(--colore-mezzo-chiaro);
+    border-width: 0px 0px 0px 0.2rem;
+    border-style: solid;
+    background-color: var(--colore-mezzo-chiaro);
+    border-radius: 12%;
+
+    margin: 0px 0px 0px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  }
+
 nav#menu a.zoom:hover
 {  
     background-color: rgb(255, 202, 89);
@@ -158,7 +166,7 @@ nav#menu a.zoom:hover
 nav#menu a.active.zoom
 {
     background-color: #2196F3;
-    color: white;
+    color: var(--colore-chiaro);
 }
 
 /* cambiare i nomi id */
@@ -167,14 +175,11 @@ article#formTracce
     display: grid;
     grid-auto-rows: min-content;
     grid-auto-columns: min-content;
+    grid-template-columns: repeat(1, 1fr);
     /* text-align: center;  */
 }
 article#formTracce section#formAggiunta
 {
-    /* border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
-    background-color: rgb(230, 254, 255); */
     margin-top: 1.5rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -185,18 +190,18 @@ article#formTracce section#formAggiunta
     width: fit-content;
     height: fit-content;
 }
-article#formTracce section#formAggiunta input[type="text"]
+input[type="text"],input[type="url"]
 {
     text-align: center;
-    /* height: 50px;
-    width: 350px; */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: var(--colore-mezzo-chiaro);
 }
 article#formTracce section#listaTraccePerMese
 {
-    /* border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
-    background-color: rgba(255, 224, 100, 0.5); */
     margin-top: 1.5rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -209,6 +214,8 @@ article#formTracce section#listaTraccePerMese ul#listaTracce
     display: grid;
     grid-auto-rows: min-content;
     grid-auto-columns: min-content;
+    grid-column-gap: 0.2rem;
+    background-color: var(--colore-mezzo-chiaro);
 }
 article#formTracce section#listaTraccePerMese ul#listaTracce ul
 {
@@ -217,7 +224,7 @@ article#formTracce section#listaTraccePerMese ul#listaTracce ul
     border-color: rgb(255, 255, 255);
     border-style: solid;
     border-width: 0rem;
-    margin-bottom: 0rem;
+    margin:1.5rem 0px 0px 0px;
     opacity: 0;
     border-radius: 25%;
     height: fit-content;
@@ -262,23 +269,32 @@ form#traccia input
 }
 /* FORM TRACCIA */
 
-footer#piePagina
-{
-    border-color: rgb(255, 202, 89);
-    border-width: 0.2rem;
-    border-style: solid;
-    border-bottom: 0rem;
-    border-left: 0rem;
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    background-color: var(--colore-scuro);
+    color: var(--colore-chiaro);
+  }
+  
+  /* Stile footer link */
+  footer a {
+    color: var(--colore-chiaro);
+    text-decoration: none;
+    text-align: center;
+    grid-row-end: 5000;
+    padding: 20px;
+    font-size: 14px;
     border-right: 0rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    /* padding-top: 60px; */
     margin-top: 1.75rem;
-    background: grey;
-    grid-row-end: 5000;
-    /* text-align: center; */
-    border: 0px;
-}
+  }
+
+/* footer#piePagina
+{
+
+} */
 section.canzone
 {
     display: grid;
@@ -399,7 +415,7 @@ section#corpoGalleria button,article#galleriaImmagini button#deleteImage
 }
 article#galleriaImmagini button#deleteImage
 {
-    color: white;
+    color: var(--colore-chiaro);
     background-color: red;
     font-size: 20px;
     border: none;
@@ -442,8 +458,10 @@ form#immaginiInput button
     /* article#formTracce section#listaTraccePerMese ul#listaTracce ul {padding-left: 0px; padding-right: 0px !important; } */
     /* article#formTracce input[type="text"] {width: 90px; } */
     /* article#formTracce select {width: 90px; } */
+
     section#linkSocial section#listaSocial section {margin-bottom: 8%; }
     section#linkSocial section#listaSocial img.zoom {width: 25%; }
+    nav#menu a.zoom {padding: 14px 16px; }
 }
 
 @media (min-width: 768px)
@@ -453,10 +471,8 @@ form#immaginiInput button
     article#formTracce {grid-template-columns: repeat(1, 1fr); }
     article#formTracce input[type="text"] {width: fit-content; }
     article#formTracce select {width: fit-content; }
-    nav#menu a.zoom {padding: 10%; }
-    nav#menu a.zoom {padding: 14px 16px; }
     section#linkSocial section#listaSocial section {margin-bottom: 15%; }
-    section#linkSocial section#listaSocial img.zoom {width: 45%; }
+    section#linkSocial section#listaSocial img.zoom {width: 35%; }
 }
 
 @media (min-width: 840px)
@@ -469,7 +485,7 @@ form#immaginiInput button
     article#formTracce {grid-template-columns: repeat(1, 1fr); }
     article#formTracce section#listaTraccePerMese ul#listaTracce {grid-template-columns: repeat(3, 1fr);}
 }
-@media (min-width: 1250px)
+/* @media (min-width: 1250px)
 {
     article#formTracce {grid-template-columns: repeat(2, 1fr); }
-}
+} */

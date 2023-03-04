@@ -92,7 +92,7 @@ let arraySocial=[];
                 else if(deezer)
                 {
                     immagine.setAttribute("src","../iconeSocial/deezer.png");
-                    immagine.setAttribute("alt","Logo di Dezzer");
+                    immagine.setAttribute("alt","Logo di Deezer");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
                     
@@ -170,7 +170,7 @@ let arraySocial=[];
                     // else if(deezer)
                     //     linkTesto.innerText = "Deezer";
                     // else if(soundcloud)
-                    //     linkTesto.innerText = "SouncCloud";
+                    //     linkTesto.innerText = "SoundCloud";
                     // else if(spotify)
                     //     linkTesto.innerText = "Spotify";
                     // else if(youtubeMusic)
@@ -188,7 +188,7 @@ let arraySocial=[];
                 else if(deezer)
                     linkTesto.innerText = "Deezer";
                 else if(soundcloud)
-                    linkTesto.innerText = "SouncCloud";
+                    linkTesto.innerText = "SoundCloud";
                 else if(spotify)
                     linkTesto.innerText = "Spotify";
                 else if(youtubeMusic)
