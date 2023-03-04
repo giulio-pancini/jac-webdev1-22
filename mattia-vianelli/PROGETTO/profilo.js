@@ -47,6 +47,7 @@
             elementoP.setAttribute("id", "testiIcone")
             elementoP.innerText = text.testo
             elementoP.style.top = text.top
+            elementoP.setAttribute("class", "rotate")
         }, 1000)
     }
 

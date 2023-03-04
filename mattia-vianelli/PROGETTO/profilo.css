@@ -69,6 +69,26 @@ ul {
     border-radius: 15%;
     box-shadow: 0 0 1rem rgb(176, 176, 176);
 }
+.rotate {
+    animation: prova1 0.08s linear forwards, prova2 0.08s linear forwards 0.2s;
+}
+@keyframes prova1 {
+    from {
+        transform: scale(0.00);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+@keyframes prova2 {
+    from {
+        transform: scale(1.05);
+    }
+    to {
+        transform: scale(1.0);
+    }
+}
+
 /* ------------------------- MENU CHE COMPARE SE PREMO "ALTRO"  ------------------------- */
 #bloccoAltro {
     position: fixed;
