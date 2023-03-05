@@ -20,6 +20,9 @@
             <a class="zoom" href="#about">About</a>
             <a class="zoom" href="#contact" id="logout">Logout</a>
         </nav>
+        <section class="progress-container">
+            <section class="progress-bar" id="myBar"></section>
+        </section>
     </header>
 
     <section id="side-nav">
@@ -115,6 +118,18 @@
     <footer id="piePagina">
         footer
     </footer>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+        
+        function myFunction()
+        {
+          var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          document.getElementById("myBar").style.width = scrolled + "%";
+        }
+    </script>
 </body>
 </html>
 <!--
@@ -122,5 +137,4 @@ fare la parte della foto profilo
 fare la parte di quante persone si sono iscritte al gruppo musicale
 fare la parte di quante tracce sono state vendute
 fare il guadagno totale di ogni mese 
-mettere il footer in fondo alla pagina
 -->

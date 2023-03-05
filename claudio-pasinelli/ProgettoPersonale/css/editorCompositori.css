@@ -22,26 +22,42 @@ body
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-
+    overflow-x: hidden;
     height: 100%;
     display: grid;
 }
 
 ::-webkit-scrollbar
 {
-    width: 8px;
+    width: 6px;
 }
   
 ::-webkit-scrollbar-thumb
 {
-    background: linear-gradient(transparent, var(--colore-oro));
+    /* background: linear-gradient(transparent, var(--colore-oro)); */
+    background: linear-gradient(transparent, var(--colore-azzurro)); 
     border-radius: 6px;
 }
+
+.progress-container
+{
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    margin: 1rem 0rem 0rem 160px;
+}
+  
+  .progress-bar
+  {
+    height: 8px;
+    background: var(--colore-azzurro);
+    width: 0%;
+}
     
-::-webkit-scrollbar-thumb:hover
+/* ::-webkit-scrollbar-thumb:hover
 {
     background: linear-gradient(transparent, var(--colore-azzurro)); 
-}
+} */
 
 /* con questo, l'utente non potrà mai selezionare un'immagine */
 
@@ -54,8 +70,6 @@ img
     -ms-user-select: none;
  }
 
-/* cambiare nome id */
-
 /* SECTION SOCIAL  */
 
 section#side-nav
@@ -66,12 +80,18 @@ section#side-nav
     z-index: 1;
     top: 0;
     left: 0;
+    overflow: auto;
     overflow-x: hidden;
     padding-top: 20px;
     background-color: rgb(50, 54, 67);
     color: var(--colore-chiaro);
     border: solid var(--colore-oro);
     border-width: 0px 4px 0px 0px;
+}
+
+section#side-nav:hover
+{
+    overflow-y: scroll;
 }
 
 section#linkSocial
@@ -145,6 +165,7 @@ section#linkSocial section#listaSocial img.zoom:hover
 header
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: end;
     align-items: center;
     padding: 20px;
@@ -162,8 +183,13 @@ nav#menu
 
 nav#menu a#logout
 {
-    background-color: red;
+    background-color: #cb0000;
     color: white
+}
+
+nav#menu a#logout:hover
+{
+    background-color: red;
 }
 
 nav#menu a.zoom
@@ -200,6 +226,10 @@ nav#menu a.active.zoom
     color: var(--colore-chiaro);
 }
 
+nav#menu a.active.zoom:hover
+{
+    background-color: var(--colore-azzurro);
+}
 /* cambiare i nomi id */
 
 article#formTracce
@@ -464,7 +494,7 @@ section#corpoGalleria button,article#galleriaImmagini button#deleteImage
 article#galleriaImmagini button#deleteImage
 {
     color: var(--colore-chiaro);
-    background-color: red;
+    background-color: #cb0000;
     font-size: 20px;
     border: none;
     margin-bottom: 0.5rem;
@@ -472,6 +502,11 @@ article#galleriaImmagini button#deleteImage
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+}
+
+article#galleriaImmagini button#deleteImage:hover
+{
+    background-color: red;
 }
 
 article#galleriaImmagini button#deleteImage:hover
@@ -487,6 +522,14 @@ button#deleteImage img
     width: 30px;
     max-width: fit-content;
     margin: 0.5rem;
+    transition: transform .2s;
+}
+
+button#deleteImage img:hover
+{
+    -ms-transform: scale(1.3) rotate(5deg);
+    -webkit-transform: scale(1.3) rotate(5deg);
+    transform: scale(1.3) rotate(5deg);
 }
 
 section#corpoGalleria button#prevImage
