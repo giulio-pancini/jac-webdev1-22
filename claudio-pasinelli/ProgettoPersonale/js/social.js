@@ -85,6 +85,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -92,13 +93,14 @@ let arraySocial=[];
                 else if(deezer)
                 {
                     immagine.setAttribute("src","../iconeSocial/deezer.png");
-                    immagine.setAttribute("alt","Logo di Dezzer");
+                    immagine.setAttribute("alt","Logo di Deezer");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
                     
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -113,6 +115,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -128,6 +131,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -142,6 +146,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -155,7 +160,8 @@ let arraySocial=[];
                     
                     if(oggetti[i+1].id==="link")
                     {
-                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmaginelinkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -170,7 +176,7 @@ let arraySocial=[];
                     // else if(deezer)
                     //     linkTesto.innerText = "Deezer";
                     // else if(soundcloud)
-                    //     linkTesto.innerText = "SouncCloud";
+                    //     linkTesto.innerText = "SoundCloud";
                     // else if(spotify)
                     //     linkTesto.innerText = "Spotify";
                     // else if(youtubeMusic)
@@ -188,7 +194,7 @@ let arraySocial=[];
                 else if(deezer)
                     linkTesto.innerText = "Deezer";
                 else if(soundcloud)
-                    linkTesto.innerText = "SouncCloud";
+                    linkTesto.innerText = "SoundCloud";
                 else if(spotify)
                     linkTesto.innerText = "Spotify";
                 else if(youtubeMusic)
@@ -196,6 +202,7 @@ let arraySocial=[];
                 else if(appleMusic)
                     linkTesto.innerText = "Apple Music";
                 linkTesto.setAttribute("href",oggetti[i].value);
+                linkTesto.setAttribute("target","_blank");
                 figcaption.appendChild(linkTesto);
                 figureSocial.appendChild(figcaption);
             }

@@ -37,7 +37,7 @@ function creaTraccia()
         alert("Non hai inserito il nome della traccia!");
     else if (document.getElementById("prezzo").value=="")
         alert("Non hai inserito il prezzo della traccia!");
-    else if (isNaN(parseFloat(document.getElementById("prezzo").value)))
+    else if (isNaN(document.getElementById("prezzo").value))
     {
         alert("Il prezzo della traccia non è valido!");
         document.getElementById("prezzo").value = '';
