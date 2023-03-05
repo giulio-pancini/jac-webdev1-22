@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- mettere il titolo del documento -->
     <title>Editor per compositori</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/editorCompositori.css">
     <script src="../js/traccia.js"></script>
     <script src="../js/social.js"></script>
@@ -15,109 +14,107 @@
 </head>
 <body>
     <!-- cambiare nome id -->
-    <section id="corpo">
-        <header>
-            <nav id="menu">
-                <a class="active zoom" href="#home">Home</a>
-                <a class="zoom" href="#about">About</a>
-                <a class="zoom" href="#contact" id="logout">Logout</a>
-            </nav>
-        </header>
+    <header>
+        <nav id="menu">
+            <a class="active zoom" href="#home">Home</a>
+            <a class="zoom" href="#about">About</a>
+            <a class="zoom" href="#contact" id="logout">Logout</a>
+        </nav>
+    </header>
 
-        <section id="side-nav">
-            <section id="linkSocial">
-                <h1>Inserisci il nome e il link dei tuoi social</h1>
-                <form id="social" name="social">
-                    <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
-                    <label for="link">Link: <input type="url" id="link"></label>
-                    <button type="button" onclick="creaElementoSocial()">Invia</button>
-                </form>
-                <section id="listaSocial">
-                </section>
+    <section id="side-nav">
+        <section id="linkSocial">
+            <h1>Inserisci il nome e il link dei tuoi social</h1>
+            <form id="social" name="social">
+                <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
+                <label for="link">Link: <input type="url" id="link"></label>
+                <button type="button" onclick="creaElementoSocial()">Invia</button>
+            </form>
+            <section id="listaSocial">
             </section>
         </section>
-
-        <article id="galleriaImmagini">
-            <section>
-                <h1>Galleria di immagini</h1>
-                <section id="corpoGalleria">
-                    <button onclick="prevImage()" id="prevImage">&#8592</button>
-                    <section id="slideshow">
-                        <img id="currentImage" src="">
-                    </section>
-                    <button onclick="nextImage()" id="nextImage">&#8594</button>
-                </section>
-                <button onclick="deleteImage()" id="deleteImage">Elimina <i class="fas fa-trash-alt"></i> </button>
-                <form id="immaginiInput">
-                    <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput">
-                    <button type="button" onclick="addImage()">Aggiungi</button>
-                </form>
-            </section>
-        </article>
-
-        <!-- cambiare nome id -->
-
-        <article id="formTracce">
-            <section id="formAggiunta">
-                <h1>Inserisci le tue tracce musicali</h1>
-                <form id="traccia" name="traccia">
-                    <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
-                    <label for="prezzo">Prezzo: <input type="text" name="prezzo" id="prezzo" required></label>
-                    <label for="mese">Mese:</label>
-                    <select id="mese" name="mese">
-                        <option value="0"></option>
-                        <option value="Gennaio">Gennaio</option>
-                        <option value="Febbraio">Febbraio</option>
-                        <option value="Marzo">Marzo</option>
-                        <option value="Aprile">Aprile</option>
-                        <option value="Maggio">Maggio</option>
-                        <option value="Giugno">Giugno</option>
-                        <option value="Luglio">Luglio</option>
-                        <option value="Agosto">Agosto</option>
-                        <option value="Settembre">Settembre</option>
-                        <option value="Ottobre">Ottobre</option>
-                        <option value="Novembre">Novembre</option>
-                        <option value="Dicembre">Dicembre</option>
-                    </select>
-                    <button type="button" onclick="creaTraccia()">Invia</button>
-                </form>
-            </section>
-            <section id="listaTraccePerMese">
-                <h1>Lista delle tracce</h1>
-                <ul id="listaTracce">
-                    <p id="testoPerNoTracce">Qui troverai la lista di tutte le tue canzoni, ordinate per il mese in cui verranno suonate, non appena le inserirai dal modulo di compilazione.</p>
-                    <ul id="lista1">
-                    </ul>
-                    <ul id="lista2">
-                    </ul>
-                    <ul id="lista3">
-                    </ul>
-                    <ul id="lista4">
-                    </ul>
-                    <ul id="lista5">
-                    </ul>
-                    <ul id="lista6">
-                    </ul>
-                    <ul id="lista7">
-                    </ul>
-                    <ul id="lista8">
-                    </ul>
-                    <ul id="lista9">
-                    </ul>
-                    <ul id="lista10">
-                    </ul>
-                    <ul id="lista11">
-                    </ul>
-                    <ul id="lista12">
-                    </ul>
-                </ul>
-            </section>
-        </article>
-
-        <footer id="piePagina">
-            footer
-        </footer>
     </section>
+
+    <article id="galleriaImmagini">
+        <section>
+            <h1>Galleria di immagini</h1>
+            <section id="corpoGalleria">
+                <button onclick="prevImage()" id="prevImage">&#8592</button>
+                <section id="slideshow">
+                    <img id="currentImage" src="">
+                </section>
+                <button onclick="nextImage()" id="nextImage">&#8594</button>
+            </section>
+            <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
+            <form id="immaginiInput">
+                <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput">
+                <button type="button" onclick="addImage()">Aggiungi</button>
+            </form>
+        </section>
+    </article>
+
+    <!-- cambiare nome id -->
+
+    <article id="formTracce">
+        <section id="formAggiunta">
+            <h1>Inserisci le tue tracce musicali</h1>
+            <form id="traccia" name="traccia">
+                <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
+                <label for="prezzo">Prezzo: <input type="text" name="prezzo" id="prezzo" required></label>
+                <label for="mese">Mese:</label>
+                <select id="mese" name="mese">
+                    <option value="0"></option>
+                    <option value="Gennaio">Gennaio</option>
+                    <option value="Febbraio">Febbraio</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Aprile">Aprile</option>
+                    <option value="Maggio">Maggio</option>
+                    <option value="Giugno">Giugno</option>
+                    <option value="Luglio">Luglio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Settembre">Settembre</option>
+                    <option value="Ottobre">Ottobre</option>
+                    <option value="Novembre">Novembre</option>
+                    <option value="Dicembre">Dicembre</option>
+                </select>
+                <button type="button" onclick="creaTraccia()">Invia</button>
+            </form>
+        </section>
+        <section id="listaTraccePerMese">
+            <h1>Lista delle tracce</h1>
+            <ul id="listaTracce">
+                <p id="testoPerNoTracce">Qui troverai la lista di tutte le tue canzoni, ordinate per il mese in cui verranno suonate, non appena le inserirai dal modulo di compilazione.</p>
+                <ul id="lista1">
+                </ul>
+                <ul id="lista2">
+                </ul>
+                <ul id="lista3">
+                </ul>
+                <ul id="lista4">
+                </ul>
+                <ul id="lista5">
+                </ul>
+                <ul id="lista6">
+                </ul>
+                <ul id="lista7">
+                </ul>
+                <ul id="lista8">
+                </ul>
+                <ul id="lista9">
+                </ul>
+                <ul id="lista10">
+                </ul>
+                <ul id="lista11">
+                </ul>
+                <ul id="lista12">
+                </ul>
+            </ul>
+        </section>
+    </article>
+
+    <footer id="piePagina">
+        footer
+    </footer>
 </body>
 </html>
 <!--
@@ -125,5 +122,5 @@ fare la parte della foto profilo
 fare la parte di quante persone si sono iscritte al gruppo musicale
 fare la parte di quante tracce sono state vendute
 fare il guadagno totale di ogni mese 
-fare la barra per l'inserimento dei social (con immagini e link)
+mettere il footer in fondo alla pagina
 -->

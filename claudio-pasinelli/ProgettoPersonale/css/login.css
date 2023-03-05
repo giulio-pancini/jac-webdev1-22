@@ -16,7 +16,7 @@ body
     max-width: fit-content;
 }
 
-.logo
+.sfondo
 {
     display: flex;
     justify-content: center;
@@ -30,7 +30,7 @@ body
     border-bottom-right-radius: 0px;
 }
   
-.logo img
+.sfondo img
 {
     max-height: 100%;
     object-fit: contain;
@@ -138,7 +138,7 @@ button:hover
 
 @media (min-width: 150px)
 {
-    .logo img
+    .sfondo img
     {
         max-height: 100%;
         object-fit: contain;
@@ -160,7 +160,7 @@ button:hover
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
     }
-    .logo
+    .sfondo
     {
         display: flex;
         justify-content: center;
@@ -184,7 +184,7 @@ button:hover
         align-items: center;
         height: 100vh;
     }
-    .logo img
+    .sfondo img
     {
         max-height: 100%;
         object-fit: contain;
@@ -206,7 +206,7 @@ button:hover
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
     }
-    .logo
+    .sfondo
     {
         /* display: flex;
         justify-content: center;

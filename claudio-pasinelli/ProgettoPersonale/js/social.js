@@ -85,6 +85,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -99,6 +100,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -113,6 +115,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -128,6 +131,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -142,6 +146,7 @@ let arraySocial=[];
                     if(oggetti[i+1].id==="link")
                     {
                         linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -155,7 +160,8 @@ let arraySocial=[];
                     
                     if(oggetti[i+1].id==="link")
                     {
-                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmaginelinkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }
                     figureSocial.appendChild(linkImmagine);
@@ -196,6 +202,7 @@ let arraySocial=[];
                 else if(appleMusic)
                     linkTesto.innerText = "Apple Music";
                 linkTesto.setAttribute("href",oggetti[i].value);
+                linkTesto.setAttribute("target","_blank");
                 figcaption.appendChild(linkTesto);
                 figureSocial.appendChild(figcaption);
             }

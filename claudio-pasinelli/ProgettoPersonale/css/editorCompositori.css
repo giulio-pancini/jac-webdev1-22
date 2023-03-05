@@ -2,42 +2,59 @@
 {
     box-sizing: border-box;
 }
+
+html
+{
+    height: 100%;
+}
+
 :root
 {
     --colore-scuro:rgb(68, 72, 87);
     --colore-chiaro: rgb(255, 255, 255);
     --colore-mezzo-chiaro: rgb(242, 242, 242);
     --colore-oro: darkkhaki;
+    --colore-azzurro: #00c6ff;
 }
-body {
+
+body
+{
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-  }
 
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-      background: linear-gradient(transparent, var(--colore-oro));
-      border-radius: 6px;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(transparent, #00c6ff);
-  }
-/* cambiare nome id */
-section#corpo
-{
-    background-color: var(--colore-chiaro);
-    margin-top: 0px;
-    min-width: auto;
-    height: fit-content;
-    /* max-height: 100vh; */
-    /* overflow-y: auto; */
-    margin-left: 160px;
+    height: 100%;
+    display: grid;
 }
+
+::-webkit-scrollbar
+{
+    width: 8px;
+}
+  
+::-webkit-scrollbar-thumb
+{
+    background: linear-gradient(transparent, var(--colore-oro));
+    border-radius: 6px;
+}
+    
+::-webkit-scrollbar-thumb:hover
+{
+    background: linear-gradient(transparent, var(--colore-azzurro)); 
+}
+
+/* con questo, l'utente non potrà mai selezionare un'immagine */
+
+img
+{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+ }
+
+/* cambiare nome id */
 
 /* SECTION SOCIAL  */
 
@@ -53,8 +70,8 @@ section#side-nav
     padding-top: 20px;
     background-color: rgb(50, 54, 67);
     color: var(--colore-chiaro);
-    border: solid var(--colore-chiaro);
-    border-width: 0px 2px 0px 0px;
+    border: solid var(--colore-oro);
+    border-width: 0px 4px 0px 0px;
 }
 
 section#linkSocial
@@ -65,17 +82,19 @@ section#linkSocial
     height: fit-content;
     border-radius: 10%;
 }
+
 section#linkSocial form#social
 {
     padding: 4%;
 }
+
 section#linkSocial h1
 {
-    padding-left: 4%;
-    padding-right: 4%;
+    padding: 0px 4% 0px 4%;
     border-width: 0px 0px 2px 0px;
     border-style: groove;
 }
+
 section#linkSocial form#social input[type="text"],input[type="url"]
 {
     display: inline-block;
@@ -83,39 +102,48 @@ section#linkSocial form#social input[type="text"],input[type="url"]
     width: 100%;
     min-width: fit-content;
 }
+
 section#linkSocial section#listaSocial
 {
     text-align: center;
     margin: auto;
 }
+
 section#linkSocial section#listaSocial section
 {
     margin-bottom: 15%;
 }
+
 section#linkSocial section#listaSocial a
 {
     color: var(--colore-oro);
 }
+
 section#linkSocial section#listaSocial img.zoom
 {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 35%;
-    /* min-width: 128px; */
+    max-width: 100%;
+    box-sizing: border-box;
     background-color: var(--colore-chiaro);
     border-radius: 25%;
     transition: transform .2s;
+    transition: all 0.3s;
 }
+
 section#linkSocial section#listaSocial img.zoom:hover
 {
-    -ms-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -ms-transform: scale(1.3) rotate(5deg);
+    -webkit-transform: scale(1.3) rotate(5deg);
+    transform: scale(1.3) rotate(5deg);
 }
+
 /* SECTION SOCIAL  */
 
-header {
+header
+{
     display: flex;
     justify-content: end;
     align-items: center;
@@ -123,7 +151,7 @@ header {
     background-color: var(--colore-scuro);
     position: sticky;
     top: 0;
-  }
+}
 
 nav#menu
 {
@@ -131,13 +159,15 @@ nav#menu
     display: flex;
     justify-content: left;
 }
+
 nav#menu a#logout
 {
     background-color: red;
     color: white
 }
 
-nav#menu a.zoom {
+nav#menu a.zoom
+{
     text-decoration: none;
     color: black;
     font-size: 18px;
@@ -153,7 +183,7 @@ nav#menu a.zoom {
     border-radius: 5px;
     border: none;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-  }
+}
 
 nav#menu a.zoom:hover
 {  
@@ -163,6 +193,7 @@ nav#menu a.zoom:hover
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
+
 nav#menu a.active.zoom
 {
     background-color: #2196F3;
@@ -170,6 +201,7 @@ nav#menu a.active.zoom
 }
 
 /* cambiare i nomi id */
+
 article#formTracce
 {
     display: grid;
@@ -178,18 +210,17 @@ article#formTracce
     grid-template-columns: repeat(1, 1fr);
     /* text-align: center;  */
 }
+
 article#formTracce section#formAggiunta
 {
-    margin-top: 1.5rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-bottom: 2rem;
+    margin: 1.5rem 2.5rem 0rem 2.5rem;
+    padding: 0rem 4% 2rem 4%;
     min-width: fit-content;
     width: fit-content;
     height: fit-content;
+    justify-self: center;
 }
+
 input[type="text"],input[type="url"]
 {
     text-align: center;
@@ -200,34 +231,43 @@ input[type="text"],input[type="url"]
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     background-color: var(--colore-mezzo-chiaro);
 }
+
 article#formTracce section#listaTraccePerMese
 {
-    margin-top: 1.5rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+    margin: 1.5rem 2.5rem 0rem 2.5rem;
     min-width: auto;
-    width: fit-content;
+    width: 100%;
+    text-align: center;
+    justify-self: center;
 }
+
 article#formTracce section#listaTraccePerMese ul#listaTracce
 {
     padding-right: 40px;
     display: grid;
     grid-auto-rows: min-content;
     grid-auto-columns: min-content;
-    grid-column-gap: 0.2rem;
+    /* grid-column-gap: 0.5rem; */
     background-color: var(--colore-mezzo-chiaro);
+    justify-items: center;
 }
+
 article#formTracce section#listaTraccePerMese ul#listaTracce ul
 {
-    background-color: rgb(255 247 165);
+    background-color: var(--colore-chiaro);
     padding-right: 0px;
-    border-color: rgb(255, 255, 255);
+    border-color: var(--colore-oro);
     border-style: solid;
     border-width: 0rem;
     margin:1.5rem 0px 0px 0px;
     opacity: 0;
-    border-radius: 25%;
+    border-radius: 5%;
     height: fit-content;
+    width: fit-content;
+}
+article#formTracce section#listaTraccePerMese ul#listaTracce ul:hover
+{
+    border-color: var(--colore-azzurro);
 }
 
 article#formTracce section#listaTraccePerMese ul#listaTracce ul h1
@@ -240,6 +280,7 @@ article#formTracce section#listaTraccePerMese ul#listaTracce ul h1
     border-right: 0px;
     border-style: dashed;
 }
+
 article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom
 {
     background-color: rgb(255, 251, 236, 0.5);
@@ -247,82 +288,76 @@ article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom
     width: auto;
     transition: box-shadow .3s transform .2s;
 }
+
 article#formTracce section#listaTraccePerMese ul#listaTracce li.zoom:hover
 {
     -ms-transform: scale(1.01);
     -webkit-transform: scale(1.01);
     transform: scale(1.01);
-    color: blue;
+    color: var(--colore-azzurro);
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
+article#formTracce section#listaTraccePerMese ul#listaTracce p#testoPerNoTracce
+{
+    grid-column: 2;
+}
+
 /* FORM TRACCIA */
+
 form#traccia button
 {
     margin-top: 0.2rem;
 }
+
 form#traccia input
 {
     display: block;
     margin-top: 0.2rem;
     width: fit-content;
 }
+
 /* FORM TRACCIA */
 
-footer {
+footer
+{
     text-align: center;
     padding: 20px;
     font-size: 14px;
     background-color: var(--colore-scuro);
     color: var(--colore-chiaro);
-  }
-  
-  /* Stile footer link */
-  footer a {
-    color: var(--colore-chiaro);
-    text-decoration: none;
-    text-align: center;
-    grid-row-end: 5000;
-    padding: 20px;
-    font-size: 14px;
-    border-right: 0rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    margin-top: 1.75rem;
-  }
+    margin-top: auto;
+}
 
-/* footer#piePagina
-{
-
-} */
 section.canzone
 {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: flex;
+    /* grid-template-columns: repeat(3,1fr);
     grid-auto-rows: min-content;
-    grid-auto-columns: min-content;
+    grid-auto-columns: min-content; */
     margin-bottom: 1.5rem;
     border-color: rgb(255, 255, 255);
     border-width: 0.2rem;
     border-style: solid;
 }
+
 section.canzone p
 {
     flex: 3;
-    margin-left: 0.5rem;
-    margin-right: 1.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
+    margin: 0.5rem 1.5rem 0.5rem 0.5rem;
+    align-self: center;
+    width: max-content;
 }
+
 section.canzone p.prezzo
 {
-    margin-left: 1.5rem;
-    margin-right: 0.5rem;
+    border: solid var(--colore-scuro);
+    border-width: 0px 0px 0px 2px;
 }
+
 section.canzone button.zoom
 {
-    background-color: rgb(255 253 232);
+    background-color: var(--colore-mezzo-chiaro);
     border-color: transparent;
     cursor: pointer;
     text-align: end;
@@ -331,43 +366,48 @@ section.canzone button.zoom
     height: 1.5rem;
     transition: box-shadow .3s transform .2s;
 }
+
 section.canzone button.zoom:hover
 {
     -ms-transform: scale(1.25);
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
-    color: blue;
+    color: var(--colore-azzurro);
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
+
 section.titoloESort
 {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-auto-rows: min-content;
     grid-auto-columns: min-content;
+    text-align: left;
 }
+
 section.titoloESort h1
 {
     flex: 1;
 }
+
 section.titoloESort button.zoom
 {
-    background-color: rgb(255 253 232);
+    background-color: var(--colore-mezzo-chiaro);
     border-color: transparent;
     cursor: pointer;
     text-align: right;
-    margin-left: 0.5rem;
     width: fit-content;
     height: fit-content;
-    margin-top: 1rem;
+    margin: 1rem 0rem 0rem 0.5rem;
     transition: box-shadow .3s transform .2s;
 }
+
 section.titoloESort button.zoom:hover
 {
     -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-    color: blue;
+    color: var(--colore-azzurro);
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
@@ -375,11 +415,14 @@ section.titoloESort button.zoom:hover
 
 article#galleriaImmagini
 {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    margin-top: 1.75rem;
+    /* margin: 1.75rem 1.5rem 0rem 1.5rem; */
     text-align: center;
+    background-color: var(--colore-mezzo-chiaro);
+    width: 100%;
+    margin-top: 1.75rem;
+    padding-bottom: 0.25rem;
 }
+
 article#galleriaImmagini h1
 {
     font-size: large;
@@ -388,20 +431,24 @@ article#galleriaImmagini h1
     text-align: center;
     display: inline;
 }
+
 section#slideshow
 {
     margin: auto;
 }
+
 section#corpoGalleria
 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 2rem;
 }
+
 section#corpoGalleria img
 {
     width: 100%;
 }
+
 section#corpoGalleria button,article#galleriaImmagini button#deleteImage
 {
     width: fit-content;
@@ -413,6 +460,7 @@ section#corpoGalleria button,article#galleriaImmagini button#deleteImage
     visibility: hidden;
     font-size: 30px;
 }
+
 article#galleriaImmagini button#deleteImage
 {
     color: var(--colore-chiaro);
@@ -421,7 +469,11 @@ article#galleriaImmagini button#deleteImage
     border: none;
     margin-bottom: 0.5rem;
     transition: box-shadow .3s transform .2s;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
+
 article#galleriaImmagini button#deleteImage:hover
 {
     -ms-transform: scale(1.01);
@@ -429,26 +481,58 @@ article#galleriaImmagini button#deleteImage:hover
     transform: scale(1.01);
     box-shadow: 0 0 11px rgba(33,33,33,.9); 
 }
+
+button#deleteImage img
+{
+    width: 30px;
+    max-width: fit-content;
+    margin: 0.5rem;
+}
+
 section#corpoGalleria button#prevImage
 {
-    margin-right: 2px;
+    margin-right: -42px;
+    top: 0;
+    position: relative;
+    color: var(--colore-oro);
+    max-width: fit-content;
+    width: 100%;
+    height: 100%;
+    transition: transform .2s;
 }
+
+section#corpoGalleria button#prevImage:hover
+{
+    background-color: rgb(22, 21, 21, 0.4);
+}
+
 section#corpoGalleria button#nextImage
 {
-    margin-left: 2px;
+    margin-left: -42px;
+    color: var(--colore-oro);
+    max-width: fit-content;
+    width: 100%;
+    height: 100%;
+    transition: transform .2s;
 }
+
+section#corpoGalleria button#nextImage:hover
+{
+    background-color: rgb(22, 21, 21, 0.4);
+}
+
 form#immaginiInput input
 {
     display: inline;
     margin-top: 0.2rem;
     width: fit-content;
 }
+
 form#immaginiInput button
 {
     display: inline;
     width: fit-content;
 }
-
 /*GALLERIA DI IMMAGINI*/
 
 /*MEDIA!!!!!*/
