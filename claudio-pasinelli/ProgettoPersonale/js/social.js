@@ -13,15 +13,24 @@ let arraySocial=[];
     let soundcloud;
 
     if (document.getElementById("nomeSocial").value=="")
+    {
         alert("Non hai inserito il nome del social!");
+        return;
+    }
+
     else if (document.getElementById("link").value=="")
+    {
         alert("Non hai inserito il link del social!");
+        return;
+    }
 
     else if(similarity(document.getElementById("nomeSocial").value,"youtube")<0.8 && similarity(document.getElementById("nomeSocial").value,"deezer")<0.8 && similarity(document.getElementById("nomeSocial").value,"youtube music")<0.8 && similarity(document.getElementById("nomeSocial").value,"spotify")<0.8 && similarity(document.getElementById("nomeSocial").value,"apple music")<0.8 && similarity(document.getElementById("nomeSocial").value,"soundcloud")<0.8)
     {
         alert("Ci dispiace, ma non conosciamo il sito!");
         document.getElementById('nomeSocial').value = '';
+        return;
     }
+    
     else
     {
         //array di oggetti che contiene i social
@@ -160,7 +169,7 @@ let arraySocial=[];
                     
                     if(oggetti[i+1].id==="link")
                     {
-                        linkImmaginelinkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
                         linkImmagine.setAttribute("target","_blank");
                         linkImmagine.appendChild(immagine);
                     }

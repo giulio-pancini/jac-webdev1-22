@@ -34,17 +34,29 @@ let nomeMese="";
 function creaTraccia()
 {
     if (document.getElementById("nome").value=="")
+    {
         alert("Non hai inserito il nome della traccia!");
+        return;
+    }
+
     else if (document.getElementById("prezzo").value=="")
+    {
         alert("Non hai inserito il prezzo della traccia!");
+        return;
+    }
+
     else if (isNaN(document.getElementById("prezzo").value))
     {
         alert("Il prezzo della traccia non è valido!");
         document.getElementById("prezzo").value = '';
-
+        return;
     }
+
     else if (document.getElementById("mese").value=="0")
+    {
         alert("Hai dimenticato di indicare il mese!");
+        return;
+    }
     else
     {
         document.getElementById("testoPerNoTracce").style.visibility = "hidden";
@@ -512,7 +524,7 @@ function creaTraccia()
 
         const nuovaTraccia = document.createElement("li");
         nuovaTraccia.setAttribute('id','traccia'+idTraccia);
-        nuovaTraccia.setAttribute('class','elementoTraccia zoom tip');
+        nuovaTraccia.setAttribute('class','elementoTraccia zoom');
 
         const listaTracce = document.getElementById("lista"+meseUsato);
         listaTracce.appendChild(nuovaTraccia);

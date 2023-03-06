@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- mettere il titolo del documento -->
     <title>Editor per compositori</title>
     <link rel="stylesheet" href="../css/editorCompositori.css">
     <script src="../js/traccia.js"></script>
     <script src="../js/social.js"></script>
     <script src="../js/slideshow.js"></script>
-    <style></style>
+    <script src="../js/profiloCompositore.js"></script>
 </head>
+
 <body>
-    <!-- cambiare nome id -->
     <header>
         <nav id="menu">
             <a class="active zoom" href="#home">Home</a>
@@ -38,23 +38,33 @@
         </section>
     </section>
 
-    <article id="galleriaImmagini">
-        <section>
-            <h1>Galleria di immagini</h1>
-            <section id="corpoGalleria">
-                <button onclick="prevImage()" id="prevImage">&#8592</button>
-                <section id="slideshow">
-                    <img id="currentImage" src="">
-                </section>
-                <button onclick="nextImage()" id="nextImage">&#8594</button>
-            </section>
-            <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
-            <form id="immaginiInput">
-                <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput">
-                <button type="button" onclick="addImage()">Aggiungi</button>
-            </form>
+    <form id="formProfilo">
+        <input type="file" id="imageProfileInput" accept="image/*">
+        <textarea name="descrizione" id="descrizione" cols="30" rows="10" placeholder="Descrivi chi sei e qual è il genere di musica che componi" required></textarea>
+        <button id="inviaProfilo" onclick="creaProfilo()">Invia</button>
+    </form>
+    <section id="profilo">
+        <section id="sectionImmagineProfilo">
+            <img id="immagineProfilo">
         </section>
-    </article>
+        <p id="testoDescrizione"></p>
+    </section>
+
+    <section id="galleriaImmagini">
+        <h1>Galleria di immagini</h1>
+        <section id="corpoGalleria">
+            <button onclick="prevImage()" id="prevImage">&#8592</button>
+            <section id="slideshow">
+                <img id="currentImage" src="">
+            </section>
+            <button onclick="nextImage()" id="nextImage">&#8594</button>
+        </section>
+        <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
+        <form id="immaginiInput">
+            <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput" accept="image/*">
+            <button type="button" onclick="addImage()">Aggiungi</button>
+        </form>
+    </section>
 
     <article id="formTracce">
         <section id="formAggiunta">
@@ -114,21 +124,27 @@
     </article>
 
     <footer id="piePagina">
-        footer
+        Footer
     </footer>
 
     <script>
-        window.onscroll = function() {myFunction()};
-        
-        function myFunction()
+        window.onscroll = () =>
         {
-          const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          const scrolled = (winScroll / height) * 100;
-          document.getElementById("myBar").style.width = scrolled + "%";
-        }
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        };
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e =>
+        {
+            textarea.style.height = "63px";
+            let scrHeight = e.target.scrollHeight;
+            textarea.style.height = `${scrHeight}px`;
+        });
     </script>
 </body>
+
 </html>
 <!--
 fare la parte della foto profilo

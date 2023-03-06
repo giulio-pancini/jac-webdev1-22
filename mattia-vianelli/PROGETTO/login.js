@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function mostraButtonAccedi() {
         if (inputLogin1.value && inputLogin2.value) {
             buttonAccedi.disabled = false
-            buttonAccedi.setAttribute("class", "buttonAccediRegistrati buttonEnabled")
+            buttonAccedi.setAttribute("class", "buttonAccediRegistrati buttonEnabled buttonEnabledEffect")
         } else {
             buttonAccedi.disabled = true
-            buttonAccedi.setAttribute("class", "buttonDisabled")
+            buttonAccedi.setAttribute("class", "buttonDisabled buttonDisabledEffect")
         }
     }
     
