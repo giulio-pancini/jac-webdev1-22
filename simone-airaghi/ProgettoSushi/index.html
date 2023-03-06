@@ -18,7 +18,7 @@
     <div id="riepilogo">
 
         <body>
-            <h2>Sushi da Simo</h2>
+            <h1>Sushi da Simo</h1>
             <nav id="navmenu2">
                 <ul id="UlnavMenu2">
                     <li> <button type="button" onclick="toggleHome()">Home</button></li>
@@ -93,12 +93,12 @@
             <p>5€/pz</p>
             <div class="img">
                 <img src="images/NighiriSalmon.png" onclick="incrementoSushi(0), creaRiga(indice)">
-                <img src="images/NighiriTonno.png">
-                <img src="images/Nigiri-gambero-cotto-600x600.png">
+                <img src="images/NighiriTonno.png"onclick="incrementoSushi(1), creaRiga(indice)">
+                <img src="images/Nigiri-gambero-cotto-600x600.png"onclick="incrementoSushi(2), creaRiga(indice)">
                 <br>
-                <img src="images/temaki-salmone.png">
-                <img src="images/temaki-tonno.png">
-                <img src="images/TemakiGambero.png">
+                <img src="images/NighiriAnguilla.png"onclick="incrementoSushi(3), creaRiga(indice)">
+                <img src="images/NigiriCalamaro.png"onclick="incrementoSushi(4), creaRiga(indice)">
+                <img src="images/nigirifugu.png"onclick="incrementoSushi(5), creaRiga(indice)">
             </div>
 
         </section>
@@ -227,7 +227,56 @@
         },
         {
             qta:0,
+            nome:'Nigiri Tonno',
+            prezzo: 5, 
+        },
+        {
+            qta:0,
+            nome:'Nigiri Gambero',
+            prezzo: 5, 
+        },
+        {
+            qta:0,
+            nome:'Nigiri Anguilla',
+            prezzo: 5, 
+        },
+        {
+            qta:0,
+            nome:'Nigiri Calamaro',
+            prezzo: 5, 
+        },
+        {
+            qta:0,
+            nome:'Nigiri Fugu',
+            prezzo: 5, 
+        },
+        {
+            qta:0,
+            nome:'Hosomaki Salmon',
+            prezzo: 3, 
+        },
+        {
+            qta:0,
             nome:'Hosomaki Tonno',
+            prezzo: 3, 
+        },
+        {
+            qta:0,
+            nome:'Hosomaki Gambero',
+            prezzo: 3, 
+        },
+        {
+            qta:0,
+            nome:'Hosomaki Anguilla',
+            prezzo: 3, 
+        },
+        {
+            qta:0,
+            nome:'Hosomaki Calamaro',
+            prezzo: 3, 
+        },{
+            qta:0,
+            nome:'Hosomaki Fugu',
             prezzo: 3, 
         },
         {
