@@ -13,15 +13,24 @@ let arraySocial=[];
     let soundcloud;
 
     if (document.getElementById("nomeSocial").value=="")
+    {
         alert("Non hai inserito il nome del social!");
+        return;
+    }
+
     else if (document.getElementById("link").value=="")
+    {
         alert("Non hai inserito il link del social!");
+        return;
+    }
 
     else if(similarity(document.getElementById("nomeSocial").value,"youtube")<0.8 && similarity(document.getElementById("nomeSocial").value,"deezer")<0.8 && similarity(document.getElementById("nomeSocial").value,"youtube music")<0.8 && similarity(document.getElementById("nomeSocial").value,"spotify")<0.8 && similarity(document.getElementById("nomeSocial").value,"apple music")<0.8 && similarity(document.getElementById("nomeSocial").value,"soundcloud")<0.8)
     {
         alert("Ci dispiace, ma non conosciamo il sito!");
         document.getElementById('nomeSocial').value = '';
+        return;
     }
+    
     else
     {
         //array di oggetti che contiene i social
@@ -30,40 +39,39 @@ let arraySocial=[];
         // nuovoLinkSocial.setAttribute('id','social'+idTraccia);
         // nuovoLinkSocial.setAttribute('class','elementoTraccia zoom tip');
         
-        const sectionSocial = document.createElement("section");
-        sectionSocial.setAttribute("id","social"+idSocial);
-        sectionSocial.style.marginBottom="25%";
-        // sectionSocial.setAttribute('class','canzone');
-        listaSocial.appendChild(sectionSocial);
+        const figureSocial = document.createElement("figure");
+        figureSocial.setAttribute("id","social"+idSocial);
+        // figureSocial.setAttribute('class','canzone');
+        listaSocial.appendChild(figureSocial);
 
         if(similarity(document.getElementById("nomeSocial").value,"youtube")>=0.8)
         {
-            sectionSocial.setAttribute('title','Youtube\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('title','Youtube\nLink: '+document.getElementById("link").value);
             youtube=true;
         }
         else if(similarity(document.getElementById("nomeSocial").value,"deezer")>=0.8)
         {
-            sectionSocial.setAttribute('title','Deezer\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('title','Deezer\nLink: '+document.getElementById("link").value);
             deezer=true;
         }
         else if(similarity(document.getElementById("nomeSocial").value,"soundcloud")>=0.8)
         {
-            sectionSocial.setAttribute('title','SoundCloud\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('title','SoundCloud\nLink: '+document.getElementById("link").value);
             soundcloud=true;
         }
         else if(similarity(document.getElementById("nomeSocial").value,"spotify")>=0.8)
         {
-            sectionSocial.setAttribute('title','Spotify\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('title','Spotify\nLink: '+document.getElementById("link").value);
             spotify=true;
         }
         else if(similarity(document.getElementById("nomeSocial").value,"youtube music")>=0.8)
         {
-            sectionSocial.setAttribute('title','Youtube Music\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('title','Youtube Music\nLink: '+document.getElementById("link").value);
             youtubeMusic=true;
         }
         else if(similarity(document.getElementById("nomeSocial").value,"apple music")>=0.8)
         {
-            sectionSocial.setAttribute('title','Apple Music\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('title','Apple Music\nLink: '+document.getElementById("link").value);
             appleMusic=true;
         }
 
@@ -79,58 +87,93 @@ let arraySocial=[];
                 risultatoSimilarita=similarity(oggetti[i].value,"youtube");
                 if(youtube)
                 {
-                    linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/youtube.png");
                     immagine.setAttribute("alt","Logo di Youtube");
                     immagine.setAttribute("class","zoom");
-                    linkImmagine.appendChild(immagine);
-                    sectionSocial.appendChild(linkImmagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
                 }
                 else if(deezer)
                 {
-                    linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/deezer.png");
-                    immagine.setAttribute("alt","Logo di Dezzer");
+                    immagine.setAttribute("alt","Logo di Deezer");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
-                    sectionSocial.appendChild(linkImmagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
                 }
                 else if(soundcloud)
                 {
-                    linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/soundcloud.png");
                     immagine.setAttribute("alt","Logo di SoundCloud");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
-                    sectionSocial.appendChild(linkImmagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
                     soundcloud=true;
                 }
                 else if(spotify)
                 {
-                    linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/spotify.png");
                     immagine.setAttribute("alt","Logo di Spotify");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
-                    sectionSocial.appendChild(linkImmagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
                 }
                 else if(youtubeMusic)
                 {
-                    linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/youtube_music.png");
                     immagine.setAttribute("alt","Logo di Youtube Music");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
-                    sectionSocial.appendChild(linkImmagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
                 }
                 else if(appleMusic)
                 {
-                    linkImmagine.setAttribute("href",oggetti[i].value);
                     immagine.setAttribute("src","../iconeSocial/apple_music.png");
                     immagine.setAttribute("alt","Logo di Apple Music");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
-                    sectionSocial.appendChild(linkImmagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
                 }
             }
             else if(oggetti[i].id==="link")
@@ -142,7 +185,7 @@ let arraySocial=[];
                     // else if(deezer)
                     //     linkTesto.innerText = "Deezer";
                     // else if(soundcloud)
-                    //     linkTesto.innerText = "SouncCloud";
+                    //     linkTesto.innerText = "SoundCloud";
                     // else if(spotify)
                     //     linkTesto.innerText = "Spotify";
                     // else if(youtubeMusic)
@@ -151,7 +194,7 @@ let arraySocial=[];
                     //     linkTesto.innerText = "Apple Music";
                     // linkTesto.setAttribute("href",oggetti[i].value);
                     // figcaption.appendChild(linkTesto);
-                    // sectionSocial.appendChild(figcaption);
+                    // figureSocial.appendChild(figcaption);
                 // }
                 // else
                 //     alert("La pagina da te inserita non è disponibile!");
@@ -160,7 +203,7 @@ let arraySocial=[];
                 else if(deezer)
                     linkTesto.innerText = "Deezer";
                 else if(soundcloud)
-                    linkTesto.innerText = "SouncCloud";
+                    linkTesto.innerText = "SoundCloud";
                 else if(spotify)
                     linkTesto.innerText = "Spotify";
                 else if(youtubeMusic)
@@ -168,15 +211,16 @@ let arraySocial=[];
                 else if(appleMusic)
                     linkTesto.innerText = "Apple Music";
                 linkTesto.setAttribute("href",oggetti[i].value);
+                linkTesto.setAttribute("target","_blank");
                 figcaption.appendChild(linkTesto);
-                sectionSocial.appendChild(figcaption);
+                figureSocial.appendChild(figcaption);
             }
         }
         //resetto il valore del contenuto del form dopo che è stato utilizzato per creare il link social
         document.getElementById('nomeSocial').value = '';
         document.getElementById('link').value = '';
 
-        arraySocial.push(listaSocial);
+        arraySocial.push(figureSocial);
         arraySocial.push(idSocial);
         idSocial++;
     }

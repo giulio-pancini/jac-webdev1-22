@@ -1,6 +1,7 @@
 let idTraccia=1;
 let arrayTracce=[];
 //mesi array
+let arrayMesi=[];
 let arrayGennaio=[];
 let arrayFebbario=[];
 let arrayMarzo=[];
@@ -33,20 +34,41 @@ let nomeMese="";
 function creaTraccia()
 {
     if (document.getElementById("nome").value=="")
-        alert("Non hai compilato tutte le caselle!");
+    {
+        alert("Non hai inserito il nome della traccia!");
+        return;
+    }
+
+    else if (document.getElementById("prezzo").value=="")
+    {
+        alert("Non hai inserito il prezzo della traccia!");
+        return;
+    }
+
+    else if (isNaN(document.getElementById("prezzo").value))
+    {
+        alert("Il prezzo della traccia non è valido!");
+        document.getElementById("prezzo").value = '';
+        return;
+    }
+
     else if (document.getElementById("mese").value=="0")
+    {
         alert("Hai dimenticato di indicare il mese!");
+        return;
+    }
     else
     {
         document.getElementById("testoPerNoTracce").style.visibility = "hidden";
         document.getElementById("testoPerNoTracce").style.display = "none";
+
         if(document.getElementById("mese").value=="Gennaio")
         {
             meseUsato=1;
             if(!gennaio || arrayGennaio.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -84,7 +106,7 @@ function creaTraccia()
             if(!febbraio || arrayFebbario.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -122,7 +144,7 @@ function creaTraccia()
             if(!marzo || arrayMarzo.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -160,7 +182,7 @@ function creaTraccia()
             if(!aprile || arrayAprile.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -198,7 +220,7 @@ function creaTraccia()
             if(!maggio || arrayMaggio.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -236,7 +258,7 @@ function creaTraccia()
             if(!giugno || arrayGiugno.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -274,7 +296,7 @@ function creaTraccia()
             if(!luglio || arrayLuglio.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -312,7 +334,7 @@ function creaTraccia()
             if(!agosto || arrayAgosto.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -350,7 +372,7 @@ function creaTraccia()
             if(!settembre || arraySettembre.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -388,7 +410,7 @@ function creaTraccia()
             if(!ottobre || arrayOttobre.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -426,7 +448,7 @@ function creaTraccia()
             if(!novembre || arrayNovembre.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -464,7 +486,7 @@ function creaTraccia()
             if(!dicembre || arrayDicembre.length==0)
             {
                 //mese = ul
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "1";
                 mese.style.paddingRight = "40px";
                 mese.style.borderWidth = "0.2rem";
@@ -502,7 +524,7 @@ function creaTraccia()
 
         const nuovaTraccia = document.createElement("li");
         nuovaTraccia.setAttribute('id','traccia'+idTraccia);
-        nuovaTraccia.setAttribute('class','elementoTraccia zoom tip');
+        nuovaTraccia.setAttribute('class','elementoTraccia zoom');
 
         const listaTracce = document.getElementById("lista"+meseUsato);
         listaTracce.appendChild(nuovaTraccia);
@@ -545,29 +567,95 @@ function creaTraccia()
         const contattoIntero = document.getElementById("traccia"+idTraccia.toString());
 
         if(meseUsato==1)
+        {
             arrayGennaio.push(idTraccia);
+            arrayMesi.push(arrayGennaio);
+        }
         else if(meseUsato==2)
+        {
             arrayFebbario.push(idTraccia);
+            arrayMesi.push(arrayFebbario);
+
+        }
         else if(meseUsato==3)
+        {
             arrayMarzo.push(idTraccia);
+            arrayMesi.push(arrayMarzo);
+
+        }
         else if(meseUsato==4)
+        {
             arrayAprile.push(idTraccia);
+            arrayMesi.push(arrayAprile);
+
+        }
         else if(meseUsato==5)
+        {
             arrayMaggio.push(idTraccia);
+            arrayMesi.push(arrayMaggio);
+
+        }
         else if(meseUsato==6)
+        {
             arrayGiugno.push(idTraccia);
+            arrayMesi.push(arrayGiugno);
+
+        }
         else if(meseUsato==7)
+        {
             arrayLuglio.push(idTraccia);
+            arrayMesi.push(arrayLuglio);
+
+        }
         else if(meseUsato==8)
+        {
             arrayAgosto.push(idTraccia);
+            arrayMesi.push(arrayAgosto);
+
+        }
         else if(meseUsato==9)
+        {
             arraySettembre.push(idTraccia);
+            arrayMesi.push(arraySettembre);
+
+        }
         else if(meseUsato==10)
+        {
             arrayOttobre.push(idTraccia);
+            arrayMesi.push(arrayOttobre);
+
+        }
         else if(meseUsato==11)
+        {
             arrayNovembre.push(idTraccia);
+            arrayMesi.push(arrayNovembre);
+
+        }
         else if(meseUsato==12)
+        {
             arrayDicembre.push(idTraccia);
+            arrayMesi.push(arrayDicembre);
+
+        }
+
+        // switch(arrayMesi.length)
+        // {
+        //     case 1:
+        //         {
+        //             document.getElementById("listaTracce").style.gridTemplateColumns="repeat(1,1fr)";
+        //             break;
+        //         }
+        //     case 2:
+        //         {
+        //             document.getElementById("listaTracce").style.gridTemplateColumns="repeat(2,1fr)";
+        //             break;
+        //         }
+        //     case 3:
+        //         {
+        //             document.getElementById("listaTracce").style.gridTemplateColumns="repeat(3,1fr)";
+        //             break;
+        //         }
+        // }
 
         //metto nell'arrayTracce l'id che poi incremento
         arrayTracce.push(idTraccia);
@@ -589,6 +677,16 @@ function eliminaTraccia(id)
         {
             document.getElementById("testoPerNoTracce").style.visibility = "visible";
             document.getElementById("testoPerNoTracce").style.display = "block";
+
+            for(let i=0;i<12;i++)
+            {
+                meseUsato=i+1;
+                const meseX = document.getElementById("lista"+meseUsato);
+                meseX.style.opacity = "0";
+                meseX.style.paddingRight = "0px";
+                meseX.style.borderWidth = "0rem";
+                meseX.style.marginBottom = "0rem";
+            }
         }
 
         //gennaio
@@ -616,11 +714,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayGennaio);
             }
         }
         //febbraio
@@ -648,11 +747,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayFebbario);
             }
         }
         //marzo
@@ -680,11 +780,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayMarzo);
             }
         }
         //aprile
@@ -712,11 +813,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayAprile);
             }
         }
         //maggio
@@ -744,11 +846,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayMaggio);
             }
         }
         //giugno
@@ -776,11 +879,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayGiugno);
             }
         }
         //luglio
@@ -808,11 +912,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayLuglio);
             }
         }
         //agosto
@@ -840,11 +945,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayAgosto);
             }
         }
         //settembre
@@ -872,11 +978,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arraySettembre);
             }
         }
         //ottobre
@@ -904,11 +1011,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayOttobre);
             }
         }
         //novembre
@@ -936,11 +1044,12 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayNovembre);
             }
         }
         //dicembre
@@ -968,13 +1077,28 @@ function eliminaTraccia(id)
                 titoloDaEliminare.remove();
                 bottoneDaEliminare.remove();
                 
-                mese = document.getElementById("lista"+meseUsato);
+                const mese = document.getElementById("lista"+meseUsato);
                 mese.style.opacity = "0";
-                mese.style.paddingRight = "00px";
+                mese.style.paddingRight = "0px";
                 mese.style.borderWidth = "0rem";
                 mese.style.marginBottom = "0rem";
+                arrayMesi.pop(arrayDicembre);
             }
+            
         }
+        // switch(arrayMesi.length)
+        // {
+        //     case 1:
+        //         {
+        //             document.getElementById("listaTracce").style.gridTemplateColumns="repeat(1,1fr)";
+        //             break;
+        //         }
+        //     case 2:
+        //         {
+        //             document.getElementById("listaTracce").style.gridTemplateColumns="repeat(2,1fr)";
+        //             break;
+        //         }
+        // }
     }
     else
         alert("La traccia \""+id+"\" non è stata trovata!");

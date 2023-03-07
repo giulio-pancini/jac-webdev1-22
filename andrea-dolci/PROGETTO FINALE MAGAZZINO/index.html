@@ -11,7 +11,7 @@
 </head>
 <body>
     <section id="login">
-   
+
         <header>
             <h1>LOGIN PER ACCEDERE AL GESTIONALE</h1>
         </header> 
@@ -21,15 +21,16 @@
             <button type="button" onclick="toggle('amazon')">Amazon</button>
             <button type="button" onclick="toggle('barilla')">Barilla</button> 
         </article>
+
     </section>
 
     <section id="aliExpress">
         <header>
             <h1>GESTIONALE ALIEXPRESS</h1> <button type="button" onclick="home('aliExpress')">TORNA ALLA SCHERMATA HOME</button>
+            <i class="fas fa-home" onclick="home('aliExpress')">HOME</i>
         </header> 
-
         <article>
-            <table>
+            <table id="aliExpressTab">
                 <tr>
                     <th>ID</th>
                     <th>Prodotto</th>
@@ -39,57 +40,21 @@
                     <th>Data</th>
                     <th>Modifica/Elimina</th>
                 </tr>
-                <tr>
-                    <td id="id1-aliExpress"></td>
-                    <td id="name1-aliExpress"></td>
-                    <td id="quantity1-aliExpress"></td>
-                    <td id="price1-aliExpress"></td>
-                    <td id="description1-aliExpress"></td>
-                    <td id="date1-aliExpress"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id2-aliExpress"></td>
-                    <td id="name2-aliExpress"></td>
-                    <td id="quantity2-aliExpress"></td>
-                    <td id="price2-aliExpress"></td>
-                    <td id="description2-aliExpress"></td>
-                    <td id="date2-aliExpress"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id3-aliExpress"></td>
-                    <td id="name3-aliExpress"></td>
-                    <td id="quantity3-aliExpress"></td>
-                    <td id="price3-aliExpress"></td>
-                    <td id="description3-aliExpress"></td>
-                    <td id="date3-aliExpress"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id4-aliExpress"></td>
-                    <td id="name4-aliExpress"></td>
-                    <td id="quantity4-aliExpress"></td>
-                    <td id="price4-aliExpress"></td>
-                    <td id="description4-aliExpress"></td>
-                    <td id="date4-aliExpress"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-            </table>
-              
-              
+            </table>   
         </article>
         
         
     </section>
 
     <section id="amazon">
+
         <header>
             <h1>GESTIONALE AMAZON</h1> <button type="button" onclick="home('amazon')">TORNA ALLA SCHERMATA HOME</button>
+            <i class="fas fa-home" onclick="home('amazon')">HOME</i>
         </header>
 
         <article>
-            <table>
+            <table id="amazonTab">
                 <tr>
                     <th>ID</th>
                     <th>Prodotto</th>
@@ -99,56 +64,20 @@
                     <th>Data</th>
                     <th>Modifica/Elimina</th>
                 </tr>
-                <tr>
-                    <td id="id1-amazon"></td>
-                    <td id="name1-amazon"></td>
-                    <td id="quantity1-amazon"></td>
-                    <td id="price1-amazon"></td>
-                    <td id="description1-amazon"></td>
-                    <td id="date1-amazon"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id2-amazon"></td>
-                    <td id="name2-amazon"></td>
-                    <td id="quantity2-amazon"></td>
-                    <td id="price2-amazon"></td>
-                    <td id="description2-amazon"></td>
-                    <td id="date2-amazon"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id3-amazon"></td>
-                    <td id="name3-amazon"></td>
-                    <td id="quantity3-amazon"></td>
-                    <td id="price3-amazon"></td>
-                    <td id="description3-amazon"></td>
-                    <td id="date3-amazon"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id4-amazon"></td>
-                    <td id="name4-amazon"></td>
-                    <td id="quantity4-amazon"></td>
-                    <td id="price4-amazon"></td>
-                    <td id="description4-amazon"></td>
-                    <td id="date4-amazon"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-            </table>
-              
-              
+            </table> 
         </article>
         
     </section>
         
     <section id="barilla">
+
         <header>
             <h1>GESTIONALE BARILLA</h1> <button type="button" onclick="home('barilla')">TORNA ALLA SCHERMATA HOME</button>
+            <i class="fas fa-home" onclick="home('barilla')">HOME</i>
         </header>
 
         <article>
-            <table>
+            <table id="barillaTab">
                 <tr>
                     <th>ID</th>
                     <th>Prodotto</th>
@@ -158,45 +87,7 @@
                     <th>Data</th>
                     <th>Modifica/Elimina</th>
                 </tr>
-                <tr>
-                    <td id="id1-barilla"></td>
-                    <td id="name1-barilla"></td>
-                    <td id="quantity1-barilla"></td>
-                    <td id="price1-barilla"></td>
-                    <td id="description1-barilla"></td>
-                    <td id="date1-barilla"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id2-barilla"></td>
-                    <td id="name2-barilla"></td>
-                    <td id="quantity2-barilla"></td>
-                    <td id="price2-barilla"></td>
-                    <td id="description2-barilla"></td>
-                    <td id="date2-barilla"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id3-barilla"></td>
-                    <td id="name3-barilla"></td>
-                    <td id="quantity3-barilla"></td>
-                    <td id="price3-barilla"></td>
-                    <td id="description3-barilla"></td>
-                    <td id="date3-barilla"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-                <tr>
-                    <td id="id4-barilla"></td>
-                    <td id="name4-barilla"></td>
-                    <td id="quantity4-barilla"></td>
-                    <td id="price4-barilla"></td>
-                    <td id="description4-barilla"></td>
-                    <td id="date4-barilla"></td>
-                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></td>
-                </tr>
-            </table>
-              
-              
+            </table>              
         </article>
         
     </section>
