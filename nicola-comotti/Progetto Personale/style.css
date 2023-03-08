@@ -233,7 +233,7 @@ input[type="number"] {
     top: 0.1em;
 }
 
-footer {
+/*footer {
     background-color: navy;
     color: whitesmoke;
     position: fixed;
@@ -242,7 +242,7 @@ footer {
     right: 0;
     width: 100%;
     padding: 1em 0;
-}
+}*/
 
 /* DESKTOP */
 @media (min-width: 850px) {
@@ -284,6 +284,10 @@ footer {
     nav.only-desktop>a {
         flex: 1;
         list-style-type: none;
+    }
+
+    #menuMobile {
+        display: none;
     }
 
     .column {
