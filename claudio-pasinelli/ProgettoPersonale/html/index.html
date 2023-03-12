@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor per compositori</title>
     <link rel="stylesheet" href="../css/editorCompositori.css">
-    <script src="../js/traccia.js"></script>
+    <link rel="stylesheet" href="../css/carte.css">
+    <script src="../js/carte.js"></script>
     <script src="../js/social.js"></script>
     <script src="../js/slideshow.js"></script>
     <script src="../js/profiloCompositore.js"></script>
@@ -69,7 +70,8 @@
     <article id="formTracce">
         <section id="formAggiunta">
             <h1>Inserisci le tue tracce musicali</h1>
-            <form id="traccia" name="traccia">
+            <form id="formCard">
+                <input type="file" id="immagineCarta" accept="image/*">
                 <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
                 <label for="prezzo">Prezzo: <input type="text" name="prezzo" id="prezzo" required></label>
                 <label for="mese">Mese:</label>
@@ -88,40 +90,12 @@
                     <option value="Novembre">Novembre</option>
                     <option value="Dicembre">Dicembre</option>
                 </select>
-                <button type="button" onclick="creaTraccia()">Invia</button>
+                <button id="btn-card" onclick="creaCarta()">Invia</button>
             </form>
         </section>
-        <section id="listaTraccePerMese">
-            <h1>Lista delle tracce</h1>
-            <ul id="listaTracce">
-                <p id="testoPerNoTracce">Qui troverai la lista di tutte le tue canzoni, ordinate per il mese in cui verranno suonate, non appena le inserirai dal modulo di compilazione.</p>
-                <ul id="lista1">
-                </ul>
-                <ul id="lista2">
-                </ul>
-                <ul id="lista3">
-                </ul>
-                <ul id="lista4">
-                </ul>
-                <ul id="lista5">
-                </ul>
-                <ul id="lista6">
-                </ul>
-                <ul id="lista7">
-                </ul>
-                <ul id="lista8">
-                </ul>
-                <ul id="lista9">
-                </ul>
-                <ul id="lista10">
-                </ul>
-                <ul id="lista11">
-                </ul>
-                <ul id="lista12">
-                </ul>
-            </ul>
-        </section>
     </article>
+
+    <section id="lista"></section>
 
     <footer id="piePagina">
         Footer

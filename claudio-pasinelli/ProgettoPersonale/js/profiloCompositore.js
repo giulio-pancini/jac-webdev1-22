@@ -4,7 +4,7 @@ function creaProfilo()
 
     if(testo.value==="")
     {
-        alert("Non hai inserito nessuna immagine!");
+        alert("Non hai inserito nessuna descrizione!");
         return;
     }
 
@@ -21,7 +21,6 @@ function creaProfilo()
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function()
-
     {
         // const image = reader.result;
         immagine.src=reader.result;

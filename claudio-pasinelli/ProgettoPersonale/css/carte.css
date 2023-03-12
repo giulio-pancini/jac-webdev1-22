@@ -1,0 +1,143 @@
+*
+{
+    box-sizing: border-box;
+}
+
+:root
+{
+    --colore-scuro: rgb(68, 72, 87);
+    --colore-chiaro: rgb(255, 255, 255);
+    --colore-mezzo-chiaro: rgb(242, 242, 242);
+    --colore-oro: darkkhaki;
+    --colore-azzurro: #00c6ff;
+    --colore-azzurro-scuro: #247ecd;
+    --grandezza-carta: 250px;
+}
+
+#formCard
+{
+    display: flex;
+    flex-direction: column;
+}
+
+form#formCard select#mese
+{
+    width: fit-content;
+}
+
+form#formCard button#btn-card
+{
+    width: fit-content;
+}
+
+#lista
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--grandezza-carta), 1fr));
+    grid-column-gap: 10px;
+    background-color: var(--colore-mezzo-chiaro);
+    padding: 10px;
+    visibility: hidden;
+}
+
+.card
+{
+    min-height: 350px;
+    height: fit-content;
+    width: var(--grandezza-carta);
+    margin: auto;
+    margin-bottom: 10px;
+    border: 3px var(--colore-oro);
+    background-color: var(--colore-chiaro);
+    border-style: solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card:hover
+{
+    transform: scale(1.01);
+}
+
+.title
+{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--colore-chiaro);
+    padding: 5px;
+    border: solid var(--colore-oro);
+    border-width: 0px 0px 5px 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.title p
+{
+    flex: 10;
+    margin: auto;
+    text-align: left;
+}
+
+.title button.elimina
+{
+    flex: 1;
+    margin: auto;
+}
+
+.img-container
+{
+    background-color: var(--colore-azzurro-scuro);
+    border: solid var(--colore-oro);
+    border-width: 0px 0px 5px 0px;
+}
+
+.banner
+{
+    border: solid var(--colore-oro);
+    border-width: 2px;
+    height: fit-content;
+    margin: 10px;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.banner:hover
+{
+    border: solid var(--colore-azzurro);
+    border-width: 2px;
+}
+
+.imgBackground
+{
+    height: 150px;
+    background-image: url(Immagine.png);
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s ease;
+}
+
+.imgBackground:hover
+{
+    transform: scale(1.15) rotate(5deg);
+}
+
+.description
+{
+    align-self: center;
+    display: grid;
+    height: 100%;
+    margin: 10px;
+}
+
+.description footer
+{
+    margin-top: auto;
+    border: solid var(--colore-oro);
+    border-width: 3px 0px 0px 0px;
+}
