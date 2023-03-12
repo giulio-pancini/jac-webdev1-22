@@ -1,6 +1,6 @@
 /*FOOTER*/
 footer{
-    background-color: rgb(143, 112, 78);
+    background-color: var(--light-color);
     color: white;
     float: bottom;
     padding-bottom:0;
@@ -19,6 +19,7 @@ footer img{
 .x{
     display: inline-block;
     margin: 20px;
+    background: trasparent;
 }
 
 .material-symbols-outlined {
@@ -27,4 +28,24 @@ footer img{
   'wght' 400,
   'GRAD' 0,
   'opsz' 48
+}
+
+#logoFooter{
+    float: left;
+}
+
+#locationFooter{
+    float: left;
+}
+
+#contactsFooter{
+    float: left;
+}
+
+#hourFooter{
+    float: left;
+}
+
+#socialFooter{
+    float: left;
 }

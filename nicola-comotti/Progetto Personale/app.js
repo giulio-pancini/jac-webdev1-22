@@ -1,10 +1,18 @@
 function toggleMenu() {
 
     const expMenuElement = document.getElementById('menuMobile');
-    if (expMenuElement.style.display != "block") {
+
+    var x = window.matchMedia("(max-width: 850px)")
+    myFunction(x)
+    x.addListener(myFunction)
+
+    function myFunction(x) {
+    if (x.matches && expMenuElement.style.display == "block") {
+        expMenuElement.style.display = "none";
+    } else if (x.matches && expMenuElement.style.display == "none") {
         expMenuElement.style.display = "block";
     } else {
-        expMenuElement.style.display = "none"
+        expMenuElement.style.display = "none"; }
     }
 
 }
