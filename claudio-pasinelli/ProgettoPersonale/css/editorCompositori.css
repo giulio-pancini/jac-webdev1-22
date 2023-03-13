@@ -557,6 +557,10 @@ p#testoDescrizione
     {
         grid-template-columns: repeat(1, 1fr);
     }
+    button#modificaProfilo
+    {
+        grid-column: 1;
+    }
     section#sectionImmagineProfilo
     {
         justify-self: center;
@@ -581,14 +585,6 @@ p#testoDescrizione
     {
         width: 35%;
     }
-    section#profilo
-    {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    section#sectionImmagineProfilo
-    {
-        justify-self: center;
-    }
 }
 
 @media (min-width: 992px)
@@ -596,5 +592,9 @@ p#testoDescrizione
     section#profilo
     {
         grid-template-columns: fit-content(8ch) fit-content(8ch);
+    }
+    button#modificaProfilo
+    {
+        grid-column: 1/3;
     }
 }
