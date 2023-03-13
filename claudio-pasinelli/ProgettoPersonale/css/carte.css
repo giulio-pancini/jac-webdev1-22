@@ -34,7 +34,7 @@ form#formCard button#btn-card
 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--grandezza-carta), 1fr));
-    grid-column-gap: 10px;
+    column-gap: 10px;
     background-color: var(--colore-mezzo-chiaro);
     padding: 10px;
     visibility: hidden;
@@ -115,8 +115,7 @@ form#formCard button#btn-card
 
 .imgBackground
 {
-    height: 150px;
-    background-image: url(Immagine.png);
+    height: 250px;
     background-position: center;
     background-size: cover;
     transition: transform 0.5s ease;
@@ -140,4 +139,9 @@ form#formCard button#btn-card
     margin-top: auto;
     border: solid var(--colore-oro);
     border-width: 3px 0px 0px 0px;
+}
+
+button#btn-card
+{
+    margin: 5px 0px;
 }

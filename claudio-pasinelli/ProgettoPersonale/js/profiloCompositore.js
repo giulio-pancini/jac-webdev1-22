@@ -38,3 +38,12 @@ function creaProfilo()
     testo.value = "";
     input.value = "";
 }
+
+function modificaProfilo()
+{
+    const profilo = document.getElementById("profilo");
+    profilo.style.display = "none";
+
+    const formProfilo = document.getElementById("formProfilo");
+    formProfilo.style.display="flex";
+}

@@ -1,4 +1,3 @@
-let counter = 0;
 let id = 1;
 let arrayCarte = [];
 
@@ -100,30 +99,13 @@ function creaCarta()
         cost.innerText = "Prezzo: " + document.getElementById("prezzo").value+"€";
         footer.appendChild(cost);
 
-        if(counter==0)
-        {
-            counter++;
-        }
-
-        else if(counter==1 && arrayCarte.length!=0)
-        {
-            title.style.backgroundColor = "rgb(68, 72, 87)";
-            card.style.backgroundColor = "rgb(68, 72, 87)";
-            card.style.color = "rgb(255, 255, 255)";
-            counter = 0;
-        }
-
-        else if(counter==1 && arrayCarte.length==0 || arrayCarte.length==1)
-        {
-            counter = 0;
-        }
-
         arrayCarte.push(card);
         arrayCarte.push(document.getElementById("mese").value);
         arrayCarte.push(id);
         id++;
 
-        sortListDir();
+        sortListaCarte();
+        coloraCarte();
 
         document.getElementById('nome').value = '';
         document.getElementById('prezzo').value = '';
@@ -146,24 +128,19 @@ function eliminaCarta(id)
         alert("La traccia \""+id+"\" non è stata trovata!");
 }
 
-function sortListDir()
+function sortListaCarte()
 {
     let list, i, switching, b, shouldSwitch, dir, switchcount = 0;
     list = document.getElementById("lista");
     switching = true;
-    //faccio un loop che continuerà fino a quando il cambio d'ordine non sarà completato
+
     while (switching)
     {
-        // parto dicendo che il cambio d'ordine non è completato
         switching = false;
         b = list.getElementsByClassName("card");
-        // faccio il loop per tutti gli elementi
         for (i = 0; i < b.length; i++)
         {
-            //parto dicendo che il cambio d'ordine non è completato
             shouldSwitch = false;
-            /*controllo se il prossimo elemento debba essere rimpiazzato con quello attuale
-            a seconda della direzione del sorting (ascendente asc o decrescente desc)*/
             if(b[i]!=null)
             {
                 //carta attuale
@@ -190,8 +167,6 @@ function sortListDir()
 
                     if (meseAttuale > meseSuccessivo)
                     {
-                        /*se il prossimo elemento è alfabeticamente inferiore di quello attuale,
-                        si marchia come un cambio d'ordine e si rompre il ciclo*/
                         shouldSwitch = true;
                         break;
                     }
@@ -205,10 +180,8 @@ function sortListDir()
         }
         if (shouldSwitch)
         {
-            /*se il cambio d'ordine è stato marchiato, lo si compie e si dice che è avvenuto*/
             b[i].parentNode.insertBefore(b[i + 1], b[i]);
             switching = true;
-            //ogni volta che un cambio d'ordine viene fatto, incremento lo switchcount di 1
             switchcount ++;
         }
     }
@@ -240,4 +213,34 @@ function numeroMese(mese)
         return 11;
     else if(mese==="Dicembre")
         return 12;
+}
+
+function coloraCarte()
+{
+    let carte = document.getElementsByClassName("card");
+    let bianco = true;
+    let titolo;
+
+    for (let i = 0; i<carte.length; i++)
+    {
+        if(carte[i]!=null)
+        {
+            if(bianco)
+            {
+                titolo = carte[i].firstElementChild;
+                titolo.style.backgroundColor = "rgb(255, 255, 255)";
+                carte[i].style.backgroundColor = "rgb(255, 255, 255)";
+                carte[i].style.color = "rgb(0, 0, 0)";
+                bianco = false;
+            }
+            else
+            {
+                titolo = carte[i].firstElementChild;
+                titolo.style.backgroundColor = "rgb(68, 72, 87)";
+                carte[i].style.backgroundColor = "rgb(68, 72, 87)";
+                carte[i].style.color = "rgb(255, 255, 255)";
+                bianco = true;
+            }
+        }
+    }
 }
