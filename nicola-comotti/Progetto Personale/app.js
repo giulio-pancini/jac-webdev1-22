@@ -7,14 +7,23 @@ function toggleMenu() {
     x.addListener(myFunction)
 
     function myFunction(x) {
-    if (x.matches && expMenuElement.style.display == "block") {
-        expMenuElement.style.display = "none";
-    } else if (x.matches && expMenuElement.style.display == "none") {
-        expMenuElement.style.display = "block";
-    } else {
-        expMenuElement.style.display = "none"; }
+        if (x.matches && expMenuElement.style.display == "block") {
+            expMenuElement.style.display = "none";
+        } else if (x.matches && expMenuElement.style.display == "none") {
+            expMenuElement.style.display = "block";
+        } else {
+            expMenuElement.style.display = "none";
+        }
     }
 
+}
+
+function login() {
+    window.location.href="user-homepage.html";
+}
+
+function logout() {
+    window.location.href="login-page.html";
 }
 
 function addExe() {
@@ -82,14 +91,14 @@ function addExe() {
 
 // function addScheda() {}
 
-async function boh() {
+async function fetchEsercizi() {
     const response = await fetch("http://localhost:8080/esercizioAPI/listaesercizi");
-            const jsonResponse = await response.json();
-            console.log(jsonResponse);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
 
-            jsonResponse.products.forEach(product => {
-                const elemento = document.createElement('li');
-                document.getElementById('prodotti').appendChild(elemento);
-                elemento.innerHTML = product;
-            });
+    jsonResponse.products.forEach(product => {
+        const elemento = document.createElement('li');
+        document.getElementById('prodotti').appendChild(elemento);
+        elemento.innerHTML = product;
+    });
 }

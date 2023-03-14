@@ -19,6 +19,15 @@ body {
     min-width: 424px;
 }
 
+#body-login-page {
+    background-image: url(Utils/login-background.jpg);
+    background-position: right;
+    height: 100vh;
+    padding: 4em;
+    display: flex;
+    justify-content: center;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -73,6 +82,64 @@ a:active {
 
 article {
     padding-bottom: 0.5em;
+}
+
+#login-article {
+    width: 50%;
+    background-color: rgba(0, 0, 128, 0.9);
+    border-radius: 30px;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 370px;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px 5px whitesmoke;
+}
+
+#login-article>header {
+    margin-bottom: 3em;
+}
+
+#login-article>header>h1 {
+    display: inline;
+    font-size: 2em;
+}
+
+#login-article>header>img {
+    vertical-align: center;
+    position: relative;
+    top: 0.3em;
+}
+
+#login-form {
+    border: none;
+    background-color: #ffffff00;
+}
+
+#login-form>h2 {
+    font-size: 1.3  em;
+}
+#username {
+    margin-top: 2em;
+    background-color: whitesmoke;
+    color: black;
+}
+
+#password {
+    margin-bottom: 3em;
+    background-color: whitesmoke;
+    color: black;
+}
+
+#login-button {
+    width: 100%;
+    font-family: zekton;
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: whitesmoke;
+    border-radius: 10px;
 }
 
 h2.muscolo {
@@ -255,7 +322,7 @@ input[type="number"] {
         display: block;
     }
 
-    header>#loginButton {
+    header>#logoutButton {
         right: 5em;
     }
 
@@ -264,14 +331,14 @@ input[type="number"] {
         border-radius: 5px;
     }
 
-    header>#loginButton>p {
+    header>#logoutButton>p {
         display: inline-block;
         font-family: zekton;
         color: whitesmoke;
         margin: 0 0.5em 0 0;
     }
 
-    header>#loginButton>img {
+    header>#logoutButton>img {
         vertical-align: middle;
     }
 
@@ -319,7 +386,7 @@ input[type="number"] {
         left: 2em;
     }
 
-    header>#loginButton {
+    header>#logoutButton {
         right: 2em;
     }
 
