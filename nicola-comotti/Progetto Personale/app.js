@@ -17,6 +17,15 @@ function toggleMenu() {
     }
 
 }
+/*
+const pagesClasses = ['login-page','user-homepage','database-esercizi','piani-di-allenamento','contatti']
+
+function loadPage(className) {
+    for (const pagina of pagesClasses) {
+        document.getElementsByClassName(pagina).style.display = "none";
+    }
+    document.getElementsByClassName(className).style.display = "block";
+} */
 
 function login() {
     window.location.href="user-homepage.html";
@@ -34,6 +43,11 @@ function addScheda() {
 
     const inputNome = document.getElementById('nomeScheda');
     const nome = inputNome.value;
+
+    if(nome == '') {
+        alert('INSERIRE IL NOME DELLA SCHEDA!');
+        return
+    }
 
     const testoNome = document.createElement('h2');
     testoNome.innerText = nome;

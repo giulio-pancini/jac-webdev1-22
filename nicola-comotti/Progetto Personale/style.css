@@ -362,7 +362,8 @@ input[type="number"] {
 
     nav.only-desktop>a {
         flex: 1;
-        list-style-type: none;
+        font-size: large;
+        font-weight: bold;
     }
 
     #menuMobile {
@@ -411,6 +412,8 @@ input[type="number"] {
     #menuMobile>a {
         display: block;
         margin: 1.5em 3em;
+        font-size: large;
+        font-weight: bold;
     }
 
 }
