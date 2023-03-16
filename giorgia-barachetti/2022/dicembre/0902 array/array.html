@@ -8,8 +8,27 @@
 </head>
 <body>
     <script>
+        //OGGETTI ->chiave o attrubuti o proprieta di tipo string
+        //USO QUANDO DEVO ACCEDERE A PROPRIETA E ATTRIBUTI E NON  DEVO ITERARE
+        //NOT ORDERED
+        //PARZIALMENTE ITERABILI -->no foreach ---> forin e for of 
+        const object =
+            {
+            'nome' : 'paolo',
+            'cognome' : 'mangini',
+            'eta' : 2 ,
+            };
+            
+            object[nome];
+            object.nome;
+        
+        object['sesso'] = 'M';
+        object['indirizzo'] = 'Via Aldo Moro';
 
-        //ARRAY
+        //ARRAY ->indice o chiave di tipo number
+        //USO QUANDO HO LISTA DI Array
+        //ORDERED
+        //ITERABILI: ex foreach
         const lista=['primo', 'secondo', 'terzo'];
             const primoEl = lista[0]; //--> 'primo'
             
@@ -34,23 +53,12 @@
             console.log (currentElement);
         }
 
-        //OGGETTI
-        const object =
-            {
-            
-            'nome' : 'paolo',
-            'cognome' : 'mangini',
-            'eta' : 2 ,
-            };
-            
 
-            object[nome];
-            object.nome;
-        
-        object['sesso'] = 'M';
-        object['indirizzo'] = 'Via Aldo Moro';
 
-        //MAPPE
+        //MAPPE ->chiave tipo qualunque
+        //USO X OGGETTI ASSOCIATI CON TRISNGA
+        //ORDERED
+        //ITERABILI: ex foreach
         const map = new Map();
 
         map.set('prossi', 'paolorossi@gmail.com');

@@ -1,4 +1,6 @@
 /*  
+    BTecno - Assistenza informatica | web | app
+
     INTERFACCIA FAST FOOD (mc like)
 
     Funzioni: Aggiunta al carrello, Elimina dal carrello, filtro ricerca
@@ -12,30 +14,6 @@
 */
 
 /*
-const check = false;
-
-document.getElementById("burger1").addEventListener("click", function () {
-
-    if (check == false) {
-
-        const nuovoElementoParagrafo = document.createElement("p");
-        nuovoElementoParagrafo.setAttribute("id", "paragrafoNuovo")
-        const elementoContainer = document.getElementById("contenitore");
-
-        elementoContainer.appendChild(nuovoElementoParagrafo);
-
-        const txt = document.createTextNode("Panino del mcdonald con la mia gang");
-        nuovoElementoParagrafo.appendChild(txt);
-
-        check = true;
-
-    }else if (check == true){
-        var paragrafo = document.getElementById("paragrafoNuovo");
-        paragrafo.parentNode.removeChild(paragrafo);
-    }
-
-});
-*/
 
 /*
     APPEND CHILD SCHEME:
@@ -58,3 +36,101 @@ document.getElementById("burger1").addEventListener("click", function () {
 
 */
 
+class Product {
+    constructor(id, name, price,){
+        this.id;
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Burger extends Product {
+    constructor(id, name, price, ingredients) {
+        super(id, name, price);
+        this.ingredients = ingredients;
+    }
+}
+
+class Drink extends Product {
+    constructor(id, name, price, size){
+        super(id, name, price)
+        this.size = size;
+    }
+}
+
+const Products = [];
+
+let counter = 1;
+const cart = [];
+
+function addBurgerToCart() {
+
+    const panino = event.target.value;
+    
+    const b = new Burger();
+
+    if(panino == "Crispy"){
+        b.id = counter;
+        b.name = "Crispy";
+        b.price = 6.50;
+        b.ingredients = ["Pane", "Carne Bovina", "Cheddar", "Bacon", "Salsa Crispy"];
+    }else if(panino == "Filet-O-Fishn't"){
+        b.id = counter;
+        b.name = "Filet-O-Fishn't";
+        b.price = 5.00;
+        b.ingredients = ["Pane", "Merluzzo impanato", "Cheddar", "Salsa tartara"];
+    }else if(panino == "Cheesburgern't"){
+        b.id = counter;
+        b.name = "Cheesburgern't";
+        b.price = 5.50;
+        b.ingredients = ["Pane", "Carne Bovina", "Cheddar", "Cipolla", "Ketchup & Senape"];
+    }else if(panino == "His Selection"){
+        b.id = counter;
+        b.name = "His Selection";
+        b.price = 7.50;
+        b.ingredients = ["Insalata", "Carne Bovina", "Guoda stagionato", "Bacon", "Salsa BBQ"];
+    }else if(panino == "Mcn't Toast"){
+        b.id = counter;
+        b.name = "Mcn't Toast";
+        b.price = 1.75;
+        b.ingredients = ["Pane", "Prosciutto Cotto", "Formaggio Fuso"];
+    }else if(panino == "Bonsin't ChickenBurger"){
+        b.id = counter; 
+        b.name = "Bonsin't ChickenBurger";
+        b.price = 6.50;
+        b.ingredients = ["Pane", "Pollo Impanato", "Cheddar", "Lattuga", "Salsa BBQ"];
+    }
+
+    addBurgerToTable(panino, b.price);
+    console.log(b);
+
+}
+
+function addBurgerToTable(product, price) {
+
+    const newElementTr = document.createElement('tr');
+    const newElementTh = document.createElement('th');
+
+    const newElementTd = document.createElement('td');
+    const txtBurger = document.createTextNode(product);
+
+    const newElemntTdPrice = document.createElement('td');
+    const txtPrice = document.createTextNode(price);
+
+    newElemntTdPrice.appendChild(txtPrice);
+
+    const txt = document.createTextNode(counter);
+
+    newElementTh.setAttribute('class', 'scope="row"');
+
+    newElementTr.appendChild(newElementTh);
+    newElementTh.appendChild(txt);
+    newElementTr.appendChild(newElementTd);
+    newElementTd.appendChild(txtBurger);
+    
+    newElementTr.appendChild(newElemntTdPrice);
+
+    document.getElementById('tableBody').appendChild(newElementTr);
+
+    counter++;
+}

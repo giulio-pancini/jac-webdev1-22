@@ -1,3 +1,7 @@
+  *{
+    background-color:#66ff99;
+   }
+
 @media (max-width:960px) {
 
     .only-mobile 
@@ -10,12 +14,14 @@
         display: none;
     }
 
-    #Title {
-        text-align: center;                                                                                                                                                             
+    #TitleMobile {
+        text-align: center;   
+        background-color: #339933;                                                                                                                                                          
     }
 
     #Instructions {
         text-align: center;
+        background-color:#1aff66;
     }
 
     form {
@@ -23,13 +29,14 @@
     }
 
     #RollIt {
+        background-color: #009933; 
         text-align: center;
     }
 
     li {
         text-align: center;
         list-style-type: none;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid #996633;
     }
 
     p {
@@ -37,7 +44,7 @@
     }
 
     #rolls {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid #996633;
     }
 
     #DiceRolls {
@@ -50,6 +57,11 @@
         bottom: 0;
         left: 0;
         text-align: center;
+    }
+
+    input 
+    {
+      background-color: white;
     }
 
 }
@@ -69,6 +81,13 @@
     #TitleDesktop
     {
         text-align: center;
+        background-color: #339933;
+    }
+
+    #Instructions 
+    {
+        background-color:#1aff66;
+        text-align: center;
     }
 
     #rolls, form 
@@ -83,7 +102,7 @@
         padding-left: 5%;
         padding-right: 5%;
         padding-bottom: 5%;
-        border: 2px solid black;
+        border: 2px solid #996633;
     }
 
     #rolls
@@ -108,7 +127,17 @@
     li {
         text-align: center;
         list-style-type: none;
-        border: 2px solid gray;
+        border: 2px solid #996633;
         margin-bottom: 5px;
+    }
+
+    #RollIt
+    {
+        background-color: #009933;
+    }
+
+    input 
+    {
+      background-color: white;
     }
 }
