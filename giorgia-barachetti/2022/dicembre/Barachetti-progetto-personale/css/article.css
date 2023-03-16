@@ -36,6 +36,7 @@ article #gif{
                 text-align: left;
                 font-size:40px;
                 color: rgb(213, 162, 105);
+                font-weight: bold;
             }
         }
         
@@ -53,18 +54,21 @@ article #gif{
 
             article nav ul {
                 list-style-type: none;
-                
             }
+            
             article nav h1 {
                 list-style-type: none;
                 text-align: left;
                 font-size:20px;
                 color: rgb(213, 162, 105);
                 text-decoration:none;
+                font-weight: bold;
             }
 
             article nav a{
-                color: rgb(224, 171, 111);
+                color: rgb(213, 162, 105);
+                text-decoration: none;
+                font-weight: bold;
             }
 
 
@@ -78,7 +82,7 @@ article #allSaddles{
             text-align: center;
             margin-bottom:20px;
             font-size: 30px;
-            color: rgb(143, 112, 78);
+            color: var(--light-color);
         }
           
         .buy{
@@ -102,7 +106,8 @@ article #allSaddles{
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 0.4rem;   /** è angolazione dei bordi**/
-    background-color: white;    
+    background-color: white; 
+    border: 2px outset var(--light-color);   
 }
         
          article #jumping{
@@ -141,6 +146,7 @@ article #allSaddles{
     margin-bottom: 20px;
     border-radius: 0.4rem;   /** è angolazione dei bordi**/
     background-color: white;
+    border: 2px outset var(--light-color);  
 }
         
         article #dressage{
@@ -175,17 +181,14 @@ article #allSaddles{
     margin-bottom: 20px;
     border-radius: 0.4rem;   /** è angolazione dei bordi**/
     background-color: white;
+    border: 2px outset var(--light-color);  
 }
 
         article #trekking{
             margin: 50px;
             margin-bottom:15px;
             }
-                article #trekking h1{
-                    text-align: center;
-                    margin-bottom:20px;
-                }
-                
+    
                 .dreSaddle img, h1, p, button{
                     margin:0;
                 }
@@ -218,6 +221,7 @@ article #allSaddles{
     margin-bottom: 20px;
     border-radius: 0.4rem;   /** è angolazione dei bordi**/
     background-color: white;
+    border: 2px outset var(--light-color);  
 }
 
         article #western{
