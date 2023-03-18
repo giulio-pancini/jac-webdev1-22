@@ -1,7 +1,9 @@
 let id = 1;
 let arrayCarte = [];
+let incasso = 0;
+let incassoTot = 0;
 
-function creaCarta()
+function creaCartaJson()
 {
     const input = document.getElementById("immagineCarta");
     const file = input.files[0];
@@ -38,130 +40,180 @@ function creaCarta()
 
     else
     {
+
         const imgBackground = document.createElement("section");
         imgBackground.setAttribute("class","imgBackground");
-
+    
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function()
         {
             imgBackground.style.backgroundImage = "url("+reader.result+")";
         }
-
+    
         imgBackground.style.backgroundImage = "url("+reader.result+")";
-        const lista = document.getElementById("lista");
+
+        carta=
+        {
+            titolo: document.getElementById("nome").value,
+            prezzo: document.getElementById("prezzo").value,
+            mese: document.getElementById("mese").value,
+            id:id,
+        }
 
         if(arrayCarte.length==0)
         {
             lista.style.visibility = "visible";
         }
 
-        const card = document.createElement("section");
-        card.setAttribute("class","card");
-        card.setAttribute("id","carta"+id);
-        lista.appendChild(card);
-
-        const title = document.createElement("section");
-        title.setAttribute("class","title");
-        card.appendChild(title);
-
-        let mese = document.createElement("p");
-        mese.innerText = document.getElementById("mese").value;
-        title.appendChild(mese);
-
-        let elimina = document.createElement("button");
-        elimina.setAttribute("class","elimina");
-        elimina.setAttribute("onclick","eliminaCarta("+id+")");
-        elimina.innerText = "X";
-        title.appendChild(elimina);
-
-        const imgContainer = document.createElement("section");
-        imgContainer.setAttribute("class","img-container");
-        card.appendChild(imgContainer);
-
-        const banner = document.createElement("section");
-        banner.setAttribute("class","banner");
-        imgContainer.appendChild(banner);
-        banner.appendChild(imgBackground);
-
-        const description = document.createElement("description");
-        description.setAttribute("class","description");
-        card.appendChild(description);
-
-        let footer = document.createElement("footer");
-        description.appendChild(footer);
-
-        let musicTrack = document.createElement("p");
-        musicTrack.innerText = "Titolo: " + document.getElementById("nome").value;
-        footer.appendChild(musicTrack);
-
-        let cost = document.createElement("p");
-        cost.innerText = "Prezzo: " + document.getElementById("prezzo").value+"€";
-        footer.appendChild(cost);
-
-        arrayCarte.push(card);
-        arrayCarte.push(document.getElementById("mese").value);
-        arrayCarte.push(id);
-        id++;
-
-        sortListaCarte();
-        coloraCarte();
+        arrayCarte.push(carta);
+        creaCartaHTML(carta)
+        id++    
 
         document.getElementById('nome').value = '';
         document.getElementById('prezzo').value = '';
         document.getElementById('mese').value = '0';
         document.getElementById('immagineCarta').value = '';
+
+    }
+    
+    function creaCartaHTML(carta)
+    {
+        
+        // let incassoP = document.createElement("p");
+    
+        // incasso = parseFloat(document.getElementById("prezzo").value);
+        // incassoTot += incasso;
+    
+        // incassoP.innerText = incassoTot;
+        const input = document.getElementById("immagineCarta");
+        const file = input.files[0];
+    
+        const imgBackground = document.createElement("section");
+        imgBackground.setAttribute("class","imgBackground");
+    
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function()
+        {
+            imgBackground.style.backgroundImage = "url("+reader.result+")";
+        }
+    
+        imgBackground.style.backgroundImage = "url("+reader.result+")";
+        const lista = document.getElementById("lista");
+
+        //utile
+        // lista.appendChild(incassoP);
+    
+        const card = document.createElement("section");
+        card.setAttribute("class","card");
+        card.setAttribute("id","carta"+carta.id);
+        lista.appendChild(card);
+    
+        const title = document.createElement("section");
+        title.setAttribute("class","title");
+        card.appendChild(title);
+    
+        let mese = document.createElement("p");
+        mese.innerText = carta.mese;
+        title.appendChild(mese);
+    
+        let elimina = document.createElement("button");
+        elimina.setAttribute("class","elimina");
+        elimina.setAttribute("onclick","eliminaCarta("+carta.id+")");
+        elimina.innerText = "X";
+        title.appendChild(elimina);
+    
+        const imgContainer = document.createElement("section");
+        imgContainer.setAttribute("class","img-container");
+        card.appendChild(imgContainer);
+    
+        const banner = document.createElement("section");
+        banner.setAttribute("class","banner");
+        imgContainer.appendChild(banner);
+        banner.appendChild(imgBackground);
+    
+        const description = document.createElement("description");
+        description.setAttribute("class","description");
+        card.appendChild(description);
+    
+        let footer = document.createElement("footer");
+        description.appendChild(footer);
+    
+        let musicTrack = document.createElement("p");
+        musicTrack.innerText = "Titolo: " + carta.titolo;
+        footer.appendChild(musicTrack);
+    
+        let cost = document.createElement("p");
+        cost.innerText = "Prezzo: " + carta.prezzo;
+        footer.appendChild(cost);
+    
+        sortListaCarte();
+        coloraCarte();
     }
 }
 
 function eliminaCarta(id)
 {
-    if(arrayCarte.includes(id))
-    {
-        const cartaDaEliminare = document.getElementById("carta"+id.toString());
-        const indice = arrayCarte.indexOf(id);
+    let isCartaTrovata = false;
 
-        arrayCarte.splice(indice-2,3);
-        cartaDaEliminare.remove();
+    for (const carta of arrayCarte)
+    {
+        if(carta.id==id)
+        {
+            const cartaDaEliminare = document.getElementById("carta"+id.toString());
+            const indice = arrayCarte.indexOf(carta);
+    
+            arrayCarte.splice(carta,1);
+            cartaDaEliminare.remove();
+            coloraCarte();
+            isCartaTrovata = true;
+
+            if(arrayCarte.length==0)
+            {
+                lista.style.visibility = "hidden";
+            }
+        }
     }
-    else
+
+    if(!isCartaTrovata)
         alert("La traccia \""+id+"\" non è stata trovata!");
 }
 
 function sortListaCarte()
 {
-    let list, i, switching, b, shouldSwitch, dir, switchcount = 0;
+    let list, i, switching, listaCarte, shouldSwitch;
     list = document.getElementById("lista");
     switching = true;
 
     while (switching)
     {
         switching = false;
-        b = list.getElementsByClassName("card");
-        for (i = 0; i < b.length; i++)
+        listaCarte = list.getElementsByClassName("card");
+        for (i = 0; i < listaCarte.length; i++)
         {
             shouldSwitch = false;
-            if(b[i]!=null)
+            if(listaCarte[i]!=null)
             {
                 //carta attuale
                 let cartaAttuale;
-                cartaAttuale = b[i];
+                cartaAttuale = listaCarte[i];
 
                 titoloAttuale = cartaAttuale.firstElementChild.textContent;
 
-                let ultimaLettera = titoloAttuale.length
+                let ultimaLettera = titoloAttuale.length;
                 let titoloCortoAttuale = titoloAttuale.substring(0, ultimaLettera - 1);
                 let meseAttuale = numeroMese(titoloCortoAttuale);
 
                 //carta successiva
-                if(b[i+1]!=null)
+                if(listaCarte[i+1]!=null)
                 {
                     let cartaSuccessiva;
-                    cartaSuccessiva = b[i+1];
+                    cartaSuccessiva = listaCarte[i+1];
 
                     titoloSuccessivo = cartaSuccessiva.firstElementChild.textContent;
 
-                    let ultimaLettera = titoloSuccessivo.length
+                    let ultimaLettera = titoloSuccessivo.length;
                     let titoloCortoSuccessivo = titoloSuccessivo.substring(0, ultimaLettera - 1);
                     let meseSuccessivo = numeroMese(titoloCortoSuccessivo);
 
@@ -180,9 +232,8 @@ function sortListaCarte()
         }
         if (shouldSwitch)
         {
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            listaCarte[i].parentNode.insertBefore(listaCarte[i + 1], listaCarte[i]);
             switching = true;
-            switchcount ++;
         }
     }
 }

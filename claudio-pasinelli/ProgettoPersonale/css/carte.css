@@ -38,6 +38,10 @@ form#formCard button#btn-card
     background-color: var(--colore-mezzo-chiaro);
     padding: 10px;
     visibility: hidden;
+    grid-column: 2/9;
+    width: 100%;
+    height: fit-content;
+    margin: auto;
 }
 
 .card

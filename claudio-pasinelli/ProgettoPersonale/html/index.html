@@ -49,17 +49,15 @@
             <img id="immagineProfilo">
         </section>
         <p id="testoDescrizione"></p>
-        <button id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
+        <button type="button" id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
     </section>
 
     <section id="galleriaImmagini">
         <h1>Galleria di immagini</h1>
         <section id="corpoGalleria">
-            <button onclick="prevImage()" id="prevImage">&#8592</button>
-            <section id="slideshow">
-                <img id="currentImage" src="">
-            </section>
-            <button onclick="nextImage()" id="nextImage">&#8594</button>
+            <button onclick="prevImage()" id="prevImage">❮</button>
+            <img id="currentImage" src="">
+            <button onclick="nextImage()" id="nextImage">❯</button>
         </section>
         <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
         <form id="immaginiInput">
@@ -91,7 +89,7 @@
                     <option value="Novembre">Novembre</option>
                     <option value="Dicembre">Dicembre</option>
                 </select>
-                <button id="btn-card" onclick="creaCarta()">Invia</button>
+                <button type="button" id="btn-card" onclick="creaCartaJson()">Invia</button>
             </form>
         </section>
     </section>

@@ -63,7 +63,8 @@ function addImage()
     }
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = function() {
+    reader.onload = function()
+    {
         const image = reader.result;
         images.push(image);
         if (currentIndex === 0)
