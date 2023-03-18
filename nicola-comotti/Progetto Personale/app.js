@@ -7,12 +7,89 @@ function toggleMenu() {
     x.addListener(myFunction)
 
     function myFunction(x) {
-    if (x.matches && expMenuElement.style.display == "block") {
-        expMenuElement.style.display = "none";
-    } else if (x.matches && expMenuElement.style.display == "none") {
-        expMenuElement.style.display = "block";
-    } else {
-        expMenuElement.style.display = "none"; }
+        if (x.matches && expMenuElement.style.display == "block") {
+            expMenuElement.style.display = "none";
+        } else if (x.matches && expMenuElement.style.display == "none") {
+            expMenuElement.style.display = "block";
+        } else {
+            expMenuElement.style.display = "none";
+        }
+    }
+
+}
+/*
+const pagesClasses = ['login-page','user-homepage','database-esercizi','piani-di-allenamento','contatti']
+
+function loadPage(className) {
+    for (const pagina of pagesClasses) {
+        document.getElementsByClassName(pagina).style.display = "none";
+    }
+    document.getElementsByClassName(className).style.display = "block";
+} */
+
+function login() {
+    window.location.href="user-homepage.html";
+}
+
+function logout() {
+    window.location.href="login-page.html";
+}
+
+const schede = [];
+
+function addScheda() {
+
+    const newScheda = document.createElement('li');
+
+    const inputNome = document.getElementById('nomeScheda');
+    const nome = inputNome.value;
+
+    if(nome == '') {
+        alert('INSERIRE IL NOME DELLA SCHEDA!');
+        return
+    }
+
+    const testoNome = document.createElement('h2');
+    testoNome.innerText = nome;
+
+    const buttonRimuovi = document.createElement('button');
+    const imgBin = document.createElement('img');
+    imgBin.setAttribute('src', 'Utils/white-recycle-bin.png', 'alt', 'Elimina');
+    buttonRimuovi.appendChild(imgBin);
+    buttonRimuovi.setAttribute("onclick", "deleteScheda(this)");
+    buttonRimuovi.setAttribute("class", "delete-button");
+    newScheda.appendChild(testoNome);
+    newScheda.appendChild(buttonRimuovi);
+    
+    newScheda.setAttribute('class','scheda');
+    const idScheda = testoNome.innerText.replace(/ /g,'');
+    newScheda.setAttribute("id", idScheda);
+
+    document.getElementById('listaSchede').appendChild(newScheda);
+
+    const selectSchede = document.getElementById('sceltaScheda');
+    const optionScheda = document.createElement('option');
+    optionScheda.setAttribute('value',idScheda);
+    optionScheda.appendChild(document.createTextNode(testoNome.innerText));
+    selectSchede.appendChild(optionScheda);
+
+    schede.push(idScheda);
+
+    inputNome.value = '';
+
+}
+
+function deleteScheda (elem) {
+
+    const scheda = document.getElementById(elem.parentNode.id);
+    scheda.style.display = 'none';
+
+    schede.splice(schede.indexOf(elem.parentNode.id),1);
+
+    const selectSchede = document.getElementById("sceltaScheda");
+    for (var i=0; i<selectSchede.length; i++) {
+    if (selectSchede.options[i].value == elem.parentNode.id)
+        selectSchede.remove(i);
     }
 
 }
@@ -49,6 +126,7 @@ function addExe() {
     imgBin.setAttribute('src', 'Utils/white-recycle-bin.png', 'alt', 'Elimina');
     buttonRimuovi.appendChild(imgBin);
     buttonRimuovi.setAttribute("onclick", "this.parentElement.style.display = 'none';");
+    buttonRimuovi.setAttribute("class", "delete-button");
 
     newExe.appendChild(testoNome);
     newExe.appendChild(testoPeso);
@@ -59,6 +137,13 @@ function addExe() {
 
     newExe.setAttribute('class', 'esercizio');
 
+    for (const valueScheda of schede) {
+        if(valueScheda == scheda) {
+            document.getElementById(valueScheda).appendChild(newExe);
+            break;
+        }
+    }
+/*
     const schedaPush = document.getElementById('schedaPush');
     const schedaPull = document.getElementById('schedaPull');
     const schedaLegs = document.getElementById('schedaLegs');
@@ -77,19 +162,17 @@ function addExe() {
             alert("NESSUNA SCHEDA SELEZIONATA!!");
             break;
     }
-
+*/
 }
 
-// function addScheda() {}
-
-async function boh() {
+async function fetchEsercizi() {
     const response = await fetch("http://localhost:8080/esercizioAPI/listaesercizi");
-            const jsonResponse = await response.json();
-            console.log(jsonResponse);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
 
-            jsonResponse.products.forEach(product => {
-                const elemento = document.createElement('li');
-                document.getElementById('prodotti').appendChild(elemento);
-                elemento.innerHTML = product;
-            });
+    jsonResponse.products.forEach(product => {
+        const elemento = document.createElement('li');
+        document.getElementById('prodotti').appendChild(elemento);
+        elemento.innerHTML = product;
+    });
 }
