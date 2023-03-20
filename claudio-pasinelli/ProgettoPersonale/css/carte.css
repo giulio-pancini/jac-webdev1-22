@@ -9,9 +9,11 @@
     --colore-chiaro: rgb(255, 255, 255);
     --colore-mezzo-chiaro: rgb(242, 242, 242);
     --colore-oro: darkkhaki;
+    --colore-giallo:rgb(255, 202, 89);
     --colore-azzurro: #00c6ff;
     --colore-azzurro-scuro: #247ecd;
     --grandezza-carta: 250px;
+    --border-radius-default: 5px;
 }
 
 #formCard
@@ -30,15 +32,37 @@ form#formCard button#btn-card
     width: fit-content;
 }
 
+#tracksContainer
+{
+    background-color: var(--colore-mezzo-chiaro);
+    display: none;
+    grid-column: 2/9;
+}
+
+#sortLista
+{
+    text-align: center;
+    width: fit-content;
+    border-radius: var(--border-radius-default);
+    background-color: var(--colore-chiaro);
+    margin: 1.5rem auto;
+    padding: 20px;
+    border: 2px solid var(--colore-azzurro);
+    transition: 0.4s ease;
+}
+
+#sortLista:hover
+{
+    border: 2px solid var(--colore-giallo);
+}
+
 #lista
 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--grandezza-carta), 1fr));
     column-gap: 10px;
-    background-color: var(--colore-mezzo-chiaro);
+    row-gap: 12px;
     padding: 10px;
-    visibility: hidden;
-    grid-column: 2/9;
     width: 100%;
     height: fit-content;
     margin: auto;
@@ -51,22 +75,42 @@ form#formCard button#btn-card
     width: var(--grandezza-carta);
     margin: auto;
     margin-bottom: 10px;
-    border: 3px var(--colore-oro);
+    border: solid 3px var(--colore-oro);
     background-color: var(--colore-chiaro);
-    border-style: solid;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     text-align: center;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.5s ease;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    transition: transform 0.5s ease;
+    transform: translateY(10px);
 }
 
 .card:hover
 {
     transform: scale(1.01);
+    border: solid 3px var(--colore-giallo);
+}
+
+.card:hover .title
+{
+    border: solid var(--colore-giallo);
+    border-width: 0px 0px 5px 0px;
+}
+
+.card:hover .img-container
+{
+    border: solid var(--colore-giallo);
+    border-width: 0px 0px 5px 0px;
+}
+
+.card:hover .description footer
+{
+    margin-top: auto;
+    border: solid var(--colore-giallo);
+    border-width: 3px 0px 0px 0px;
 }
 
 .title
@@ -103,8 +147,7 @@ form#formCard button#btn-card
 
 .banner
 {
-    border: solid var(--colore-oro);
-    border-width: 2px;
+    border: 3px solid var(--colore-oro);
     height: fit-content;
     margin: 10px;
     overflow: hidden;
@@ -113,8 +156,7 @@ form#formCard button#btn-card
 
 .banner:hover
 {
-    border: solid var(--colore-azzurro);
-    border-width: 2px;
+    border: 3px solid var(--colore-azzurro);
 }
 
 .imgBackground

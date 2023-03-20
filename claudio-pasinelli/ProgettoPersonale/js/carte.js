@@ -1,7 +1,5 @@
 let id = 1;
 let arrayCarte = [];
-let incasso = 0;
-let incassoTot = 0;
 
 function creaCartaJson()
 {
@@ -63,7 +61,7 @@ function creaCartaJson()
 
         if(arrayCarte.length==0)
         {
-            lista.style.visibility = "visible";
+            tracksContainer.style.display = "block";
         }
 
         arrayCarte.push(carta);
@@ -79,13 +77,6 @@ function creaCartaJson()
     
     function creaCartaHTML(carta)
     {
-        
-        // let incassoP = document.createElement("p");
-    
-        // incasso = parseFloat(document.getElementById("prezzo").value);
-        // incassoTot += incasso;
-    
-        // incassoP.innerText = incassoTot;
         const input = document.getElementById("immagineCarta");
         const file = input.files[0];
     
@@ -100,10 +91,9 @@ function creaCartaJson()
         }
     
         imgBackground.style.backgroundImage = "url("+reader.result+")";
-        const lista = document.getElementById("lista");
 
-        //utile
-        // lista.appendChild(incassoP);
+        const tracksContainer = document.getElementById("tracksContainer");
+        const lista = document.getElementById("lista");
     
         const card = document.createElement("section");
         card.setAttribute("class","card");
@@ -145,9 +135,17 @@ function creaCartaJson()
         footer.appendChild(musicTrack);
     
         let cost = document.createElement("p");
-        cost.innerText = "Prezzo: " + carta.prezzo;
+        cost.innerText = `Prezzo: ${carta.prezzo}€`;
+        cost.setAttribute("id","prezzo"+id);
         footer.appendChild(cost);
-    
+
+        card.setAttribute("data-tooltip",`${carta.titolo} ${carta.prezzo}€ | ${carta.mese}`);
+        document.getElementById('meseSort').value = '0';
+
+        sortMeseScelto();
+
+        const incasso = document.getElementById("incasso").innerText = incassoTotale();
+
         sortListaCarte();
         coloraCarte();
     }
@@ -171,51 +169,40 @@ function eliminaCarta(id)
 
             if(arrayCarte.length==0)
             {
-                lista.style.visibility = "hidden";
+                tracksContainer.style.display = "none";
             }
         }
     }
 
     if(!isCartaTrovata)
-        alert("La traccia \""+id+"\" non è stata trovata!");
+        alert(`La traccia "${id}" non è stata trovata!`)
 }
 
 function sortListaCarte()
 {
-    let list, i, switching, listaCarte, shouldSwitch;
-    list = document.getElementById("lista");
+    let list, i, switching, shouldSwitch;
+    const listaCarte = document.getElementsByClassName("card");
     switching = true;
 
     while (switching)
     {
         switching = false;
-        listaCarte = list.getElementsByClassName("card");
         for (i = 0; i < listaCarte.length; i++)
         {
             shouldSwitch = false;
             if(listaCarte[i]!=null)
             {
                 //carta attuale
-                let cartaAttuale;
-                cartaAttuale = listaCarte[i];
+                meseTestoAttuale = meseCarta(listaCarte[i]);
 
-                titoloAttuale = cartaAttuale.firstElementChild.textContent;
-
-                let ultimaLettera = titoloAttuale.length;
-                let titoloCortoAttuale = titoloAttuale.substring(0, ultimaLettera - 1);
-                let meseAttuale = numeroMese(titoloCortoAttuale);
+                let meseAttuale = numeroMese(meseTestoAttuale);
 
                 //carta successiva
                 if(listaCarte[i+1]!=null)
                 {
-                    let cartaSuccessiva;
-                    cartaSuccessiva = listaCarte[i+1];
+                    meseTestoSuccessivo = meseCarta(listaCarte[i+1]);
 
-                    titoloSuccessivo = cartaSuccessiva.firstElementChild.textContent;
-
-                    let ultimaLettera = titoloSuccessivo.length;
-                    let titoloCortoSuccessivo = titoloSuccessivo.substring(0, ultimaLettera - 1);
-                    let meseSuccessivo = numeroMese(titoloCortoSuccessivo);
+                    let meseSuccessivo = numeroMese(meseTestoSuccessivo);
 
                     if (meseAttuale > meseSuccessivo)
                     {
@@ -236,6 +223,12 @@ function sortListaCarte()
             switching = true;
         }
     }
+}
+
+function meseCarta(carta)
+{
+    titolo = carta.firstElementChild.textContent;
+    return titoloCorto = titolo.substring(0, titolo.length - 1);
 }
 
 function numeroMese(mese)
@@ -268,7 +261,7 @@ function numeroMese(mese)
 
 function coloraCarte()
 {
-    let carte = document.getElementsByClassName("card");
+    const carte = document.getElementsByClassName("card");
     let bianco = true;
     let titolo;
 
@@ -294,4 +287,57 @@ function coloraCarte()
             }
         }
     }
+}
+
+function incassoTotale()
+{
+    const carte = document.getElementsByClassName("card");
+    let incassoTotale = 0;
+    let incassoTesto = "";
+    
+    for(let i = 0; i<carte.length; i++)
+    {
+        const figliCarta = carte[i].childNodes;
+        const description = figliCarta[2];
+        const footer = description.children[0];
+        const prezzoCartaLungo = footer.children[1].innerText;
+        const prezzoCarta = parseFloat(prezzoCartaLungo.substring(8,prezzoCartaLungo.length));
+
+        if(carte[i].style.display == "flex")
+        {
+            const incassoCarta = prezzoCarta;
+            incassoTotale += incassoCarta;
+        }
+    }
+
+    if(incassoTotale != 0 && !isNaN(incassoTotale))
+    {
+        return incassoTesto = `Incasso totale: ${incassoTotale}€`;
+    }
+
+    else
+    {
+        return incassoTesto = `Incasso totale: 0€`;
+    }
+}
+
+function sortMeseScelto()
+{
+    const meseScelto = document.getElementById("meseSort").value;
+    const lista = document.getElementsByClassName("card");
+
+    for(let i = 0; i<lista.length; i++)
+    {
+        if(meseCarta(lista[i]) === meseScelto || meseScelto === "0")
+        {
+            lista[i].style.display = "flex";
+        }
+
+        else
+        {
+            lista[i].style.display = "none";
+        }
+    }
+
+    const incasso = document.getElementById("incasso").innerText = incassoTotale();
 }

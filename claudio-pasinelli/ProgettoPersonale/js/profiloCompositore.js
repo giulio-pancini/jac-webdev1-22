@@ -33,7 +33,7 @@ function creaProfilo()
     profilo.style.display = "grid";
 
     const formProfilo = document.getElementById("formProfilo");
-    formProfilo.style.display="none";
+    formProfilo.style.display = "none";
 
     testo.value = "";
     input.value = "";

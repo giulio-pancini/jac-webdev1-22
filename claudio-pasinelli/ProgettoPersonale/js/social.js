@@ -11,6 +11,7 @@ let arraySocial=[];
     let deezer;
     let spotify;
     let soundcloud;
+    let amazonMusic;
 
     if (document.getElementById("nomeSocial").value=="")
     {
@@ -24,7 +25,7 @@ let arraySocial=[];
         return;
     }
 
-    else if(similarity(document.getElementById("nomeSocial").value,"youtube")<0.8 && similarity(document.getElementById("nomeSocial").value,"deezer")<0.8 && similarity(document.getElementById("nomeSocial").value,"youtube music")<0.8 && similarity(document.getElementById("nomeSocial").value,"spotify")<0.8 && similarity(document.getElementById("nomeSocial").value,"apple music")<0.8 && similarity(document.getElementById("nomeSocial").value,"soundcloud")<0.8)
+    else if(similarity(document.getElementById("nomeSocial").value,"youtube")<0.8 && similarity(document.getElementById("nomeSocial").value,"deezer")<0.8 && similarity(document.getElementById("nomeSocial").value,"youtube music")<0.8 && similarity(document.getElementById("nomeSocial").value,"spotify")<0.8 && similarity(document.getElementById("nomeSocial").value,"apple music")<0.8 && similarity(document.getElementById("nomeSocial").value,"soundcloud")<0.8 && similarity(document.getElementById("nomeSocial").value,"amazon music")<0.8)
     {
         alert("Ci dispiace, ma non conosciamo il sito!");
         document.getElementById('nomeSocial').value = '';
@@ -73,6 +74,11 @@ let arraySocial=[];
         {
             figureSocial.setAttribute('title','Apple Music\nLink: '+document.getElementById("link").value);
             appleMusic=true;
+        }
+        else if(similarity(document.getElementById("nomeSocial").value,"amazon music")>=0.8)
+        {
+            figureSocial.setAttribute('title','Amazon Music\nLink: '+document.getElementById("link").value);
+            amazonMusic=true;
         }
 
         for (let i = 0; i < oggetti.length; i++)
@@ -175,6 +181,21 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+                else if(amazonMusic)
+                {
+                    immagine.setAttribute("src","../iconeSocial/amazon_music.png");
+                    immagine.setAttribute("alt","Logo di Amazon Music");
+                    immagine.setAttribute("class","zoom");
+                    linkImmagine.appendChild(immagine);
+                    
+                    if(oggetti[i+1].id==="link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
+                }
             }
             else if(oggetti[i].id==="link")
             {
@@ -199,17 +220,39 @@ let arraySocial=[];
                 // else
                 //     alert("La pagina da te inserita non è disponibile!");
                 if(youtube)
+                {
                     linkTesto.innerText = "Youtube";
+                }
+
                 else if(deezer)
+                {
                     linkTesto.innerText = "Deezer";
+                }
                 else if(soundcloud)
+                {
                     linkTesto.innerText = "SoundCloud";
+                }
+
                 else if(spotify)
+                {
                     linkTesto.innerText = "Spotify";
+                }
+
                 else if(youtubeMusic)
+                {
                     linkTesto.innerText = "Youtube Music";
+                }
+
                 else if(appleMusic)
+                {
                     linkTesto.innerText = "Apple Music";
+                }
+                
+                else if(amazonMusic)
+                {
+                    linkTesto.innerText = "Amazon Music";
+                }
+
                 linkTesto.setAttribute("href",oggetti[i].value);
                 linkTesto.setAttribute("target","_blank");
                 figcaption.appendChild(linkTesto);
