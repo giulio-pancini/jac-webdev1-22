@@ -15,6 +15,10 @@
 </head>
 
 <body>
+    <section id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </section>
+
     <section id="side-nav">
         <section id="linkSocial">
             <h1>Inserisci il nome e il link dei tuoi social</h1>
@@ -124,6 +128,19 @@
     </footer>
 
     <script>
+        
+        window.addEventListener("load", (event) =>
+        {
+            const loader = document.getElementById("loader-wrapper");
+            loader.style.animation = "fadeOut 1.2s";
+            loader.style.animationIterationCountv = "1";
+
+            setTimeout(() =>
+            {
+                loader.parentNode.removeChild(loader);
+            }, 1200);
+        });
+
         window.onscroll = () =>
         {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
