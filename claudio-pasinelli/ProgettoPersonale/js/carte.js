@@ -267,7 +267,7 @@ function coloraCarte()
 
     for (let i = 0; i<carte.length; i++)
     {
-        if(carte[i]!=null)
+        if(carte[i]!=null && carte[i].style == "flex")
         {
             if(bianco)
             {

@@ -44,13 +44,16 @@
 
     <form id="formProfilo">
         <input type="file" id="imageProfileInput" accept="image/*">
+        <label for="nomeArtista">Nome artista: <input type="text" id="nomeArtista" name="nomeArtista"></label>
         <textarea name="descrizione" id="descrizione" cols="30" rows="10" placeholder="Descrivi chi sei e qual è il genere di musica che componi" required></textarea>
-        <button id="inviaProfilo" onclick="creaProfilo()">Invia</button>
+        <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
     </form>
+
     <section id="profilo">
         <section id="sectionImmagineProfilo">
             <img id="immagineProfilo">
         </section>
+        <p id="nomeArt"></p>
         <p id="testoDescrizione"></p>
         <button type="button" id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
     </section>
@@ -133,7 +136,7 @@
         {
             const loader = document.getElementById("loader-wrapper");
             loader.style.animation = "fadeOut 1.2s";
-            loader.style.animationIterationCountv = "1";
+            loader.style.animationIterationCount = "1";
 
             setTimeout(() =>
             {
