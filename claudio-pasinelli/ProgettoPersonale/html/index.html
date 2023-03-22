@@ -32,15 +32,22 @@
         </section>
     </section>
 
-    <nav id="menu">
-        <a class="active zoom" href="#home">Home</a>
-        <a class="zoom" href="#about">About</a>
-        <a class="zoom" href="#logout" id="logout">Logout</a>
+    <nav id="nav-bar">
+        <section id="menu">
+            <a class="active zoom" href="#home">Home</a>
+            <a class="zoom" href="#about">About</a>
+            <a class="zoom" href="./login.html" id="logout">Logout</a>
+        </section>
+
+        <section id="user">
+            <p id="name">Nome Cognome</p>
+        </section>
 
         <section id="progress-container">
             <section class="progress-bar" id="myBar"></section>
         </section>
     </nav>
+
 
     <form id="formProfilo">
         <input type="file" id="imageProfileInput" accept="image/*">
@@ -53,8 +60,10 @@
         <section id="sectionImmagineProfilo">
             <img id="immagineProfilo">
         </section>
-        <h1 id="nomeArt"></h1>
-        <p id="testoDescrizione"></p>
+        <section id="profiloDescrizione">
+            <h1 id="nomeArt"></h1>
+            <p id="testoDescrizione"></p>
+        </section>
         <button type="button" id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
     </section>
 
@@ -149,18 +158,20 @@
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.getElementById("myBar").style.width = scrolled + "%";
+            // document.getElementById("myBar").style.width = scrolled + "%";
 
             if (winScroll >= 80)
             {
-                document.getElementById("menu").style.padding = "5px 143px 0px 0px";
+                // document.getElementById("menu").style.padding = "5px 143px 0px 0px";
                 document.getElementById("progress-container").style.margin = "0rem";
+                document.getElementById("side-bar").style.paddingTop = "75px";
                 return;
             }
             else
             {
-                document.getElementById("menu").style.padding = "20px 143px 0px 0px";
-                document.getElementById("progress-container").style.margin = "1rem 0rem 0rem 0rem";
+                // document.getElementById("menu").style.padding = "20px 143px 0px 0px";
+                document.getElementById("progress-container").style.margin = "0.5rem 0rem 0rem 0rem";
+                document.getElementById("side-bar").style.paddingTop = "85px";
                 return;
             }
         };

@@ -22,7 +22,6 @@ html
     --colore-azzurro-scuro: #247ecd;
     --grandezza-carta: 250px;
     --border-radius-default: 5px;
-    --grandezza-sidebar: 143px;
 }
 
 /*VARIABILI*/
@@ -35,7 +34,7 @@ body
     overflow-x: hidden;
     height: fit-content;
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 }
 
 ::-webkit-scrollbar
@@ -55,7 +54,7 @@ body
     width: 100%;
     height: 8px;
     background: #ccc;
-    margin: 1rem 0rem 0rem 0px;
+    margin: 0.5rem 0rem 0rem 0px;
     transition: 0.4s;
 }
 
@@ -223,13 +222,15 @@ section#side-bar
     background-color: var(--colore-scuro);
     color: var(--colore-chiaro);
     border: solid var(--colore-oro);
-    border-width: 0px 0px 0px 4px;
-    width: var(--grandezza-sidebar);
-    grid-column: 8/9;
-    grid-row: 1/7;
-    z-index: 1000;
+    border-width: 0px 4px 0px 0px;
+    /* grid-column: 1/2; */
+    /* grid-row: 2/7; */
     position: fixed;
-    justify-self: right;
+    /* justify-self: right; */
+    padding-top: 75px;
+    transition: 0.4s;
+    z-index: 1;
+    width: 220px;
 }
 
 section#side-bar:hover
@@ -320,36 +321,41 @@ section#linkSocial section#listaSocial img.zoom:hover
     top: 0;
 } */
 
-nav#menu
+#nav-bar
 {
     margin-top: 0rem;
     display: flex;
-    justify-content: left;
     background-color: var(--colore-mezzo-scuro);
     overflow: hidden;
     transition: 0.4s;
     flex-wrap: wrap;
-    padding: 20px var(--grandezza-sidebar) 0px 0px;
-    grid-column: 1/9;
+    grid-column: 1/8;
     height: 100%;
     position: sticky;
     top: 0;
     z-index: 1;
-    justify-content: right;
+    justify-content: left;
+    padding-top: 20px;
 }
 
-nav#menu a#logout
+#menu
+{
+    flex: 1;
+    display: flex;
+}
+
+#nav-bar #menu a#logout
 {
     background-color: #cb0000;
     color: white
 }
 
-nav#menu a#logout:hover
+#nav-bar #menu a#logout:hover
 {
     background-color: red;
 }
 
-nav#menu a.zoom
+#nav-bar #menu a.zoom
 {
     text-decoration: none;
     color: black;
@@ -368,7 +374,7 @@ nav#menu a.zoom
     border: solid var(--colore-oro);
 }
 
-nav#menu a.zoom:hover
+#nav-bar #menu a.zoom:hover
 {
     background-color: var(--colore-giallo);
     color: rgb(255, 255, 255);
@@ -378,17 +384,27 @@ nav#menu a.zoom:hover
     border: solid var(--colore-giallo);
 }
 
-nav#menu a.active.zoom
+#nav-bar #menu a.active.zoom
 {
     background-color: #2196F3;
     color: var(--colore-chiaro);
 }
 
-nav#menu a.active.zoom:hover
+#nav-bar #menu a.active.zoom:hover
 {
     background-color: var(--colore-azzurro);
 }
 
+#user
+{
+    display: flex;
+    justify-content: right;
+}
+
+#user p
+{
+    margin: 15px;
+}
 
 /* cambiare i nomi id */
 
@@ -398,7 +414,7 @@ section#formTracce
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-column: 1/8;
+    grid-column: 2/8;
     width: 100%;
     height: fit-content;
     margin: auto;
@@ -452,7 +468,7 @@ footer#piePagina
     background-color: var(--colore-mezzo-scuro);
     color: var(--colore-chiaro);
     margin-top: auto;
-    grid-column: 1/9;
+    grid-column: 2/8;
 }
 
 /*GALLERIA DI IMMAGINI*/
@@ -464,7 +480,7 @@ section#galleriaImmagini
     margin-top: 1.5rem;
     padding-bottom: 0.25rem;
     text-align: -webkit-center;
-    grid-column: 1/8;
+    grid-column: 2/8;
     width: 100%;
     height: fit-content;
     overflow: hidden;
@@ -603,7 +619,7 @@ form#formProfilo, section#profilo
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-column: 1/8;
+    grid-column: 2/8;
     overflow: hidden;
 }
 
@@ -642,6 +658,7 @@ section#profilo
     display: none;
     justify-self: center;
     grid-template-columns: 1fr minmax(var(--grandezza-carta));
+    grid-template-rows: repeat(1,1fr);
     column-gap: 10px;
     grid-template-rows: repeat(2, 1fr);
     border: 2px solid var(--colore-oro);
@@ -698,17 +715,6 @@ section#sectionImmagineProfilo img#immagineProfilo:hover
     transform: scale(1.05);
 }
 
-p#testoDescrizione
-{
-    max-height: 5500px;
-    width: 100%;
-    background-color: var(--colore-mezzo-chiaro);
-    border-radius: var(--border-radius-default);
-    padding: 10px;
-    text-align: left;
-    margin: auto;
-}
-
 h1#nomeArt
 {
     width: 100%;
@@ -719,11 +725,29 @@ h1#nomeArt
     border-width: 0px 0px 2px 0px;
 }
 
+p#testoDescrizione
+{
+    width: 100%;
+    max-width: 500px;
+    overflow-wrap: break-word;
+    height: fit-content;
+    background-color: var(--colore-mezzo-chiaro);
+    border-radius: var(--border-radius-default);
+    padding: 10px 0px 10px 10px;
+    text-align: left;
+    margin: auto;
+}
+
+#profiloDescrizione
+{
+    display: grid;
+}
+
 /*PROFILO*/
 
 /*MEDIA!!!!!*/
 
-@media (max-width: 576px)
+@media (min-width: 100px) and (max-width: 768px)
 {
     section#linkSocial section#listaSocial section
     {
@@ -735,14 +759,19 @@ h1#nomeArt
         width: 35%;
     }
 
-    nav#menu a.zoom
+    #nav-bar #menu a.zoom
     {
         padding: 14px 16px;
     }
 
+    /* profilo */
+
     section#profilo
     {
         grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        padding: 5px 15px;
+        column-gap: 0px;
     }
 
     h1#nomeArt
@@ -753,11 +782,14 @@ h1#nomeArt
     p#testoDescrizione
     {
         text-align: center;
+        margin: 0.5rem auto auto auto;
     }
 
-    p#testoDescrizione
+    section#sectionImmagineProfilo
     {
-        margin: 0.5rem auto auto auto;
+        grid-row: 1/3;
+        grid-column: 1/3;
+        justify-self: center;
     }
 
     button#modificaProfilo
@@ -765,14 +797,44 @@ h1#nomeArt
         grid-column: 1;
     }
 
-    section#sectionImmagineProfilo
-    {
-        justify-self: center;
-    }
+    /* profilo */
 }
 
 @media (min-width: 768px) and (max-width: 992px)
 {
+    /* profilo */
+
+    section#profilo
+    {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        padding: 5px 15px;
+        column-gap: 0px;
+    }
+
+    h1#nomeArt
+    {
+        text-align: center;
+    }
+
+    p#testoDescrizione
+    {
+        text-align: center;
+        margin: 0.5rem auto auto auto;
+    }
+
+    section#sectionImmagineProfilo
+    {
+        grid-row: 1/3;
+        grid-column: 1/3;
+        justify-self: center;
+    }
+
+    button#modificaProfilo
+    {
+        grid-column: 1;
+    }
+
     section#formTracce input[type="text"]
     {
         width: fit-content;
@@ -799,7 +861,9 @@ h1#nomeArt
     section#profilo
     {
         grid-template-columns: 1fr minmax(var(--grandezza-carta));
+        grid-template-rows: repeat(1,1fr);
         padding: 5px 15px;
+        column-gap: 10px;
     }
 
     h1#nomeArt
@@ -810,10 +874,6 @@ h1#nomeArt
     p#testoDescrizione
     {
         margin: auto;
-    }
-
-    p#testoDescrizione
-    {
         text-align: left;
     }
 
