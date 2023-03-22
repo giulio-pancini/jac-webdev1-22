@@ -399,11 +399,16 @@ section#linkSocial section#listaSocial img.zoom:hover
 {
     display: flex;
     justify-content: right;
+    color: var(--colore-chiaro);
 }
 
 #user p
 {
     margin: 15px;
+    background-color: var(--colore-scuro);
+    border: 2px solid var(--colore-giallo);
+    border-radius: var(--border-radius-default);
+    padding: 10px;
 }
 
 /* cambiare i nomi id */
