@@ -22,6 +22,7 @@ html
     --colore-azzurro-scuro: #247ecd;
     --grandezza-carta: 250px;
     --border-radius-default: 5px;
+    --grandezza-sidebar: 143px;
 }
 
 /*VARIABILI*/
@@ -214,7 +215,7 @@ img
 
 /* SECTION SOCIAL  */
 
-section#side-nav
+section#side-bar
 {
     height: 100%;
     overflow: hidden;
@@ -222,14 +223,16 @@ section#side-nav
     background-color: var(--colore-scuro);
     color: var(--colore-chiaro);
     border: solid var(--colore-oro);
-    border-width: 0px 4px 0px 0px;
-    width: 100%;
-    grid-column: 1/2;
+    border-width: 0px 0px 0px 4px;
+    width: var(--grandezza-sidebar);
+    grid-column: 8/9;
     grid-row: 1/7;
-    z-index: 1;
+    z-index: 1000;
+    position: fixed;
+    justify-self: right;
 }
 
-section#side-nav:hover
+section#side-bar:hover
 {
     overflow-y: scroll;
 }
@@ -311,7 +314,7 @@ section#linkSocial section#listaSocial img.zoom:hover
     align-items: center;
     padding: 20px 0px 0px 0px;
     background-color: var(--colore-mezzo-scuro);
-    grid-column: 2/9;
+    grid-column: 1/9;
     height: 100%;
     position: sticky;
     top: 0;
@@ -326,8 +329,8 @@ nav#menu
     overflow: hidden;
     transition: 0.4s;
     flex-wrap: wrap;
-    padding-top: 20px;
-    grid-column: 2/9;
+    padding: 20px var(--grandezza-sidebar) 0px 0px;
+    grid-column: 1/9;
     height: 100%;
     position: sticky;
     top: 0;
@@ -395,7 +398,7 @@ section#formTracce
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-column: 2/9;
+    grid-column: 1/8;
     width: 100%;
     height: fit-content;
     margin: auto;
@@ -449,7 +452,7 @@ footer#piePagina
     background-color: var(--colore-mezzo-scuro);
     color: var(--colore-chiaro);
     margin-top: auto;
-    grid-column: 2/9;
+    grid-column: 1/9;
 }
 
 /*GALLERIA DI IMMAGINI*/
@@ -461,10 +464,12 @@ section#galleriaImmagini
     margin-top: 1.5rem;
     padding-bottom: 0.25rem;
     text-align: -webkit-center;
-    grid-column: 2/9;
+    grid-column: 1/8;
     width: 100%;
     height: fit-content;
     overflow: hidden;
+    border: groove var(--colore-mezzo-chiaro);
+    border-width: 2px 0px 0px 0px;
 }
 
 section#galleriaImmagini h1
@@ -598,7 +603,7 @@ form#formProfilo, section#profilo
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-column: 2/9;
+    grid-column: 1/8;
     overflow: hidden;
 }
 
@@ -644,6 +649,7 @@ section#profilo
     border-radius: var(--border-radius-default);
     transition: all 0.3s ease-in-out;
     transform: translateY(2px);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 section#profilo:hover
@@ -717,7 +723,7 @@ h1#nomeArt
 
 /*MEDIA!!!!!*/
 
-@media (min-width: 576px)
+@media (max-width: 576px)
 {
     section#linkSocial section#listaSocial section
     {

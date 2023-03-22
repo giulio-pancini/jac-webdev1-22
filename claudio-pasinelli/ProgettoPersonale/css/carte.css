@@ -37,7 +37,9 @@ form#formCard button#btn-card
 {
     background-color: var(--colore-mezzo-chiaro);
     display: none;
-    grid-column: 2/9;
+    grid-column: 1/8;
+    border: groove var(--colore-mezzo-chiaro);
+    border-width: 2px 0px 0px 0px;
 }
 
 #sortLista
