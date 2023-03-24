@@ -9,27 +9,27 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <body class="database-esercizi">
         <header>
             <button class="only-mobile" id="menuToggle" onclick="toggleMenu()">
                 <img src="Utils/white-burger-menu.png" alt="Menu">
             </button>
             <h1 id="titolo">MyFitnessHub</h1>
-            <button id="loginButton">
-                <img src="Utils/white-user.png">
-                <p class="only-desktop">Login</p>
+            <button id="logoutButton" onclick="logout()">
+                <img src="Utils/white-logout.png">
+                <p class="only-desktop">Logout</p>
             </button>
             <nav class="only-desktop" id="menuDesktop">
-                <a>Homepage</a>
+                <a href="user-homepage.html">Homepage</a>
                 <a href="database-esercizi.html">Database Esercizi</a>
                 <a>Piani di Allenamento</a>
-                <a>Contatti</a>
+                <a href="contatti.html">Contatti</a>
             </nav>
             <nav class="only-mobile" id="menuMobile" style="display: none;">
-                <a>Homepage</a>
+                <a href="user-homepage.html">Homepage</a>
                 <a href="database-esercizi.html">Database Esercizi</a>
                 <a>Piani di Allenamento</a>
-                <a>Contatti</a>
+                <a href="contatti.html">Contatti</a>
             </nav>
         </header>
 

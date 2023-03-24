@@ -7,25 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor per compositori</title>
     <link rel="stylesheet" href="../css/editorCompositori.css">
-    <script src="../js/traccia.js"></script>
+    <link rel="stylesheet" href="../css/carte.css">
+    <script src="../js/carte.js"></script>
     <script src="../js/social.js"></script>
     <script src="../js/slideshow.js"></script>
     <script src="../js/profiloCompositore.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav id="menu">
-            <a class="active zoom" href="#home">Home</a>
-            <a class="zoom" href="#about">About</a>
-            <a class="zoom" href="#contact" id="logout">Logout</a>
-        </nav>
-        <section class="progress-container">
-            <section class="progress-bar" id="myBar"></section>
-        </section>
-    </header>
+    <section id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </section>
 
-    <section id="side-nav">
+    <section id="side-bar">
         <section id="linkSocial">
             <h1>Inserisci il nome e il link dei tuoi social</h1>
             <form id="social" name="social">
@@ -38,26 +32,47 @@
         </section>
     </section>
 
+    <nav id="nav-bar">
+        <section id="menu">
+            <a class="active zoom" href="#home">Home</a>
+            <a class="zoom" href="#about">About</a>
+            <a class="zoom" href="./login.html" id="logout">Logout</a>
+        </section>
+
+        <section id="user">
+            <p id="name">Nome Cognome</p>
+        </section>
+
+        <section id="progress-container">
+            <section class="progress-bar" id="myBar"></section>
+        </section>
+    </nav>
+
+
     <form id="formProfilo">
         <input type="file" id="imageProfileInput" accept="image/*">
+        <label for="nomeArtista">Nome artista: <input type="text" id="nomeArtista" name="nomeArtista"></label>
         <textarea name="descrizione" id="descrizione" cols="30" rows="10" placeholder="Descrivi chi sei e qual è il genere di musica che componi" required></textarea>
-        <button id="inviaProfilo" onclick="creaProfilo()">Invia</button>
+        <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
     </form>
+
     <section id="profilo">
         <section id="sectionImmagineProfilo">
             <img id="immagineProfilo">
         </section>
-        <p id="testoDescrizione"></p>
+        <section id="profiloDescrizione">
+            <h1 id="nomeArt"></h1>
+            <p id="testoDescrizione"></p>
+        </section>
+        <button type="button" id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
     </section>
 
     <section id="galleriaImmagini">
         <h1>Galleria di immagini</h1>
         <section id="corpoGalleria">
-            <button onclick="prevImage()" id="prevImage">&#8592</button>
-            <section id="slideshow">
-                <img id="currentImage" src="">
-            </section>
-            <button onclick="nextImage()" id="nextImage">&#8594</button>
+            <button onclick="prevImage()" id="prevImage">❮</button>
+            <img id="currentImage" src="">
+            <button onclick="nextImage()" id="nextImage">❯</button>
         </section>
         <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
         <form id="immaginiInput">
@@ -66,15 +81,16 @@
         </form>
     </section>
 
-    <article id="formTracce">
+    <section id="formTracce">
         <section id="formAggiunta">
             <h1>Inserisci le tue tracce musicali</h1>
-            <form id="traccia" name="traccia">
+            <form id="formCard">
+                <input type="file" id="immagineCarta" accept="image/*">
                 <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
                 <label for="prezzo">Prezzo: <input type="text" name="prezzo" id="prezzo" required></label>
                 <label for="mese">Mese:</label>
                 <select id="mese" name="mese">
-                    <option value="0"></option>
+                    <option value="0">Anulla</option>
                     <option value="Gennaio">Gennaio</option>
                     <option value="Febbraio">Febbraio</option>
                     <option value="Marzo">Marzo</option>
@@ -88,54 +104,80 @@
                     <option value="Novembre">Novembre</option>
                     <option value="Dicembre">Dicembre</option>
                 </select>
-                <button type="button" onclick="creaTraccia()">Invia</button>
+                <button type="button" id="btn-card" onclick="creaCartaJson()">Invia</button>
             </form>
         </section>
-        <section id="listaTraccePerMese">
-            <h1>Lista delle tracce</h1>
-            <ul id="listaTracce">
-                <p id="testoPerNoTracce">Qui troverai la lista di tutte le tue canzoni, ordinate per il mese in cui verranno suonate, non appena le inserirai dal modulo di compilazione.</p>
-                <ul id="lista1">
-                </ul>
-                <ul id="lista2">
-                </ul>
-                <ul id="lista3">
-                </ul>
-                <ul id="lista4">
-                </ul>
-                <ul id="lista5">
-                </ul>
-                <ul id="lista6">
-                </ul>
-                <ul id="lista7">
-                </ul>
-                <ul id="lista8">
-                </ul>
-                <ul id="lista9">
-                </ul>
-                <ul id="lista10">
-                </ul>
-                <ul id="lista11">
-                </ul>
-                <ul id="lista12">
-                </ul>
-            </ul>
+    </section>
+
+    <section id="tracksContainer">
+        <section id="sortLista">
+            <section>
+                <h1>Cerca le tracce per mese</h1>
+                <p id="incasso"></p>
+                <label for="meseSort">Mese:</label>
+                    <select id="meseSort" name="meseSort" onchange="sortMeseScelto()">
+                        <option value="0">Vedi tutte le tracce</option>
+                        <option value="Gennaio">Gennaio</option>
+                        <option value="Febbraio">Febbraio</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Aprile">Aprile</option>
+                        <option value="Maggio">Maggio</option>
+                        <option value="Giugno">Giugno</option>
+                        <option value="Luglio">Luglio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Settembre">Settembre</option>
+                        <option value="Ottobre">Ottobre</option>
+                        <option value="Novembre">Novembre</option>
+                        <option value="Dicembre">Dicembre</option>
+                    </select>
+            </section>
         </section>
-    </article>
+        <section id="lista"></section>
+    </section>
 
     <footer id="piePagina">
         Footer
     </footer>
 
     <script>
+        
+        window.addEventListener("load", (event) =>
+        {
+            const loader = document.getElementById("loader-wrapper");
+            loader.style.animation = "fadeOut 1.2s";
+            loader.style.animationIterationCount = "1";
+
+            setTimeout(() =>
+            {
+                loader.parentNode.removeChild(loader);
+            }, 1200);
+        });
+
         window.onscroll = () =>
         {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById("myBar").style.width = scrolled + "%";
+
+            if (winScroll >= 80)
+            {
+                // document.getElementById("menu").style.padding = "5px 143px 0px 0px";
+                document.getElementById("progress-container").style.margin = "0rem";
+                document.getElementById("side-bar").style.paddingTop = "75px";
+                return;
+            }
+            else
+            {
+                // document.getElementById("menu").style.padding = "20px 143px 0px 0px";
+                document.getElementById("progress-container").style.margin = "0.5rem 0rem 0rem 0rem";
+                document.getElementById("side-bar").style.paddingTop = "85px";
+                return;
+            }
         };
+
         const textarea = document.querySelector("textarea");
+
         textarea.addEventListener("keyup", e =>
         {
             textarea.style.height = "63px";
@@ -147,8 +189,9 @@
 
 </html>
 <!--
-fare la parte della foto profilo
+rivedere la parte del profilo
 fare la parte di quante persone si sono iscritte al gruppo musicale
 fare la parte di quante tracce sono state vendute
-fare il guadagno totale di ogni mese 
+
+fare il logout button on user hover
 -->
