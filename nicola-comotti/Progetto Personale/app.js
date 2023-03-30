@@ -17,6 +17,7 @@ function toggleMenu() {
     }
 
 }
+
 /*
 const pagesClasses = ['login-page','user-homepage','database-esercizi','piani-di-allenamento','contatti']
 
@@ -28,11 +29,12 @@ function loadPage(className) {
 } */
 
 function login() {
-    window.location.href="user-homepage.html";
+    //! TODO: Login tramite API
+    window.location.href = "user-homepage.html";
 }
 
 function logout() {
-    window.location.href="login-page.html";
+    window.location.href = "login-page.html";
 }
 
 const schede = [];
@@ -44,7 +46,7 @@ function addScheda() {
     const inputNome = document.getElementById('nomeScheda');
     const nome = inputNome.value;
 
-    if(nome == '') {
+    if (nome == '') {
         alert('INSERIRE IL NOME DELLA SCHEDA!');
         return
     }
@@ -60,16 +62,16 @@ function addScheda() {
     buttonRimuovi.setAttribute("class", "delete-button");
     newScheda.appendChild(testoNome);
     newScheda.appendChild(buttonRimuovi);
-    
-    newScheda.setAttribute('class','scheda');
-    const idScheda = testoNome.innerText.replace(/ /g,'');
+
+    newScheda.setAttribute('class', 'scheda');
+    const idScheda = testoNome.innerText.replace(/ /g, '');
     newScheda.setAttribute("id", idScheda);
 
     document.getElementById('listaSchede').appendChild(newScheda);
 
     const selectSchede = document.getElementById('sceltaScheda');
     const optionScheda = document.createElement('option');
-    optionScheda.setAttribute('value',idScheda);
+    optionScheda.setAttribute('value', idScheda);
     optionScheda.appendChild(document.createTextNode(testoNome.innerText));
     selectSchede.appendChild(optionScheda);
 
@@ -79,17 +81,17 @@ function addScheda() {
 
 }
 
-function deleteScheda (elem) {
+function deleteScheda(elem) {
 
     const scheda = document.getElementById(elem.parentNode.id);
     scheda.style.display = 'none';
 
-    schede.splice(schede.indexOf(elem.parentNode.id),1);
+    schede.splice(schede.indexOf(elem.parentNode.id), 1);
 
     const selectSchede = document.getElementById("sceltaScheda");
-    for (var i=0; i<selectSchede.length; i++) {
-    if (selectSchede.options[i].value == elem.parentNode.id)
-        selectSchede.remove(i);
+    for (var i = 0; i < selectSchede.length; i++) {
+        if (selectSchede.options[i].value == elem.parentNode.id)
+            selectSchede.remove(i);
     }
 
 }
@@ -138,31 +140,31 @@ function addExe() {
     newExe.setAttribute('class', 'esercizio');
 
     for (const valueScheda of schede) {
-        if(valueScheda == scheda) {
+        if (valueScheda == scheda) {
             document.getElementById(valueScheda).appendChild(newExe);
             break;
         }
     }
-/*
-    const schedaPush = document.getElementById('schedaPush');
-    const schedaPull = document.getElementById('schedaPull');
-    const schedaLegs = document.getElementById('schedaLegs');
-
-    switch (scheda) {
-        case 'push':
-            schedaPush.appendChild(newExe);
-            break;
-        case 'pull':
-            schedaPull.appendChild(newExe);
-            break;
-        case 'legs':
-            schedaLegs.appendChild(newExe);
-            break;
-        case 'none':
-            alert("NESSUNA SCHEDA SELEZIONATA!!");
-            break;
-    }
-*/
+    /*
+        const schedaPush = document.getElementById('schedaPush');
+        const schedaPull = document.getElementById('schedaPull');
+        const schedaLegs = document.getElementById('schedaLegs');
+    
+        switch (scheda) {
+            case 'push':
+                schedaPush.appendChild(newExe);
+                break;
+            case 'pull':
+                schedaPull.appendChild(newExe);
+                break;
+            case 'legs':
+                schedaLegs.appendChild(newExe);
+                break;
+            case 'none':
+                alert("NESSUNA SCHEDA SELEZIONATA!!");
+                break;
+        }
+    */
 }
 
 async function fetchEsercizi() {

@@ -20,7 +20,7 @@
                 <p class="only-desktop">Logout</p>
             </button>
             <nav class="only-desktop" id="menuDesktop">
-            <!--    <button class="link-button" onclick="loadPage('user-homepage')">Homepage</button>
+                <!--    <button class="link-button" onclick="loadPage('user-homepage')">Homepage</button>
                 <button class="link-button" onclick="loadPage('database-esercizi')">Database Esercizi</button>
                 <button class="link-button" onclick="loadPage('piani-di-allenamento')">Piani di Allenamento</button>
                 <button class="link-button" onclick="loadPage('contatti')">Contatti</button> -->
@@ -38,15 +38,12 @@
         </header>
         <article class="row">
             <aside class="column">
-                <form>
+                <form autocomplete="off">
                     <strong>NUOVO ESERCIZIO</strong>
                     <label>
                         Scheda di appartenenza:
                         <select id="sceltaScheda">
                             <option value="none" selected disabled>Seleziona scheda</option>
-                            <!-- <option value="push">Push</option>
-                            <option value="pull">Pull</option>
-                            <option value="legs">Legs</option> -->
                         </select>
                     </label>
                     <label>Nome esercizio: <input id="nome" type="text"></label>
@@ -60,24 +57,14 @@
             <section class="column">
                 <strong>LE MIE SCHEDE</strong>
                 <ul id="listaSchede">
-                    <!-- <li class="scheda" id="schedaPush">
-                        <h2>PUSH</h2>
-                    </li>
-                    <li class="scheda" id="schedaPull">
-                        <h2>PULL</h2>
-                    </li>
-                    <li class="scheda" id="schedaLegs">
-                        <h2>LEGS</h2>
-                    </li> -->
                 </ul>
-                <form id="form-add-scheda">
+                <form autocomplete="off" id="form-add-scheda">
                     <h2>AGGIUNGI SCHEDA</h2>
                     <label>Nome scheda: <input type="text" id="nomeScheda"></label>
                     <button type="button" id="buttonScheda" onclick="addScheda()">Crea Scheda</button>
                 </form>
             </section>
         </article>
-        <!--footer>Footer</footer-->
         <script src="app.js"></script>
     </body>
 
