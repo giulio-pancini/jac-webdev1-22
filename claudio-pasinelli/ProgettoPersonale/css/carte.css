@@ -35,11 +35,15 @@ form#formCard button#btn-card
 
 #tracksContainer
 {
-    background-color: var(--colore-mezzo-chiaro);
+    /* background-color: var(--colore-mezzo-chiaro); */
     display: none;
     /* grid-column: 2/8; */
     border: groove var(--colore-mezzo-chiaro);
     border-width: 2px 0px 0px 0px;
+    background-image: url(../img/cloud-dark.svg), linear-gradient(var(--colore-azzurro),var(--colore-chiaro));
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #sortLista
@@ -50,13 +54,13 @@ form#formCard button#btn-card
     background-color: var(--colore-chiaro);
     margin: 1.5rem auto;
     padding: 20px;
-    border: 2px solid var(--colore-azzurro);
-    transition: 0.4s ease;
+    border: 4px solid var(--colore-oro);
+    transition: all 0.2s ease-in-out;
 }
 
 #sortLista:hover
 {
-    border: 2px solid var(--colore-giallo);
+    border: 4px solid var(--colore-giallo);
 }
 
 #lista
@@ -159,7 +163,7 @@ form#formCard button#btn-card
 
 .banner:hover
 {
-    border: 3px solid var(--colore-azzurro);
+    border: 3px solid var(--colore-giallo);
 }
 
 .imgBackground

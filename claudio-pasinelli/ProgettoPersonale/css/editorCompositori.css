@@ -272,7 +272,7 @@ section#linkSocial section#listaSocial img.zoom
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 15%;
+    width: 5%;
     min-width: 25px;
     min-height: 25px;
     max-width: 100%;
@@ -443,6 +443,9 @@ a#logout:hover
 
 #userNickname:hover
 {
+    -ms-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
     cursor: pointer;
     border: 2px solid var(--colore-giallo);
 }
@@ -512,6 +515,7 @@ footer#piePagina
     margin-top: auto;
     border: solid var(--colore-giallo);
     border-width: 4px 0px 0px 0px;
+    position: relative;
     /* grid-column: 2/8; */
 }
 
@@ -734,16 +738,10 @@ section#sectionImmagineProfilo
     height: 125px;
     width: 125px;
     border-width: 10px;
-    border: solid var(--colore-oro);
-    border-radius: 100%;
     transition: all 0.5s ease;
     justify-self: right;
+    border-radius: 100%;
     grid-row: 1/3;
-}
-
-section#sectionImmagineProfilo:hover
-{
-    border: solid var(--colore-giallo);
 }
 
 section#sectionImmagineProfilo img#immagineProfilo
@@ -752,11 +750,6 @@ section#sectionImmagineProfilo img#immagineProfilo
     height: inherit;
     object-fit: cover;
     transition: all 0.5s ease;
-}
-
-section#sectionImmagineProfilo img#immagineProfilo:hover
-{
-    transform: scale(1.05);
 }
 
 h1#nomeArt
@@ -800,7 +793,7 @@ p#testoDescrizione
 
     section#linkSocial section#listaSocial img.zoom
     {
-        width: 10%;
+        width: 3%;
     }
 
     #nav-bar #menu a.zoom
@@ -896,7 +889,7 @@ p#testoDescrizione
 
     section#linkSocial section#listaSocial img.zoom
     {
-        width: 15%;
+        width: 5%;
     }
 }
 
