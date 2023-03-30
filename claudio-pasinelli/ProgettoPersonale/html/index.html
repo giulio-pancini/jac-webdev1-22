@@ -19,35 +19,24 @@
         <span class="loader"><span class="loader-inner"></span></span>
     </section>
 
-    <section id="side-bar">
-        <section id="linkSocial">
-            <h1>Inserisci il nome e il link dei tuoi social</h1>
-            <form id="social" name="social">
-                <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
-                <label for="link">Link: <input type="url" id="link"></label>
-                <button type="button" onclick="creaElementoSocial()">Invia</button>
-            </form>
-            <section id="listaSocial">
-            </section>
-        </section>
+    <section id="progress-container">
+        <section class="progress-bar" id="myBar"></section>
     </section>
 
     <nav id="nav-bar">
         <section id="menu">
             <a class="active zoom" href="#home">Home</a>
             <a class="zoom" href="#about">About</a>
-            <a class="zoom" href="./login.html" id="logout">Logout</a>
         </section>
 
-        <section id="user">
-            <p id="name">Nome Cognome</p>
-        </section>
-
-        <section id="progress-container">
-            <section class="progress-bar" id="myBar"></section>
-        </section>
+        <section class="dropdown">
+            <!-- <button class="dropbtn">Dropdown</button> -->
+            <button type="button" id="userNickname">Nome Cognome</button>
+            <section class="dropdown-content">
+                <a class="zoom" href="./login.html" id="logout">Logout</a>
+            </section>
+          </section>
     </nav>
-
 
     <form id="formProfilo">
         <input type="file" id="imageProfileInput" accept="image/*">
@@ -136,7 +125,16 @@
     </section>
 
     <footer id="piePagina">
-        Footer
+        <section id="linkSocial">
+            <h1>Inserisci il nome e il link dei tuoi social</h1>
+            <form id="social" name="social">
+                <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
+                <label for="link">Link: <input type="url" id="link"></label>
+                <button type="button" onclick="creaElementoSocial()">Invia</button>
+            </form>
+            <section id="listaSocial">
+            </section>
+        </section>
     </footer>
 
     <script>
@@ -153,28 +151,31 @@
             }, 1200);
         });
 
+        let lastScrollTop; // This Varibale will store the top position
+
+        navbar = document.getElementById("nav-bar"); // Get The NavBar
+
         window.onscroll = () =>
         {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById("myBar").style.width = scrolled + "%";
-
-            if (winScroll >= 80)
+            
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if(scrollTop > lastScrollTop)
             {
-                // document.getElementById("menu").style.padding = "5px 143px 0px 0px";
-                document.getElementById("progress-container").style.margin = "0rem";
-                document.getElementById("side-bar").style.paddingTop = "75px";
-                return;
+                navbar.style.top='-86px';
             }
+            
             else
             {
-                // document.getElementById("menu").style.padding = "20px 143px 0px 0px";
-                document.getElementById("progress-container").style.margin = "0.5rem 0rem 0rem 0rem";
-                document.getElementById("side-bar").style.paddingTop = "85px";
-                return;
+                navbar.style.top='0';
             }
-        };
+            
+            lastScrollTop = scrollTop;
+        }
 
         const textarea = document.querySelector("textarea");
 

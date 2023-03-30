@@ -160,7 +160,7 @@ body
     flex-direction: column;
     justify-content: center;
     align-items: center; */
-    background-color: #f2f2f2;
+    background-color: var(--colore-chiaro);
     padding: 10px 20px;
     height: 50vh;
     border: 1px solid #ccc;
@@ -185,7 +185,8 @@ button
     border-radius: 5px;
     border: none;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #f2f2f2;
+    text-align: center;
+    background-color: var(--colore-mezzo-chiaro);
 }
 
 button
@@ -267,7 +268,7 @@ button:hover
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #f2f2f2;
+        background-color: var(--colore-chiaro);
         padding: 10px 20px;
         height: 50vh;
         border: 1px solid #ccc;
@@ -316,7 +317,7 @@ button:hover
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #f2f2f2;
+        background-color: var(--colore-chiaro);
         padding: 10px 20px;
         height: 50vh;
         border: 1px solid #ccc;
