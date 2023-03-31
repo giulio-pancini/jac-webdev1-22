@@ -19,6 +19,9 @@
         <span class="loader"><span class="loader-inner"></span></span>
     </section>
 
+    <button class="tornaSu">&#11165;</button>
+    <!-- <button class="tornaSu" data-tooltip="Torna sù">&#11165;</button> -->
+
     <section id="progress-container">
         <section class="progress-bar" id="myBar"></section>
     </section>
@@ -30,7 +33,6 @@
         </section>
 
         <section class="dropdown">
-            <!-- <button class="dropbtn">Dropdown</button> -->
             <button type="button" id="userNickname">Nome Cognome</button>
             <section class="dropdown-content">
                 <a class="zoom" href="./login.html" id="logout">Logout</a>
@@ -42,7 +44,11 @@
         <input type="file" id="imageProfileInput" accept="image/*">
         <label for="nomeArtista">Nome artista: <input type="text" id="nomeArtista" name="nomeArtista"></label>
         <textarea name="descrizione" id="descrizione" cols="30" rows="10" placeholder="Descrivi chi sei e qual è il genere di musica che componi" required></textarea>
-        <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
+
+        <section>
+            <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
+            <button id="annullaModifica" onclick="annullaModificaProfilo()" type="button">Annulla</button>
+        </section>
     </form>
 
     <section id="profilo">
@@ -138,7 +144,6 @@
     </footer>
 
     <script>
-        
         window.addEventListener("load", (event) =>
         {
             const loader = document.getElementById("loader-wrapper");
@@ -160,20 +165,38 @@
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
+            const tornaSu = document.querySelector(".tornaSu");
+
             document.getElementById("myBar").style.width = scrolled + "%";
             
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if(scrollTop > lastScrollTop)
             {
-                navbar.style.top='-86px';
+                navbar.style.top='-100px';
             }
             
             else
             {
                 navbar.style.top='0';
             }
-            
+
+            //bottone tornaSu
+
+            if (scrolled > 50)
+            {
+                tornaSu.style.opacity = "1";
+                tornaSu.style.visibility = "visible";
+                tornaSu.style.transform = "translateY(0px)";
+            }
+
+            else
+            {
+                tornaSu.style.opacity = "0";
+                tornaSu.style.visibility = "hidden";
+                tornaSu.style.transform = "translateY(10px)";
+            }
+
             lastScrollTop = scrollTop;
         }
 
@@ -185,14 +208,29 @@
             let scrHeight = e.target.scrollHeight;
             textarea.style.height = `${scrHeight}px`;
         });
+
+        var tornaSu = document.querySelector(".tornaSu");
+        var rootElement = document.documentElement;
+
+        function scrollToTop()
+        {
+            // Scroll to top logic
+            rootElement.scrollTo
+            (
+                {
+                    top: 0,
+                    behavior: "smooth"
+                }
+            );
+        }
+        
+        tornaSu.addEventListener("click", scrollToTop);
     </script>
 </body>
 
 </html>
 <!--
-rivedere la parte del profilo
 fare la parte di quante persone si sono iscritte al gruppo musicale
 fare la parte di quante tracce sono state vendute
-
-fare il logout button on user hover
+sistemare il data-tooltip
 -->

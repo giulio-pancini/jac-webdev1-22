@@ -233,29 +233,29 @@ function meseCarta(carta)
 
 function numeroMese(mese)
 {
-    if(mese==="Gennaio")
+    if(mese === "Gennaio")
         return 1;
-    else if(mese==="Febbraio")
+    else if(mese === "Febbraio")
         return 2;
-        if(mese==="Marzo")
+        if(mese === "Marzo")
         return 3;
-    else if(mese==="Aprile")
+    else if(mese === "Aprile")
         return 4;
-        if(mese==="Maggio")
+        if(mese === "Maggio")
         return 5;
-    else if(mese==="Giugno")
+    else if(mese === "Giugno")
         return 6;
-        if(mese==="Luglio")
+        if(mese === "Luglio")
         return 7;
-    else if(mese==="Agosto")
+    else if(mese === "Agosto")
         return 8;
-        if(mese==="Settembre")
+        if(mese === "Settembre")
         return 9;
-    else if(mese==="Ottobre")
+    else if(mese === "Ottobre")
         return 10;
-        if(mese==="Novembre")
+        if(mese === "Novembre")
         return 11;
-    else if(mese==="Dicembre")
+    else if(mese === "Dicembre")
         return 12;
 }
 
