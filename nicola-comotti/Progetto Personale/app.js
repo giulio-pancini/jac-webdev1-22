@@ -19,7 +19,7 @@ function toggleMenu() {
 }
 
 /*
-const pagesClasses = ['login-page','user-homepage','database-esercizi','piani-di-allenamento','contatti']
+const pagesClasses = ['login-page','user-homepage','database-esercizi','calcolo-bmi','contatti']
 
 function loadPage(className) {
     for (const pagina of pagesClasses) {
@@ -145,26 +145,6 @@ function addExe() {
             break;
         }
     }
-    /*
-        const schedaPush = document.getElementById('schedaPush');
-        const schedaPull = document.getElementById('schedaPull');
-        const schedaLegs = document.getElementById('schedaLegs');
-    
-        switch (scheda) {
-            case 'push':
-                schedaPush.appendChild(newExe);
-                break;
-            case 'pull':
-                schedaPull.appendChild(newExe);
-                break;
-            case 'legs':
-                schedaLegs.appendChild(newExe);
-                break;
-            case 'none':
-                alert("NESSUNA SCHEDA SELEZIONATA!!");
-                break;
-        }
-    */
 }
 
 async function fetchEsercizi() {
@@ -177,4 +157,55 @@ async function fetchEsercizi() {
         document.getElementById('prodotti').appendChild(elemento);
         elemento.innerHTML = product;
     });
+}
+
+function calcolaBMI() {
+    const altezza = document.getElementById('altezza').value;
+    const peso = document.getElementById('peso').value;
+    const sesso = document.getElementById('altezza').value;
+
+    if (altezza == 0) {
+        alert("Per favore inserisci la tua altezza per il calcolo del BMI");
+        return;
+    }
+
+    if (peso == 0) {
+        alert("Per favore inserisci il tuo peso per il calcolo del BMI");
+        return;
+    }
+
+    const bmi = peso / ((altezza / 100) * (altezza / 100));
+    var condizione = '';
+
+    if (bmi < 16) {
+        condizione = "Sottopeso Grave";
+    }
+    if (bmi >= 16 && bmi < 18.5) {
+        condizione = "Sottopeso";
+    }
+    if (bmi >= 18.5 && bmi < 25) {
+        condizione = "Normopeso";
+    }
+    if (bmi >= 25 && bmi < 30) {
+        condizione = "Sovrappeso";
+    }
+    if (bmi >= 30 && bmi < 35) {
+        condizione = "Obesità lieve";
+    }
+    if (bmi >= 35 && bmi < 40) {
+        condizione = "Obesità media";
+    }
+    if (bmi >= 40) {
+        condizione = "Obesità grave";
+    }
+
+    const pesoMax = 25 * ((altezza / 100) * (altezza / 100));
+    const pesoMin = 18.5 * ((altezza / 100) * (altezza / 100));
+
+    document.getElementById('bmi').innerText = (Math.round(bmi * 100) / 100).toString();
+    document.getElementById('condizione').innerText = condizione;
+    
+    document.getElementById('pesoMin').innerText = (Math.round(pesoMin * 100) / 100).toString();
+    document.getElementById('pesoMax').innerText = (Math.round(pesoMax * 100) / 100).toString();
+
 }

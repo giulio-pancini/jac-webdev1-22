@@ -12,6 +12,8 @@ let arraySocial=[];
     let spotify;
     let soundcloud;
     let amazonMusic;
+    let itunes;
+    let tidal;
 
     if (document.getElementById("nomeSocial").value === "")
     {
@@ -25,7 +27,7 @@ let arraySocial=[];
         return;
     }
 
-    else if(similarity(document.getElementById("nomeSocial").value,"youtube") <0.8  && similarity(document.getElementById("nomeSocial").value,"deezer") <0.8  && similarity(document.getElementById("nomeSocial").value,"youtube music") <0.8  && similarity(document.getElementById("nomeSocial").value,"spotify") <0.8  && similarity(document.getElementById("nomeSocial").value,"apple music") <0.8  && similarity(document.getElementById("nomeSocial").value,"soundcloud") <0.8  && similarity(document.getElementById("nomeSocial").value,"amazon music") <0.8 )
+    else if(similarity(document.getElementById("nomeSocial").value,"youtube") < 0.8 && similarity(document.getElementById("nomeSocial").value,"deezer") < 0.8 && similarity(document.getElementById("nomeSocial").value,"youtube music") < 0.8 && similarity(document.getElementById("nomeSocial").value,"spotify") < 0.8 && similarity(document.getElementById("nomeSocial").value,"apple music") < 0.8 && similarity(document.getElementById("nomeSocial").value,"soundcloud") < 0.8 && similarity(document.getElementById("nomeSocial").value,"amazon music") < 0.8 && similarity(document.getElementById("nomeSocial").value,"itunes") < 0.8 && similarity(document.getElementById("nomeSocial").value,"tidal") < 0.8 )
     {
         alert("Ci dispiace, ma non conosciamo il sito!");
         document.getElementById('nomeSocial').value = '';
@@ -47,38 +49,56 @@ let arraySocial=[];
 
         if(similarity(document.getElementById("nomeSocial").value,"youtube") >= 0.8)
         {
-            figureSocial.setAttribute('title','Youtube\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','Youtube, Link: ' + document.getElementById("link").value);
             youtube=true;
         }
+
         else if(similarity(document.getElementById("nomeSocial").value,"deezer") >= 0.8)
         {
-            figureSocial.setAttribute('title','Deezer\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','Deezer, Link: ' + document.getElementById("link").value);
             deezer=true;
         }
+
         else if(similarity(document.getElementById("nomeSocial").value,"soundcloud") >= 0.8)
         {
-            figureSocial.setAttribute('title','SoundCloud\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','SoundCloud, Link: ' + document.getElementById("link").value);
             soundcloud=true;
         }
+
         else if(similarity(document.getElementById("nomeSocial").value,"spotify") >= 0.8)
         {
-            figureSocial.setAttribute('title','Spotify\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','Spotify, Link: ' + document.getElementById("link").value);
             spotify=true;
         }
+
         else if(similarity(document.getElementById("nomeSocial").value,"youtube music") >= 0.8)
         {
-            figureSocial.setAttribute('title','Youtube Music\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','Youtube Music, Link: ' + document.getElementById("link").value);
             youtubeMusic=true;
         }
-        else if(similarity(document.getElementById("nomeSocial").value,"apple music")  >=  0.8)
+
+        else if(similarity(document.getElementById("nomeSocial").value,"apple music") >= 0.8)
         {
-            figureSocial.setAttribute('title','Apple Music\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','Apple Music, Link: ' + document.getElementById("link").value);
             appleMusic=true;
         }
-        else if(similarity(document.getElementById("nomeSocial").value,"amazon music")  >=  0.8)
+
+        else if(similarity(document.getElementById("nomeSocial").value,"amazon music") >= 0.8)
         {
-            figureSocial.setAttribute('title','Amazon Music\nLink: '+document.getElementById("link").value);
+            figureSocial.setAttribute('data-tooltip','Amazon Music, Link: ' + document.getElementById("link").value);
             amazonMusic=true;
+        }
+
+        else if(similarity(document.getElementById("nomeSocial").value,"itunes") >= 0.8)
+        {
+            figureSocial.setAttribute('data-tooltip','iTunes, Link: ' + document.getElementById("link").value);
+            itunes=true;
+        }
+
+        else if(similarity(document.getElementById("nomeSocial").value,"tidal") >= 0.8)
+        {
+            figureSocial.setAttribute('data-tooltip','Tidal, Link: ' + document.getElementById("link").value);
+            tidal=true;
         }
 
         for (let i = 0; i < oggetti.length; i++)
@@ -105,6 +125,7 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+
                 else if(deezer)
                 {
                     immagine.setAttribute("src","../iconeSocial/deezer.png");
@@ -120,6 +141,7 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+
                 else if(soundcloud)
                 {
                     immagine.setAttribute("src","../iconeSocial/soundcloud.png");
@@ -136,6 +158,7 @@ let arraySocial=[];
                     figureSocial.appendChild(linkImmagine);
                     soundcloud=true;
                 }
+
                 else if(spotify)
                 {
                     immagine.setAttribute("src","../iconeSocial/spotify.png");
@@ -151,6 +174,7 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+
                 else if(youtubeMusic)
                 {
                     immagine.setAttribute("src","../iconeSocial/youtube_music.png");
@@ -166,6 +190,7 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+
                 else if(appleMusic)
                 {
                     immagine.setAttribute("src","../iconeSocial/apple_music.png");
@@ -181,10 +206,43 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+
                 else if(amazonMusic)
                 {
                     immagine.setAttribute("src","../iconeSocial/amazon_music.png");
                     immagine.setAttribute("alt","Logo di Amazon Music");
+                    immagine.setAttribute("class","zoom");
+                    linkImmagine.appendChild(immagine);
+                    
+                    if(oggetti[i+1].id === "link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
+                }
+
+                else if(itunes)
+                {
+                    immagine.setAttribute("src","../iconeSocial/itunes.png");
+                    immagine.setAttribute("alt","Logo di iTunes Store");
+                    immagine.setAttribute("class","zoom");
+                    linkImmagine.appendChild(immagine);
+                    
+                    if(oggetti[i+1].id === "link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
+                }
+
+                else if(tidal)
+                {
+                    immagine.setAttribute("src","../iconeSocial/tidal.png");
+                    immagine.setAttribute("alt","Logo di Tidal");
                     immagine.setAttribute("class","zoom");
                     linkImmagine.appendChild(immagine);
                     
@@ -251,6 +309,16 @@ let arraySocial=[];
                 else if(amazonMusic)
                 {
                     linkTesto.innerText = "Amazon Music";
+                }
+
+                else if(itunes)
+                {
+                    linkTesto.innerText = "iTunes";
+                }
+
+                else if(tidal)
+                {
+                    linkTesto.innerText = "Tidal";
                 }
 
                 linkTesto.setAttribute("href",oggetti[i].value);

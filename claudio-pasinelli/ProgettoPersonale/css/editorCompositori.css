@@ -18,6 +18,7 @@ html
     --colore-mezzo-chiaro: rgb(242, 242, 242);
     --colore-oro: darkkhaki;
     --colore-giallo:rgb(255, 202, 89);
+    --colore-arancio: #ff9800;
     --colore-azzurro: #00c6ff;
     --colore-azzurro-scuro: #247ecd;
     --grandezza-carta: 250px;
@@ -44,8 +45,8 @@ body
 
 ::-webkit-scrollbar-thumb
 {
-    /* background: linear-gradient(transparent, var(--colore-oro)); */
-    background: linear-gradient(transparent, var(--colore-azzurro));
+    background: linear-gradient(transparent, var(--colore-arancio));
+    /* background: linear-gradient(transparent, var(--colore-azzurro)); */
     border-radius: var(--border-radius-default);
 }
 
@@ -212,6 +213,33 @@ img
 }
 
 /* LOADER */
+
+/* TORNA SU  */
+
+.tornaSu
+{
+    background-color: var(--colore-arancio);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 48px;
+    width: 48px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s ease-in-out;
+}
+
+.tornaSu:hover
+{
+    background-color: var(--colore-azzurro);
+}
+
+/* TORNA SU  */
 
 /* SECTION SOCIAL  */
 
@@ -671,9 +699,9 @@ form#formProfilo, section#profilo
     overflow: hidden;
 }
 
-form#formProfilo input[type="file"], button#inviaProfilo
+form#formProfilo input[type="file"], button#inviaProfilo, button#annullaModifica
 {
-    margin: 0.75rem;
+    margin: auto;
 }
 
 textarea#descrizione
