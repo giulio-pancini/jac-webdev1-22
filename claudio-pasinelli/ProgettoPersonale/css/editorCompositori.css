@@ -85,38 +85,6 @@ img
     -ms-user-select: none;
 }
 
-[data-tooltip]
-{
-    position: relative;
-    cursor: default;
-}
-
-[data-tooltip]::after
-{
-    position: absolute;
-    width: fit-content;
-    bottom: 105%;
-    text-align: center;
-    content: attr(data-tooltip);
-    color: var(--colore-chiaro);
-    background: rgb(189, 183, 107, 0.9);
-    padding: 8px;
-    border-radius: var(--border-radius-default);
-    font-size: 0.9rem;
-    font-weight: bold;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s, transform 0.2s ease;
-}
-
-[data-tooltip]:hover::after
-{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 /* LOADER */
 
 #loader-wrapper
@@ -290,7 +258,7 @@ section#linkSocial section#listaSocial section
     margin-bottom: 15%;
 }
 
-section#linkSocial section#listaSocial a
+#listaSocial a
 {
     color: var(--colore-oro);
 }
@@ -317,6 +285,54 @@ section#linkSocial section#listaSocial img.zoom:hover
     transform: scale(1.1) rotate(5deg);
 }
 
+.socialContainer
+{
+    position: relative;
+}
+
+.socialContainer::before,
+.socialContainer::after 
+{
+    --scale: 0;
+    --arrow-size: 10px;
+
+    position: absolute;
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    transition: 150ms transform;
+    transform-origin: bottom center;
+}
+
+.socialContainer::before
+{
+    --translate-y: calc(-100% - var(--arrow-size));
+
+    content: attr(data-tooltip);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    text-align: center;
+    width: max-content;
+    max-width: 100%;
+    background: var(--colore-arancio);
+}
+
+.socialContainer:hover::before,
+.socialContainer:hover::after
+{
+    --scale: 1;
+}
+
+.socialContainer::after
+{
+    --translate-y: calc(-1 * var(--arrow-size) - 0.5px);
+
+    content: '';
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--colore-arancio);
+    transform-origin: top center;
+}
 
 /* SECTION SOCIAL  */
 
@@ -363,7 +379,9 @@ section#linkSocial section#listaSocial img.zoom:hover
 a#logout
 {
     background-color: #cb0000;
-    color: white
+    color: white;
+    border-radius: 0px;
+    border: none 0px;
 }
 
 a#logout:hover
@@ -439,7 +457,7 @@ a#logout:hover
     border-radius: var(--border-radius-default);
     padding: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    border-radius: var(--border-radius-default);
     border: solid var(--colore-oro);
 }
 
@@ -629,7 +647,7 @@ button#deleteImage img {
     width: 30px;
     max-width: fit-content;
     margin: 0.5rem;
-    transition: transform .2s;
+    transition: all 0.2s ease-in-out;
 }
 
 button#deleteImage img:hover {
@@ -645,7 +663,7 @@ section#corpoGalleria button#prevImage
     width: 100%;
     height: fit-content;
     border-radius: var(--border-radius-default);
-    transition: transform .2s;
+    transition: all 0.2s ease-in-out;
 }
 
 section#corpoGalleria button#prevImage:hover
@@ -661,7 +679,7 @@ section#corpoGalleria button#nextImage
     width: 100%;
     height: fit-content;
     border-radius: var(--border-radius-default);
-    transition: transform .2s;
+    transition: all 0.2s ease-in-out;
 }
 
 section#corpoGalleria button#nextImage:hover
@@ -790,7 +808,7 @@ h1#nomeArt
     border-width: 0px 0px 2px 0px;
 }
 
-p#testoDescrizione
+p.socialContainerDescrizione
 {
     width: 100%;
     max-width: 500px;
@@ -844,7 +862,7 @@ p#testoDescrizione
         text-align: center;
     }
 
-    p#testoDescrizione
+    p.socialContainerDescrizione
     {
         text-align: center;
         margin: 0.5rem auto auto auto;
@@ -882,7 +900,7 @@ p#testoDescrizione
         text-align: center;
     }
 
-    p#testoDescrizione
+    p.socialContainerDescrizione
     {
         text-align: center;
         margin: 0.5rem auto auto auto;
@@ -936,7 +954,7 @@ p#testoDescrizione
         text-align: left;
     }
 
-    p#testoDescrizione
+    p.socialContainerDescrizione
     {
         margin: auto;
         text-align: left;

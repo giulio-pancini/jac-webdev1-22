@@ -50,54 +50,63 @@ let arraySocial=[];
         if(similarity(document.getElementById("nomeSocial").value,"youtube") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Youtube, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             youtube=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"deezer") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Deezer, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             deezer=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"soundcloud") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','SoundCloud, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             soundcloud=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"spotify") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Spotify, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             spotify=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"youtube music") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Youtube Music, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             youtubeMusic=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"apple music") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Apple Music, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             appleMusic=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"amazon music") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Amazon Music, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             amazonMusic=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"itunes") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','iTunes, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             itunes=true;
         }
 
         else if(similarity(document.getElementById("nomeSocial").value,"tidal") >= 0.8)
         {
             figureSocial.setAttribute('data-tooltip','Tidal, Link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
             tidal=true;
         }
 
