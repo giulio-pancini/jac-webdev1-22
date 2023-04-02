@@ -17,6 +17,7 @@ let arraySocial=[];
     let facebook;
     let twitter;
     let instagram;
+    let linkedin;
 
     if (document.getElementById("nomeSocial").value === "")
     {
@@ -43,6 +44,7 @@ let arraySocial=[];
         && similarity(document.getElementById("nomeSocial").value,"facebook") < 0.8 
         && similarity(document.getElementById("nomeSocial").value,"twitter") < 0.8 
         && similarity(document.getElementById("nomeSocial").value,"instagram") < 0.8
+        && similarity(document.getElementById("nomeSocial").value,"linkedin") < 0.8
     )
     {
         alert("Ci dispiace, ma non conosciamo il sito!");
@@ -145,6 +147,13 @@ let arraySocial=[];
             figureSocial.setAttribute('data-tooltip','Instagram, link: ' + document.getElementById("link").value);
             figureSocial.setAttribute('class', 'socialContainer');
             instagram = true;
+        }
+
+        else if(similarity(document.getElementById("nomeSocial").value,"linkedin") >= 0.8)
+        {
+            figureSocial.setAttribute('data-tooltip','Linkedin, link: ' + document.getElementById("link").value);
+            figureSocial.setAttribute('class', 'socialContainer');
+            linkedin = true;
         }
         
         for (let i = 0; i < oggetti.length; i++)
@@ -348,6 +357,22 @@ let arraySocial=[];
                     }
                     figureSocial.appendChild(linkImmagine);
                 }
+
+                else if(linkedin)
+                {
+                    immagine.setAttribute("src","../iconeSocial/linkedin.png");
+                    immagine.setAttribute("alt","Logo di Linkedin");
+                    immagine.setAttribute("class","zoom");
+                    linkImmagine.appendChild(immagine);
+                    
+                    if(oggetti[i+1].id === "link")
+                    {
+                        linkImmagine.setAttribute("href",oggetti[i+1].value);
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+                    figureSocial.appendChild(linkImmagine);
+                }
             }
             else if(oggetti[i].id === "link")
             {
@@ -428,6 +453,11 @@ let arraySocial=[];
                 else if(instagram)
                 {
                     linkTesto.innerText = "Instagram";
+                }
+
+                else if(linkedin)
+                {
+                    linkTesto.innerText = "Linkedin";
                 }
 
                 linkTesto.setAttribute("href",oggetti[i].value);
