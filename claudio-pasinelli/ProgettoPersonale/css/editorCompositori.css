@@ -34,7 +34,7 @@ body
     padding: 0;
     overflow-x: hidden;
     height: fit-content;
-    display: grid;
+    /* display: grid; */
     /* grid-template-columns: repeat(7, 1fr); */
 }
 
@@ -91,6 +91,7 @@ h1
     max-width: fit-content;
     text-align: center;
     display: inline-block;
+    font-size: 22px;
 }
 
 /* LOADER */
@@ -260,6 +261,7 @@ section#linkSocial section#listaSocial
     display: grid;
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 1.5rem 0px 0px 0px;
 }
 
 section#linkSocial section#listaSocial section
@@ -298,10 +300,12 @@ section#linkSocial section#listaSocial img.zoom:hover
 {
     max-width: 200px;
     position: relative;
+    place-self: center;
     padding: 5px;
     background-color: var(--colore-mezzo-scuro);
     border-radius: var(--border-radius-default);
-    place-self: center;
+    border: solid var(--colore-chiaro);
+    border-width: 0px 2px 0px 0px;
 }
 
 .socialContainer::before,
@@ -712,6 +716,7 @@ form#immaginiInput input
     display: inline;
     margin-top: 0.2rem;
     width: fit-content;
+    text-align-last: center;
 }
 
 form#immaginiInput button
@@ -726,7 +731,7 @@ form#immaginiInput button
 
 /*PROFILO*/
 
-form#formProfilo, section#profilo
+#formProfilo, section#profilo
 {
     margin: 0px 2.5rem 0rem 2.5rem;
     display: flex;
@@ -736,9 +741,15 @@ form#formProfilo, section#profilo
     overflow: hidden;
 }
 
-form#formProfilo input[type="file"], button#inviaProfilo, button#annullaModifica
+#formProfilo input[type="file"], button#inviaProfilo, button#annullaModifica
 {
     margin: auto;
+}
+
+#formProfilo p,
+#immaginiInput p
+{
+    margin: 0.5rem 0px 0px 0px;
 }
 
 textarea#descrizione
@@ -776,10 +787,12 @@ section#profilo
     grid-template-rows: repeat(2, 1fr);
     border: 2px solid var(--colore-oro);
     padding: 5px 15px;
+    margin: 1.5rem auto auto auto;
     border-radius: var(--border-radius-default);
     transition: all 0.3s ease-in-out;
     transform: translateY(2px);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
 }
 
 section#profilo:hover
@@ -922,6 +935,7 @@ p.socialContainerDescrizione
         grid-template-rows: repeat(1, 1fr);
         padding: 5px 15px;
         column-gap: 0px;
+        max-width: 500px;
     }
 
     h1#nomeArt

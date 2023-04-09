@@ -157,12 +157,12 @@ function eliminaCarta(id)
 
     for (const carta of arrayCarte)
     {
-        if(carta.id==id)
+        if(carta.id === id)
         {
             const cartaDaEliminare = document.getElementById("carta"+id.toString());
             const indice = arrayCarte.indexOf(carta);
     
-            arrayCarte.splice(carta,1);
+            arrayCarte.splice(indice,1);
             cartaDaEliminare.remove();
             coloraCarte();
             isCartaTrovata = true;
@@ -175,12 +175,12 @@ function eliminaCarta(id)
     }
 
     if(!isCartaTrovata)
-        alert(`La traccia "${id}" non è stata trovata!`)
+        alert(`La traccia "${id}" non è stata trovata!`);
 }
 
 function sortListaCarte()
 {
-    let list, i, switching, shouldSwitch;
+    let i, switching, shouldSwitch;
     const listaCarte = document.getElementsByClassName("card");
     switching = true;
 
@@ -267,7 +267,7 @@ function coloraCarte()
 
     for (let i = 0; i<carte.length; i++)
     {
-        if(carte[i]!=null && carte[i].style.display == "flex")
+        if(carte[i] != null && carte[i].style.display === "flex")
         {
             if(bianco)
             {
@@ -339,5 +339,6 @@ function sortMeseScelto()
         }
     }
 
-    const incasso = document.getElementById("incasso").innerText = incassoTotale();
+    // const incasso = document.getElementById("incasso").innerText = incassoTotale();
+    coloraCarte();
 }

@@ -21,6 +21,12 @@
 {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+#formCard p
+{
+    margin: 0.5rem 0px 0px 0px;
 }
 
 form#formCard select#mese
@@ -43,6 +49,11 @@ form#formCard button#btn-card
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#tracksContainer p
+{
+    margin: 0.5rem 0px 0px 0px;
 }
 
 #sortLista
