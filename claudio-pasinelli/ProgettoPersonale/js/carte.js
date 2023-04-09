@@ -339,6 +339,6 @@ function sortMeseScelto()
         }
     }
 
-    // const incasso = document.getElementById("incasso").innerText = incassoTotale();
+    document.getElementById("incasso").innerText = incassoTotale();
     coloraCarte();
 }
