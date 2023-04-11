@@ -1,3 +1,8 @@
+:root{
+    --main-color: rgb(38,38,38);
+    --light-color: rgb(143, 112, 78);
+}
+
 body{
     margin: 0;
     padding:0;
@@ -9,74 +14,65 @@ body{
     */
     font-size: 15px;
     text-decoration: none;
-    background-color: rgb(38,38,38);
-    border: 7px solid rgb(143, 112, 78);
+    background-color: var(--main-color);
+    border: 7px solid var(--light-color);
 }
 
 
 /*FORM*/
 form{
-    border: solid;
-    background-color: black;
-    margin-left: 50px;
-    margin-right: 50px;
     padding: 0;
     margin-bottom: 0;
 }
-/*
-    form label, div{
-        color: white;
-        opacity:0.8;
-    }
-    */
-/*
-    form > ul,section,dl{
-        display: inline-block
-    }
-/*
-input #address{
-    position: relative;
-    top: 40px; left: 40px;
+
+#dl{
+    color: white;
+    opacity: 0.7;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 0;
+    font-size: 20px;
 }
 
-#name{
-    margin-right: 30px
+#container{
+    background-color: white;
+    padding:10px;
+    background-color: var(--light-color);
 }
 
-
-input[type="checkbox"]{
+.label{
     display: inline-block;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-input[type="radio"]{
+#shoppingCartMenu{
+    display: none;
+}
+
+#shopButton{
+    display: block;
+    width: 90px;
+    margin-top: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 1rem;;
+    border: 2px solid; 
+    background-color: var(--main-color);
+    color: var(--light-color)
+}
+/*
+#cond{
     display: inline-block;
 }
 */
-#shop{
-    height: 40px;
-    width: 100px;
-    background-color: white;
-    border-radius: 0.5rem;
-    color: black;
-    font-weight: bold;
-}
 
-#dl{
-    background-color: white;
-    opacity: 0.7;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding:10px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#sectionCart{
-    background-color: white;
-    opacity: 0.7;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding:10px;
-    font-weight: bold;
-    font-size: 20px;
+#buttonHome{
+    text-align: right;
+    padding: 8px 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--main-color);
+    color: var(--light-color)
 }
