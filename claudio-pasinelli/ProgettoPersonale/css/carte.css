@@ -21,6 +21,12 @@
 {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+#formCard p
+{
+    margin: 0.5rem 0px 0px 0px;
 }
 
 form#formCard select#mese
@@ -37,13 +43,17 @@ form#formCard button#btn-card
 {
     /* background-color: var(--colore-mezzo-chiaro); */
     display: none;
-    /* grid-column: 2/8; */
     border: groove var(--colore-mezzo-chiaro);
     border-width: 2px 0px 0px 0px;
     background-image: url(../img/cloud-dark.svg), linear-gradient(var(--colore-azzurro),var(--colore-chiaro));
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#tracksContainer p
+{
+    margin: 0.5rem 0px 0px 0px;
 }
 
 #sortLista
@@ -93,6 +103,7 @@ form#formCard button#btn-card
     border-top-right-radius: 5px;
     transition: transform 0.5s ease;
     transform: translateY(10px);
+    position: relative;
 }
 
 .card:hover
@@ -119,7 +130,53 @@ form#formCard button#btn-card
     border: solid var(--colore-giallo);
     border-width: 3px 0px 0px 0px;
 }
+/*  */
 
+.card::before,
+.card::after 
+{
+    --scale: 0;
+    --arrow-size: 10px;
+
+    position: absolute;
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    transition: 150ms transform;
+    transform-origin: bottom center;
+}
+
+.card::before
+{
+    --translate-y: calc(-100% - var(--arrow-size));
+
+    content: attr(data-tooltip);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    text-align: center;
+    width: max-content;
+    max-width: 100%;
+    background: var(--colore-mezzo-scuro);
+}
+
+.card:hover::before,
+.card:hover::after
+{
+    --scale: 1;
+}
+
+.card::after
+{
+    --translate-y: calc(-1 * var(--arrow-size) - 0.5px);
+
+    content: '';
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--colore-mezzo-scuro);
+    transform-origin: top center;
+}
+
+/*  */
 .title
 {
     display: flex;
