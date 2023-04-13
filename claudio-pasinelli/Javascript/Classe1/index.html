@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio classe</title>
+</head>
+<body>
+    
+    <script>
+        class Message
+        {
+            constructor(timeStamp, sender, receiver)
+            {
+                this.timeStamp = timeStamp;
+                this.sender = sender;
+                this.receiver = receiver;
+            }
+
+            getTimeStamp()
+            {
+                const timeStamp = new Date();
+                return timeStamp.getDate;
+            }
+
+            getSender()
+            {
+                const sender = new String();
+                return sender;
+            }
+
+            getReceiver()
+            {
+                const receiver = new String();
+                return receiver;
+            }
+        }
+
+        class textMessage extends Message
+        {
+            constructor(timeStamp, sender, receiver, textContent)
+            {   
+                super(timeStamp, sender, receiver);
+                this.textContent = textContent;
+            }
+
+            getContent()
+            {
+                const textContent = new String();
+                return textContent;
+            }
+        }
+
+        class imgMessage extends Message
+        {
+            constructor(timeStamp, sender, receiver, srcImage)
+            {   
+                super(timeStamp, sender, receiver);
+                this.srcImage = srcImage;
+            }
+
+            getSrcImage()
+            {
+                const srcImage = new String();
+                return srcImage;
+            }
+        }
+
+        
+        class audioMessage extends Message
+        {
+            constructor(timeStamp, sender, receiver, audio)
+            {   
+                super(timeStamp, sender, receiver);
+                this.audio = audio;
+            }
+
+            getAudio()
+            {
+                const audio = new String();
+                return audio;
+            }
+        }
+
+        
+        class videoMessage extends Message
+        {
+            constructor(timeStamp, sender, receiver, urlVideo)
+            {   
+                super(timeStamp, sender, receiver);
+                this.urlVideo = urlVideo;
+            }
+
+            getUrlVideo()
+            {
+                const urlVideo = new String();
+                return urlVideo;
+            }
+        }
+
+        // let oggi = new Date();
+        // oggi = Date.now();
+        const testo = new textMessage(new Date(), "Claudio", "Luca", "Ciap anche a te");
+        console.log(testo);
+    </script>
+
+</body>
+</html>
