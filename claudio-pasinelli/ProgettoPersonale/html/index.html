@@ -15,55 +15,64 @@
 </head>
 
 <body>
-    <header>
-        <nav id="menu">
-            <a class="active zoom" href="#home">Home</a>
-            <a class="zoom" href="#about">About</a>
-            <a class="zoom" href="#contact" id="logout">Logout</a>
-        </nav>
-        <section class="progress-container">
-            <section class="progress-bar" id="myBar"></section>
-        </section>
-    </header>
-
-    <section id="side-nav">
-        <section id="linkSocial">
-            <h1>Inserisci il nome e il link dei tuoi social</h1>
-            <form id="social" name="social">
-                <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
-                <label for="link">Link: <input type="url" id="link"></label>
-                <button type="button" onclick="creaElementoSocial()">Invia</button>
-            </form>
-            <section id="listaSocial">
-            </section>
-        </section>
+    <section id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </section>
 
+    <button class="tornaSu">&#11165;</button>
+    <!-- <button class="tornaSu" data-tooltip="Torna sù">&#11165;</button> -->
+
+    <section id="progress-container">
+        <section class="progress-bar" id="myBar"></section>
+    </section>
+
+    <nav id="nav-bar">
+        <section id="menu">
+            <a class="active zoom" href="#home">Home</a>
+            <a class="zoom" href="#about">About</a>
+        </section>
+
+        <section class="dropdown">
+            <button type="button" id="userNickname">Nome Cognome</button>
+            <section class="dropdown-content">
+                <a class="zoom" href="./login.html" id="logout">Logout</a>
+            </section>
+          </section>
+    </nav>
+
     <form id="formProfilo">
+        <h1>Profilo</h1>
         <input type="file" id="imageProfileInput" accept="image/*">
+        <label for="nomeArtista"><p>Nome artista: </p><input type="text" id="nomeArtista" name="nomeArtista"></label>
         <textarea name="descrizione" id="descrizione" cols="30" rows="10" placeholder="Descrivi chi sei e qual è il genere di musica che componi" required></textarea>
-        <button id="inviaProfilo" onclick="creaProfilo()">Invia</button>
+
+        <section>
+            <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
+            <button id="annullaModifica" onclick="annullaModificaProfilo()" type="button">Annulla</button>
+        </section>
     </form>
+
     <section id="profilo">
         <section id="sectionImmagineProfilo">
             <img id="immagineProfilo">
         </section>
-        <p id="testoDescrizione"></p>
-        <button id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
+        <section id="profiloDescrizione">
+            <h1 id="nomeArt"></h1>
+            <p id="testoDescrizione"></p>
+        </section>
+        <button type="button" id="modificaProfilo" onclick="modificaProfilo()">Modifica</button>
     </section>
 
     <section id="galleriaImmagini">
         <h1>Galleria di immagini</h1>
         <section id="corpoGalleria">
-            <button onclick="prevImage()" id="prevImage">&#8592</button>
-            <section id="slideshow">
-                <img id="currentImage" src="">
-            </section>
-            <button onclick="nextImage()" id="nextImage">&#8594</button>
+            <button onclick="prevImage()" id="prevImage">❮</button>
+            <img id="currentImage" src="">
+            <button onclick="nextImage()" id="nextImage">❯</button>
         </section>
         <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
         <form id="immaginiInput">
-            <label for="imageInput">Aggiungi un'immagine: </label><input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput"><p>Aggiungi un'immagine: </p></label><input type="file" id="imageInput" accept="image/*">
             <button type="button" onclick="addImage()">Aggiungi</button>
         </form>
     </section>
@@ -73,11 +82,11 @@
             <h1>Inserisci le tue tracce musicali</h1>
             <form id="formCard">
                 <input type="file" id="immagineCarta" accept="image/*">
-                <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
-                <label for="prezzo">Prezzo: <input type="text" name="prezzo" id="prezzo" required></label>
+                <label for="nome"><p>Nome: </p><input type="text" name="nome" id="nome" required></label>
+                <label for="prezzo"><p>Prezzo: </p><input type="text" name="prezzo" id="prezzo" required></label>
                 <label for="mese">Mese:</label>
                 <select id="mese" name="mese">
-                    <option value="0"></option>
+                    <option value="0">Anulla</option>
                     <option value="Gennaio">Gennaio</option>
                     <option value="Febbraio">Febbraio</option>
                     <option value="Marzo">Marzo</option>
@@ -91,39 +100,139 @@
                     <option value="Novembre">Novembre</option>
                     <option value="Dicembre">Dicembre</option>
                 </select>
-                <button id="btn-card" onclick="creaCarta()">Invia</button>
+                <button type="button" id="btn-card" onclick="creaCartaJson()">Invia</button>
             </form>
         </section>
     </section>
 
-    <section id="lista"></section>
+    <section id="tracksContainer">
+        <section id="sortLista">
+            <section>
+                <h1>Cerca le tracce per mese</h1>
+                <p id="incasso"></p>
+                <label for="meseSort"><p>Mese:</p></label>
+                    <select id="meseSort" name="meseSort" onchange="sortMeseScelto()">
+                        <option value="0">Vedi tutte le tracce</option>
+                        <option value="Gennaio">Gennaio</option>
+                        <option value="Febbraio">Febbraio</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Aprile">Aprile</option>
+                        <option value="Maggio">Maggio</option>
+                        <option value="Giugno">Giugno</option>
+                        <option value="Luglio">Luglio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Settembre">Settembre</option>
+                        <option value="Ottobre">Ottobre</option>
+                        <option value="Novembre">Novembre</option>
+                        <option value="Dicembre">Dicembre</option>
+                    </select>
+            </section>
+        </section>
+        <section id="lista"></section>
+    </section>
 
     <footer id="piePagina">
-        Footer
+        <section id="linkSocial">
+            <form id="social" name="social">
+                <!-- <h1>Inserisci il nome e il link dei tuoi social</h1> -->
+                <h1>Social media</h1>
+                <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
+                <label for="link">Link: <input type="url" id="link"></label>
+                <button type="button" onclick="creaSocialJson()">Invia</button>
+            </form>
+            <section id="listaSocial">
+            </section>
+        </section>
     </footer>
 
     <script>
+        window.addEventListener("load", (event) =>
+        {
+            const loader = document.getElementById("loader-wrapper");
+            loader.style.animation = "fadeOut 1.2s";
+            loader.style.animationIterationCount = "1";
+
+            setTimeout(() =>
+            {
+                loader.parentNode.removeChild(loader);
+            }, 1200);
+        });
+
+        let lastScrollTop;
+
+        navbar = document.getElementById("nav-bar");
+
         window.onscroll = () =>
         {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
+            const tornaSu = document.querySelector(".tornaSu");
+
             document.getElementById("myBar").style.width = scrolled + "%";
-        };
+            
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if(scrollTop > lastScrollTop)
+            {
+                navbar.style.top='-100px';
+            }
+            
+            else
+            {
+                navbar.style.top='0';
+            }
+
+            //bottone tornaSu
+
+            if (scrolled > 50)
+            {
+                tornaSu.style.opacity = "1";
+                tornaSu.style.visibility = "visible";
+                tornaSu.style.transform = "translateY(0px)";
+            }
+
+            else
+            {
+                tornaSu.style.opacity = "0";
+                tornaSu.style.visibility = "hidden";
+                tornaSu.style.transform = "translateY(10px)";
+            }
+
+            lastScrollTop = scrollTop;
+        }
+
         const textarea = document.querySelector("textarea");
+
         textarea.addEventListener("keyup", e =>
         {
             textarea.style.height = "63px";
             let scrHeight = e.target.scrollHeight;
             textarea.style.height = `${scrHeight}px`;
         });
+
+        var tornaSu = document.querySelector(".tornaSu");
+        var rootElement = document.documentElement;
+
+        function scrollToTop()
+        {
+            // Scroll to top logic
+            rootElement.scrollTo
+            (
+                {
+                    top: 0,
+                    behavior: "smooth"
+                }
+            );
+        }
+        
+        tornaSu.addEventListener("click", scrollToTop);
     </script>
 </body>
 
 </html>
 <!--
-fare la parte della foto profilo
 fare la parte di quante persone si sono iscritte al gruppo musicale
 fare la parte di quante tracce sono state vendute
-fare il guadagno totale di ogni mese 
+sistemare dropdown per il logout
 -->
