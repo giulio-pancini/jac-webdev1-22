@@ -78,7 +78,7 @@
 
     }
 
-    const mes= new Message("13/04/2023","Mario","Luigi");
+    const mes= new Message(new Date(),"Mario","Luigi");
     const txt = new TextMessage(mes.getTimestamp()+" "+mes.getSender()+" "+mes.getReciver()+" ciao ");
     
    console.log(txt);
