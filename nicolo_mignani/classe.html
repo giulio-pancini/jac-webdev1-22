@@ -1,0 +1,88 @@
+
+  <script>
+
+    class Message{
+
+
+        #timestamp;
+        #sender;
+        #reciver;
+
+        constructor(timestamp,sender,reciver){
+
+            this.#timestamp=timestamp;
+            this.#sender=sender;
+            this.#reciver=reciver
+        }
+          
+        getTimestamp(){
+
+            return this.#timestamp;
+
+        }
+
+        getSender(){
+
+           return this.#sender;
+
+        }
+        getReciver(){
+
+            return this.#reciver;
+
+        }
+
+
+
+
+    }
+
+    class TextMessage extends Message{
+
+        #textContent;
+
+        constructor(timestamp,sender,reciver,textContent){
+             
+            super(timestamp,sender,reciver)
+            this.#textContent=textContent;
+
+        }
+
+        getTextContent(){
+       
+            return this.#textContent;
+        }
+
+
+
+
+    }
+
+
+    class ImgMessage extends Message{
+
+          #srcImage;
+
+          constructor(timestamp,sender,reciver,srcImage){
+
+              super(timestamp,sender,reciver);
+              this.#srcImage=srcImage
+
+          }
+
+          getSrcImage(){
+
+            return this.#srcImage;
+          }
+
+
+    }
+
+    const mes= new Message("13/04/2023","Mario","Luigi");
+    const txt = new TextMessage(mes.getTimestamp()+" "+mes.getSender()+" "+mes.getReciver()+" ciao ");
+    
+   console.log(txt);
+   
+
+
+    </script>
