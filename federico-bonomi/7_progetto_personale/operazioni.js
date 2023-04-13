@@ -36,7 +36,7 @@ function inserisciDomanda()
     }
     listaDomande.push(elementoArray);
     
-    indice++;
+    
 
     const nuovaDomanda = document.createElement('li');
 
@@ -126,6 +126,8 @@ function inserisciDomanda()
     document.getElementById("nomeUtenteDomanda").value='';
     document.getElementById("titolo").value='';
     document.getElementById("inputDomanda").value='';
+
+    indice++;
 }
 
 function creaSezione(inputId, tipo)
@@ -151,19 +153,19 @@ function aggiungiRisposta(parametro)
 
     const oggettoRisposta=
     {
-        indiceDomanda: `${parametro}`-1,
-        indiceArrayRisposta: indiceRisposta,
+        indiceDomanda: `${parametro}`,
+        id: indiceRisposta,
         nomeUtente: document.getElementById(`nomeUtente${parametro}`).value,
         risposta: document.getElementById(`inputRisposta${parametro}`).value
     }
 
-    listaDomande[`${parametro}`-1].risposte.push(oggettoRisposta);
+    listaDomande[`${parametro}`].risposte.push(oggettoRisposta);
 
-    indiceRisposta++;
+    
     const nuovaRisposta = document.createElement('li');
     //bottone elimina
     const bottoneElimina=document.createElement("button");
-    bottoneElimina.setAttribute("onclick",`eliminaRisposta("risposta${indiceRisposta}", "${indiceRisposta}", "${parametro-1}")`);
+    bottoneElimina.setAttribute("onclick",`eliminaRisposta("risposta${indiceRisposta}", "${indiceRisposta}", "${parametro}")`);
     bottoneElimina.innerText="Elimina";
     bottoneElimina.setAttribute("class","bottoneElimina");
     nuovaRisposta.appendChild(bottoneElimina);
@@ -190,6 +192,8 @@ function aggiungiRisposta(parametro)
     //resetto il form
     document.getElementById(`nomeUtente${parametro}`).value='';
     document.getElementById(`inputRisposta${parametro}`).value='';
+
+    indiceRisposta++;
 }
 
 function nascondi(parametro, bottoneForm)
@@ -222,22 +226,45 @@ function nascondiRisposte(parametro, bottoneCommenti)
     }
 }
 
-//elimina una domanda lasciando uno spazio vuoto nell'array
+//elimina una domanda sia dall'html sia dall'array
 function eliminaDomanda(id, indiceDomanda)
 {
     document.getElementById(id).remove();
-    const x=indiceDomanda-1;
-    listaDomande[x]=null;
-    listaDomande.forEach(element=>{
-        console.log(element);
-    })
+    for(let i=0;i<listaDomande.length;i++)
+    {
+        if(listaDomande[i].id==indiceDomanda)
+        {
+            listaDomande.splice(i,1);
+            listaDomande.forEach(element=>{
+                console.log(element);
+            })
+            return;
+        }   
+    }
 }
 
 //elimina una risposta lasciando uno spazio vuoto nell'array
 function eliminaRisposta(id, indiceRispostaElimina, indiceDomanda)
 {
-    const x=indiceRispostaElimina-1;
     document.getElementById(id).remove();
+
+    for(let i=0;i<listaDomande.length;i++)
+    {
+        if(listaDomande[i].id=indiceDomanda)
+        {
+            for(let j=0;j<listaDomande[i].risposte.length;j++)
+            {
+                if(listaDomande[i].risposte[j].id=indiceRispostaElimina)
+                {
+                    listaDomande[i].risposte.splice(j,1);
+                    listaDomande.forEach(element=>{
+                        console.log(element);
+                    })
+                    return;
+                }
+            }
+        }
+    }
     delete listaDomande[indiceDomanda].risposte[x];
 }
 

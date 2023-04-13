@@ -10,8 +10,8 @@ body {
 
 #checkboxgiocatori {
   background-color: #dbdb32;
-  margin-left: 15%;
-  margin-right: 31%;
+  margin-left: 22%;
+  margin-right: 22%;
   border-radius: 12px;
 }
 
@@ -32,13 +32,20 @@ h3 {
   display: inline;
   display: block;
   margin: 0 auto;
+
 }
 
 .colonne {
   float: left;
-  width: 30%;
+  width: 40%;
   padding: 10px;
   height: 300px;
+  margin: 2rem;
+
+}
+
+#checkboxgiocatori:hover {
+  color: rgb(255, 0, 0);
 }
 
 #schema {
@@ -60,11 +67,30 @@ h3 {
   margin-right: auto;
 }
 
+#formschemi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#formschemi:hover {
+  color: rgb(255, 0, 0);
+}
+
+#checkbox {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
 .bottonigiocatori {
   border-radius: 12px;
   background-color: #dbdb32;
   color: black;
-  border: 2px solid ; 
+  border: 2px solid;
+  margin-bottom: 2px;
 }
 
 .bottonigiocatori:hover {
@@ -83,9 +109,22 @@ h3 {
 
 .giocatoriattivi {
   align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  margin-left: 1rem;
+  width: 15%;
 }
 
-#listapulsantigiocatori{
+.giocatoriattivi:disabled {
+  opacity: 1.5;
+  color: black;
+}
+
+#listapulsantigiocatori {
   margin-left: 1rem;
-  margin-right: auto;
+  margin-right: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

@@ -17,8 +17,9 @@ function toggleMenu() {
     }
 
 }
+
 /*
-const pagesClasses = ['login-page','user-homepage','database-esercizi','piani-di-allenamento','contatti']
+const pagesClasses = ['login-page','user-homepage','database-esercizi','calcolatrici','contatti']
 
 function loadPage(className) {
     for (const pagina of pagesClasses) {
@@ -28,11 +29,12 @@ function loadPage(className) {
 } */
 
 function login() {
-    window.location.href="user-homepage.html";
+    //! TODO: Login tramite API
+    window.location.href = "user-homepage.html";
 }
 
 function logout() {
-    window.location.href="login-page.html";
+    window.location.href = "login-page.html";
 }
 
 const schede = [];
@@ -44,7 +46,7 @@ function addScheda() {
     const inputNome = document.getElementById('nomeScheda');
     const nome = inputNome.value;
 
-    if(nome == '') {
+    if (nome == '') {
         alert('INSERIRE IL NOME DELLA SCHEDA!');
         return
     }
@@ -60,16 +62,16 @@ function addScheda() {
     buttonRimuovi.setAttribute("class", "delete-button");
     newScheda.appendChild(testoNome);
     newScheda.appendChild(buttonRimuovi);
-    
-    newScheda.setAttribute('class','scheda');
-    const idScheda = testoNome.innerText.replace(/ /g,'');
+
+    newScheda.setAttribute('class', 'scheda');
+    const idScheda = testoNome.innerText.replace(/ /g, '');
     newScheda.setAttribute("id", idScheda);
 
     document.getElementById('listaSchede').appendChild(newScheda);
 
     const selectSchede = document.getElementById('sceltaScheda');
     const optionScheda = document.createElement('option');
-    optionScheda.setAttribute('value',idScheda);
+    optionScheda.setAttribute('value', idScheda);
     optionScheda.appendChild(document.createTextNode(testoNome.innerText));
     selectSchede.appendChild(optionScheda);
 
@@ -79,17 +81,17 @@ function addScheda() {
 
 }
 
-function deleteScheda (elem) {
+function deleteScheda(elem) {
 
     const scheda = document.getElementById(elem.parentNode.id);
     scheda.style.display = 'none';
 
-    schede.splice(schede.indexOf(elem.parentNode.id),1);
+    schede.splice(schede.indexOf(elem.parentNode.id), 1);
 
     const selectSchede = document.getElementById("sceltaScheda");
-    for (var i=0; i<selectSchede.length; i++) {
-    if (selectSchede.options[i].value == elem.parentNode.id)
-        selectSchede.remove(i);
+    for (var i = 0; i < selectSchede.length; i++) {
+        if (selectSchede.options[i].value == elem.parentNode.id)
+            selectSchede.remove(i);
     }
 
 }
@@ -138,31 +140,11 @@ function addExe() {
     newExe.setAttribute('class', 'esercizio');
 
     for (const valueScheda of schede) {
-        if(valueScheda == scheda) {
+        if (valueScheda == scheda) {
             document.getElementById(valueScheda).appendChild(newExe);
             break;
         }
     }
-/*
-    const schedaPush = document.getElementById('schedaPush');
-    const schedaPull = document.getElementById('schedaPull');
-    const schedaLegs = document.getElementById('schedaLegs');
-
-    switch (scheda) {
-        case 'push':
-            schedaPush.appendChild(newExe);
-            break;
-        case 'pull':
-            schedaPull.appendChild(newExe);
-            break;
-        case 'legs':
-            schedaLegs.appendChild(newExe);
-            break;
-        case 'none':
-            alert("NESSUNA SCHEDA SELEZIONATA!!");
-            break;
-    }
-*/
 }
 
 async function fetchEsercizi() {
@@ -175,4 +157,131 @@ async function fetchEsercizi() {
         document.getElementById('prodotti').appendChild(elemento);
         elemento.innerHTML = product;
     });
+}
+
+function calcolaBMI() {
+
+    const sesso = document.getElementById('sesso').value;
+    const eta = document.getElementById('eta').value;
+    const altezza = document.getElementById('altezza').value;
+    const peso = document.getElementById('peso').value;
+
+    if (sesso == 'none') {
+        alert("Per favore inserisci il tuo sesso per il calcolo del BMI");
+        return;
+    }
+
+    if (eta == 0) {
+        alert("Per favore inserisci la tua età per il calcolo del BMI");
+        return;
+    }
+
+    if (altezza == 0) {
+        alert("Per favore inserisci la tua altezza per il calcolo del BMI");
+        return;
+    }
+
+    if (peso == 0) {
+        alert("Per favore inserisci il tuo peso per il calcolo del BMI");
+        return;
+    }
+
+    const bmi = peso / ((altezza / 100) * (altezza / 100));
+    let condizione = "";
+    let pesoMax = 0;
+    let pesoMin = 0;
+
+    if (eta < 18) {
+        if (sesso === "maschio") {
+            document.getElementById('bmi-m-u18').style.display = 'inline-block';
+            pesoMax = 25 * ((altezza / 100) * (altezza / 100));
+            pesoMin = 18.5 * ((altezza / 100) * (altezza / 100));
+            if (bmi < 16.5) {
+                condizione = "Grave sottopeso";
+            } else if (bmi >= 16.5 && bmi < 18.5) {
+                condizione = "Sottopeso";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                condizione = "Normopeso";
+            } else if (bmi >= 25 && bmi < 30) {
+                condizione = "Sovrappeso";
+            } else if (bmi >= 30 && bmi < 35) {
+                condizione = "Obeso di primo grado";
+            } else if (bmi >= 35 && bmi < 40) {
+                condizione = "Obeso di secondo grado";
+            } else {
+                condizione = "Obeso di terzo grado";
+            }
+        } else if (sesso === "femmina") {
+            document.getElementById('bmi-f-u18').style.display = 'inline-block';
+            pesoMax = 23 * ((altezza / 100) * (altezza / 100));
+            pesoMin = 17 * ((altezza / 100) * (altezza / 100));
+            if (bmi < 16) {
+                condizione = "Grave Sottopeso";
+            } else if (bmi >= 16 && bmi < 17) {
+                condizione = "Sottopeso";
+            } else if (bmi >= 17 && bmi < 23) {
+                condizione = "Normopeso";
+            } else if (bmi >= 23 && bmi < 27) {
+                condizione = "Sovrappeso";
+            } else if (bmi >= 27 && bmi < 32) {
+                condizione = "Obesa di primo grado";
+            } else if (bmi >= 32 && bmi < 37) {
+                condizione = "Obesa di secondo grado";
+            } else {
+                condizione = "Obesa di terzo grado";
+            }
+        }
+    } else {
+        if (sesso === "maschio") {
+            document.getElementById('bmi-m-ad').style.display = 'inline-block';
+            pesoMax = 25 * ((altezza / 100) * (altezza / 100));
+            pesoMin = 18.5 * ((altezza / 100) * (altezza / 100));
+            if (bmi < 16) {
+                condizione = "Grave Sottopeso";
+            } else if (bmi >= 16 && bmi < 18.5) {
+                condizione = "Sottopeso";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                condizione = "Normopeso";
+            } else if (bmi >= 25 && bmi < 30) {
+                condizione = "Sovrappeso";
+            } else if (bmi >= 30 && bmi < 35) {
+                condizione = "Obeso di primo grado";
+            } else if (bmi >= 35 && bmi < 40) {
+                condizione = "Obeso di secondo grado";
+            } else {
+                condizione = "Obeso di terzo grado";
+            }
+        } else if (sesso === "femmina") {
+            document.getElementById('bmi-f-ad').style.display = 'inline-block';
+            pesoMax = 25 * ((altezza / 100) * (altezza / 100));
+            pesoMin = 18.5 * ((altezza / 100) * (altezza / 100));
+            if (bmi < 16) {
+                condizione = "Grave Sottopeso";
+            } else if (bmi >= 16 && bmi < 18.5) {
+                condizione = "Sottopeso";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                condizione = "Normopeso";
+            } else if (bmi >= 25 && bmi < 30) {
+                condizione = "Sovrappeso";
+            } else if (bmi >= 30 && bmi < 35) {
+                condizione = "Obesa di primo grado";
+            } else if (bmi >= 35 && bmi < 40) {
+                condizione = "Obesa di secondo grado";
+            } else {
+                condizione = "Obesa di terzo grado";
+            }
+        }
+    }
+
+    console.log(bmi)
+    console.log(condizione)
+    console.log(pesoMin)
+    console.log(pesoMax)
+
+    document.getElementById('bmi').innerText = (Math.round(bmi * 100) / 100).toString();
+    document.getElementById('condizione').innerText = condizione;
+
+    document.getElementById('pesoMin').innerText = (Math.round(pesoMin * 100) / 100).toString();
+    document.getElementById('pesoMax').innerText = (Math.round(pesoMax * 100) / 100).toString();
+
 }
