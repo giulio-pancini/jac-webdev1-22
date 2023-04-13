@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <link rel="stylesheet" href="../css/progetto.css">
+  <title>FantaBasket</title>
+  <link rel="icon" type="image/x-icon" href="../immagini/favicon.ico">
+  <h3 id="titolo">CREA LA TUA SQUADRA </h3>
+  <a href="homepage.html"><button class="bottonigiocatori">Homepage ></button></a> <br>
+  <!-- <img id="gif" src="immagini/pallone.gif"> -->
+  <img src="../immagini/schema1.png" id="schema" name="myImage" />
+
+</head>
+
+<body>
+  <div class="colonne colonna1" style="background-color:#f07612;">
+    <form id="checkboxgiocatori">
+      <h2 class="minititoli">GIOCATORI</h2>
+      <div id="checkbox">
+        <input type="checkbox" checked="true" class="PG" value="PG" id="PG"
+          onchange="comparsagiocatori('PG','.pggiocatori');">
+        <label for="PG"> PG</label>
+        <input type="checkbox" checked="true" class="SG" value="SG" id="SG"
+          onchange="comparsagiocatori('SG','.sggiocatori');"> <label for="SG"> SG</label>
+        <input type="checkbox" checked="true" class="SF" value="SF" id="SF"
+          onchange="comparsagiocatori('SF','.sfgiocatori');"> <label for="SF"> SF</label>
+        <input type="checkbox" checked="true" class="PF" value="PF" id="PF"
+          onchange="comparsagiocatori('PF','.pfgiocatori');"> <label for="PF"> PF</label>
+        <input type="checkbox" checked="true" class="C" value="C" id="C" onchange="comparsagiocatori('C','.center');">
+        <label for="C">
+          C</label>
+      </div>
+    </form>
+    <br>
+    <form id="listapulsantigiocatori">
+      <button type="button" draggable="true" value="Stephen Curry" class="pggiocatori bottonigiocatori" id="g1">Stephen Curry</button>
+      <button type="button" draggable="true" value="Damian Lillard" class="pggiocatori bottonigiocatori" id="g2">Damian Lillard</button>
+      <button type="button" draggable="true" value="James Harden" class="sggiocatori bottonigiocatori" id="g3">James Harden</button>
+      <button type="button" draggable="true" value="Donovan Mitchell" class="sggiocatori bottonigiocatori" id="g4">Donovan Mitchell</button>
+      <button type="button" draggable="true" value="Lebron James" class="sfgiocatori bottonigiocatori" id="g5">Lebron James</button>
+      <button type="button" draggable="true" value="Kawhi Leonard" class="sfgiocatori bottonigiocatori" id="g6">Kawhi Leonard</button>
+      <button type="button" draggable="true" value="Anthony Davies" class="pfgiocatori bottonigiocatori" id="g7">Anthony
+        Davies</button>
+      <button type="button" draggable="true" value="Blake Griffin" class="pfgiocatori bottonigiocatori" id="g8">Blake
+        Griffin</button>
+      <button type="button" draggable="true" value="Nikola Jokic" class="center bottonigiocatori"
+        ondblclick="createPopupWin('https:/www.nba.com/stats/player/203999','NBA stats', 1200, 650);" id="g9">Nikola
+        Jokic</button>
+      <button type="button" draggable="true" value="Mo Bamba" class="center bottonigiocatori" id="g10">Mo Bamba</button>
+      <button type="button" draggable="true" value="Kevin Durant" class="center bottonigiocatori" id="g11">Kevin
+        Durant</button>
+    </form>
+  </div>
+  <div class="colonne" style="background-color:#f05512;">
+    <h2 class="minititoli">SELEZIONA SCHEMA</h2>
+    <div class="dropdown">
+      <form name="myForm">
+        <select name="switch" id="switch" onchange="cambiaImmagine();" class="switch">
+          <option value="1">SELEZIONA SCHEMA</option>
+          <option value="2">1 PG -- 1 SG -- 1 SF -- 1 PF -- 1C</option>
+          <option value="3">2 PG -- 0 SG -- 2 SF -- 0 PF -- 1C</option>
+          <option value="4">1 PG -- 2 SG -- 1 SF -- 0 PF -- 1C</option>
+          <option value="5">1 PG -- 1 SG -- 1 SF -- 1 PF -- 2C</option>
+        </select>
+      </form>
+      <form id="formschemi">
+        <input readonly id="giocatore1" class="giocatoriattivi">
+        <input readonly id="giocatore2" class="giocatoriattivi">
+        <input readonly id="giocatore3" class="giocatoriattivi">
+        <input readonly id="giocatore4" class="giocatoriattivi">
+        <input readonly id="giocatore5" class="giocatoriattivi">
+      </form><input type="button" value="SALVA SQUADRA">
+
+    </div>
+  </div>
+</body>
+<script src="../javascript/javascript.js"></script>
+
+</html>
