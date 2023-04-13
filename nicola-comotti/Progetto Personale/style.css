@@ -312,7 +312,11 @@ input[type="number"] {
     top: 0.1em;
 }
 
-#disclaimer>h2 {
+/* #bmi-calculator {
+    display: none;
+} */
+
+section>h2 {
     color: var(--white);
 }
 

@@ -19,7 +19,7 @@ function toggleMenu() {
 }
 
 /*
-const pagesClasses = ['login-page','user-homepage','database-esercizi','calcolo-bmi','contatti']
+const pagesClasses = ['login-page','user-homepage','database-esercizi','calcolatrici','contatti']
 
 function loadPage(className) {
     for (const pagina of pagesClasses) {
