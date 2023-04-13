@@ -142,6 +142,9 @@ function creaCartaJson()
         card.setAttribute("data-tooltip",`${carta.titolo} ${carta.prezzo}€ | ${carta.mese}`);
         document.getElementById('meseSort').value = '0';
 
+        card.style.animation = "fadeIn 1.2s";
+        card.style.animationIterationCount = "1";
+
         sortMeseScelto();
 
         const incasso = document.getElementById("incasso").innerText = incassoTotale();
@@ -162,8 +165,15 @@ function eliminaCarta(id)
             const cartaDaEliminare = document.getElementById("carta"+id.toString());
             const indice = arrayCarte.indexOf(carta);
     
-            arrayCarte.splice(indice,1);
-            cartaDaEliminare.remove();
+            cartaDaEliminare.style.animation = "fadeOut 1.2s";
+            cartaDaEliminare.style.animationIterationCount = "1";
+
+            setTimeout(() =>
+            {
+                arrayCarte.splice(indice,1);
+                cartaDaEliminare.remove();
+            }, 1200);
+
             coloraCarte();
             isCartaTrovata = true;
 

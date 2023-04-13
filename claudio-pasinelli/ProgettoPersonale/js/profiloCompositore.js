@@ -1,3 +1,5 @@
+let profiloAutore;
+
 function creaProfilo()
 {
     let immagineGiaPresente;             //bolean
@@ -61,6 +63,13 @@ function creaProfilo()
     if(!descrizioneGiaPresente)
     {
         testoDescrizione.innerText = testo.value;
+    }
+
+    profiloAutore = 
+    {
+        nickname: testoNomeArtista.innerText,
+        description: testoDescrizione.innerText,
+        profilePic: immagine.innerText
     }
 
     const profilo = document.getElementById("profilo");
