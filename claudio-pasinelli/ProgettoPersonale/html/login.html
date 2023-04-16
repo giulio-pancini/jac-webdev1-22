@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-  <section id="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
+  <section id="loaderWrapper">
+    <span class="loader"><span class="loaderInner"></span></span>
   </section>
-
-	<section class="login-container">
-    <section class="sfondo">
-      <img src="../img/sfondo-login.png" alt="sfondo">
-    </section>
 
     <section class="form">
       <h2>Login</h2>
       <form>
-        <label for="username">Username o Email</label>
-        <input type="text" id="username" name="username" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="cognome">Cognome</label>
+
+        <input type="text" id="cognome" name="cognome" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
         <section>
@@ -47,7 +48,7 @@
 
     window.addEventListener("load", (event) =>
     {
-      const loader = document.getElementById("loader-wrapper");
+      const loader = document.getElementById("loaderWrapper");
       loader.style.animation = "fadeOut 1.2s";
       loader.style.animationIterationCountv = "1";
 
