@@ -307,6 +307,8 @@ async function creaSocial(social)
     //array di oggetti che contiene i social
     const oggetti = document.forms["social"].getElementsByTagName("input");
     const listaSocial = document.getElementById("listaSocial");
+
+    listaSocial.style.margin = "margin: 1.5rem 0px 0px 0px;";
     // nuovoLinkSocial.setAttribute('id','social'+idTraccia);
     // nuovoLinkSocial.setAttribute('class','elementoTraccia zoom tip');
 

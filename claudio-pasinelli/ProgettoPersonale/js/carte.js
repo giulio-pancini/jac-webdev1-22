@@ -5,6 +5,7 @@ function creaCartaJson()
 {
     const input = document.getElementById("immagineCarta");
     const file = input.files[0];
+    const tracksContainer = document.getElementById("tracksContainer");
 
     if (!file)
     {
@@ -85,6 +86,7 @@ function creaCartaJson()
     
         const reader = new FileReader();
         reader.readAsDataURL(file);
+
         reader.onload = function()
         {
             imgBackground.style.backgroundImage = "url("+reader.result+")";
@@ -92,7 +94,6 @@ function creaCartaJson()
     
         imgBackground.style.backgroundImage = "url("+reader.result+")";
 
-        const tracksContainer = document.getElementById("tracksContainer");
         const lista = document.getElementById("lista");
     
         const card = document.createElement("section");
@@ -163,6 +164,7 @@ function creaCartaJson()
 function eliminaCarta(id)
 {
     let isCartaTrovata = false;
+    const tracksContainer = document.getElementById("tracksContainer");
 
     for (const carta of arrayCarte)
     {
@@ -178,20 +180,22 @@ function eliminaCarta(id)
             {
                 arrayCarte.splice(indice,1);
                 cartaDaEliminare.remove();
+                
+                if(arrayCarte.length==0)
+                {
+                    tracksContainer.style.display = "none";
+                }
             }, 1200);
 
             coloraCarte();
             isCartaTrovata = true;
-
-            if(arrayCarte.length==0)
-            {
-                tracksContainer.style.display = "none";
-            }
         }
     }
 
     if(!isCartaTrovata)
+    {
         alert(`La traccia "${id}" non è stata trovata!`);
+    }
 }
 
 function sortListaCarte()
@@ -250,29 +254,64 @@ function meseCarta(carta)
 function numeroMese(mese)
 {
     if(mese === "Gennaio")
+    {
         return 1;
+    }
+
     else if(mese === "Febbraio")
+    {
         return 2;
-        if(mese === "Marzo")
+    }
+
+    else if(mese === "Marzo")
+    {
         return 3;
+    }
+
     else if(mese === "Aprile")
+    {
         return 4;
-        if(mese === "Maggio")
+    }
+
+    else if(mese === "Maggio")
+    {
         return 5;
+    }
+
     else if(mese === "Giugno")
+    {
         return 6;
-        if(mese === "Luglio")
+    }
+
+    else if(mese === "Luglio")
+    {
         return 7;
+    }
+
     else if(mese === "Agosto")
+    {
         return 8;
-        if(mese === "Settembre")
+    }
+
+    else if(mese === "Settembre")
+    {
         return 9;
+    }
+
     else if(mese === "Ottobre")
+    {
         return 10;
-        if(mese === "Novembre")
+    }
+
+    else if(mese === "Novembre")
+    {
         return 11;
+    }
+
     else if(mese === "Dicembre")
+    {
         return 12;
+    }
 }
 
 function coloraCarte()
