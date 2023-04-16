@@ -41,7 +41,14 @@ async function creaSocialJson()
     
     else
     {
-        let risultatoFetch = await isLinkValid(document.getElementById("link").value);
+        if(!isURLValid(document.getElementById("link").value))
+        {
+            alert("La pagina da te inserita non è disponibile!");
+            document.getElementById('link').value = '';
+            return;
+        }
+
+        const risultatoFetch = await isLinkValid(document.getElementById("link").value);
 
         if(similarity(document.getElementById("nomeSocial").value,"youtube") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
@@ -249,13 +256,6 @@ async function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-        }
-
-        else if(!isURLValid(document.getElementById("link").value))
-        {
-            alert("La pagina da te inserita non è disponibile!");
-            document.getElementById('link').value = '';
-            return;
         }
 
         if(!risultatoFetch)
@@ -677,7 +677,7 @@ async function isLinkValid(link)
     {
         return false;
     }
-  }
+}
 
 function isURLValid(urlStr)
 {
