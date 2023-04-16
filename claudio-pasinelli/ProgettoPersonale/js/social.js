@@ -8,13 +8,33 @@ async function creaSocialJson()
 
     if (document.getElementById("nomeSocial").value === "")
     {
-        alert("Non hai inserito il nome del social!");
+        inviaBtn.style.display = "none";
+        testoMessaggio.innerText = "Non hai inserito il nome del social!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            document.getElementById('link').value = "";
+        }, 3000);
+
         return;
     }
 
     else if (document.getElementById("link").value === "")
     {
-        alert("Non hai inserito il link del social!");
+        inviaBtn.style.display = "none";
+        testoMessaggio.innerText = "Non hai inserito il link del social!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            document.getElementById('link').value = "";
+        }, 3000);
+
         return;
     }
 
@@ -34,8 +54,19 @@ async function creaSocialJson()
         && similarity(document.getElementById("nomeSocial").value,"linkedin") < 0.8
     )
     {
-        alert("Ci dispiace, ma non conosciamo il sito!");
+        inviaBtn.style.display = "none";
+        testoMessaggio.innerText = "Ci dispiace tanto, ma non conosciamo il sito!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            document.getElementById('link').value = "";
+        }, 3000);
+
         document.getElementById('nomeSocial').value = '';
+
         return;
     }
     
@@ -43,7 +74,17 @@ async function creaSocialJson()
     {
         if(!isURLValid(document.getElementById("link").value))
         {
-            alert("La pagina da te inserita non è disponibile!");
+            inviaBtn.style.display = "none";
+            testoMessaggio.innerText = "Il link inserito non è valido!";
+            testoMessaggio.style.color = "red";
+    
+            setTimeout(() =>
+            {
+                testoMessaggio.innerText = "";
+                inviaBtn.style.display = "block";
+                document.getElementById('link').value = "";
+            }, 3000);
+
             document.getElementById('link').value = '';
             return;
         }
@@ -642,6 +683,12 @@ async function creaSocial(social)
     figureSocial.style.animationIterationCount = "1";
     document.getElementById('nomeSocial').value = '';
     document.getElementById('link').value = '';
+
+    figureSocial.scrollIntoView(
+        {
+            behavior: 'smooth',
+            block: 'end'
+        });
 
     if(arraySocial.length !== 0)
     {
