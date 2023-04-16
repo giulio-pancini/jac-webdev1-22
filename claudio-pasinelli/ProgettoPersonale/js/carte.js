@@ -111,9 +111,15 @@ function creaCartaJson()
         let elimina = document.createElement("button");
         elimina.setAttribute("class","elimina");
         elimina.setAttribute("onclick","eliminaCarta("+carta.id+")");
-        elimina.innerText = "X";
+
+        const cestino = document.createElement("img");
+        cestino.setAttribute("src","../img/cestino.png");
+        cestino.setAttribute("class","cestinoCard");
+        cestino.setAttribute("title","Elimina la traccia");
+        elimina.appendChild(cestino);
+
         title.appendChild(elimina);
-    
+
         const imgContainer = document.createElement("section");
         imgContainer.setAttribute("class","img-container");
         card.appendChild(imgContainer);

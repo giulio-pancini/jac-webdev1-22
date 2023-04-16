@@ -24,12 +24,10 @@
 body
 {
     font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    background-color: rgb(68, 72, 87);
     margin: 0;
     padding: 0;
     background-image: url(../img/sfondo-login.png);
     background-size: 300vh;
-    /* background: no-repeat; */
     background-repeat: no-repeat;
     background-position: center;
 }

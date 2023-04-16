@@ -26,7 +26,7 @@
         <section class="progress-bar" id="myBar"></section>
     </section>
 
-    <nav id="nav-bar">
+    <nav id="navBar">
         <section id="menu">
             <a class="active zoom" href="#home">Home</a>
             <a class="zoom" href="#about">About</a>
@@ -34,8 +34,8 @@
 
         <section class="dropdown">
             <button type="button" id="userNickname">Nome Cognome</button>
-            <section class="dropdown-content">
-                <a class="zoom" href="./login.html" id="logout">Logout</a>
+            <section class="dropdownContent">
+                <a class="zoom" href="./login.html" id="logout">Esci</a>
             </section>
           </section>
     </nav>
@@ -138,7 +138,8 @@
                 <h1>Social media</h1>
                 <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
                 <label for="link">Link: <input type="url" id="link"></label>
-                <button type="button" onclick="creaSocialJson()">Invia</button>
+                <button type="button" onclick="creaSocialJson()" id="inviaSocial">Invia</button>
+                <p id="messaggioFetch"></p>
             </form>
             <section id="listaSocial">
             </section>
@@ -160,7 +161,7 @@
 
         let lastScrollTop;
 
-        navbar = document.getElementById("nav-bar");
+        navbar = document.getElementById("navBar");
 
         window.onscroll = () =>
         {
@@ -216,7 +217,6 @@
 
         function scrollToTop()
         {
-            // Scroll to top logic
             rootElement.scrollTo
             (
                 {
