@@ -7,34 +7,120 @@ function creaCartaJson()
     const file = input.files[0];
     const tracksContainer = document.getElementById("tracksContainer");
 
+    const inviaBtn = document.getElementById("btnCard");
+    let testoMessaggio = document.getElementById("messaggioTraccia");
+
     if (!file)
     {
-        alert("Non hai inserito nessuna immagine!");
-        document.getElementById('immagineCarta').value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito nessuna immagine!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('immagineCarta').value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (document.getElementById("nome").value=="")
     {
-        alert("Non hai inserito il nome della traccia!");
-        document.getElementById('nome').value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito il nome della traccia!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('nome').value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (document.getElementById("prezzo").value=="")
     {
-        alert("Non hai inserito il prezzo della traccia!");
-        document.getElementById('prezzo').value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito il prezzo della traccia!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('prezzo').value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (isNaN(document.getElementById("prezzo").value))
     {
-        alert("Il prezzo della traccia non è valido!");
-        document.getElementById("prezzo").value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Il prezzo della traccia non è valido!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (document.getElementById("mese").value=="0")
     {
-        alert("Hai dimenticato di indicare il mese!");
-        document.getElementById('mese').value = '0';
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Hai dimenticato di indicare il mese!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+        }, 3000);
+
+        return;
     }
 
     else
@@ -149,9 +235,15 @@ function creaCartaJson()
         card.setAttribute("data-tooltip",`${carta.titolo} ${carta.prezzo}€ | ${carta.mese}`);
         document.getElementById('meseSort').value = '0';
 
+        card.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
         card.style.animation = "fadeIn 1.2s";
         card.style.animationIterationCount = "1";
-
+        
         sortMeseScelto();
 
         const incasso = document.getElementById("incasso").innerText = incassoTotale();
@@ -180,6 +272,7 @@ function eliminaCarta(id)
             {
                 arrayCarte.splice(indice,1);
                 cartaDaEliminare.remove();
+                coloraCarte();
                 
                 if(arrayCarte.length==0)
                 {
@@ -187,7 +280,6 @@ function eliminaCarta(id)
                 }
             }, 1200);
 
-            coloraCarte();
             isCartaTrovata = true;
         }
     }

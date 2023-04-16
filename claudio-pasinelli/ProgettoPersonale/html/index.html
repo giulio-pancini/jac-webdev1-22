@@ -49,6 +49,7 @@
         <section>
             <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
             <button id="annullaModifica" onclick="annullaModificaProfilo()" type="button">Annulla</button>
+            <p id="messaggioProfilo"></p>
         </section>
     </form>
 
@@ -73,7 +74,8 @@
         <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
         <form id="immaginiInput">
             <label for="imageInput"><p>Aggiungi un'immagine: </p></label><input type="file" id="imageInput" accept="image/*">
-            <button type="button" onclick="addImage()">Aggiungi</button>
+            <button type="button" id="aggiungiImmagine" onclick="addImage()">Aggiungi</button>
+            <p id="messaggioGalleria"></p>
         </form>
     </section>
 
@@ -100,7 +102,8 @@
                     <option value="Novembre">Novembre</option>
                     <option value="Dicembre">Dicembre</option>
                 </select>
-                <button type="button" id="btn-card" onclick="creaCartaJson()">Invia</button>
+                <button type="button" id="btnCard" onclick="creaCartaJson()">Invia</button>
+                <p id="messaggioTraccia"></p>
             </form>
         </section>
     </section>

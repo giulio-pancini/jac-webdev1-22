@@ -84,9 +84,30 @@ function addImage()
     const input = document.getElementById("imageInput");
     const file = input.files[0];
 
+    const inviaBtn = document.getElementById("aggiungiImmagine");
+    let testoMessaggio = document.getElementById("messaggioGalleria");
+
     if (!file)
     {
-        alert("Non hai inserito nessuna immagine!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito nessuna immagine!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
         return;
     }
 

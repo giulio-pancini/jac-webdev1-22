@@ -741,7 +741,16 @@ form#immaginiInput button
 
 /*GALLERIA DI IMMAGINI*/
 
+/*MESSAGGI DI ERRORE*/
+#messaggioProfilo,
+#messaggioGalleria,
+#messaggioTraccia,
+#messaggioFetch
+{
+    display: none;
+}
 
+/*MESSAGGI DI ERRORE*/
 
 /*PROFILO*/
 
@@ -758,6 +767,11 @@ form#immaginiInput button
 #formProfilo input[type="file"], button#inviaProfilo, button#annullaModifica
 {
     margin: auto;
+}
+
+button#annullaModifica
+{
+    display: none;
 }
 
 #formProfilo p,

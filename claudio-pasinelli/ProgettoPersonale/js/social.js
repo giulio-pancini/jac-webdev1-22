@@ -8,7 +8,14 @@ async function creaSocialJson()
 
     if (document.getElementById("nomeSocial").value === "")
     {
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
         inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
         testoMessaggio.innerText = "Non hai inserito il nome del social!";
         testoMessaggio.style.color = "red";
 
@@ -16,6 +23,7 @@ async function creaSocialJson()
         {
             testoMessaggio.innerText = "";
             inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
             document.getElementById('link').value = "";
         }, 3000);
 
@@ -24,7 +32,14 @@ async function creaSocialJson()
 
     else if (document.getElementById("link").value === "")
     {
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
         inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
         testoMessaggio.innerText = "Non hai inserito il link del social!";
         testoMessaggio.style.color = "red";
 
@@ -32,6 +47,7 @@ async function creaSocialJson()
         {
             testoMessaggio.innerText = "";
             inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
             document.getElementById('link').value = "";
         }, 3000);
 
@@ -54,7 +70,14 @@ async function creaSocialJson()
         && similarity(document.getElementById("nomeSocial").value,"linkedin") < 0.8
     )
     {
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
         inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
         testoMessaggio.innerText = "Ci dispiace tanto, ma non conosciamo il sito!";
         testoMessaggio.style.color = "red";
 
@@ -62,6 +85,7 @@ async function creaSocialJson()
         {
             testoMessaggio.innerText = "";
             inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
             document.getElementById('link').value = "";
         }, 3000);
 
@@ -75,6 +99,7 @@ async function creaSocialJson()
         if(!isURLValid(document.getElementById("link").value))
         {
             inviaBtn.style.display = "none";
+            testoMessaggio.style.display = "block";
             testoMessaggio.innerText = "Il link inserito non è valido!";
             testoMessaggio.style.color = "red";
     
@@ -82,6 +107,7 @@ async function creaSocialJson()
             {
                 testoMessaggio.innerText = "";
                 inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
                 document.getElementById('link').value = "";
             }, 3000);
 
@@ -309,6 +335,7 @@ async function creaSocialJson()
             {
                 testoMessaggio.innerText = "";
                 inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
                 document.getElementById('link').value = "";
             }, 3000);
         }
@@ -323,6 +350,7 @@ async function creaSocialJson()
             {
                 testoMessaggio.innerText = "";
                 inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
                 creaSocial(social);
             }, 2500);
         }
@@ -349,7 +377,7 @@ async function creaSocial(social)
     const oggetti = document.forms["social"].getElementsByTagName("input");
     const listaSocial = document.getElementById("listaSocial");
 
-    listaSocial.style.margin = "margin: 1.5rem 0px 0px 0px;";
+    listaSocial.style.marginTop = "1.5rem";
     // nuovoLinkSocial.setAttribute('id','social'+idTraccia);
     // nuovoLinkSocial.setAttribute('class','elementoTraccia zoom tip');
 
@@ -712,6 +740,7 @@ async function isLinkValid(link)
 
     inviaBtn.style.display = "none";
     testoMessaggio.style.color = "white";
+    testoMessaggio.style.display = "block";
     testoMessaggio.innerText = "Stiamo verificando se il sito è raggiungibile.";
 
     await new Promise(resolve => setTimeout(resolve, 5000));
