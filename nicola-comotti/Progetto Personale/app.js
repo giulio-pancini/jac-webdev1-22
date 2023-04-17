@@ -44,12 +44,12 @@ function errorPopup(errorMessage) {
 
     if (newErrorPopup.childElementCount == 0) {
         const titleElement = document.createElement('h2');
-        titleElement.setAttribute('id','errorTitle');
+        titleElement.setAttribute('id', 'errorTitle');
         titleElement.innerText = 'ERRORE';
         newErrorPopup.appendChild(titleElement);
 
         const messageElement = document.createElement('p');
-        messageElement.setAttribute('id','errorMessage');
+        messageElement.setAttribute('id', 'errorMessage');
         messageElement.innerText = errorMessage;
         newErrorPopup.appendChild(messageElement);
 
@@ -59,20 +59,19 @@ function errorPopup(errorMessage) {
         newErrorPopup.appendChild(closeButton);
 
         const closeImage = document.createElement('img');
-        closeImage.setAttribute('id','closeImage');
-        closeImage.setAttribute('src','Utils/close-icon.png');
+        closeImage.setAttribute('id', 'closeImage');
+        closeImage.setAttribute('src', 'Utils/close-icon.png');
         closeButton.appendChild(closeImage);
 
         const closeText = document.createElement('p');
         closeText.innerText = 'Chiudi';
-        closeText.setAttribute('id','closeText');
+        closeText.setAttribute('id', 'closeText');
         closeButton.appendChild(closeText);
 
-        newErrorPopup.style.display = 'block';
     } else {
         document.getElementById('errorMessage').innerText = errorMessage;
-        newErrorPopup.style.display = 'block';
     }
+    newErrorPopup.style.display = 'block';
 }
 
 function closePopup(element) {
@@ -144,18 +143,12 @@ function addExe() {
 
     const newExe = document.createElement('li');
 
-    const inputScheda = document.getElementById('sceltaScheda');
-    const scheda = inputScheda.value;
-    const inputNome = document.getElementById('nome');
-    const nome = inputNome.value;
-    const inputPeso = document.getElementById('peso');
-    const peso = inputPeso.value;
-    const inputSerie = document.getElementById('serie');
-    const serie = inputSerie.value;
-    const inputRep = document.getElementById('rep');
-    const rep = inputRep.value;
-    const inputRest = document.getElementById('rest');
-    const rest = inputRest.value;
+    const scheda = document.getElementById('sceltaScheda').value;
+    const nome = document.getElementById('nome').value;
+    const peso = document.getElementById('peso').value;
+    const serie = document.getElementById('serie').value;
+    const rep = document.getElementById('rep').value;
+    const rest = document.getElementById('rest').value;
 
     const testoNome = document.createElement('h3');
     testoNome.innerText = nome;
@@ -316,11 +309,6 @@ function calcolaBMI() {
             }
         }
     }
-
-    console.log(bmi)
-    console.log(condizione)
-    console.log(pesoMin)
-    console.log(pesoMax)
 
     document.getElementById('bmi').innerText = (Math.round(bmi * 100) / 100).toString();
     document.getElementById('condizione').innerText = condizione;
