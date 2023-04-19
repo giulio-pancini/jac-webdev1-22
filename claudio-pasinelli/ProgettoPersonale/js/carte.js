@@ -340,7 +340,7 @@ function sortListaCarte()
 function meseCarta(carta)
 {
     titolo = carta.firstElementChild.textContent;
-    return titoloCorto = titolo.substring(0, titolo.length - 1);
+    return titoloCorto = titolo.substring(0, titolo.length);
 }
 
 function numeroMese(mese)
