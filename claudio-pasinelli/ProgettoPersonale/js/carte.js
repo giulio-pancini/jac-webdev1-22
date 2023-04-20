@@ -5,35 +5,122 @@ function creaCartaJson()
 {
     const input = document.getElementById("immagineCarta");
     const file = input.files[0];
+    const tracksContainer = document.getElementById("tracksContainer");
+
+    const inviaBtn = document.getElementById("btnCard");
+    let testoMessaggio = document.getElementById("messaggioTraccia");
 
     if (!file)
     {
-        alert("Non hai inserito nessuna immagine!");
-        document.getElementById('immagineCarta').value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito nessuna immagine!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('immagineCarta').value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (document.getElementById("nome").value=="")
     {
-        alert("Non hai inserito il nome della traccia!");
-        document.getElementById('nome').value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito il nome della traccia!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('nome').value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (document.getElementById("prezzo").value=="")
     {
-        alert("Non hai inserito il prezzo della traccia!");
-        document.getElementById('prezzo').value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito il prezzo della traccia!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('prezzo').value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (isNaN(document.getElementById("prezzo").value))
     {
-        alert("Il prezzo della traccia non è valido!");
-        document.getElementById("prezzo").value = '';
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Il prezzo della traccia non è valido!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
+        return;
     }
 
     else if (document.getElementById("mese").value=="0")
     {
-        alert("Hai dimenticato di indicare il mese!");
-        document.getElementById('mese').value = '0';
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Hai dimenticato di indicare il mese!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+        }, 3000);
+
+        return;
     }
 
     else
@@ -85,6 +172,7 @@ function creaCartaJson()
     
         const reader = new FileReader();
         reader.readAsDataURL(file);
+
         reader.onload = function()
         {
             imgBackground.style.backgroundImage = "url("+reader.result+")";
@@ -92,7 +180,6 @@ function creaCartaJson()
     
         imgBackground.style.backgroundImage = "url("+reader.result+")";
 
-        const tracksContainer = document.getElementById("tracksContainer");
         const lista = document.getElementById("lista");
     
         const card = document.createElement("section");
@@ -111,9 +198,15 @@ function creaCartaJson()
         let elimina = document.createElement("button");
         elimina.setAttribute("class","elimina");
         elimina.setAttribute("onclick","eliminaCarta("+carta.id+")");
-        elimina.innerText = "X";
+
+        const cestino = document.createElement("img");
+        cestino.setAttribute("src","../img/cestino.png");
+        cestino.setAttribute("class","cestinoCard");
+        cestino.setAttribute("title","Elimina la traccia");
+        elimina.appendChild(cestino);
+
         title.appendChild(elimina);
-    
+
         const imgContainer = document.createElement("section");
         imgContainer.setAttribute("class","img-container");
         card.appendChild(imgContainer);
@@ -142,9 +235,15 @@ function creaCartaJson()
         card.setAttribute("data-tooltip",`${carta.titolo} ${carta.prezzo}€ | ${carta.mese}`);
         document.getElementById('meseSort').value = '0';
 
+        card.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
         card.style.animation = "fadeIn 1.2s";
         card.style.animationIterationCount = "1";
-
+        
         sortMeseScelto();
 
         const incasso = document.getElementById("incasso").innerText = incassoTotale();
@@ -157,6 +256,7 @@ function creaCartaJson()
 function eliminaCarta(id)
 {
     let isCartaTrovata = false;
+    const tracksContainer = document.getElementById("tracksContainer");
 
     for (const carta of arrayCarte)
     {
@@ -172,20 +272,22 @@ function eliminaCarta(id)
             {
                 arrayCarte.splice(indice,1);
                 cartaDaEliminare.remove();
+                coloraCarte();
+                
+                if(arrayCarte.length==0)
+                {
+                    tracksContainer.style.display = "none";
+                }
             }, 1200);
 
-            coloraCarte();
             isCartaTrovata = true;
-
-            if(arrayCarte.length==0)
-            {
-                tracksContainer.style.display = "none";
-            }
         }
     }
 
     if(!isCartaTrovata)
+    {
         alert(`La traccia "${id}" non è stata trovata!`);
+    }
 }
 
 function sortListaCarte()
@@ -238,35 +340,70 @@ function sortListaCarte()
 function meseCarta(carta)
 {
     titolo = carta.firstElementChild.textContent;
-    return titoloCorto = titolo.substring(0, titolo.length - 1);
+    return titoloCorto = titolo.substring(0, titolo.length);
 }
 
 function numeroMese(mese)
 {
     if(mese === "Gennaio")
+    {
         return 1;
+    }
+
     else if(mese === "Febbraio")
+    {
         return 2;
-        if(mese === "Marzo")
+    }
+
+    else if(mese === "Marzo")
+    {
         return 3;
+    }
+
     else if(mese === "Aprile")
+    {
         return 4;
-        if(mese === "Maggio")
+    }
+
+    else if(mese === "Maggio")
+    {
         return 5;
+    }
+
     else if(mese === "Giugno")
+    {
         return 6;
-        if(mese === "Luglio")
+    }
+
+    else if(mese === "Luglio")
+    {
         return 7;
+    }
+
     else if(mese === "Agosto")
+    {
         return 8;
-        if(mese === "Settembre")
+    }
+
+    else if(mese === "Settembre")
+    {
         return 9;
+    }
+
     else if(mese === "Ottobre")
+    {
         return 10;
-        if(mese === "Novembre")
+    }
+
+    else if(mese === "Novembre")
+    {
         return 11;
+    }
+
     else if(mese === "Dicembre")
+    {
         return 12;
+    }
 }
 
 function coloraCarte()

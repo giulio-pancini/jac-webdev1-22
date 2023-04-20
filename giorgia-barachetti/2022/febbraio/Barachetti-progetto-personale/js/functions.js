@@ -1,28 +1,19 @@
 //nascondi e vedi carrello
 function showCart(){
     const site = document.getElementById('mainPage')
-    const sectionUser = document.getElementById('shoppingCart');
+    const sectionUser = document.getElementById('shoppingCartMenu');
     site.style.display ='none';
     sectionUser.style.display ='block';
 }
 
 function showHome(){
     const site = document.getElementById('mainPage')
-    const sectionUser = document.getElementById('shoppingCart');
+    const sectionUser = document.getElementById('shoppingCartMenu');
     site.style.display ='block';
     sectionUser.style.display ='none';
 }
 
-function addToCart(){
-        const saddleBought = document.createElement("section");
-        const sectionCart = document.getElementById("sectionCart"); //qua è dove piazzo il mio elemento
-        sectionCart.appendChild(saddleBought);
 
-        const singleSaddleBought = document.createElement('objects');
-        singleSaddleBought.appendChild(document.getElementById("h1"));
-        
-      
-}
 
 function user() {
   const dl = document.getElementById("dl");
@@ -129,4 +120,9 @@ function user() {
             //doest print the condition
             dd7.innerText = cond;   
         }
-        */            
+        */  
+       
+
+        function sendMessage(){
+          
+        }

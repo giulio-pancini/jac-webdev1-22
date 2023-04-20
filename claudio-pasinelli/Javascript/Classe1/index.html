@@ -11,98 +11,114 @@
     <script>
         class Message
         {
-            constructor(timeStamp, sender, receiver)
+            #timeStamp;
+            #sender;
+            #receiver;
+
+            constructor(receiver, sender, timeStamp)
             {
-                this.timeStamp = timeStamp;
-                this.sender = sender;
-                this.receiver = receiver;
+                this.#sender = sender;
+                this.#receiver = receiver;
+                this.#timeStamp = new Date();
             }
 
             getTimeStamp()
             {
-                const timeStamp = new Date();
-                return timeStamp.getDate;
+                return this.#timeStamp;
             }
+
+            // get timeStamp()
+            // {
+            //     return this.#timeStamp;
+            // }
 
             getSender()
             {
-                const sender = new String();
-                return sender;
+                return this.#sender;
             }
 
             getReceiver()
             {
-                const receiver = new String();
-                return receiver;
+                return this.#receiver;
             }
         }
 
-        class textMessage extends Message
+        class TextMessage extends Message
         {
-            constructor(timeStamp, sender, receiver, textContent)
+            #textContent;
+
+            constructor(receiver, sender, timeStamp, textContent)
             {   
-                super(timeStamp, sender, receiver);
-                this.textContent = textContent;
+                super(receiver, sender, timeStamp);
+                this.#textContent = textContent;
             }
 
-            getContent()
+            getTextContent()
             {
-                const textContent = new String();
-                return textContent;
+                return this.#textContent;
             }
         }
 
-        class imgMessage extends Message
+        class ImgMessage extends Message
         {
-            constructor(timeStamp, sender, receiver, srcImage)
+            #srcImage;
+            
+            constructor(receiver, sender, timeStamp, srcImage)
             {   
-                super(timeStamp, sender, receiver);
-                this.srcImage = srcImage;
+                super(receiver, sender, timeStamp);
+                this.#srcImage = srcImage;
             }
 
             getSrcImage()
             {
-                const srcImage = new String();
-                return srcImage;
+                return this.#srcImage;
             }
         }
-
         
-        class audioMessage extends Message
+        class AudioMessage extends Message
         {
-            constructor(timeStamp, sender, receiver, audio)
+            #audio;
+
+            constructor(receiver, sender, timeStamp, audio)
             {   
-                super(timeStamp, sender, receiver);
-                this.audio = audio;
+                super(receiver, sender, timeStamp);
+                this.#audio = audio;
             }
 
             getAudio()
             {
-                const audio = new String();
-                return audio;
+                return this.#audio;
             }
         }
-
         
-        class videoMessage extends Message
+        class VideoMessage extends Message
         {
-            constructor(timeStamp, sender, receiver, urlVideo)
+            #urlVideo;
+
+            constructor(receiver, sender, timeStamp, urlVideo)
             {   
-                super(timeStamp, sender, receiver);
-                this.urlVideo = urlVideo;
+                super(receiver, sender, timeStamp);
+                this.#urlVideo = urlVideo;
             }
 
             getUrlVideo()
             {
-                const urlVideo = new String();
-                return urlVideo;
+                return this.#urlVideo;
             }
         }
 
-        // let oggi = new Date();
-        // oggi = Date.now();
-        const testo = new textMessage(new Date(), "Claudio", "Luca", "Ciap anche a te");
+        const testo = new TextMessage("Claudio", "Luca", "Ciap anche a te", new Date());
         console.log(testo);
+        // console.log(testo.getTextContent());
+
+        const immagine = new ImgMessage("Claudio", "Luca", "urlImmagine", new Date());
+        console.log(immagine);
+
+        const audio = new AudioMessage("Claudio", "Luca", "urlAudio", new Date());
+        console.log(audio);
+
+        const video = new VideoMessage("Claudio", "Luca", "urlVideo", new Date());
+        console.log(video);
     </script>
 
 </body>

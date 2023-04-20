@@ -1,21 +1,14 @@
-
 /*ARTICLE--------------------------------------------------------------------------------------------------------*/
 article{
     margin-top: 0;
     padding-top: 0;
-    /*background-color: rgb(240, 238, 238);*/
-}
-
-article nav ul{
-    text-align: left;
-    padding-top: 15px;
-    
 }
 
 article #gif{
     background-image: url(../images/img-article/giphy.gif);
     background-size: cover;
     opacity: 0.6;
+    padding-bottom: 500px;
 }
 
         /*DESKTOP*/
@@ -25,7 +18,7 @@ article #gif{
             }
 
             article nav ul{
-                height: 1000px;
+                height: 400px;
                 margin-left: 100px; 
                 padding-top: 15px;
                 font-size:25px;
@@ -40,42 +33,103 @@ article #gif{
             }
         }
         
-        /*MOBILE / TABLET
-        @media(max-width: 969px){
-            
-        }
-        */
-            /*NAV*/
-            article nav{
-                height: 400px;
-                margin-left: 5px; 
-                padding-top: 15px;
-            }
+/*introduzione della pagina*/
+#descriptionWebsite{
+    padding-left: 50px;
+    padding-right: 50px;
+}
 
-            article nav ul {
-                list-style-type: none;
-            }
-            
-            article nav h1 {
-                list-style-type: none;
-                text-align: left;
-                font-size:20px;
-                color: rgb(213, 162, 105);
-                text-decoration:none;
-                font-weight: bold;
-            }
+#wrapperDescriptionWebsite{
+    display:flex;
+    align-items:center;
+    width: 75vw;
+    padding: 80px 30px 50px 20px;
+}
 
-            article nav a{
-                color: rgb(213, 162, 105);
-                text-decoration: none;
-                font-weight: bold;
-            }
+#wrapperDescriptionWebsite img{
+    max-width:280px;
+    width:28vw;
+    height:300px;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius:20px;
+}
 
+#wrapperDescriptionWebsite h1{
+    color:var(--light-color);
+}
+
+#wrapperDescriptionWebsite p{
+    color: white;
+}
+@media(width>=960px){
+   #wrapperDescriptionWebsite{
+       margin-left: 150px;
+    }
+}
+
+@media (width<= 960px){
+    #wrapperDescriptionWebsite{
+        flex-direction: column;
+        text-align:center;
+        margin-right: 40px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 100px;
+    }
+    #wrapperDescriptionWebsite img{
+        margin: -100px 0 30px 0;
+        width: 100%;
+        max-width: 1000px;
+    }
+}
+
+#chooseSaddleTypeButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+
+#chooseSaddleTypeTytle{
+    text-align: center;
+    color: var(--light-color);
+    margin-bottom: 10px;
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#chooseSaddleTypeButton > div > a> button{
+display:inline-block;
+padding:0.35em 1.2em;
+margin:0 10px 0 0;
+border: none;
+border-radius:2px;
+color: white;
+text-align:center;
+font-weight: bold;
+transition: all 0.2s;
+background-color: var(--light-color);
+}
+
+#chooseSaddleTypeButton > div > button:hover{
+color: var(--main-color);
+background-color: var(--light-color);
+}
 
             
 article #allSaddles{
     margin-left:50px;
     margin-right:50px;
+}
+
+.paragraphSaddleTypeDescription{
+    text-align: center;
+    color:white;
+    margin-bottom: 20px;
+    margin-top:5px;
 }
     
            article #tytle1, #tytle2, #tytle3, #tytle4{
@@ -93,6 +147,19 @@ article #allSaddles{
         color: white;
         font-weight: bold;
         }
+        .buy:hover{
+        background-color: white;
+        border: 2px solid var(--light-color);
+        color: var(--main-color)
+        }
+
+
+.sectionSaddlesCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 
 /*section delle selle nelle section jumping, dressage*/
 /*JUMPING*/
@@ -181,7 +248,7 @@ article #allSaddles{
     margin-bottom: 20px;
     border-radius: 0.4rem;   /** è angolazione dei bordi**/
     background-color: white;
-    border: 2px outset var(--light-color);  
+    border: 2px outset var(--light-color); 
 }
 
         article #trekking{
