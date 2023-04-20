@@ -243,29 +243,25 @@ function eliminaDomanda(id, indiceDomanda)
     }
 }
 
-//elimina una risposta lasciando uno spazio vuoto nell'array
+//elimina una risposta sia dall'html sia dall'array
 function eliminaRisposta(id, indiceRispostaElimina, indiceDomanda)
 {
     document.getElementById(id).remove();
 
     for(let i=0;i<listaDomande.length;i++)
     {
-        if(listaDomande[i].id=indiceDomanda)
+        if(listaDomande[i].id==indiceDomanda)
         {
             for(let j=0;j<listaDomande[i].risposte.length;j++)
             {
-                if(listaDomande[i].risposte[j].id=indiceRispostaElimina)
+                if(listaDomande[i].risposte[j].id==indiceRispostaElimina)
                 {
                     listaDomande[i].risposte.splice(j,1);
-                    listaDomande.forEach(element=>{
-                        console.log(element);
-                    })
                     return;
                 }
             }
         }
     }
-    delete listaDomande[indiceDomanda].risposte[x];
 }
 
 function cercaDomanda()
