@@ -15,6 +15,8 @@ let arrayMedia =
     "twitter",
     "instagram",
     "linkedin",
+    "tiktok",
+    "snapchat",
 ]
 
 class Social
@@ -122,6 +124,8 @@ async function creaSocialJson()
         && similarity(document.getElementById("nomeSocial").value,"twitter") < 0.8 
         && similarity(document.getElementById("nomeSocial").value,"instagram") < 0.8
         && similarity(document.getElementById("nomeSocial").value,"linkedin") < 0.8
+        && similarity(document.getElementById("nomeSocial").value,"tiktok") < 0.8
+        && similarity(document.getElementById("nomeSocial").value,"snapchat") < 0.8
     )
     {
         testoMessaggio.scrollIntoView(
@@ -169,89 +173,93 @@ async function creaSocialJson()
 
     const risultatoFetch = await isLinkValid(document.getElementById("link").value);
 
-    setTimeout(() =>
+    if(!risultatoFetch)
     {
-        if(!risultatoFetch)
-        {
-            inviaBtn.style.display = "none";
-            testoMessaggio.innerText = "Il sito è non raggiungibile!";
-            testoMessaggio.style.color = "red";
-    
-            setTimeout(() =>
-            {
-                testoMessaggio.innerText = "";
-                inviaBtn.style.display = "block";
-                testoMessaggio.style.display = "none";
-                document.getElementById('link').value = "";
-    
-            }, 2500);
+        inviaBtn.style.display = "none";
+        testoMessaggio.innerText = "Il sito è non raggiungibile!";
+        testoMessaggio.style.color = "red";
 
-            return;
-        }
-    
-        else if(risultatoFetch)
+        setTimeout(() =>
         {
-            inviaBtn.style.display = "none";
-            testoMessaggio.innerText = "Il sito è raggiungibile!";
-            testoMessaggio.style.color = "lightgreen";
-    
-            setTimeout(() =>
-            {
-                testoMessaggio.innerText = "";
-                inviaBtn.style.display = "block";
-                testoMessaggio.style.display = "none";
-            }, 2500);
-        }
-    
-        let media;
-        let mediaLowerCase;
-        let dataTooltip;
-        let link;
-        let img;
-        
-        for(mediaSocial of arrayMedia)
-        {
-            if(similarity(document.getElementById("nomeSocial").value, mediaSocial) >= 0.8)
-            {
-                if(mediaSocial === "soundcloud")
-                {
-                    media = "SoundCloud";
-                    mediaLowerCase = mediaSocial;
-                    break;
-                }
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('link').value = "";
 
-                else if(mediaSocial === "itunes")
-                {
-                    media = "iTunes";
-                    mediaLowerCase = mediaSocial;
-                    break;
-                }
-                
+        }, 2500);
+
+        return;
+    }
+
+    else if(risultatoFetch)
+    {
+        inviaBtn.style.display = "none";
+        testoMessaggio.innerText = "Il sito è raggiungibile!";
+        testoMessaggio.style.color = "lightgreen";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+        }, 2500);
+    }
+
+    let media;
+    let mediaLowerCase;
+    let dataTooltip;
+    let link;
+    let img;
+    
+    for(mediaSocial of arrayMedia)
+    {
+        if(similarity(document.getElementById("nomeSocial").value, mediaSocial) >= 0.8)
+        {
+            if(mediaSocial === "soundcloud")
+            {
+                media = "SoundCloud";
                 mediaLowerCase = mediaSocial;
-                media = everyLetterUpperCase(document.getElementById("nomeSocial").value);
                 break;
             }
-        }
-    
-        dataTooltip = media + ", link: " + document.getElementById("link").value;
-        link = document.getElementById("link").value;
-        img = "../iconeSocial/" + mediaLowerCase + ".png";
-    
-        const social = new Social(idSocial, dataTooltip, media, link, img);
-        
-        arraySocial.push(social);
-    
-        idSocial++;
-    
-        creaSocial(social);
 
-    }, 1000);
+            else if(mediaSocial === "itunes")
+            {
+                media = "iTunes";
+                mediaLowerCase = mediaSocial;
+                break;
+            }
+
+            else if(mediaSocial === "tiktok")
+            {
+                media = "TikTok";
+                mediaLowerCase = mediaSocial;
+                break;
+            }
+            
+            mediaLowerCase = mediaSocial;
+            media = everyLetterUpperCase(document.getElementById("nomeSocial").value);
+            break;
+        }
+    }
+
+    dataTooltip = media + ", link: " + document.getElementById("link").value;
+    link = document.getElementById("link").value;
+    img = "../iconeSocial/" + mediaLowerCase + ".png";
+
+    const social = new Social(idSocial, dataTooltip, media, link, img);
+    
+    arraySocial.push(social);
+
+    idSocial++;
+
+    creaSocial(social);
 }
 
 function creaSocial(social)
 {
     let soundcloud;
     let itunes;
+    let tiktok;
 
     if(social.getMedia() === "SoundCloud")
     {
@@ -262,6 +270,12 @@ function creaSocial(social)
     {
         soundcloud = true;
     }
+
+    else if(social.getMedia() === "TikTok")
+    {
+        tiktok = true;
+    }
+
     //array di oggetti che contiene i social
     const oggetti = document.forms["social"].getElementsByTagName("input");
     const listaSocial = document.getElementById("listaSocial");
@@ -282,7 +296,7 @@ function creaSocial(social)
             break;
         }
         
-        else if (soundcloud || itunes)
+        else if (soundcloud || itunes || tiktok)
         {
             figureSocial.setAttribute('data-tooltip', social.getDataTooltip());
             figureSocial.setAttribute('class', 'socialContainer');
