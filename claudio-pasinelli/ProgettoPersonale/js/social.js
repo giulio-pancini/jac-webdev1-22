@@ -1,17 +1,56 @@
 let idSocial = 1;
 let arraySocial = [];
 
-function creaSocialJson()
+async function creaSocialJson()
 {
+    const inviaBtn = document.getElementById("inviaSocial");
+    let testoMessaggio = document.getElementById("messaggioFetch");
+
     if (document.getElementById("nomeSocial").value === "")
     {
-        alert("Non hai inserito il nome del social!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito il nome del social!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('link').value = "";
+        }, 3000);
+
         return;
     }
 
     else if (document.getElementById("link").value === "")
     {
-        alert("Non hai inserito il link del social!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito il link del social!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('link').value = "";
+        }, 3000);
+
         return;
     }
 
@@ -31,14 +70,54 @@ function creaSocialJson()
         && similarity(document.getElementById("nomeSocial").value,"linkedin") < 0.8
     )
     {
-        alert("Ci dispiace, ma non conosciamo il sito!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Ci dispiace tanto, ma non conosciamo il sito!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "block";
+            testoMessaggio.style.display = "none";
+            document.getElementById('link').value = "";
+        }, 3000);
+
         document.getElementById('nomeSocial').value = '';
+
         return;
     }
     
     else
     {
-        if(similarity(document.getElementById("nomeSocial").value,"youtube") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        if(!isURLValid(document.getElementById("link").value))
+        {
+            inviaBtn.style.display = "none";
+            testoMessaggio.style.display = "block";
+            testoMessaggio.innerText = "Il link inserito non è valido!";
+            testoMessaggio.style.color = "red";
+    
+            setTimeout(() =>
+            {
+                testoMessaggio.innerText = "";
+                inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
+                document.getElementById('link').value = "";
+            }, 3000);
+
+            document.getElementById('link').value = '';
+            return;
+        }
+
+        const risultatoFetch = await isLinkValid(document.getElementById("link").value);
+
+        if(similarity(document.getElementById("nomeSocial").value,"youtube") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -52,10 +131,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"deezer") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"deezer") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -69,10 +147,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"soundcloud") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"soundcloud") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -86,10 +163,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"spotify") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"spotify") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -103,10 +179,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"youtube music") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"youtube music") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -120,10 +195,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"apple music") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"apple music") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -137,10 +211,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"amazon music") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"amazon music") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -154,10 +227,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"itunes") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"itunes") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -171,10 +243,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"tidal") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"tidal") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -188,10 +259,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"facebook") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"facebook") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -205,10 +275,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"twitter") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"twitter") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -222,10 +291,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"instagram") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"instagram") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -239,10 +307,9 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
     
-        else if(similarity(document.getElementById("nomeSocial").value,"linkedin") >= 0.8 && isLinkValid(document.getElementById("link").value))
+        else if(similarity(document.getElementById("nomeSocial").value,"linkedin") >= 0.8 && isURLValid(document.getElementById("link").value) && risultatoFetch)
         {
             social =
             {
@@ -256,19 +323,41 @@ function creaSocialJson()
             arraySocial.push(social);
 
             idSocial++;
-            creaSocial(social);
         }
 
-        else if(!isLinkValid(document.getElementById("link").value))
+        if(!risultatoFetch)
         {
-            alert("La pagina da te inserita non è disponibile!");
-            document.getElementById('link').value = '';
-            return;
+            inviaBtn.style.display = "none";
+            testoMessaggio.innerText = "Il sito è non raggiungibile!";
+            testoMessaggio.style.color = "red";
+    
+            setTimeout(() =>
+            {
+                testoMessaggio.innerText = "";
+                inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
+                document.getElementById('link').value = "";
+            }, 3000);
+        }
+
+        else if(risultatoFetch)
+        {
+            inviaBtn.style.display = "none";
+            testoMessaggio.innerText = "Il sito è raggiungibile!";
+            testoMessaggio.style.color = "lightgreen";
+    
+            setTimeout(() =>
+            {
+                testoMessaggio.innerText = "";
+                inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
+                creaSocial(social);
+            }, 2500);
         }
     }
 }
 
-/*async*/ function creaSocial(social)
+async function creaSocial(social)
 {
     let youtube;
     let deezer;
@@ -287,6 +376,8 @@ function creaSocialJson()
     //array di oggetti che contiene i social
     const oggetti = document.forms["social"].getElementsByTagName("input");
     const listaSocial = document.getElementById("listaSocial");
+
+    listaSocial.style.marginTop = "1.5rem";
     // nuovoLinkSocial.setAttribute('id','social'+idTraccia);
     // nuovoLinkSocial.setAttribute('class','elementoTraccia zoom tip');
 
@@ -606,26 +697,6 @@ function creaSocialJson()
 
         else if(oggetti[i].id === "link")
         {
-            // if(await isLinkValid(oggetti[i]))
-            // {
-                // if(youtube)
-                //     linkTesto.innerText = "Youtube";
-                // else if(deezer)
-                //     linkTesto.innerText = "Deezer";
-                // else if(soundcloud)
-                //     linkTesto.innerText = "SoundCloud";
-                // else if(spotify)
-                //     linkTesto.innerText = "Spotify";
-                // else if(youtubeMusic)
-                //     linkTesto.innerText = "Youtube Music";
-                // else if(appleMusic)
-                //     linkTesto.innerText = "Apple Music";
-                // linkTesto.setAttribute("href",oggetti[i].value);
-                // figcaption.appendChild(linkTesto);
-                // figureSocial.appendChild(figcaption);
-            // }
-            // else
-            //     alert("La pagina da te inserita non è disponibile!");
             linkTesto.innerText = social.media; 
             linkTesto.setAttribute("href",social.link);
             linkTesto.setAttribute("target","_blank");
@@ -633,11 +704,19 @@ function creaSocialJson()
             figureSocial.appendChild(figcaption);
         }
     }
+
     //resetto il valore del contenuto del form dopo che è stato utilizzato per creare il link social
+
     figureSocial.style.animation = "fadeIn 1.2s";
     figureSocial.style.animationIterationCount = "1";
     document.getElementById('nomeSocial').value = '';
     document.getElementById('link').value = '';
+
+    figureSocial.scrollIntoView(
+        {
+            behavior: 'smooth',
+            block: 'end'
+        });
 
     if(arraySocial.length !== 0)
     {
@@ -654,13 +733,37 @@ function creaSocialJson()
 //     return true; 
 // }
 
-function isLinkValid(link)
+async function isLinkValid(link)
+{
+    const inviaBtn = document.getElementById("inviaSocial");
+    let testoMessaggio = document.getElementById("messaggioFetch");
+
+    inviaBtn.style.display = "none";
+    testoMessaggio.style.color = "white";
+    testoMessaggio.style.display = "block";
+    testoMessaggio.innerText = "Stiamo verificando se il sito è raggiungibile.";
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
+    try
+    {
+        const response = await fetch(link, { mode: 'no-cors' });
+        return true;
+    } 
+
+    catch (e)
+    {
+        return false;
+    }
+}
+
+function isURLValid(urlStr)
 {
     let url;
 
     try
     {
-        url = new URL(link);
+        url = new URL(urlStr);
     }
     
     catch (error)
@@ -675,14 +778,20 @@ function similarity(s1, s2)
 {
     let longer = s1;
     let shorter = s2;
+
     if (s1.length < s2.length)
     {
       longer = s2;
       shorter = s1;
     }
+
     let longerLength = longer.length;
+
     if (longerLength == 0)
-      return 1.0;
+    {
+        return 1.0;
+    }
+
     return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
 }
 
@@ -698,7 +807,10 @@ function similarity(s1, s2)
         for (let j = 0; j <= s2.length; j++)
         {
             if (i == 0)
-            costs[j] = j;
+            {
+                costs[j] = j;
+            }
+
             else
             {
                 if (j > 0)
@@ -713,7 +825,10 @@ function similarity(s1, s2)
             }
         }
         if (i > 0)
+        {
             costs[s2.length] = lastValue;
+        }
     }
+
     return costs[s2.length];
   }

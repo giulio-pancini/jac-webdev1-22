@@ -16,7 +16,7 @@
 
 <body>
     <section id="loaderWrapper">
-        <span class="loader"><span class="loader-inner"></span></span>
+        <span class="loader"><span class="loaderInner"></span></span>
     </section>
 
     <button class="tornaSu">&#11165;</button>
@@ -26,7 +26,7 @@
         <section class="progress-bar" id="myBar"></section>
     </section>
 
-    <nav id="nav-bar">
+    <nav id="navBar">
         <section id="menu">
             <a class="active zoom" href="#home">Home</a>
             <a class="zoom" href="#about">About</a>
@@ -34,8 +34,8 @@
 
         <section class="dropdown">
             <button type="button" id="userNickname">Nome Cognome</button>
-            <section class="dropdown-content">
-                <a class="zoom" href="./login.html" id="logout">Logout</a>
+            <section class="dropdownContent">
+                <a class="zoom" href="./login.html" id="logout">Esci</a>
             </section>
           </section>
     </nav>
@@ -49,6 +49,7 @@
         <section>
             <button id="inviaProfilo" onclick="creaProfilo()" type="button">Invia</button>
             <button id="annullaModifica" onclick="annullaModificaProfilo()" type="button">Annulla</button>
+            <p id="messaggioProfilo"></p>
         </section>
     </form>
 
@@ -73,7 +74,8 @@
         <button onclick="deleteImage()" id="deleteImage">Elimina <img src="../img/cestino.png" alt=""></button>
         <form id="immaginiInput">
             <label for="imageInput"><p>Aggiungi un'immagine: </p></label><input type="file" id="imageInput" accept="image/*">
-            <button type="button" onclick="addImage()">Aggiungi</button>
+            <button type="button" id="aggiungiImmagine" onclick="addImage()">Aggiungi</button>
+            <p id="messaggioGalleria"></p>
         </form>
     </section>
 
@@ -100,7 +102,8 @@
                     <option value="Novembre">Novembre</option>
                     <option value="Dicembre">Dicembre</option>
                 </select>
-                <button type="button" id="btn-card" onclick="creaCartaJson()">Invia</button>
+                <button type="button" id="btnCard" onclick="creaCartaJson()">Invia</button>
+                <p id="messaggioTraccia"></p>
             </form>
         </section>
     </section>
@@ -138,7 +141,8 @@
                 <h1>Social media</h1>
                 <label for="nomeSocial">Nome social: <input type="text" id="nomeSocial"></label>
                 <label for="link">Link: <input type="url" id="link"></label>
-                <button type="button" onclick="creaSocialJson()">Invia</button>
+                <button type="button" onclick="creaSocialJson()" id="inviaSocial">Invia</button>
+                <p id="messaggioFetch"></p>
             </form>
             <section id="listaSocial">
             </section>
@@ -160,7 +164,7 @@
 
         let lastScrollTop;
 
-        navbar = document.getElementById("nav-bar");
+        navbar = document.getElementById("navBar");
 
         window.onscroll = () =>
         {
@@ -216,7 +220,6 @@
 
         function scrollToTop()
         {
-            // Scroll to top logic
             rootElement.scrollTo
             (
                 {
