@@ -16,6 +16,10 @@ function creaProfilo()
     const testoDescrizione = document.getElementById("testoDescrizione");
     const immagine = document.getElementById("immagineProfilo");
 
+    const inviaBtn = document.getElementById("inviaProfilo");
+    const annullaBtn = document.getElementById("annullaModifica");
+    let testoMessaggio = document.getElementById("messaggioProfilo");
+
     /*controlli:
     la foto dell'artista c'è già?
     il nome dell'artista c'è già?
@@ -24,19 +28,76 @@ function creaProfilo()
 
     if (!file && contenutoImg === "")
     {
-        alert("Non hai inserito nessuna immagine!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        annullaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito nessuna immagine!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "inline";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
         return;
     }
 
     if(nomeArtista.value === "" && document.getElementById("nomeArt").innerText === "")
     {
-        alert("Non hai inserito tuo nome!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        annullaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito tuo nome!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "inline";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
         return;
     }
 
     if(testo.value === "" && document.getElementById("testoDescrizione").innerText === "")
     {
-        alert("Non hai inserito nessuna descrizione!");
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        annullaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai inserito nessuna descrizione!";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "inline";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
         return;
     }
 
@@ -74,6 +135,8 @@ function creaProfilo()
 
     const profilo = document.getElementById("profilo");
     profilo.style.display = "grid";
+    inviaBtn.style.display = "none";
+    annullaBtn.style.display = "inline";
 
     const formProfilo = document.getElementById("formProfilo");
     formProfilo.style.display = "none";
