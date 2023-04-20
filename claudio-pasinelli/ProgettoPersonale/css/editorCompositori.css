@@ -317,7 +317,7 @@ section#linkSocial section#listaSocial img.zoom:hover
     background-color: var(--colore-mezzo-scuro);
     border-radius: var(--border-radius-default);
     border: solid var(--colore-chiaro);
-    border-width: 0px 2px 0px 0px;
+    border-width: 0px 2px 0px 2px;
 }
 
 .socialContainer::before,
