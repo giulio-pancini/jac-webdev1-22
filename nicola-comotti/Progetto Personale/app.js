@@ -1,11 +1,14 @@
 function toggleMenu() {
-
     const expMenuElement = document.getElementById('menuMobile');
 
+    // Media query per monitorare la larghezza della finestra del browser
     var x = window.matchMedia("(max-width: 850px)")
+    // Funzione che viene chiamata al cambio di larghezza della finestra del browser
     myFunction(x)
+    // Aggiunge un listener per il cambiamento della larghezza della finestra del browser
     x.addListener(myFunction)
 
+    // Funzione che gestisce l'apertura e la chiusura del menu mobile in base alla larghezza della finestra del browser
     function myFunction(x) {
         if (x.matches && expMenuElement.style.display == "block") {
             expMenuElement.style.display = "none";
@@ -15,7 +18,6 @@ function toggleMenu() {
             expMenuElement.style.display = "none";
         }
     }
-
 }
 
 /*
@@ -37,6 +39,47 @@ function logout() {
     window.location.href = "login-page.html";
 }
 
+function errorPopup(errorMessage) {
+    const newErrorPopup = document.getElementById('errorPopup');
+
+    if (newErrorPopup.childElementCount == 0) {
+        const titleElement = document.createElement('h2');
+        titleElement.setAttribute('id', 'errorTitle');
+        titleElement.innerText = 'ERRORE';
+        newErrorPopup.appendChild(titleElement);
+
+        const messageElement = document.createElement('p');
+        messageElement.setAttribute('id', 'errorMessage');
+        messageElement.innerText = errorMessage;
+        newErrorPopup.appendChild(messageElement);
+
+        const closeButton = document.createElement('button');
+        closeButton.setAttribute('id', 'closePopupButton');
+        closeButton.setAttribute('onclick', 'closePopup(this)');
+        newErrorPopup.appendChild(closeButton);
+
+        const closeImage = document.createElement('img');
+        closeImage.setAttribute('id', 'closeImage');
+        closeImage.setAttribute('src', 'Utils/close-icon.png');
+        closeButton.appendChild(closeImage);
+
+        const closeText = document.createElement('p');
+        closeText.innerText = 'Chiudi';
+        closeText.setAttribute('id', 'closeText');
+        closeButton.appendChild(closeText);
+
+    } else {
+        document.getElementById('errorMessage').innerText = errorMessage;
+    }
+    newErrorPopup.style.display = 'block';
+}
+
+function closePopup(element) {
+    const popup = document.getElementById(element.parentNode.id);
+    popup.style.display = 'none';
+}
+
+// Array che conterrà tutte le schede che verranno create
 const schede = [];
 
 function addScheda() {
@@ -47,7 +90,7 @@ function addScheda() {
     const nome = inputNome.value;
 
     if (nome == '') {
-        alert('INSERIRE IL NOME DELLA SCHEDA!');
+        errorPopup('Inserire il NOME della scheda!');
         return
     }
 
@@ -100,18 +143,12 @@ function addExe() {
 
     const newExe = document.createElement('li');
 
-    const inputScheda = document.getElementById('sceltaScheda');
-    const scheda = inputScheda.value;
-    const inputNome = document.getElementById('nome');
-    const nome = inputNome.value;
-    const inputPeso = document.getElementById('peso');
-    const peso = inputPeso.value;
-    const inputSerie = document.getElementById('serie');
-    const serie = inputSerie.value;
-    const inputRep = document.getElementById('rep');
-    const rep = inputRep.value;
-    const inputRest = document.getElementById('rest');
-    const rest = inputRest.value;
+    const scheda = document.getElementById('sceltaScheda').value;
+    const nome = document.getElementById('nome').value;
+    const peso = document.getElementById('peso').value;
+    const serie = document.getElementById('serie').value;
+    const rep = document.getElementById('rep').value;
+    const rest = document.getElementById('rest').value;
 
     const testoNome = document.createElement('h3');
     testoNome.innerText = nome;
@@ -167,22 +204,22 @@ function calcolaBMI() {
     const peso = document.getElementById('peso').value;
 
     if (sesso == 'none') {
-        alert("Per favore inserisci il tuo sesso per il calcolo del BMI");
+        errorPopup("Inserisci il tuo SESSO per il calcolo del BMI");
         return;
     }
 
     if (eta == 0) {
-        alert("Per favore inserisci la tua età per il calcolo del BMI");
+        errorPopup("Inserisci la tua ETÀ per il calcolo del BMI");
         return;
     }
 
     if (altezza == 0) {
-        alert("Per favore inserisci la tua altezza per il calcolo del BMI");
+        errorPopup("Inserisci la tua ALTEZZA per il calcolo del BMI");
         return;
     }
 
     if (peso == 0) {
-        alert("Per favore inserisci il tuo peso per il calcolo del BMI");
+        errorPopup("Inserisci il tuo PESO per il calcolo del BMI");
         return;
     }
 
@@ -272,11 +309,6 @@ function calcolaBMI() {
             }
         }
     }
-
-    console.log(bmi)
-    console.log(condizione)
-    console.log(pesoMin)
-    console.log(pesoMax)
 
     document.getElementById('bmi').innerText = (Math.round(bmi * 100) / 100).toString();
     document.getElementById('condizione').innerText = condizione;
