@@ -90,13 +90,14 @@ h1
     width: 100%;
     max-width: fit-content;
     text-align: center;
-    display: inline-block;
+    display: inline;
     font-size: 22px;
+    overflow-wrap: break-word;
 }
 
 /* LOADER */
 
-#loader-wrapper
+#loaderWrapper
 {
     width: 100%;
     height: 100%;
@@ -120,13 +121,13 @@ h1
     animation: loader 2s infinite ease;
 }
 
-.loader-inner
+.loaderInner
 {
     vertical-align: top;
     display: inline-block;
     width: 100%;
     background-color: var(--colore-chiaro);
-    animation: loader-inner 2s infinite ease-in;
+    animation: loaderInner 2s infinite ease-in;
 }
 
 @keyframes loader
@@ -153,7 +154,7 @@ h1
     }
 }
 
-@keyframes loader-inner
+@keyframes loaderInner
 {
     0%
     {
@@ -186,7 +187,19 @@ h1
     100%
     {
         opacity: 0;
-     }
+    }
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
 }
 
 /* LOADER */
@@ -261,7 +274,6 @@ section#linkSocial section#listaSocial
     display: grid;
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin: 1.5rem 0px 0px 0px;
 }
 
 section#linkSocial section#listaSocial section
@@ -369,7 +381,7 @@ section#linkSocial section#listaSocial img.zoom:hover
     top: 0;
 } */
 
-#nav-bar
+#navBar
 {
     margin-top: 0rem;
     display: flex;
@@ -454,7 +466,7 @@ a#logout:hover
     display: inline-block;
 }
 
-.dropdown-content
+.dropdownContent
 {
     display: none;
     position: absolute;
@@ -464,7 +476,7 @@ a#logout:hover
     left: 10%;
 }
 
-.dropdown-content a
+.dropdownContent a
 {
     display: block;
     text-decoration: none;
@@ -480,7 +492,7 @@ a#logout:hover
     border: solid var(--colore-oro);
 }
 
-.dropdown-content a:hover
+.dropdownContent a:hover
 {
     background-color: var(--colore-giallo);
     color: rgb(255, 255, 255);
@@ -490,7 +502,7 @@ a#logout:hover
     border: solid var(--colore-giallo);
 }
 
-.dropdown:hover .dropdown-content
+.dropdown:hover .dropdownContent
 {
     display: block;
 }
@@ -635,7 +647,7 @@ section#galleriaImmagini button#deleteImage
     font-size: 20px;
     border: none;
     margin: 0.5rem 0.25rem;
-    transition: box-shadow .3s;
+    transition: box-shadow 0.3s ease-in-out;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -654,14 +666,16 @@ section#galleriaImmagini button#deleteImage:hover
     box-shadow: 0 0 11px rgba(33, 33, 33, .9);
 }
 
-button#deleteImage img {
+button#deleteImage img
+{
     width: 30px;
     max-width: fit-content;
     margin: 0.5rem;
     transition: all 0.2s ease-in-out;
 }
 
-button#deleteImage img:hover {
+button#deleteImage img:hover
+{
     -ms-transform: scale(1.3) rotate(5deg);
     -webkit-transform: scale(1.3) rotate(5deg);
     transform: scale(1.3) rotate(5deg);
@@ -727,7 +741,16 @@ form#immaginiInput button
 
 /*GALLERIA DI IMMAGINI*/
 
+/*MESSAGGI DI ERRORE*/
+#messaggioProfilo,
+#messaggioGalleria,
+#messaggioTraccia,
+#messaggioFetch
+{
+    display: none;
+}
 
+/*MESSAGGI DI ERRORE*/
 
 /*PROFILO*/
 
@@ -744,6 +767,11 @@ form#immaginiInput button
 #formProfilo input[type="file"], button#inviaProfilo, button#annullaModifica
 {
     margin: auto;
+}
+
+button#annullaModifica
+{
+    display: none;
 }
 
 #formProfilo p,
@@ -884,7 +912,7 @@ p.socialContainerDescrizione
         width: 3%;
     }
 
-    #nav-bar #menu a.zoom
+    #navBar #menu a.zoom
     {
         padding: 14px 16px;
     }
