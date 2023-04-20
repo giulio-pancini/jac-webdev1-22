@@ -1,3 +1,6 @@
+
+/*css desktop */
+
 @media(min-width:961px){
 
     .only-mobile {
@@ -8,10 +11,15 @@
         display: block;
     }
 
+    /*body main page */
+
     .Primary_body{
         margin: 0;
         background-color: black;
     }
+    
+    /* body secondary pages */
+
     .normal_body{
 
         margin: 0;
@@ -248,18 +256,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/*css mobile */
 
 @media(max-width:960px){
     .only-mobile {
@@ -496,3 +493,24 @@
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

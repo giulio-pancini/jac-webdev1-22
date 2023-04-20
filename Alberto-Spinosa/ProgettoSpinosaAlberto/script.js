@@ -38,7 +38,7 @@
 
 class Product {
     constructor(id, name, price,){
-        this.id;
+        this.id = id;
         this.name = name;
         this.price = price;
     }
@@ -58,79 +58,150 @@ class Drink extends Product {
     }
 }
 
+
 const Products = [];
 
 let counter = 1;
-const cart = [];
+
+const prova = new Drink(1, "nome", 2.50, "size");
+console.log(prova);
 
 function addBurgerToCart() {
 
-    const panino = event.target.value;
-    
-    const b = new Burger();
+    const selection = event.target.value;
+    var burger;
 
-    if(panino == "Crispy"){
-        b.id = counter;
-        b.name = "Crispy";
-        b.price = 6.50;
-        b.ingredients = ["Pane", "Carne Bovina", "Cheddar", "Bacon", "Salsa Crispy"];
-    }else if(panino == "Filet-O-Fishn't"){
-        b.id = counter;
-        b.name = "Filet-O-Fishn't";
-        b.price = 5.00;
-        b.ingredients = ["Pane", "Merluzzo impanato", "Cheddar", "Salsa tartara"];
-    }else if(panino == "Cheesburgern't"){
-        b.id = counter;
-        b.name = "Cheesburgern't";
-        b.price = 5.50;
-        b.ingredients = ["Pane", "Carne Bovina", "Cheddar", "Cipolla", "Ketchup & Senape"];
-    }else if(panino == "His Selection"){
-        b.id = counter;
-        b.name = "His Selection";
-        b.price = 7.50;
-        b.ingredients = ["Insalata", "Carne Bovina", "Guoda stagionato", "Bacon", "Salsa BBQ"];
-    }else if(panino == "Mcn't Toast"){
-        b.id = counter;
-        b.name = "Mcn't Toast";
-        b.price = 1.75;
-        b.ingredients = ["Pane", "Prosciutto Cotto", "Formaggio Fuso"];
-    }else if(panino == "Bonsin't ChickenBurger"){
-        b.id = counter; 
-        b.name = "Bonsin't ChickenBurger";
-        b.price = 6.50;
-        b.ingredients = ["Pane", "Pollo Impanato", "Cheddar", "Lattuga", "Salsa BBQ"];
+    if(selection == "Crispy"){
+
+        burger = new Burger(counter, "Crispy", 6.50, ["Pane", "Carne Bovina", "Cheddar", "Bacon", 
+        "Salsa Crispy"]);
+
+    }else if(selection == "Filet-O-Fishn't"){
+
+        burger = new Burger(counter, "Filet-O-Fishn't", 5.00, ["Pane", "Merluzzo impanato", "Cheddar", 
+        "Salsa tartara"])
+
+    }else if(selection == "Cheesburgern't"){
+
+        burger = new Burger(counter, "Cheesburgern't", 5.50, ["Pane", "Carne Bovina", "Cheddar", "Cipolla", 
+        "Ketchup & Senape"]);
+
+    }else if(selection == "His Selection"){
+
+        burger = new Burger(counter, "His Selection", 7.50, ["Insalata", "Carne Bovina", "Guoda stagionato", 
+        "Bacon", "Salsa BBQ"]);
+        
+    }else if(selection == "Mcn't Toast"){
+
+        burger = new Burger(counter, "Mcn't Toast", 1.75, ["Pane", "Prosciutto Cotto", "Formaggio Fuso"]);
+
+    }else if(selection == "Bonsin't ChickenBurger"){
+
+        burger = new Burger(counter, "Bonsin't ChickenBurger", 6.50, ["Pane", "Pollo Impanato", "Cheddar", 
+        "Lattuga", "Salsa BBQ"]);
+
     }
-
-    addBurgerToTable(panino, b.price);
-    console.log(b);
+    
+    counter++;
+    addBurgerToTable(burger);
+    Products.push(burger);
+    console.log(burger);
 
 }
 
-function addBurgerToTable(product, price) {
+function addDrinkToCart(element) {
+    
+    const selection = element.dataset.value;
+    var drink;
+
+    if (selection == "Coca-Cola"){
+        
+        drink = new Drink(counter, "Coca-Cola", 2.50, "Medium");
+    }else if (selection == "Pepsi"){
+        drink = new Drink(counter, "Pepsi", 2.50, "Medium");
+    }else if (selection == "Tè-Pesca"){
+        drink = new Drink(counter, "Tè-Pesca", 2.50, "Medium");
+    }else if (selection == "Tè-Limone"){
+        drink = new Drink(counter, "Tè-Limone", 2.50, "Medium");
+    }else if (selection == "Acqua-Naturale"){
+        drink = new Drink(counter, "Acqua Naturale", 1.50, "Medium");
+    }else if (selection == "Acqua-Frizzante"){
+        drink = new Drink(counter, "Acqua Frizzante", 1.50, "Medium");
+    }else if (selection == "Fanta"){
+        drink = new Drink(counter, "Fanta", 2.50, "Medium");
+    }else if (selection == "Birra"){
+        drink = new Drink(counter, "Birra", 3.00, "Medium");
+    }else if (selection == "RedBull"){
+        drink = new Drink(counter, "RedBull", 3.00, "Standard");
+    }
+
+    counter++;
+    console.log(selection)
+    addBurgerToTable(drink);
+    Products.push(drink);
+    console.log(drink);
+}
+
+function addBurgerToTable(product) {
 
     const newElementTr = document.createElement('tr');
     const newElementTh = document.createElement('th');
 
     const newElementTd = document.createElement('td');
-    const txtBurger = document.createTextNode(product);
+    const txtBurger = document.createTextNode(product.name);
 
     const newElemntTdPrice = document.createElement('td');
-    const txtPrice = document.createTextNode(price);
+    const txtPrice = document.createTextNode(product.price);
 
-    newElemntTdPrice.appendChild(txtPrice);
+    const newElementTdIngr = document.createElement('td');
+    const txtIngr = document.createTextNode(product.ingredients);
 
-    const txt = document.createTextNode(counter);
+    const newElementTdSize = document.createElement('td');
+    const txtSize = document.createTextNode(product.size);
+
+    const newElementTdAct = document.createElement('td');
+    const newButtonDelete = document.createElement('button');
+    const newButtonEdit = document.createElement('button');
+    const txtDelete = document.createTextNode("❌");
+    const txtEdit = document.createTextNode("✏️");
+        
+    const txt = document.createTextNode(product.id);
 
     newElementTh.setAttribute('class', 'scope="row"');
 
+    console.log(txtIngr)
+    console.log(txtSize)
+
+    // Append nome panino
     newElementTr.appendChild(newElementTh);
     newElementTh.appendChild(txt);
     newElementTr.appendChild(newElementTd);
     newElementTd.appendChild(txtBurger);
-    
+
+    // Append prezzo
+    newElemntTdPrice.appendChild(txtPrice);
     newElementTr.appendChild(newElemntTdPrice);
+
+    //Append Ingredienti
+    if(txtIngr == "undefined"){
+        newElementTdSize.appendChild(txtSize);
+        newElementTr.appendChild(newElementTdSize);
+    }else {
+        newElementTdIngr.appendChild(txtIngr);
+        newElementTr.appendChild(newElementTdIngr);
+    }
+
+    //Append Actions
+    newButtonDelete.appendChild(txtDelete);
+    newButtonEdit.appendChild(txtEdit);
+    newElementTdAct.appendChild(newButtonDelete);
+    newElementTdAct.appendChild(newButtonEdit);
+    newElementTr.appendChild(newElementTdAct);
 
     document.getElementById('tableBody').appendChild(newElementTr);
 
-    counter++;
+}
+
+function addDrinkToTable (product) {
+
 }

@@ -9,40 +9,42 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <body class="user-homepage">
+        <div id="errorPopup" style="display: none;"></div>
         <header>
             <button class="only-mobile" id="menuToggle" onclick="toggleMenu()">
                 <img src="Utils/white-burger-menu.png" alt="Menu">
             </button>
             <h1 id="titolo">MyFitnessHub</h1>
-            <button id="loginButton">
-                <img src="Utils/white-user.png">
-                <p class="only-desktop">Login</p>
+            <button id="logoutButton" onclick="logout()">
+                <img src="Utils/white-logout.png">
+                <p class="only-desktop">Logout</p>
             </button>
             <nav class="only-desktop" id="menuDesktop">
-                <a>Homepage</a>
+                <!--    <button class="link-button" onclick="loadPage('user-homepage')">Homepage</button>
+                <button class="link-button" onclick="loadPage('database-esercizi')">Database Esercizi</button>
+                <button class="link-button" onclick="loadPage('calcolatrici')">Calcolatrici</button>
+                <button class="link-button" onclick="loadPage('contatti')">Contatti</button> -->
+                <a href="user-homepage.html">Homepage</a>
                 <a href="database-esercizi.html">Database Esercizi</a>
-                <a>Piani di Allenamento</a>
-                <a>Contatti</a>
+                <a href="calcolatrici.html">Calcolatrici</a>
+                <a href="contatti.html">Contatti</a>
             </nav>
             <nav class="only-mobile" id="menuMobile" style="display: none;">
-                <a>Homepage</a>
+                <a href="user-homepage.html">Homepage</a>
                 <a href="database-esercizi.html">Database Esercizi</a>
-                <a>Piani di Allenamento</a>
-                <a>Contatti</a>
+                <a href="calcolatrici.html">Calcolatrici</a>
+                <a href="contatti.html">Contatti</a>
             </nav>
         </header>
         <article class="row">
             <aside class="column">
-                <form>
-                    <strong>NUOVO ESERCIZIO</strong>
+                <form autocomplete="off">
+                    <h2>NUOVO ESERCIZIO</h2>
                     <label>
                         Scheda di appartenenza:
                         <select id="sceltaScheda">
                             <option value="none" selected disabled>Seleziona scheda</option>
-                            <option value="push">Push</option>
-                            <option value="pull">Pull</option>
-                            <option value="legs">Legs</option>
                         </select>
                     </label>
                     <label>Nome esercizio: <input id="nome" type="text"></label>
@@ -54,22 +56,16 @@
                 </form>
             </aside>
             <section class="column">
-                <strong>SCHEDE</strong>
+                <h2>LE MIE SCHEDE</h2>
                 <ul id="listaSchede">
-                    <li class="scheda" id="schedaPush">
-                        <h2>PUSH</h2>
-                    </li>
-                    <li class="scheda" id="schedaPull">
-                        <h2>PULL</h2>
-                    </li>
-                    <li class="scheda" id="schedaLegs">
-                        <h2>LEGS</h2>
-                    </li>
                 </ul>
-                <!-- <button id="buttonScheda" onclick="addScheda()">Nuova Scheda</button> -->
+                <form autocomplete="off" id="form-add-scheda">
+                    <h2>AGGIUNGI SCHEDA</h2>
+                    <label>Nome scheda: <input type="text" id="nomeScheda"></label>
+                    <button type="button" id="buttonScheda" onclick="addScheda()">Crea Scheda</button>
+                </form>
             </section>
         </article>
-        <!--footer>Footer</footer-->
         <script src="app.js"></script>
     </body>
 

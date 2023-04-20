@@ -33,15 +33,7 @@
                     <th>Elimina</th>
                 </tr>
 
-                <!--<tr>
-                    <td id="qta"></td>
-                    <td id="prez"></td>
-                    <td id="desc"></td>
-                    <td><i class="fas fa-trash-alt"></i></td>
-                </tr>
-
-
-
+                <!--
                 <tr>
                     <th>TOTALE</th>
                     <td id="tot"></td>
@@ -88,61 +80,66 @@
             </ul>
         </nav>
 
-        <section id="nigiri">
-            <h2>Nigiri</h2>
-            <p>5€/pz</p>
-            <div class="img">
+        <section>
+            <h2 class="title">Nigiri</h2>
+            <p class="price">5€/pz</p>
+            
                 <img src="images/NighiriSalmon.png" onclick="incrementoSushi(0), creaRiga(indice)">
                 <img src="images/NighiriTonno.png"onclick="incrementoSushi(1), creaRiga(indice)">
                 <img src="images/Nigiri-gambero-cotto-600x600.png"onclick="incrementoSushi(2), creaRiga(indice)">
-                <br>
                 <img src="images/NighiriAnguilla.png"onclick="incrementoSushi(3), creaRiga(indice)">
                 <img src="images/NigiriCalamaro.png"onclick="incrementoSushi(4), creaRiga(indice)">
                 <img src="images/nigirifugu.png"onclick="incrementoSushi(5), creaRiga(indice)">
-            </div>
+           
 
         </section>
 
-        <section id="hosomaki">
-            <h2>Hosomaki</h2>
-            <p>3€/pz</p>
+        <section>
+            <h2 class="title">Hosomaki</h2>
+            <p class="price">3€/pz</p>
 
-            <div class="img">
-                <img id="hosomakiTonno" src="images/hosomaki-tonno.png">
+            
+                <img src="images/hosomaki-tonno.png" onclick="incrementoSushi(6), creaRiga(indice)">
                 <img src="images/Hosomaki-salmone.png">
                 <img src="images/HOSOMAKI-AVOCADO.png">
-            </div>
+                <img src="images/hosomaki-tonno.png">
+                <img src="images/Hosomaki-salmone.png">
+                <img src="images/HOSOMAKI-AVOCADO.png">
+            
 
         </section>
 
-        <section id="temaki">
-            <h2>Temaki</h2>
-            <p>7€/pz</p>
-            <div class="img">
+        <section>
+            <h2 class="title">Temaki</h2>
+            <p class="price">7€/pz</p>
+            
                 <img src="images/temaki-salmone.png">
                 <img src="images/temaki-tonno.png">
                 <img src="images/TemakiGambero.png">
-            </div>
-        </section>
-
-        <section id="temaki">
-            <h2>Temaki</h2>
-            <p>7€/pz</p>
-            <div class="img">
                 <img src="images/temaki-salmone.png">
                 <img src="images/temaki-tonno.png">
                 <img src="images/TemakiGambero.png">
-            </div>
+            
         </section>
 
-        <section id="temaki">
-            <h2>Temaki</h2>
-            <p>7€/pz</p>
-            <div class="img">
+        <section>
+            <h2 class="title">Temaki</h2>
+            <p class="price">7€/pz</p>
+            
                 <img src="images/temaki-salmone.png">
                 <img src="images/temaki-tonno.png">
-                <img id="temakiGambero" src="images/TemakiGambero.png">
-            </div>
+                <img src="images/TemakiGambero.png">
+            
+        </section>
+
+        <section>
+            <h2 class="title">Temaki</h2>
+            <p class="price">7€/pz</p>
+           
+                <img src="images/temaki-salmone.png">
+                <img src="images/temaki-tonno.png">
+                <img src="images/TemakiGambero.png">
+           
 
         </section>
     </div>
@@ -177,15 +174,23 @@
         });
     });
 
-   let controllo = false;
+   
     function toggle() {
-       if (controllo == false){
+       
+       const tab = document.getElementById('tab');
+       const intTab = document.getElementById('tab').getElementsByTagName('tr')[0].cloneNode(true);
+
+       tab.innerHTML='';
+       tab.appendChild(intTab);  
+
+
         for (let i = 0; i < ordine.length; i++) {
-        
-        if (ordine [i].qta>0){
+    
+            if (ordine [i].qta>0){
+
             creaRiga(i);
         }
-       }
+       
        }
         const home = document.getElementById('home');
         const divRiepilogo = document.getElementById('riepilogo');
@@ -207,18 +212,6 @@
     }
 
 
-    /* function aggiugniNigiriSalmon(nome, prezzo, type){
-         const addNigiri = document.createElement("p");
-         const elementoDesc = document.getElementById("desc");
-         const elementoPrez = document.getElementById("prez");
-         const elementoQta = document.getElementById("qta");
-         elementoDesc.innerText = nome;
-         elementoPrez.innerText = prezzo;
-         elementoQta.innerText = mappa.get(type);
-         
- 
-         
-     }*/
     const ordine = [
         {
             qta:0,
@@ -288,21 +281,6 @@
         
     ]
      
-    /*let quantitaTotale = 0;
-    function aggiungiSushi(qta, nome, prezzo) {
-        quantitaTotale += qta;
-        const addNigiri = document.createElement("p");
-        const elementoDesc = document.getElementById("desc");
-        const elementoPrez = document.getElementById("prez");
-        const elementoQta = document.getElementById("qta")
-        elementoDesc.innerText = nome;
-        elementoPrez.innerText = prezzo;
-        elementoQta.innerText = quantitaTotale;
-
-    }*/
-
-  
-
     function creaRiga(indice) {
         const table = document.getElementById("tab"); 
         const riga = document.createElement("tr");
@@ -314,6 +292,8 @@
         nome.innerText = ordine [indice].nome;
         prezzo.innerText = ordine [indice].prezzo;
         elimina.className = "fas fa-trash-alt";
+        elimina.addEventListener("click", function() { rimuoviRiga(this); }); // associa la funzione di eliminazione all'evento click dell'elemento "Elimina"
+
         riga.appendChild(qta);
         riga.appendChild(prezzo);
         riga.appendChild(nome);
@@ -330,9 +310,13 @@
 
 
 
-    function rimuoviElementi() {
+    function rimuoviRiga(elemento) {
+  const riga = elemento.closest("tr"); // ottiene la riga che contiene l'elemento
+  const indice = riga.rowIndex - 1; // calcola l'indice dell'oggetto nell'array, tenendo conto dell'header della tabella
+  ordine.splice(indice, 1); // rimuove l'oggetto dall'array
+  riga.parentNode.removeChild(riga); // rimuove la riga dalla tabella
+}
 
-    }
     function calcoloTotale(){
         
     }
