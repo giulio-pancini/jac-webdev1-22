@@ -3,12 +3,131 @@
     box-sizing: border-box;
 }
 
+/*VARIABILI*/
+
+:root
+{
+    --colore-scuro: rgb(50, 54, 67);
+    --colore-mezzo-scuro: rgb(68, 72, 87);
+    --colore-chiaro: rgb(255, 255, 255);
+    --colore-mezzo-chiaro: rgb(242, 242, 242);
+    --colore-oro: darkkhaki;
+    --colore-giallo:rgb(255, 202, 89);
+    --colore-azzurro: #00c6ff;
+    --colore-azzurro-scuro: #247ecd;
+    --grandezza-carta: 250px;
+    --border-radius-default: 5px;
+}
+
+/*VARIABILI*/
+
 body
 {
-    background-color: rgb(68, 72, 87);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     margin: 0;
     padding: 0;
+    background-image: url(../img/sfondo-login.png);
+    background-size: 300vh;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+/* LOADER */
+
+#loaderWrapper
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--colore-scuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader
+{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid var(--colore-chiaro);
+    animation: loader 2s infinite ease;
+}
+
+.loaderInner
+{
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: var(--colore-chiaro);
+    animation: loaderInner 2s infinite ease-in;
+}
+
+@keyframes loader
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    25%
+    {
+        transform: rotate(180deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    75%
+    {
+        transform: rotate(360deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loaderInner
+{
+    0%
+    {
+        height: 0%;
+    }
+    25%
+    {
+        height: 0%;
+    }
+    50%
+    {
+        height: 100%;
+    }
+    75%
+    { 
+        height: 100%
+    }
+    100%
+    {
+        height: 0%;
+    }
+}
+
+@keyframes fadeOut
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+     }
+}
+
+/* LOADER */
 
 .login-container
 {
@@ -16,42 +135,24 @@ body
     max-width: fit-content;
 }
 
-.logo
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid #ccc;
-    height: 50vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    border-right: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-  
-.logo img
-{
-    max-height: 100%;
-    object-fit: contain;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}
-  
 .form
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f2f2f2;
+    color: var(--colore-chiaro);
     padding: 10px 20px;
-    height: 50vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    border-left: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    width: 95vw;
+    min-height: fit-content;
+    height: 75vh;
+    /* background-image: url(../img/sfondo-login.png);
+    background-size: cover;
+    background-position: center; */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    top: 12vh;
 }
 
 form
@@ -69,7 +170,8 @@ button
     border-radius: 5px;
     border: none;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #f2f2f2;
+    text-align: center;
+    background-color: var(--colore-mezzo-chiaro);
 }
 
 button
@@ -104,9 +206,9 @@ button:hover
 
 .social-icons
 {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     align-items: center;
     border-top: 1px solid #ccc;
     padding: 10px;
@@ -134,89 +236,4 @@ button:hover
 .social-icons img:hover
 {
     transform: scale(1.1);
-}
-
-@media (min-width: 150px)
-{
-    .logo img
-    {
-        max-height: 100%;
-        object-fit: contain;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
-    .form
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: #f2f2f2;
-        padding: 10px 20px;
-        height: 50vh;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        border-left: 0px;
-        border-top-right-radius: 0px;
-        border-top-left-radius: 0px;
-    }
-    .logo
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 1px solid #ccc;
-        height: 50vh;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        border-right: 0px;
-        border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;
-    }
-}
-
-@media (min-width: 992px)
-{
-    .login-container
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .logo img
-    {
-        max-height: 100%;
-        object-fit: contain;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-    }
-    .form
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: #f2f2f2;
-        padding: 10px 20px;
-        height: 50vh;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        border-left: 0px;
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
-    }
-    .logo
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 1px solid #ccc;
-        height: 50vh;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        border-right: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-    }
 }
