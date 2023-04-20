@@ -19,9 +19,9 @@ class Messaggio {
 
 
 
-constructor (mittente, destinatario, orario) {
+constructor (mittente, destinatario) {
     this.#Sender = mittente;
-    this.#TimeStamp = orario;
+    this.#TimeStamp = new Date();
     this.#receiver = destinatario;
 
 }
@@ -33,8 +33,8 @@ class Audio extends Messaggio {
 
     #audio;
     
-    constructor(audio, mittente, destinatario, orario) {
-        super(mittente, destinatario, orario);
+    constructor(audio, mittente, destinatario) {
+        super(mittente, destinatario);
         this.#audio = audio;
     
     
@@ -51,8 +51,8 @@ class Testo extends Messaggio {
 
     #textContent
 
-    constructor(testo, mittente, destinatario, orario) {
-        super(mittente, destinatario, orario);
+    constructor(testo, mittente, destinatario) {
+        super(mittente, destinatario);
         this.#textContent = testo;
     }
 
