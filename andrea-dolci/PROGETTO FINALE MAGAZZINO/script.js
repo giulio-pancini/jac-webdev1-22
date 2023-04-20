@@ -1,7 +1,3 @@
-let contTabAliExpress = 0;
-let contTabAmazon = 0;
-let contTabBarilla = 0;
-
 function toggle(idSection){
 
     const sectionInvisible = document.getElementById(idSection);
@@ -9,46 +5,46 @@ function toggle(idSection){
     
     let arrayToIterate = [];
     let tableId;
-    let visibleTab;
 
     switch(idSection){
         case 'aliExpress': {
             arrayToIterate = arrayObjAliExpress;
             tableId = 'aliExpressTab';
-            contTabAliExpress++;
-            visibleTab = true;
             break;
         }
 
         case 'amazon': {
             arrayToIterate = arrayObjAmazon;
             tableId = 'amazonTab';
-            contTabAmazon++;
-            visibleTab = true;
             break;
         }
 
         case 'barilla': {
             arrayToIterate = arrayObjBarilla;
             tableId = 'barillaTab';
-            contTabBarilla++;
-            visibleTab = true;
             break;
         }
     }
-
-    if(visibleTab) {
-        for(let i = 0; i<arrayToIterate.length; i++) {
-                createRow(arrayToIterate, i, tableId);
-                visibleTab = false;
-            }
-    }
     
+    const firstChildTable = document.getElementById(tableId).getElementsByTagName("tr")[0].cloneNode(true);
+    const emptyTab = document.getElementById(tableId);
+    emptyTab.innerHTML = '';
+    emptyTab.appendChild(firstChildTable);
+
+
+    for(let i = 0; i<arrayToIterate.length; i++) {
+        if(arrayToIterate[i] != null)
+            createRow(arrayToIterate, i, tableId);
+    }
     
     sectionInvisible.style.display = 'block';
     sectionLogin.style.display = 'none';
 
 }
+
+let contAliExpressTrash = 0;
+let contAmazonTrash = 0;
+let contBarillaTrash = 0;
 
 function createRow(arrayToShow, index, tableId){
 
@@ -65,7 +61,6 @@ function createRow(arrayToShow, index, tableId){
     iconEdit.setAttribute('class', 'fas fa-edit');
     const iconTrash = document.createElement('i');
     iconTrash.setAttribute('class', 'fas fa-trash-alt');
-
     idRow.innerText = arrayToShow[index].id;
     nameRow.innerText = arrayToShow[index].name;
     quantityRow.innerText = arrayToShow[index].quantity;
@@ -73,6 +68,28 @@ function createRow(arrayToShow, index, tableId){
     descriptionRow.innerText = arrayToShow[index].description;
     dateRow.innerText = arrayToShow[index].date;
 
+
+    switch(tableId){
+        case 'aliExpressTab': {
+            iconTrash.setAttribute('data-id', contAliExpressTrash);
+            iconTrash.setAttribute('onclick', 'deleteRow(contAliExpressTrash, tableId)');
+            contAliExpressTrash++;
+            break;
+        }
+        case 'amazonTab': {
+            iconTrash.setAttribute('data-id', contAmazonTrash);
+            iconTrash.setAttribute('onclick', 'deleteRow(contAmazonTrash, tableId)');
+            contAmazonTrash++;
+            break;
+        }
+        case 'barillaTab': {
+            iconTrash.setAttribute('data-id', contBarillaTrash);
+            iconTrash.setAttribute('onclick', 'deleteRow(contBarillaTrash, tableId)');
+            contBarillaTrash;
+            break;
+        }
+        
+    }
 
     row.appendChild(idRow);
     row.appendChild(nameRow);
@@ -99,6 +116,25 @@ function home(idSection){
     sectionLogin.style.display = 'flex';
     sectionToMakeInvisible.style.display = 'none';
 
+}
+
+function deleteRow(idTrash, tableId){
+
+    switch(tableId){
+        case 'aliExpressTab': {
+            arrayObjAliExpress[idTrash] = null;
+            break;
+        }
+        case 'amazonTab': {
+            
+            break;
+        }
+        case 'barillaTab': {
+            
+            break;
+        }
+        
+    }
 }
 
 let contAliExpress = 0;
