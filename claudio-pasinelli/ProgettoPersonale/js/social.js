@@ -114,10 +114,12 @@ async function creaSocialJson()
 
     for(socialMedia of arrayMedia)
     {
-        if(similarity(document.getElementById("nomeSocial").value, socialMedia) < 0.8)
+        if(similarity(document.getElementById("nomeSocial").value, socialMedia) >= 0.8)
         {
-            c++;
+            break;
         }
+        
+        c++;
 
         if(c === arrayMedia.length)
         {
