@@ -35,7 +35,7 @@
         <section class="dropdown">
             <button type="button" id="userNickname">Nome Cognome</button>
             <section class="dropdownContent">
-                <a class="zoom" href="./login.html" id="logout">Esci</a>
+                <a class="zoom" href="./login.html" id="logout" onclick="resettaLocalStorage()">Esci</a>
             </section>
           </section>
     </nav>
@@ -156,6 +156,19 @@
             loader.style.animation = "fadeOut 1.2s";
             loader.style.animationIterationCount = "1";
 
+            let userNickname = document.getElementById("userNickname");
+
+            if(localStorage.getItem("Nome") === null && localStorage.getItem("Cognome") === null)
+            {
+                userNickname.innerText = "Nome" + " " + "Cognome";
+            }
+
+            else
+            {
+                userNickname.innerText = localStorage.getItem("Nome") + " " + localStorage.getItem("Cognome");
+            }
+
+
             setTimeout(() =>
             {
                 loader.parentNode.removeChild(loader);
@@ -230,6 +243,15 @@
         }
         
         tornaSu.addEventListener("click", scrollToTop);
+
+        function resettaLocalStorage()
+        {
+            localStorage.clear();
+            setTimeout(() =>
+            {
+                window.location.href = "index.html";
+            }, 1000);
+        }
     </script>
 </body>
 
