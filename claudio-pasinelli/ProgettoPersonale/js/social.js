@@ -110,46 +110,42 @@ async function creaSocialJson()
         return;
     }
 
-    else if(
-        similarity(document.getElementById("nomeSocial").value,"youtube") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"deezer") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"youtube music") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"spotify") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"apple music") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"soundcloud") < 0.8
-        && similarity(document.getElementById("nomeSocial").value,"amazon music") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"itunes") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"tidal") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"facebook") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"twitter") < 0.8 
-        && similarity(document.getElementById("nomeSocial").value,"instagram") < 0.8
-        && similarity(document.getElementById("nomeSocial").value,"linkedin") < 0.8
-        && similarity(document.getElementById("nomeSocial").value,"tiktok") < 0.8
-        && similarity(document.getElementById("nomeSocial").value,"snapchat") < 0.8
-    )
+    let c = 1;
+
+    for(socialMedia of arrayMedia)
     {
-        testoMessaggio.scrollIntoView(
-            {
-                behavior: 'smooth',
-                block: 'end'
-            });
-            
-        inviaBtn.style.display = "none";
-        testoMessaggio.style.display = "block";
-        testoMessaggio.innerText = "Ci dispiace tanto, ma non conosciamo il sito!";
-        testoMessaggio.style.color = "red";
-
-        setTimeout(() =>
+        if(similarity(document.getElementById("nomeSocial").value, socialMedia) >= 0.8)
         {
-            testoMessaggio.innerText = "";
-            inviaBtn.style.display = "block";
-            testoMessaggio.style.display = "none";
-            document.getElementById('link').value = "";
-        }, 2500);
+            break;
+        }
+        
+        c++;
 
-        document.getElementById('nomeSocial').value = '';
-
-        return;
+        if(c === arrayMedia.length)
+        {
+            testoMessaggio.scrollIntoView(
+                {
+                    behavior: 'smooth',
+                    block: 'end'
+                });
+                
+            inviaBtn.style.display = "none";
+            testoMessaggio.style.display = "block";
+            testoMessaggio.innerText = "Ci dispiace tanto, ma non conosciamo il sito!";
+            testoMessaggio.style.color = "red";
+    
+            setTimeout(() =>
+            {
+                testoMessaggio.innerText = "";
+                inviaBtn.style.display = "block";
+                testoMessaggio.style.display = "none";
+                document.getElementById('link').value = "";
+            }, 2500);
+    
+            document.getElementById('nomeSocial').value = '';
+    
+            return;
+        }
     }
 
     if(!isURLValid(document.getElementById("link").value))

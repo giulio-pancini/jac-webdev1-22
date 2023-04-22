@@ -237,3 +237,19 @@ button:hover
 {
     transform: scale(1.1);
 }
+
+p
+{
+    margin: 5px 0px;
+}
+
+#checkboxCompositore
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#checkboxCompositore input[type = "checkbox"]
+{
+    margin: 0px 5px;
+}
