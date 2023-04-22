@@ -8,13 +8,13 @@ function createSubjectContainer(subject) {
     container.className = "subject-container";
     
     // Aggiunta del titolo della materia
-    var title = document.createElement("div");
+    var title = document.createElement("p");
     title.className = "subject-title";
     title.textContent = subject.name;
     container.appendChild(title);
     
     // Aggiunta del nome del professore
-    var teacherName = document.createElement("div");
+    var teacherName = document.createElement("p");
     teacherName.className = "teacher-name";
     teacherName.textContent = subject.teacher;
     container.appendChild(teacherName);
@@ -27,7 +27,7 @@ function createSubjectContainer(subject) {
     var average = sum / subject.votes.length;
     
     // Aggiunta della media dei voti
-    var averageGrade = document.createElement("div");
+    var averageGrade = document.createElement("p");
     averageGrade.className = "average-grade";
     averageGrade.textContent = "Media voti: " + average.toFixed(2);
     container.appendChild(averageGrade);
