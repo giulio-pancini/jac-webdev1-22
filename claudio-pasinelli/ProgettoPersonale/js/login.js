@@ -1,45 +1,43 @@
-const arrayUtente = [];
-
 class User
 {
-    #email;
-    #nome;
-    #cognome;
-    #password;
-    #tipo;
+    email;
+    nome;
+    cognome;
+    password;
+    tipo;
 
     constructor(email, nome, cognome, password, tipo)
     {
-        this.#email = email;
-        this.#nome = nome;
-        this.#cognome = cognome;
-        this.#password = password;
-        this.#tipo = tipo;
+        this.email = email;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.password = password;
+        this.tipo = tipo;
     }
 
     getEmail()
     {
-        return this.#email;
+        return this.email;
     }
 
     getNome()
     {
-        return this.#nome;
+        return this.nome;
     }
 
     getCognome()
     {
-        return this.#cognome;
+        return this.cognome;
     }
 
     getPassword()
     {
-        return this.#password;
+        return this.password;
     }
 
     getTipo()
     {
-        return this.#tipo;
+        return this.tipo;
     }
 }
 
@@ -216,6 +214,7 @@ async function inviaDatiForm()
             //riempio il localStorage
             localStorage.setItem("Nome", nome);
             localStorage.setItem("Cognome", cognome);
+            localStorage.setItem("Tipo", tipo);
 
             utenteTrovato = true;
             break;
@@ -232,29 +231,28 @@ async function inviaDatiForm()
 
     else if(!utenteTrovato)
     {
-        arrayUtente.push(user);
-        creaUser(arrayUtente);
-    }
-}
-
-async function creaUser(arrayUtente)
-{
-    const body = JSON.stringify(arrayUtente);
-
-    const postUser = await fetch("http://localhost:8080/progettoPersonale/api/v1/users/",
-    {
-        method: "POST",
-        headers:
+        const body = JSON.stringify(user);
+    
+        console.log("richiamo la users in POST");
+    
+        const postUser = await fetch("http://localhost:8080/progettoPersonale/api/v1/users/",
         {
-            Accept: "application/json", "Content-Type": "application/json",
-        },
-        mode: "no-cors",
-        body: body
-    });
-
-    setTimeout(() =>
-    {
-        console.log("utente non trovato");
-        window.location.href = "index.html";
-    }, 100000);
+            method: "POST",
+            headers:
+            {
+                "content-type":'application/json'
+            },
+            body: body
+        });
+        
+        //riempio il localStorage
+        localStorage.setItem("Nome", nome);
+        localStorage.setItem("Cognome", cognome);
+        localStorage.setItem("Tipo", tipo);
+        
+        setTimeout(() =>
+        {
+            window.location.href = "index.html";
+        }, 1000);
+    }
 }
