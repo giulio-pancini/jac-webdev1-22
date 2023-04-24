@@ -1,5 +1,6 @@
 class User
 {
+    idUser
     email;
     nome;
     cognome;
@@ -13,6 +14,11 @@ class User
         this.cognome = cognome;
         this.password = password;
         this.tipo = tipo;
+    }
+
+    getIdUser()
+    {
+        return this.idUser;
     }
 
     getEmail()
@@ -202,6 +208,7 @@ async function inviaDatiForm()
     document.getElementById('compositore').checked = false;
     document.getElementById('non_compositore').checked = false;
 
+    let compositore = false;
     let utenteTrovato = false;
 
     const response = await fetch("http://localhost:8080/progettoPersonale/api/v1/users/");
@@ -209,27 +216,39 @@ async function inviaDatiForm()
 
     for(let i = 0; i < responseJson.length; i++)
     {
-        if(responseJson[i].password === password)
+        if(responseJson[i].password === password && responseJson[i].tipo === "COMPOSITORE")
+        {
+            //prendo l'idUser dell'utente
+            localStorage.setItem("idUser", responseJson[i].idUser);
+
+            compositore = true;
+            break;
+        }
+
+        else if(responseJson[i].password === password && responseJson[i].tipo === "NON_COMPOSITORE")
         {
             //riempio il localStorage
-            localStorage.setItem("Nome", nome);
-            localStorage.setItem("Cognome", cognome);
-            localStorage.setItem("Tipo", tipo);
 
             utenteTrovato = true;
             break;
         }
     }
 
-    if(utenteTrovato)
+    //riempio il localStorage
+    localStorage.setItem("Nome", nome);
+    localStorage.setItem("Cognome", cognome);
+
+    if(compositore)
     {
-        setTimeout(() =>
-        {
-            window.location.href = "index.html";
-        }, 1000);
+        window.location.href = "editorCompositori.html";
     }
 
-    else if(!utenteTrovato)
+    if(utenteTrovato)
+    {
+        window.location.href = "tabellaCompositori.html";
+    }
+
+    else if(!utenteTrovato && !compositore)
     {
         const body = JSON.stringify(user);
     
@@ -245,14 +264,6 @@ async function inviaDatiForm()
             body: body
         });
         
-        //riempio il localStorage
-        localStorage.setItem("Nome", nome);
-        localStorage.setItem("Cognome", cognome);
-        localStorage.setItem("Tipo", tipo);
-        
-        setTimeout(() =>
-        {
-            window.location.href = "index.html";
-        }, 1000);
+        window.location.href = "tabellaCompositori.html";
     }
 }

@@ -21,39 +21,39 @@ let arrayMedia =
 
 class Social
 {
-    #id;
-    #dataTooltip;
-    #media;
-    #link;
-    #img;
+    idSocial;
+    dataTooltip;
+    media;
+    link;
+    img;
 
-    constructor(id, dataTooltip, media, link, img)
+    constructor(idSocial, dataTooltip, media, link, img)
     {
-        this.#id = id;
-        this.#dataTooltip = dataTooltip;
-        this.#media = media;
-        this.#link = link;
-        this.#img = img;
+        this.idSocial = idSocial;
+        this.dataTooltip = dataTooltip;
+        this.media = media;
+        this.link = link;
+        this.img = img;
     }
 
     getMedia()
     {
-        return this.#media;
+        return this.media;
     }
 
     getLink()
     {
-        return this.#link;
+        return this.link;
     }
 
     getImg()
     {
-        return this.#img;
+        return this.img;
     }
 
     getDataTooltip()
     {
-        return this.#dataTooltip;
+        return this.dataTooltip;
     }
 }
 
