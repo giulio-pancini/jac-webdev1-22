@@ -1,0 +1,25 @@
+h1 
+{
+text-align: center;
+background-color: black;
+color: gold;
+
+
+}
+body
+{
+    background-color: rgb(120, 255, 47);
+    margin: 0%;
+}
+nav{
+    text-align: center;
+    background-color: black;
+    margin: -2%;
+
+    
+
+    }
+    nav a { 
+        color: red 
+    
+    }

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html>
+   
+    <head>
+     
+      <link rel="stylesheet" href="prenota.css">
+
+   </head>
+      
+     <body>
+     <header>
+           
+     <h1>VIAGGIA CON NOI</h1>
+     
+      <div class="home">
+       
+          <a href="Progetto_Nicolo_Mignani.html">HOME</a>
+
+      </div>
+
+     <div class="info azienda">
+
+          <a href="info_azienda.html">BLOG</a>
+
+      </div>
+      
+      <div class="contatti">
+
+        <a href="contatti.html">CONTATTI</a>
+
+    </div>
+     
+     
+      <div class="prenota">
+
+           <a href="Prenota.html">PRENOTA</a>
+
+      </div>
+
+  </header>
+  
+  
+  
+  <main>
+   <h1>Compila la tabella</h1>
+  
+  
+  <form>
+    <table>
+        <tr>
+            <td>
+                <b>Pacchetto:</b>
+            </td>
+            
+            <td>
+                <b>Compagnia Aerea:</b>
+            </td>
+
+            
+            <td>
+                <b>Data inizio partenza:</b>
+            </td>
+            
+            <td>
+                <b>Data Rientro:</b>
+            </td>
+
+            <td>
+              <b>Email:</b>
+          </td>
+
+          <td>
+            <b>Numero di telefono:</b>
+        </td>
+        </tr>
+
+          <tr>
+             <td class="TabTd">
+                 <select id="pacchetto">
+                    <option value="Nessuno">Nessuno</option>
+                    <option value="Famiglia">Famiglia</option>
+					          <option value="Convenienza">Convenienza</option>
+					          <option value="Lusso">Lusso</option>
+                 </select>
+             </td>
+             <td class="TabTd">
+                <select id="agenzia">
+                   <option value="Ryanair">Ryanair</option>
+                   <option value="Wizz Air">Wizz Air</option>
+                   <option value="EasyJet">EasyJet</option>
+                   <option value="Eurowings">Eurowings</option>
+                </select>
+            </td>
+
+            <td class="TabTd">
+              
+                <input type="date" id="data">
+
+            </td>
+
+
+            <td class="TabTd">
+              
+                <input type="date" id="datari">
+
+            </td>
+
+            <td class="TabTd">
+              
+              <input type="email" id="email">
+
+            </td>
+            
+            <td class="TabTd">
+              
+              <input type="text" id="telefono">
+
+            </td>
+
+          </tr>
+
+         
+        </table>
+
+         <button onclick="AggiungiTabella()" type="button">INVIO</button>
+
+
+    </form>
+
+
+ <main>
+
+
+      
+      
+     <script>
+
+       
+      function AggiungiTabella(){ 
+
+  
+             const pacc = document.getElementById("pacchetto");
+             const ag = document.getElementById("agenzia");
+             const dat = document.getElementById("data");
+            
+             if(dat.value==""){
+
+              alert("inserire la data delle partenza");
+              return;
+             }
+             
+             const datri = document.getElementById("datari");
+             
+             if(datri.value==""){
+
+                alert("inserire la data di rientro");
+                return;
+              } 
+
+              if(datri.value<dat.value){
+                
+                alert("inserire una data che sia superiore a quella d'inizio");
+                return;
+               }
+             
+                const email = document.getElementById("email");
+            
+             if(email.value==""){
+               
+               alert("inserire l'indirizzo email")
+               return;
+            }
+
+             const tel = document.getElementById("telefono");
+             if(tel.value==""){
+               
+               alert("inserire numero di telefono")
+               return;
+            }
+             const li= document.createElement("li");
+             const p= document.createElement("p");
+             const p2 = document.createElement("p");
+             const p3 = document.createElement("p");
+             const p4 = document.createElement("p");
+             const p5 = document.createElement("p");
+             const p6 = document.createElement("p");
+
+             p.innerHTML= pacc.value;
+             p2.innerHTML= ag.value;
+             p3.innerHTML=dat.value;
+             p4.innerHTML=datri.value;
+             p5.innerHTML=email.value;
+             p6.innerHTML=tel.value;
+           
+             const ul= document.getElementById("liste");
+         
+           
+             ul.appendChild(li);
+             li.appendChild(p);
+             li.appendChild(p2);
+             li.appendChild(p3);
+             li.appendChild(p4);
+             li.appendChild(p5);
+             li.appendChild(p6);
+             li.setAttribute('id','lista1');
+            
+          
+          }
+         
+
+      </script>
+
+      <ul id="liste">
+
+
+
+      </ul>
+
+    
+
+
+     </body>
+
+
+   
+
+
+
+
+</html>

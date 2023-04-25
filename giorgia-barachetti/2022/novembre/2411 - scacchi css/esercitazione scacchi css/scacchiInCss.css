@@ -54,7 +54,8 @@ article{
 
 header nav a{
     margin-left: 10px;   
-    color: white;    
+    color: white; 
+    text-decoration: none;  
 }
 
 header nav a:visited{
