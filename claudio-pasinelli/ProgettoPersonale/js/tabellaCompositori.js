@@ -48,7 +48,8 @@ async function creaProfilo(profiloAutore)
     const urlPic = profiloAutore.getUrlPic();
     const idUser = profiloAutore.getIdUser();
 
-    const listaCompositori = document.getElementById("listaCompositori");
+    const listaCompositori = document.getElementById("profilo");
+    listaCompositori.style.display = "contents";
 
     const profilo = document.createElement("section");
     profilo.setAttribute("id", "profilo");
@@ -92,7 +93,7 @@ async function creaProfilo(profiloAutore)
 
 async function creaTabellaCompositori()
 {
-    const compositori = await fetch("http://localhost:8080/progettoPersonale/api/v1/compositori/");
+    const compositori = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/");
     const responseJson = await compositori.json();
 
     for(let i = 0; i < responseJson.length; i++)
@@ -105,7 +106,7 @@ async function creaTabellaCompositori()
 async function visitaProfilo(idUser)
 {
     localStorage.clear();
-    const userSpecifico = await fetch("http://localhost:8080/progettoPersonale/api/v1/users/" + idUser.toString());
+    const userSpecifico = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/" + idUser.toString());
 
     const userSpecificoJson = await userSpecifico.json();
     const nome = userSpecificoJson.nome;
