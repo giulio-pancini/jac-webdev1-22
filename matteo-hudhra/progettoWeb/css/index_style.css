@@ -29,18 +29,72 @@ body {
     font-size: 18px;
     margin: 10px;
 }
-
+/*//////////////////////FORM E COMPONENTI FORM////////////////////////*/
 #index_form {
-    background-color: #a8a8a8;
+    background-color: #ffffff;
     /* display: block; */
     width: max-content;
     display: flex;
     flex-direction: column;
     padding: 1rem;
     align-items: center;
+    border: 1px solid #ddd;
+    box-shadow: 5px 0 5px -5px rgba(0,0,0,0.5);
 }
 form label{
     align-self: flex-start;
+}
+
+input[id="subject-name"], input[id="teacher-name"] {
+    padding: 6px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+
+input[type="submit"] {
+    padding: 6px;
+    background-color: #232f3e;
+    color: #fff;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+#subject-color{
+    border-radius: 50%;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input[type="color"]:focus,
+input[type="color"]:active {
+  border-color: #999;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  margin: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 50%;
+  box-shadow: none;
+  border: none;
 }
 /*///////////////////CONTENITORE DELLE MATERE///////////*/
 #subjects-container {
