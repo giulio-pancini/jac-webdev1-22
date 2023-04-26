@@ -139,6 +139,40 @@ function creaProfilo()
     input.value = "";
 }
 
+function creaProfiloFromCompositore(profiloAutore)
+{
+    const input = document.getElementById("imageProfileInput");
+    const nomeArtista = document.getElementById("nomeArtista");
+    const testo = document.getElementById("descrizione");
+
+    const nomeCompositore = profiloAutore.getNomeArtista();
+    const descrizione = profiloAutore.getDescrizione();
+    const urlPic = profiloAutore.getUrlPic();
+
+    const testoNomeArtista = document.getElementById("nomeArt");
+    const testoDescrizione = document.getElementById("testoDescrizione");
+    const immagine = document.getElementById("immagineProfilo");
+
+    immagine.setAttribute("src", urlPic);
+    testoDescrizione.innerText = descrizione;
+    testoNomeArtista.innerText = nomeCompositore;
+
+    const inviaBtn = document.getElementById("inviaProfilo");
+    const annullaBtn = document.getElementById("annullaModifica");
+
+    const profilo = document.getElementById("profilo");
+    profilo.style.display = "grid";
+    inviaBtn.style.display = "none";
+    annullaBtn.style.display = "inline";
+
+    const formProfilo = document.getElementById("formProfilo");
+    formProfilo.style.display = "none";
+
+    nomeArtista.value = "";
+    testo.value = "";
+    input.value = "";
+}
+
 function isImgSet()
 {
     const input = document.getElementById("imageProfileInput");

@@ -1,4 +1,5 @@
 let idSocial = 1;
+
 let arraySocial = [];
 let arrayMedia =
 [
@@ -22,18 +23,30 @@ let arrayMedia =
 class Social
 {
     idSocial;
+    idCompositore;
     dataTooltip;
     media;
     link;
     img;
 
-    constructor(idSocial, dataTooltip, media, link, img)
+    constructor(idSocial, idCompositore, dataTooltip, media, link, img)
     {
         this.idSocial = idSocial;
+        this.idCompositore = idCompositore;
         this.dataTooltip = dataTooltip;
         this.media = media;
         this.link = link;
         this.img = img;
+    }
+
+    getIdSocial()
+    {
+        return this.idSocial;
+    }
+
+    getIdCompositore()
+    {
+        return this.idCompositore;
     }
 
     getMedia()
@@ -54,6 +67,32 @@ class Social
     getDataTooltip()
     {
         return this.dataTooltip;
+    }
+}
+
+function setIdSocialGlobale(maxId)
+{
+    idSocial = maxId + 1;
+}
+async function trovaMaxIdSocial()
+{
+    const idCompositore = localStorage.getItem("idCompositore");
+    const getSocials = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + idCompositore + "/compositori");
+    const getSocialsJson = await getSocials.json();
+
+    let maxId = 1;
+
+    for(socialCompositore of getSocialsJson)
+    {
+        if(socialCompositore.idSocial > maxId)
+        {
+            maxId = socialCompositore.idSocial;
+        }
+    }
+
+    if(maxId != 1)
+    {
+        setIdSocialGlobale(maxId);
     }
 }
 
@@ -241,8 +280,9 @@ async function creaSocialJson()
     dataTooltip = media + ", link: " + document.getElementById("link").value;
     link = document.getElementById("link").value;
     img = "../iconeSocial/" + mediaLowerCase + ".png";
+    const idCompositore = localStorage.getItem("idCompositore");
 
-    const social = new Social(idSocial, dataTooltip, media, link, img);
+    const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img);
     
     arraySocial.push(social);
 
@@ -463,4 +503,78 @@ function everyLetterUpperCase(str)
     }
 
     return str2 = arr.join(" ");
+}
+
+function salvaSocial(getSocialsJson)
+{
+    let continua = false;
+    
+    if(arraySocial.length != 0)
+    {
+        for(social of arraySocial)
+        {
+            const body = JSON.stringify(social);
+    
+            for(socialCompositore of getSocialsJson)
+            {
+                const idSocial = socialCompositore.idSocial;
+                const idCompositore = socialCompositore.idCompositore;
+                const dataTooltip = socialCompositore.dataTooltip;
+                const img = socialCompositore.img;
+                const link = socialCompositore.link;
+                const media = socialCompositore.media;
+
+                if(social.getIdSocial() === idSocial)
+                {
+
+                    if(social.getIdCompositore() === idCompositore)
+                    {
+                        
+                        if(social.getDataTooltip() === dataTooltip)
+                        {
+                            
+                            if(social.getImg() === img)
+                            {
+                                
+                                if(social.getLink() === link)
+                                {
+                                    
+                                    if(social.getMedia() === media)
+                                    {
+                                        continua = true;
+                                    }
+                                    continue;
+                                }
+                                continue;
+                            }
+                            continue;
+                        }
+                        continue;
+                    }
+                    continue;
+                }
+                continue;
+            }
+
+            if(!continua)
+            {
+                postaSocial(body);
+            }
+        }
+    }
+
+    return;
+}
+
+async function postaSocial(body)
+{
+    const postSocial = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + social.getIdCompositore(),
+    {
+        method: "POST",
+        headers:
+        {
+            "content-type":'application/json'
+        },
+        body: body
+    });
 }
