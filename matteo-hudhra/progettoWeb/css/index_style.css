@@ -5,6 +5,7 @@ body {
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: 5rem 1fr;
+    font-family: "Open Sans", sans-serif;
 }
 
 .navbar {
@@ -69,7 +70,22 @@ input[type="submit"] {
     box-sizing: border-box;
 }
 
-#subject-color{
+.colors {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+  
+.color {
+    height: 20px;
+    width: 20px;
+    margin: 3px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
+/*#subject-color{
     border-radius: 50%;
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -95,12 +111,12 @@ input[type="color"]::-webkit-color-swatch {
   border-radius: 50%;
   box-shadow: none;
   border: none;
-}
+}*/
 /*///////////////////CONTENITORE DELLE MATERE///////////*/
 #subjects-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 10px;
     margin: 10px;
 }
@@ -126,7 +142,7 @@ input[type="color"]::-webkit-color-swatch {
 /* Stile del nome del professore */
 .teacher-name {
 	font-size: 1.5em;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 		
 /* Stile della media dei voti */
