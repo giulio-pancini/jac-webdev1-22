@@ -33,15 +33,7 @@
                     <th>Elimina</th>
                 </tr>
 
-                <!--<tr>
-                    <td id="qta"></td>
-                    <td id="prez"></td>
-                    <td id="desc"></td>
-                    <td><i class="fas fa-trash-alt"></i></td>
-                </tr>
-
-
-
+                <!--
                 <tr>
                     <th>TOTALE</th>
                     <td id="tot"></td>
@@ -107,7 +99,7 @@
             <p class="price">3€/pz</p>
 
             
-                <img src="images/hosomaki-tonno.png">
+                <img src="images/hosomaki-tonno.png" onclick="incrementoSushi(6), creaRiga(indice)">
                 <img src="images/Hosomaki-salmone.png">
                 <img src="images/HOSOMAKI-AVOCADO.png">
                 <img src="images/hosomaki-tonno.png">
@@ -182,15 +174,23 @@
         });
     });
 
-   let controllo = false;
+   
     function toggle() {
-       if (controllo == false){
+       
+       const tab = document.getElementById('tab');
+       const intTab = document.getElementById('tab').getElementsByTagName('tr')[0].cloneNode(true);
+
+       tab.innerHTML='';
+       tab.appendChild(intTab);  
+
+
         for (let i = 0; i < ordine.length; i++) {
-        
-        if (ordine [i].qta>0){
+    
+            if (ordine [i].qta>0){
+
             creaRiga(i);
         }
-       }
+       
        }
         const home = document.getElementById('home');
         const divRiepilogo = document.getElementById('riepilogo');
@@ -212,18 +212,6 @@
     }
 
 
-    /* function aggiugniNigiriSalmon(nome, prezzo, type){
-         const addNigiri = document.createElement("p");
-         const elementoDesc = document.getElementById("desc");
-         const elementoPrez = document.getElementById("prez");
-         const elementoQta = document.getElementById("qta");
-         elementoDesc.innerText = nome;
-         elementoPrez.innerText = prezzo;
-         elementoQta.innerText = mappa.get(type);
-         
- 
-         
-     }*/
     const ordine = [
         {
             qta:0,
@@ -293,21 +281,6 @@
         
     ]
      
-    /*let quantitaTotale = 0;
-    function aggiungiSushi(qta, nome, prezzo) {
-        quantitaTotale += qta;
-        const addNigiri = document.createElement("p");
-        const elementoDesc = document.getElementById("desc");
-        const elementoPrez = document.getElementById("prez");
-        const elementoQta = document.getElementById("qta")
-        elementoDesc.innerText = nome;
-        elementoPrez.innerText = prezzo;
-        elementoQta.innerText = quantitaTotale;
-
-    }*/
-
-  
-
     function creaRiga(indice) {
         const table = document.getElementById("tab"); 
         const riga = document.createElement("tr");
@@ -319,6 +292,8 @@
         nome.innerText = ordine [indice].nome;
         prezzo.innerText = ordine [indice].prezzo;
         elimina.className = "fas fa-trash-alt";
+        elimina.addEventListener("click", function() { rimuoviRiga(this); }); // associa la funzione di eliminazione all'evento click dell'elemento "Elimina"
+
         riga.appendChild(qta);
         riga.appendChild(prezzo);
         riga.appendChild(nome);
@@ -335,9 +310,13 @@
 
 
 
-    function rimuoviElementi() {
+    function rimuoviRiga(elemento) {
+  const riga = elemento.closest("tr"); // ottiene la riga che contiene l'elemento
+  const indice = riga.rowIndex - 1; // calcola l'indice dell'oggetto nell'array, tenendo conto dell'header della tabella
+  ordine.splice(indice, 1); // rimuove l'oggetto dall'array
+  riga.parentNode.removeChild(riga); // rimuove la riga dalla tabella
+}
 
-    }
     function calcoloTotale(){
         
     }
