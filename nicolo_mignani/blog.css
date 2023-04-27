@@ -110,6 +110,66 @@
           width: auto;
           height: auto;
         }
+
+        main h3{
+
+          padding-left: 60px;
+          padding-top: 30px;
+   
+   
+         }  
+         
+         hr{
+   
+           border: 5px solid tomato;
+          
+           width: 90%;
+           text-align: right;
+           margin: 0px;
+           margin-left:60px;
+           
+   
+         }
+
+         img{
+          
+          background: url("thailandia.jpg");
+          display: block;
+          margin: 0 auto;
+          height: 500px;
+          width: 800px;
+          background-position-x: 40%;
+          border: 10px solid gainsboro;
+          margin-top: 20px;
+
+         }
+
+         .thailandia h3{
+
+          padding-left: 200px;
+          font-size: 23px;
+
+         }
+         .thailandia p{
+
+          font-size: 18px;
+          padding-left: 160px;
+         }
+
+         .thailandia img{
+
+          background: url("bangkok.jpg");
+          display: block;
+          margin: 0 auto;
+          height: 500px;
+          width: 800px;
+          background-position: center;
+          background-size: cover;
+          border: 10px solid gainsboro;
+          margin-top: 20px;
+          background-repeat: no-repeat;
+
+         }
   
         footer{
   
@@ -170,5 +230,41 @@
             opacity: .5;
             position:absolute;
   
+            }
+            @media (max-width: 767px) {
+
+              main h3{
+
+                 padding-left: 40px;
+
+              }
+
+              hr{
+
+
+                margin-left: 40px;
+              }
+              
+              img{
+
+                height: 250px;
+                 width: 550px;
+
+
+              }
+              .thailandia h3{
+
+                padding-left: 50px;
+
+
+              }
+
+              .thailandia p{
+
+                padding-left: 50px;
+
+
+              }
+              
             }
   
