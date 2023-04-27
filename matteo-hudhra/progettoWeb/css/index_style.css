@@ -124,7 +124,8 @@ input[type="color"]::-webkit-color-swatch {
    /* Stile del contenitore della materia */
    
 .subject-container {
-    width: auto;
+    width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
     align-self: center;
     height: 175px;
     margin: 10px;
