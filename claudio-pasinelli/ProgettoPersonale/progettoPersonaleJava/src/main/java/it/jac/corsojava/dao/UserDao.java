@@ -88,9 +88,6 @@ public class UserDao extends Dao<User>
 		
 		log.debug("Selezionate {} righe", rs);
 		
-//		sb.append("SELECT id_user, email, nome, cognome, password, tipo, ");
-//		sb.append(" utente_ins, utente_mod, data_ins, data_mod");
-		
 		result.setIdUser(rs.getLong("id_user"));
 		result.setEmail(rs.getString("email"));
 		result.setNome(rs.getString("nome"));

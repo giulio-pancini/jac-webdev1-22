@@ -753,7 +753,8 @@ form#immaginiInput button
 #messaggioProfilo,
 #messaggioGalleria,
 #messaggioTraccia,
-#messaggioFetch
+#messaggioFetch,
+#messaggioLogin
 {
     display: none;
 }

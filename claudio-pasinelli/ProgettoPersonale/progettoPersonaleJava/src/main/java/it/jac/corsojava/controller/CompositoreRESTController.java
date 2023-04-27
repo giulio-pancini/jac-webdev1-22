@@ -48,7 +48,7 @@ public class CompositoreRESTController
 					.build();
 		}
 		
-		String compositoreUrlPic= compositore.getUrlPic();
+		String compositoreUrlPic = compositore.getUrlPic();
 		if (compositoreUrlPic == null || compositoreUrlPic.trim().length() == 0)
 		{
 			return Response.status(Status.BAD_REQUEST)
@@ -93,13 +93,13 @@ public class CompositoreRESTController
 		return compositore;
 	}	
 	@GET
-	@Path("/{id}/users")
+	@Path("/{idUser}/users")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Compositore> findCompositoreByIdUser(@PathParam("id") long id)
+	public List<Compositore> findCompositoreByIdUser(@PathParam("idUser") long idUser)
 	{
-		log.info("Ricerco i compositori per l'id user [id={}]", id);
+		log.info("Ricerco i compositori per l'id user [id={}]", idUser);
 		
-		List<Compositore> resultList = CompositoreService.getInstance().findCompositoreByIdUser(id);
+		List<Compositore> resultList = CompositoreService.getInstance().findCompositoreByIdUser(idUser);
 		
 		if (resultList == null)
 		{
@@ -113,7 +113,7 @@ public class CompositoreRESTController
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response update(@PathParam("idCompositore") long idCompositore, Compositore compositore)
 	{
-		log.info("Modifico lo compositore [id={}]", idCompositore);
+		log.info("Modifico il compositore [id={}]", idCompositore);
 		
 		CompositoreService.getInstance().update(idCompositore, compositore.getNomeArtista(), compositore.getDescrizione(), compositore.getUrlPic());
 		

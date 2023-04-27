@@ -1,18 +1,24 @@
 class Compositore
 {
+    idCompositore
     idUser
     nomeArtista;
     descrizione;
     urlPic;
 
-    constructor(idUser, nomeArtista, descrizione, urlPic)
+    constructor(idCompositore, idUser, nomeArtista, descrizione, urlPic)
     {
+        this.idCompositore = idCompositore;
         this.idUser = idUser;
         this.nomeArtista = nomeArtista;
         this.descrizione = descrizione;
         this.urlPic = urlPic;
     }
 
+    getIdCompositore()
+    {
+        return this.idCompositore;
+    }
     getIdUser()
     {
         return this.idUser;
@@ -50,20 +56,48 @@ async function salvaDati()
 
     if(immagineGiaPresente && titoloGiaPresente && descrizioneGiaPresente && localStorage.getItem("idUser") != null)
     {
-        const profiloAutore = new Compositore(parseInt(localStorage.getItem("idUser")), nomeArtista, descrizione, urlPic);
+        const profiloAutore = new Compositore(parseInt(localStorage.getItem("idCompositore")), parseInt(localStorage.getItem("idUser")), nomeArtista, descrizione, urlPic);
 
         const body = JSON.stringify(profiloAutore);
 
-        const postCompositore = await fetch("http://localhost:8080/progettoPersonale/api/v1/compositori/" + profiloAutore.getIdUser(),
+        const getCompositore = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/" + profiloAutore.getIdUser() + "/users");
+        const getCompositoreJson = await getCompositore.json();
+
+        if(getCompositoreJson === null)
         {
-            method: "POST",
-            headers:
+            const postCompositore = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/" + profiloAutore.getIdUser(),
             {
-                "content-type":'application/json'
-            },
-            body: body
-        });
+                method: "POST",
+                headers:
+                {
+                    "content-type":'application/json'
+                },
+                body: body
+            });
+        }
+
+        for(compositore of getCompositoreJson)
+        {
+            if(compositore.nomeArtista != nomeArtista || compositore.descrizione != descrizione || compositore.urlPic != urlPic)
+            {
+                const postCompositore = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/" + localStorage.getItem("idCompositore"),
+                {
+                    method: "PUT",
+                    headers:
+                    {
+                        "content-type":'application/json'
+                    },
+                    body: body
+                });
+            }
+        }
     }
+
+    const getSocials = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + localStorage.getItem("idCompositore") + "/compositori");
+    const getSocialsJson = await getSocials.json();
+
+    salvaSocial(getSocialsJson);
+
     localStorage.clear();
     window.location.href = "index.html";
 }

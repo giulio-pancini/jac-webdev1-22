@@ -211,27 +211,82 @@ async function inviaDatiForm()
     let compositore = false;
     let utenteTrovato = false;
 
-    const response = await fetch("http://localhost:8080/progettoPersonale/api/v1/users/");
+    const response = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/");
     const responseJson = await response.json();
 
     for(let i = 0; i < responseJson.length; i++)
     {
-        if(responseJson[i].password === password && responseJson[i].tipo === "COMPOSITORE")
+        if(responseJson[i].email === email)
         {
-            //prendo l'idUser dell'utente
-            localStorage.setItem("idUser", responseJson[i].idUser);
+            if(responseJson[i].nome === nome)
+            {
+                if(responseJson[i].cognome === cognome)
+                {
+                    if(responseJson[i].password === password)
+                    {
+                        if(responseJson[i].tipo === tipo && tipo === "COMPOSITORE")
+                        {
+                            //prendo l'idUser dell'utente
+                            localStorage.setItem("idUser", responseJson[i].idUser);
+                            compositore = true;
+                            break;
+                        }
 
-            compositore = true;
-            break;
+                        else if(responseJson[i].tipo === tipo && tipo === "NON_COMPOSITORE")
+                        {
+                            utenteTrovato = true;
+                            break;
+                        }
+
+                        else if(responseJson[i].tipo === "COMPOSITORE" && tipo === "NON_COMPOSITORE")
+                        {
+                            testoMessaggio.scrollIntoView(
+                                {
+                                    behavior: 'smooth',
+                                    block: 'end'
+                                });
+                    
+                            testoMessaggio.style.display = "block";
+                            testoMessaggio.innerText = "Ci dispiace, ma ci risulta che ti sei già registrato come un utente compositore!";
+                            testoMessaggio.style.color = "red";
+                    
+                            setTimeout(() =>
+                            {
+                                testoMessaggio.innerText = "";
+                                testoMessaggio.style.display = "none";
+                            }, 3000);
+                    
+                            return;
+                        }
+
+                        else if(responseJson[i].tipo === "NON_COMPOSITORE" && tipo === "COMPOSITORE")
+                        {
+                            testoMessaggio.scrollIntoView(
+                                {
+                                    behavior: 'smooth',
+                                    block: 'end'
+                                });
+                    
+                            testoMessaggio.style.display = "block";
+                            testoMessaggio.innerText = "Ci dispiace, ma ci risulta che ti sei già registrato come un utente non compositore!";
+                            testoMessaggio.style.color = "red";
+                    
+                            setTimeout(() =>
+                            {
+                                testoMessaggio.innerText = "";
+                                testoMessaggio.style.display = "none";
+                            }, 3000);
+                    
+                            return;
+                        }
+                    }
+                    continue;
+                }
+                continue;
+            }
+            continue;
         }
-
-        else if(responseJson[i].password === password && responseJson[i].tipo === "NON_COMPOSITORE")
-        {
-            //riempio il localStorage
-
-            utenteTrovato = true;
-            break;
-        }
+        continue;
     }
 
     //riempio il localStorage
@@ -254,7 +309,7 @@ async function inviaDatiForm()
     
         console.log("richiamo la users in POST");
     
-        const postUser = await fetch("http://localhost:8080/progettoPersonale/api/v1/users/",
+        const postUser = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/",
         {
             method: "POST",
             headers:
