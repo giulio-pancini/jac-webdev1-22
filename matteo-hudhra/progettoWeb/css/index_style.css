@@ -5,6 +5,7 @@ body {
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-template-rows: 5rem 1fr;
+    font-family: "Open Sans", sans-serif;
 }
 
 .navbar {
@@ -54,9 +55,22 @@ input[id="subject-name"], input[id="teacher-name"] {
     box-sizing: border-box;
 }
 
+input[type="reset"] {
+    padding: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50px;
+    border: solid 1px rgb(184, 184, 184);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 
 input[type="submit"] {
-    padding: 6px;
+    padding: 5px;
     background-color: #232f3e;
     color: #fff;
     border-radius: 50px;
@@ -65,11 +79,28 @@ input[type="submit"] {
     font-size: 16px;
     font-weight: bold;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 5px;
     box-sizing: border-box;
 }
 
-#subject-color{
+.colors {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin-bottom: 20px;
+}
+  
+.color {
+    height: 20px;
+    width: 20px;
+    margin: 3px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
+
+/*#subject-color{
     border-radius: 50%;
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -95,12 +126,12 @@ input[type="color"]::-webkit-color-swatch {
   border-radius: 50%;
   box-shadow: none;
   border: none;
-}
+}*/
 /*///////////////////CONTENITORE DELLE MATERE///////////*/
 #subjects-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 10px;
     margin: 10px;
 }
@@ -108,30 +139,31 @@ input[type="color"]::-webkit-color-swatch {
    /* Stile del contenitore della materia */
    
 .subject-container {
-    width: auto;
+    width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    padding: 10px;
     align-self: center;
-    height: 175px;
-    margin: 10px;
-    background-color: #7a7979;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 		
 /* Stile del titolo della materia */
 .subject-title {
 	font-size: 2em;
 	font-weight: bold;
-	margin-bottom: 10px;
+    color:#ffffff;
+    margin: 0;
 }
 		
 /* Stile del nome del professore */
 .teacher-name {
 	font-size: 1.5em;
-	margin-bottom: 10px;
+    color: rgb(255, 255, 255);
 }
 		
 /* Stile della media dei voti */
 .average-grade {
 	font-size: 1.5em;
 	font-weight: bold;
-	color: #007bff;
+	color: #ffffff;
 }

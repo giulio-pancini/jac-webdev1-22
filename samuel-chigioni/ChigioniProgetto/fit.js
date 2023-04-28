@@ -85,27 +85,36 @@ document.getElementById('corpo').appendChild(newElementTr);
 
 }
 
+// CLICK SUL CARRELLO
+const button1 = document.getElementById("cart");
+
+button1.addEventListener("click", function () {
+    window.scroll({
+        top: 1500,
+        left: 0,
+        behavior: "smooth"
+    });
+});
+//-----------------------------
 
 
 
+//SLIDER:-------------------------------------------------------
 
 
+let slideIndex = 1;
+showSlides(slideIndex);
 
 
-
-
-
-function ciao() {
-  risposta = prompt('Quanti ne vuoi acquistare?')
-  if (risposta) {
-    alert('Ok, vuoi acquistarne ' + risposta)
-  }
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-//SLIDER:
 
-let slideIndex = 0;
-showSlides();
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
 
 function showSlides() {
   let i;
@@ -116,10 +125,12 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slide.length) { slideIndex = 1 }
   slide[slideIndex - 1].style.display = "block";
-  setTimeout(showSlides, 2000); // Cambia immagine ogni 2 secondi
+  setTimeout(showSlides, 3000); // Cambia immagine ogni 2 secondi
 }
 
 //-------------------------------------------------------------
+
+
 
 
 
