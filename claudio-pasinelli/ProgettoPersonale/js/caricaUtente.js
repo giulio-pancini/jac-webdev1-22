@@ -1,8 +1,9 @@
 async function caricaUtente()
 {
     let userNickname = document.getElementById("userNickname");
+    let idCompositore;
 
-    if(localStorage.getItem("idUser") != null)
+    if(localStorage.getItem("idUser") != "undefined")
     {
         const userSpecifico = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/" + localStorage.getItem("idUser"));
         const userSpecificoJson = await userSpecifico.json();
@@ -12,14 +13,34 @@ async function caricaUtente()
 
         const compositoreSpecifico = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/" + localStorage.getItem("idUser") + "/users");
         const compositoreSpecificoJson = await compositoreSpecifico.json();
-        let idCompositore
 
-        for(compositoreRisposta of compositoreSpecificoJson)
+        if(compositoreSpecificoJson.length === 0)
         {
-            idCompositore = compositoreRisposta.idCompositore;
+            const getCompositori = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/");
+            const getCompositoriJson = await getCompositori.json();
+                
+            let maxId = 1;
+    
+            for(compositore of getCompositoriJson)
+            {
+                if(compositore.idCompositore > maxId)
+                {
+                    maxId = compositore.idCompositore;
+                }
+            }
+    
+            localStorage.setItem("idCompositore", maxId + 1);
         }
 
-        localStorage.setItem("idCompositore", idCompositore);
+        else
+        {
+            for(compositoreRisposta of compositoreSpecificoJson)
+            {
+                idCompositore = compositoreRisposta.idCompositore;
+            }
+    
+            localStorage.setItem("idCompositore", idCompositore);
+        }
 
         //creo il profilo del compositore
 
@@ -44,10 +65,32 @@ async function caricaUtente()
             const media = socialCompositore.media;
 
             const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img);
+
             creaSocial(social);
         }
 
         trovaMaxIdSocial();
+
+        //carico le carte e le creo
+
+        const getCarte = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + idCompositore + "/compositori");
+        const getCarteJson = await getCarte.json();
+
+        for(cartaCompositore of getCarteJson)
+        {
+            const idCarta = cartaCompositore.idCarta;
+            const idCompositore = cartaCompositore.idCompositore;
+            const titolo = cartaCompositore.titolo;
+            const prezzo = cartaCompositore.prezzo;
+            const mese = cartaCompositore.mese;
+            const img = cartaCompositore.img;
+            const eliminata = cartaCompositore.eliminata;
+
+            const carta = new Carta(idCarta, idCompositore, titolo, prezzo, mese, img, eliminata);
+            creaCartaHTML(carta);
+        }
+
+        trovaMaxIdCarta();
         
         return;
     }

@@ -46,6 +46,12 @@ async function salvaDati()
     let titoloGiaPresente;               //bolean
     let descrizioneGiaPresente;          //bolean
 
+    const bottoneSalva = document.getElementById("salvaDati");
+    const bottoneNonSalvare = document.getElementById("nonSalvareDati");
+
+    bottoneSalva.disabled = true;
+    bottoneNonSalvare.disabled = true;
+
     const nomeArtista = document.getElementById("nomeArt").innerText;
     const descrizione = document.getElementById("testoDescrizione").innerText;
     const urlPic = document.getElementById("immagineProfilo").src;
@@ -63,7 +69,7 @@ async function salvaDati()
         const getCompositore = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/" + profiloAutore.getIdUser() + "/users");
         const getCompositoreJson = await getCompositore.json();
 
-        if(getCompositoreJson === null)
+        if(getCompositoreJson.length === 0)
         {
             const postCompositore = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/compositori/" + profiloAutore.getIdUser(),
             {
@@ -98,8 +104,16 @@ async function salvaDati()
 
     salvaSocial(getSocialsJson);
 
-    localStorage.clear();
-    window.location.href = "index.html";
+    const getCarte = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + localStorage.getItem("idCompositore") + "/compositori");
+    const getCarteJson = await getCarte.json();
+
+    salvaCarta(getCarteJson);
+
+    setTimeout(() =>
+    {
+        localStorage.clear();
+        window.location.href = "index.html";
+    }, 1000);
 }
 
 function nonSalvareDati()

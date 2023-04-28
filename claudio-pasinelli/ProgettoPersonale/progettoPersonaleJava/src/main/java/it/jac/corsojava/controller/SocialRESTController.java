@@ -43,7 +43,7 @@ public class SocialRESTController
 		if (socialMedia == null || socialMedia.trim().length() == 0)
 		{
 			return Response.status(Status.BAD_REQUEST)
-					.entity("media social non valorizzata")
+					.entity("Media social non valorizzata")
 					.header("Content-Type", "text/plain")
 					.build();
 		}

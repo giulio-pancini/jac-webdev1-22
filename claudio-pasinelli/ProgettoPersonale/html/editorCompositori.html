@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="../css/carte.css">
     <script src="../js/profiloCompositore.js"></script>
     <script src="../js/salvaDatiUtente.js"></script>
-    <script src="../js/caricaUtente.js"></script>
     <script src="../js/carte.js"></script>
     <script src="../js/social.js"></script>
     <script src="../js/slideshow.js"></script>
+    <script src="../js/caricaUtente.js"></script>
     <script src="../js/tabellaCompositori.js"></script>
 </head>
 
@@ -27,8 +27,8 @@
             <button id="chiudiPopUpLogOut" onclick="chiudiPopUp()" title="Chiudi Popup">X</button>
         </section>
         <section id="logOutPremuto">
-            <button onclick="salvaDati()">Salva</button>
-            <button onclick="nonSalvareDati()">Non salvare</button>
+            <button onclick="salvaDati()" id="salvaDati">Salva</button>
+            <button onclick="nonSalvareDati()" id="nonSalvareDati">Non salvare</button>
         </section>
     </section>
 
@@ -93,7 +93,7 @@
             <form id="formCard">
                 <input type="file" id="immagineCarta" accept="image/*">
                 <label for="nome"><p>Nome: </p><input type="text" name="nome" id="nome" required></label>
-                <label for="prezzo"><p>Prezzo: </p><input type="text" name="prezzo" id="prezzo" required></label>
+                <label for="prezzo"><p>Prezzo: </p><input type="number" name="prezzo" id="prezzo" required></label>
                 <label for="mese">Mese:</label>
                 <select id="mese" name="mese">
                     <option value="0">Anulla</option>

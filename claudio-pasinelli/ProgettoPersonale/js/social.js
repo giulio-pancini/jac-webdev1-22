@@ -74,6 +74,7 @@ function setIdSocialGlobale(maxId)
 {
     idSocial = maxId + 1;
 }
+
 async function trovaMaxIdSocial()
 {
     const idCompositore = localStorage.getItem("idCompositore");
@@ -568,7 +569,7 @@ function salvaSocial(getSocialsJson)
 
 async function postaSocial(body)
 {
-    const postSocial = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + social.getIdCompositore(),
+    const postSocial = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + localStorage.getItem("idCompositore"),
     {
         method: "POST",
         headers:

@@ -45,6 +45,11 @@ class User
     {
         return this.tipo;
     }
+
+    setIdUser(idUser)
+    {
+        this.idUser = idUser;
+    }
 }
 
 async function inviaDatiForm()
@@ -208,11 +213,24 @@ async function inviaDatiForm()
     document.getElementById('compositore').checked = false;
     document.getElementById('non_compositore').checked = false;
 
-    let compositore = false;
-    let utenteTrovato = false;
+    let compositoreEsistente = false;
+    let utenteEsistente = false;
+
+    let compositoreNonEsistente = false;
+    let utenteNonEsistente = false;
 
     const response = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/");
     const responseJson = await response.json();
+
+    if(tipo === "COMPOSITORE")
+    {
+        compositoreNonEsistente = true;
+    }
+
+    else if(tipo === "NON_COMPOSITORE")
+    {
+        utenteNonEsistente = true;
+    }
 
     for(let i = 0; i < responseJson.length; i++)
     {
@@ -228,13 +246,15 @@ async function inviaDatiForm()
                         {
                             //prendo l'idUser dell'utente
                             localStorage.setItem("idUser", responseJson[i].idUser);
-                            compositore = true;
+                            compositoreEsistente = true;
+                            compositoreNonEsistente = false;
                             break;
                         }
 
                         else if(responseJson[i].tipo === tipo && tipo === "NON_COMPOSITORE")
                         {
-                            utenteTrovato = true;
+                            utenteEsistente = true;
+                            utenteNonEsistente = false;
                             break;
                         }
 
@@ -293,32 +313,35 @@ async function inviaDatiForm()
     localStorage.setItem("Nome", nome);
     localStorage.setItem("Cognome", cognome);
 
-    if(compositore)
+    if(compositoreEsistente)
     {
         window.location.href = "editorCompositori.html";
     }
 
-    if(utenteTrovato)
+    if(utenteEsistente)
     {
         window.location.href = "tabellaCompositori.html";
     }
 
-    else if(!utenteTrovato && !compositore)
+    const body = JSON.stringify(user);
+
+    const postUser = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/",
     {
-        const body = JSON.stringify(user);
-    
-        console.log("richiamo la users in POST");
-    
-        const postUser = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/",
+        method: "POST",
+        headers:
         {
-            method: "POST",
-            headers:
-            {
-                "content-type":'application/json'
-            },
-            body: body
-        });
-        
+            "content-type":'application/json'
+        },
+        body: body
+    });
+
+    if(utenteNonEsistente)
+    {
         window.location.href = "tabellaCompositori.html";
+    }
+
+    else if(compositoreNonEsistente)
+    {
+        window.location.href = "editorCompositori.html";
     }
 }
