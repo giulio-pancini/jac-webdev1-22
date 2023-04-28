@@ -518,6 +518,8 @@ function salvaSocial(getSocialsJson)
     
             for(socialCompositore of getSocialsJson)
             {
+                continua = false;
+                
                 const idSocial = socialCompositore.idSocial;
                 const idCompositore = socialCompositore.idCompositore;
                 const dataTooltip = socialCompositore.dataTooltip;

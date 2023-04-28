@@ -49,8 +49,7 @@ async function salvaDati()
     const bottoneSalva = document.getElementById("salvaDati");
     const bottoneNonSalvare = document.getElementById("nonSalvareDati");
 
-    bottoneSalva.disabled = true;
-    bottoneNonSalvare.disabled = true;
+    chiudiPopUp();
 
     const nomeArtista = document.getElementById("nomeArt").innerText;
     const descrizione = document.getElementById("testoDescrizione").innerText;
@@ -97,23 +96,76 @@ async function salvaDati()
                 });
             }
         }
+
+        salvaTuttiIDati();
     }
 
+    else
+    {
+        chiudiPopUp();
+
+        const inviaBtn = document.getElementById("inviaProfilo");
+        const annullaBtn = document.getElementById("annullaModifica");
+        let testoMessaggio = document.getElementById("messaggioProfilo");
+
+        testoMessaggio.scrollIntoView(
+            {
+                behavior: 'smooth',
+                block: 'end'
+            });
+            
+        inviaBtn.style.display = "none";
+        annullaBtn.style.display = "none";
+        testoMessaggio.style.display = "block";
+        testoMessaggio.innerText = "Non hai creato il tuo profilo";
+        testoMessaggio.style.color = "red";
+
+        setTimeout(() =>
+        {
+            testoMessaggio.innerText = "";
+            inviaBtn.style.display = "inline";
+            testoMessaggio.style.display = "none";
+            document.getElementById("prezzo").value = '';
+        }, 3000);
+
+        return;
+    }
+}
+
+async function salvaTuttiIDati()
+{
+    let risultatoSalvataggioSocial = false;
+    let risultatoSalvataggioCarte = false;
+
+    risultatoSalvataggioSocial = await salvaDatiSocial();
+    risultatoSalvataggioCarte = await salvaDatiCarte();
+
+    if(risultatoSalvataggioSocial && risultatoSalvataggioCarte)
+    {
+        setTimeout(() =>
+        {
+            localStorage.clear();
+            window.location.href = "index.html";
+        }, 1000);
+    }
+}
+
+async function salvaDatiSocial()
+{
     const getSocials = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + localStorage.getItem("idCompositore") + "/compositori");
     const getSocialsJson = await getSocials.json();
 
     salvaSocial(getSocialsJson);
+    return true;
+}
 
+async function salvaDatiCarte()
+{
     const getCarte = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + localStorage.getItem("idCompositore") + "/compositori");
     const getCarteJson = await getCarte.json();
 
     salvaCarta(getCarteJson);
-
-    setTimeout(() =>
-    {
-        localStorage.clear();
-        window.location.href = "index.html";
-    }, 1000);
+    return true;
 }
 
 function nonSalvareDati()

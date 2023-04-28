@@ -225,7 +225,7 @@ function creaCartaJson()
         {
             const img = "url("+reader.result+")";
 
-            const carta = new Carta(idCarta, localStorage.getItem("idCompositore"), document.getElementById("nome").value, document.getElementById("prezzo").value, document.getElementById("mese").value, img, false);
+            const carta = new Carta(idCarta, parseInt(localStorage.getItem("idCompositore")), document.getElementById("nome").value, document.getElementById("prezzo").value, document.getElementById("mese").value, img, false);
     
             if(arrayCarte.length==0)
             {
@@ -335,7 +335,7 @@ function eliminaCarta(id)
 
     for (const carta of arrayCarte)
     {
-        if(carta.getIdCarta() === id)
+        if(carta.getIdCarta() === parseInt(id))
         {
             const cartaDaEliminare = document.getElementById("carta"+id.toString());
             const indice = arrayCarte.indexOf(carta);
@@ -349,13 +349,37 @@ function eliminaCarta(id)
                 // arrayCarte.splice(indice,1);
                 cartaDaEliminare.remove();
                 coloraCarte();
+
+                const carte = document.getElementsByClassName("card");
                 
-                if(arrayCarte.length==0)
+                if(carte.length == 0)
                 {
                     tracksContainer.style.display = "none";
                 }
             }, 1200);
 
+            isCartaTrovata = true;
+        }
+    }
+
+    if(!isCartaTrovata)
+    {
+        alert(`La traccia "${id}" non è stata trovata!`);
+    }
+}
+
+function eliminaDefinitivamenteCarta(id)
+{
+    let isCartaTrovata = false;
+    const tracksContainer = document.getElementById("tracksContainer");
+
+    for (const carta of arrayCarte)
+    {
+        if(carta.getIdCarta() === parseInt(id))
+        {
+            const indice = arrayCarte.indexOf(carta);
+
+            arrayCarte.splice(indice,1);
             isCartaTrovata = true;
         }
     }
@@ -566,7 +590,7 @@ function sortMeseScelto()
     coloraCarte();
 }
 
-function salvaCarta(getCarteJson)
+async function salvaCarta(getCarteJson)
 {
     let continua = false;
 
@@ -586,7 +610,7 @@ function salvaCarta(getCarteJson)
             
             if(carta.isEliminata() === true)
             {
-                cancellaCarta(carta, body);
+                await cancellaCarta(carta, body);
             }
         }
     }
@@ -597,6 +621,8 @@ function salvaCarta(getCarteJson)
 
         for(cartaCompositore of getCarteJson)
         {
+            continua = false;
+
             idCarta = cartaCompositore.idCarta;
             idCompositore = cartaCompositore.idCompositore;
             titolo = cartaCompositore.titolo;
@@ -607,7 +633,6 @@ function salvaCarta(getCarteJson)
 
             if(carta.getIdCarta() === idCarta)
             {
-
                 if(carta.getIdCompositore() === idCompositore)
                 {
                     
@@ -665,6 +690,8 @@ async function postaCarta(body)
 async function cancellaCarta(carta, body)
 {
     const idCarta = carta.getIdCarta().toString();
+    eliminaDefinitivamenteCarta(idCarta);
+    
     const cancellaCarta = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + idCarta,
     {
         method: "DELETE",
@@ -674,4 +701,6 @@ async function cancellaCarta(carta, body)
         },
         body: body
     });
+
+    return true;
 }

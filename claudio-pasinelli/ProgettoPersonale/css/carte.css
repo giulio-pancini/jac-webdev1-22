@@ -49,6 +49,7 @@ form#formCard button#btnCard
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-width: fit-content;
 }
 
 #tracksContainer p
