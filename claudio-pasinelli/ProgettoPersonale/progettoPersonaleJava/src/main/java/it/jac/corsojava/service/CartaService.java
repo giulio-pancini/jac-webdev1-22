@@ -132,17 +132,6 @@ public class CartaService
 		return result;
 	}
 	
-	public List<Carta> findCartaByidCompositore(long idCompositore)
-	{
-		log.debug("Ricerca Carta tramite id compositore [id={}]", idCompositore);
-		
-		List<Carta> resultList = this.dao.findCartaByIdCompositore(idCompositore);
-		
-		log.debug("Restituisco {}", resultList);
-		
-		return resultList;
-	}
-	
 	public List<Carta> findCartaByIdCompositore(long idCompositore)
 	{
 		log.debug("Ricerca Carta tramite id compositore [id={}]", idCompositore);

@@ -250,15 +250,18 @@ async function inviaDatiForm()
                         if(responseJson[i].tipo === tipo && tipo === "COMPOSITORE")
                         {
                             //prendo l'idUser dell'utente
-                            localStorage.setItem("idUser", responseJson[i].idUser);
+                            idUser = responseJson[i].idUser;
+                            localStorage.setItem("idUser", idUser);
                             compositoreEsistente = true;
                             compositoreNonEsistente = false;
                             idUser = responseJson[i].idUser;
                             break;
                         }
-
+                        
                         else if(responseJson[i].tipo === tipo && tipo === "NON_COMPOSITORE")
                         {
+                            idUser = responseJson[i].idUser;
+                            localStorage.setItem("idUserNonCompositore", idUser);
                             utenteEsistente = true;
                             utenteNonEsistente = false;
                             idUser = responseJson[i].idUser;
@@ -330,7 +333,6 @@ async function inviaDatiForm()
                 }
             }
         
-            // localStorage.setItem("idCompositore", maxId + 1);
             if(maxId > 1)
             {
                 idUser = maxId + 1;
@@ -353,18 +355,21 @@ async function inviaDatiForm()
         });
     }
 
-    //riempio il localStorage
-    localStorage.setItem("Nome", nome);
-    localStorage.setItem("Cognome", cognome);
-    localStorage.setItem("idUser", idUser);
-
+    //riempio il localStoragee e faccio il reindirizzamento dell'utente alla pagina riservata a lui
+    
     if(compositoreEsistente || compositoreNonEsistente)
     {
+        localStorage.setItem("Nome", nome);
+        localStorage.setItem("Cognome", cognome);
+        
         window.location.href = "editorCompositori.html";
     }
-
+    
     else if(utenteEsistente || utenteNonEsistente)
     {
+        localStorage.setItem("NomeUser", nome);
+        localStorage.setItem("CognomeUser", cognome);
+
         window.location.href = "tabellaCompositori.html";
     }
 }

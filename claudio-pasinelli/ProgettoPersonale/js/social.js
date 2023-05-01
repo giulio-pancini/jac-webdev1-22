@@ -529,19 +529,14 @@ function salvaSocial(getSocialsJson)
 
                 if(social.getIdSocial() === idSocial)
                 {
-
                     if(social.getIdCompositore() === idCompositore)
                     {
-                        
                         if(social.getDataTooltip() === dataTooltip)
                         {
-                            
                             if(social.getImg() === img)
                             {
-                                
                                 if(social.getLink() === link)
                                 {
-                                    
                                     if(social.getMedia() === media)
                                     {
                                         continua = true;

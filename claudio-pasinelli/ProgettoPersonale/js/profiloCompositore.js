@@ -126,7 +126,8 @@ function creaProfilo()
         testoDescrizione.innerText = testo.value;
     }
 
-    const profilo = document.getElementById("profilo");
+    const profili = document.getElementsByClassName("profilo");
+    const profilo = profili[0];
     profilo.style.display = "grid";
     inviaBtn.style.display = "none";
     annullaBtn.style.display = "inline";
@@ -160,7 +161,8 @@ function creaProfiloFromCompositore(profiloAutore)
     const inviaBtn = document.getElementById("inviaProfilo");
     const annullaBtn = document.getElementById("annullaModifica");
 
-    const profilo = document.getElementById("profilo");
+    const profili = document.getElementsByClassName("profilo");
+    const profilo = profili[0];
     profilo.style.display = "grid";
     inviaBtn.style.display = "none";
     annullaBtn.style.display = "inline";

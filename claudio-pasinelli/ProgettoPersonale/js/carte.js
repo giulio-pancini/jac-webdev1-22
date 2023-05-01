@@ -1,6 +1,5 @@
 let idCarta = 1;
 let arrayCarte = [];
-
 class Carta
 {
     idCarta;
@@ -635,21 +634,18 @@ async function salvaCarta(getCarteJson)
             {
                 if(carta.getIdCompositore() === idCompositore)
                 {
-                    
                     if(carta.getTitolo() === titolo)
                     {
-                        
                         if(carta.getPrezzo() === prezzo)
                         {
-                            
                             if(carta.getMese() === mese)
                             {
-                                
                                 if(carta.getImg() === img)
                                 {
                                     if(carta.isEliminata() === eliminata)
                                     {
                                         continua = true;
+                                        break;
                                     }
                                 }
                                 continue;

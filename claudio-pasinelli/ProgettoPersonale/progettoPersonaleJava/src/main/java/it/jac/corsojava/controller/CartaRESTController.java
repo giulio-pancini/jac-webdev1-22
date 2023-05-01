@@ -67,7 +67,7 @@ public class CartaRESTController
 		}
 		
 		Boolean cartaEliminata = carta.isEliminata();
-		if (cartaMese.equals(true))
+		if (cartaEliminata.equals(true))
 		{
 			return Response.status(Status.BAD_REQUEST)
 					.entity("La carta è stata creata quando invece dovrebbe essere eliminata")

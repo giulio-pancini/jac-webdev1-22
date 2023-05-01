@@ -46,9 +46,6 @@ async function salvaDati()
     let titoloGiaPresente;               //bolean
     let descrizioneGiaPresente;          //bolean
 
-    const bottoneSalva = document.getElementById("salvaDati");
-    const bottoneNonSalvare = document.getElementById("nonSalvareDati");
-
     chiudiPopUp();
 
     const nomeArtista = document.getElementById("nomeArt").innerText;
@@ -136,11 +133,13 @@ async function salvaTuttiIDati()
 {
     let risultatoSalvataggioSocial = false;
     let risultatoSalvataggioCarte = false;
+    let risultatoSalvataggioFoto = false;
 
     risultatoSalvataggioSocial = await salvaDatiSocial();
     risultatoSalvataggioCarte = await salvaDatiCarte();
+    risultatoSalvataggioFoto = await salvaDatiFoto();
 
-    if(risultatoSalvataggioSocial && risultatoSalvataggioCarte)
+    if(risultatoSalvataggioSocial && risultatoSalvataggioCarte && risultatoSalvataggioFoto)
     {
         setTimeout(() =>
         {
@@ -165,6 +164,15 @@ async function salvaDatiCarte()
     const getCarteJson = await getCarte.json();
 
     salvaCarta(getCarteJson);
+    return true;
+}
+
+async function salvaDatiFoto()
+{
+    const getFoto = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/foto/" + localStorage.getItem("idCompositore") + "/compositori");
+    const getFotoJson = await getFoto.json();
+
+    salvaFoto(getFotoJson);
     return true;
 }
 
