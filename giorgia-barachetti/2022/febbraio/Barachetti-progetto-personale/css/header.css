@@ -56,11 +56,16 @@ header > nav > h2{
   'opsz' 48
 }
 
-#shoppingCartButtonHome{
+.wrapper button{
     border: 1px solid var(--light-color);
     background-color: var(--main-color);
     border-radius: 1rem;
     color:var(--light-color);
     padding: 8px 10px;
     align-items: left;
+}
+
+#shoppingCartButtonHome:hover{
+    color: var(--main-color);
+    background-color: var(--light-color);
 }
