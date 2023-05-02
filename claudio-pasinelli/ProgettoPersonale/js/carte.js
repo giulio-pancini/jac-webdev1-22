@@ -1,5 +1,98 @@
-let id = 1;
+let idCarta = 1;
 let arrayCarte = [];
+class Carta
+{
+    idCarta;
+    idCompositore;
+    titolo;
+    prezzo;
+    mese;
+    img;
+    eliminata;
+
+    constructor(idCarta, idCompositore, titolo, prezzo, mese, img, eliminata)
+    {
+        this.idCarta = idCarta;
+        this.idCompositore = idCompositore;
+        this.titolo = titolo;
+        this.prezzo = prezzo;
+        this.mese = mese;
+        this.img = img;
+        this.eliminata = eliminata;
+    }
+
+    getIdCarta()
+    {
+        return this.idCarta;
+    }
+
+    getIdCompositore()
+    {
+        return this.idCompositore;
+    }
+
+    getTitolo()
+    {
+        return this.titolo;
+    }
+
+    getPrezzo()
+    {
+        return this.prezzo;
+    }
+
+    getMese()
+    {
+        return this.mese;
+    }
+
+    getImg()
+    {
+        return this.img;
+    }
+
+    isEliminata()
+    {
+        return this.eliminata;
+    }
+
+    setImg(img)
+    {
+        this.img = img;
+    }
+
+    setEliminata(eliminata)
+    {
+        this.eliminata = eliminata;
+    }
+}
+
+function setIdCartaGlobale(maxId)
+{
+    idCarta = maxId + 1;
+}
+
+async function trovaMaxIdCarta()
+{
+    const idCompositore = localStorage.getItem("idCompositore");
+    const getCarte = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + idCompositore + "/compositori");
+    const getCarteJson = await getCarte.json();
+
+    let maxId = 1;
+
+    for(cartaCompositore of getCarteJson)
+    {
+        if(cartaCompositore.idCarta > maxId)
+        {
+            maxId = cartaCompositore.idCarta;
+        }
+    }
+
+    if(maxId != 1)
+    {
+        setIdCartaGlobale(maxId);
+    }
+}
 
 function creaCartaJson()
 {
@@ -82,7 +175,7 @@ function creaCartaJson()
         return;
     }
 
-    else if (isNaN(document.getElementById("prezzo").value))
+    else if (document.getElementById("prezzo").value < 0)
     {
         testoMessaggio.scrollIntoView(
             {
@@ -125,132 +218,113 @@ function creaCartaJson()
 
     else
     {
-
-        const imgBackground = document.createElement("section");
-        imgBackground.setAttribute("class","imgBackground");
-    
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function()
         {
-            imgBackground.style.backgroundImage = "url("+reader.result+")";
-        }
-    
-        imgBackground.style.backgroundImage = "url("+reader.result+")";
+            const img = "url("+reader.result+")";
 
-        carta=
-        {
-            titolo: document.getElementById("nome").value,
-            prezzo: document.getElementById("prezzo").value,
-            mese: document.getElementById("mese").value,
-            id:id,
-        }
-
-        if(arrayCarte.length==0)
-        {
-            tracksContainer.style.display = "block";
-        }
-
-        arrayCarte.push(carta);
-        creaCartaHTML(carta)
-        id++    
-
-        document.getElementById('nome').value = '';
-        document.getElementById('prezzo').value = '';
-        document.getElementById('mese').value = '0';
-        document.getElementById('immagineCarta').value = '';
-
-    }
+            const carta = new Carta(idCarta, parseInt(localStorage.getItem("idCompositore")), document.getElementById("nome").value, document.getElementById("prezzo").value, document.getElementById("mese").value, img, false);
     
-    function creaCartaHTML(carta)
-    {
-        const input = document.getElementById("immagineCarta");
-        const file = input.files[0];
-    
-        const imgBackground = document.createElement("section");
-        imgBackground.setAttribute("class","imgBackground");
-    
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-
-        reader.onload = function()
-        {
-            imgBackground.style.backgroundImage = "url("+reader.result+")";
-        }
-    
-        imgBackground.style.backgroundImage = "url("+reader.result+")";
-
-        const lista = document.getElementById("lista");
-    
-        const card = document.createElement("section");
-        card.setAttribute("class","card");
-        card.setAttribute("id","carta"+carta.id);
-        lista.appendChild(card);
-    
-        const title = document.createElement("section");
-        title.setAttribute("class","title");
-        card.appendChild(title);
-    
-        let mese = document.createElement("p");
-        mese.innerText = carta.mese;
-        title.appendChild(mese);
-    
-        let elimina = document.createElement("button");
-        elimina.setAttribute("class","elimina");
-        elimina.setAttribute("onclick","eliminaCarta("+carta.id+")");
-
-        const cestino = document.createElement("img");
-        cestino.setAttribute("src","../img/cestino.png");
-        cestino.setAttribute("class","cestinoCard");
-        cestino.setAttribute("title","Elimina la traccia");
-        elimina.appendChild(cestino);
-
-        title.appendChild(elimina);
-
-        const imgContainer = document.createElement("section");
-        imgContainer.setAttribute("class","img-container");
-        card.appendChild(imgContainer);
-    
-        const banner = document.createElement("section");
-        banner.setAttribute("class","banner");
-        imgContainer.appendChild(banner);
-        banner.appendChild(imgBackground);
-    
-        const description = document.createElement("description");
-        description.setAttribute("class","description");
-        card.appendChild(description);
-    
-        let footer = document.createElement("footer");
-        description.appendChild(footer);
-    
-        let musicTrack = document.createElement("p");
-        musicTrack.innerText = "Titolo: " + carta.titolo;
-        footer.appendChild(musicTrack);
-    
-        let cost = document.createElement("p");
-        cost.innerText = `Prezzo: ${carta.prezzo}€`;
-        cost.setAttribute("id","prezzo"+id);
-        footer.appendChild(cost);
-
-        card.setAttribute("data-tooltip",`${carta.titolo} ${carta.prezzo}€ | ${carta.mese}`);
-        document.getElementById('meseSort').value = '0';
-
-        card.scrollIntoView(
+            if(arrayCarte.length==0)
             {
-                behavior: 'smooth',
-                block: 'end'
-            });
+                tracksContainer.style.display = "block";
+            }
 
-        card.style.animation = "fadeIn 1.2s";
-        card.style.animationIterationCount = "1";
-        
-        sortMeseScelto();
+            creaCartaHTML(carta)
+            idCarta++    
 
-        const incasso = document.getElementById("incasso").innerText = incassoTotale();
-
-        sortListaCarte();
-        coloraCarte();
+            document.getElementById('nome').value = '';
+            document.getElementById('prezzo').value = '';
+            document.getElementById('mese').value = '0';
+            document.getElementById('immagineCarta').value = '';
+        }
     }
+}
+
+function creaCartaHTML(carta)
+{
+    const imgBackground = document.createElement("section");
+    imgBackground.setAttribute("class","imgBackground");
+    imgBackground.style.backgroundImage = carta.getImg();
+
+    const lista = document.getElementById("lista");
+
+    const card = document.createElement("section");
+    card.setAttribute("class","card");
+    card.setAttribute("id","carta"+carta.getIdCarta());
+    lista.appendChild(card);
+
+    const title = document.createElement("section");
+    title.setAttribute("class","title");
+    card.appendChild(title);
+
+    let mese = document.createElement("p");
+    mese.innerText = carta.mese;
+    title.appendChild(mese);
+
+    let elimina = document.createElement("button");
+    elimina.setAttribute("class","elimina");
+    elimina.setAttribute("onclick","eliminaCarta("+carta.getIdCarta()+")");
+
+    const cestino = document.createElement("img");
+    cestino.setAttribute("src","../img/cestino.png");
+    cestino.setAttribute("class","cestinoCard");
+    cestino.setAttribute("title","Elimina la traccia");
+    elimina.appendChild(cestino);
+
+    title.appendChild(elimina);
+
+    const imgContainer = document.createElement("section");
+    imgContainer.setAttribute("class","img-container");
+    card.appendChild(imgContainer);
+
+    const banner = document.createElement("section");
+    banner.setAttribute("class","banner");
+    imgContainer.appendChild(banner);
+    banner.appendChild(imgBackground);
+
+    const description = document.createElement("description");
+    description.setAttribute("class","description");
+    card.appendChild(description);
+
+    let footer = document.createElement("footer");
+    description.appendChild(footer);
+
+    let musicTrack = document.createElement("p");
+    musicTrack.innerText = "Titolo: " + carta.getTitolo();
+    footer.appendChild(musicTrack);
+
+    let cost = document.createElement("p");
+    cost.innerText = `Prezzo: ${carta.getPrezzo()}€`;
+    cost.setAttribute("id","prezzo"+idCarta);
+    footer.appendChild(cost);
+
+    card.setAttribute("data-tooltip",`${carta.getTitolo()} ${carta.getPrezzo()}€ | ${carta.getMese()}`);
+    document.getElementById('meseSort').value = '0';
+
+    card.scrollIntoView(
+        {
+            behavior: 'smooth',
+            block: 'end'
+        });
+
+    card.style.animation = "fadeIn 1.2s";
+    card.style.animationIterationCount = "1";
+    
+    if(arrayCarte.length==0)
+    {
+        tracksContainer.style.display = "block";
+    }
+
+    arrayCarte.push(carta);
+    
+    sortMeseScelto();
+
+    const incasso = document.getElementById("incasso").innerText = incassoTotale();
+
+    sortListaCarte();
+    coloraCarte();
 }
 
 function eliminaCarta(id)
@@ -260,26 +334,51 @@ function eliminaCarta(id)
 
     for (const carta of arrayCarte)
     {
-        if(carta.id === id)
+        if(carta.getIdCarta() === parseInt(id))
         {
             const cartaDaEliminare = document.getElementById("carta"+id.toString());
             const indice = arrayCarte.indexOf(carta);
+            carta.setEliminata(true);
     
             cartaDaEliminare.style.animation = "fadeOut 1.2s";
             cartaDaEliminare.style.animationIterationCount = "1";
 
             setTimeout(() =>
             {
-                arrayCarte.splice(indice,1);
+                // arrayCarte.splice(indice,1);
                 cartaDaEliminare.remove();
                 coloraCarte();
+
+                const carte = document.getElementsByClassName("card");
                 
-                if(arrayCarte.length==0)
+                if(carte.length == 0)
                 {
                     tracksContainer.style.display = "none";
                 }
             }, 1200);
 
+            isCartaTrovata = true;
+        }
+    }
+
+    if(!isCartaTrovata)
+    {
+        alert(`La traccia "${id}" non è stata trovata!`);
+    }
+}
+
+function eliminaDefinitivamenteCarta(id)
+{
+    let isCartaTrovata = false;
+    const tracksContainer = document.getElementById("tracksContainer");
+
+    for (const carta of arrayCarte)
+    {
+        if(carta.getIdCarta() === parseInt(id))
+        {
+            const indice = arrayCarte.indexOf(carta);
+
+            arrayCarte.splice(indice,1);
             isCartaTrovata = true;
         }
     }
@@ -340,7 +439,7 @@ function sortListaCarte()
 function meseCarta(carta)
 {
     titolo = carta.firstElementChild.textContent;
-    return titoloCorto = titolo.substring(0, titolo.length - 1);
+    return titoloCorto = titolo.substring(0, titolo.length);
 }
 
 function numeroMese(mese)
@@ -488,4 +587,116 @@ function sortMeseScelto()
 
     document.getElementById("incasso").innerText = incassoTotale();
     coloraCarte();
+}
+
+async function salvaCarta(getCarteJson)
+{
+    let continua = false;
+
+    let idCarta;
+    let idCompositore;
+    let titolo;
+    let prezzo;
+    let mese;
+    let img;
+    let eliminata;
+
+    if(arrayCarte.length != 0)
+    {
+        for(carta of arrayCarte)
+        {
+            const body = JSON.stringify(carta);
+            
+            if(carta.isEliminata() === true)
+            {
+                await cancellaCarta(carta, body);
+            }
+        }
+    }
+    
+    for(carta of arrayCarte)
+    {
+        const body = JSON.stringify(carta);
+
+        for(cartaCompositore of getCarteJson)
+        {
+            continua = false;
+
+            idCarta = cartaCompositore.idCarta;
+            idCompositore = cartaCompositore.idCompositore;
+            titolo = cartaCompositore.titolo;
+            prezzo = cartaCompositore.prezzo;
+            mese = cartaCompositore.mese;
+            img = cartaCompositore.img;
+            eliminata = cartaCompositore.eliminata;
+
+            if(carta.getIdCarta() === idCarta)
+            {
+                if(carta.getIdCompositore() === idCompositore)
+                {
+                    if(carta.getTitolo() === titolo)
+                    {
+                        if(carta.getPrezzo() === prezzo)
+                        {
+                            if(carta.getMese() === mese)
+                            {
+                                if(carta.getImg() === img)
+                                {
+                                    if(carta.isEliminata() === eliminata)
+                                    {
+                                        continua = true;
+                                        break;
+                                    }
+                                }
+                                continue;
+                            }
+                            continue;
+                        }
+                        continue;
+                    }
+                    continue;
+                }
+                continue;
+            }
+            continue;
+        }
+
+        if(!continua)
+        {
+            postaCarta(body);
+        }
+    }
+
+    return;
+}
+
+async function postaCarta(body)
+{
+    const postCarta = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + localStorage.getItem("idCompositore"),
+    {
+        method: "POST",
+        headers:
+        {
+            "content-type":'application/json'
+        },
+        body: body
+    });
+}
+
+async function cancellaCarta(carta, body)
+{
+    const idCarta = carta.getIdCarta().toString();
+    eliminaDefinitivamenteCarta(idCarta);
+    
+    const cancellaCarta = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + idCarta,
+    {
+        method: "DELETE",
+        headers:
+        {
+            "content-type":'application/json'
+        },
+        body: body
+    });
+
+    return true;
 }

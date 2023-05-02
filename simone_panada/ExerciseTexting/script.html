@@ -1,0 +1,109 @@
+
+<html>
+    <head></head>
+    <body></body>
+    <script>
+class Message 
+{
+    // #rende l'attribute privato
+    #timestamp;
+    #sender;
+    #receiver;
+
+    constructor (timestamp, sender, receiver) 
+    {
+       this.#timestamp = timestamp;
+       this.#sender = sender;
+       this.#receiver = receiver;
+    }
+
+    getTimeStamp() 
+    {
+        return this.#timestamp;
+    }
+
+    getSender()
+    {
+        return this.#sender;
+    }
+
+    getReceiver()
+    {
+        return this.#receiver;
+    }
+
+}
+
+class TextMessage extends Message
+{
+    #textcontent;
+
+    constructor (textcontent, timestamp, sender, receiver) 
+    {
+        super(sender, receiver, timestamp);
+        this.#textcontent = textcontent;
+    }
+
+    getContent(textcontent)
+    {
+        return this.#textcontent;
+    }
+}
+
+/*
+class ImgMessage extends Message
+{
+    constructor (imageSrc, timeStamp, sender, receiver) 
+    {
+        this.imageSrc = new imageSrc;
+        this.timeStamp = new timeStamp;
+        this.sender = new sender;
+        this.receiver = new receiver; 
+    }
+
+    getSrc(imageSrc)
+    {
+        return imageSrc;
+    }
+}
+
+class AudioMessage extends Message
+{
+    constructor (audio, timeStamp, sender, receiver) 
+    {
+        this.audio = new audio;
+        this.timeStamp = new timeStamp;
+        this.sender = new sender;
+        this.receiver = new receiver; 
+    }
+
+    getAudio(audio)
+    {
+        return audio;
+    }
+}
+
+class VideoMessage extends Message
+{
+    constructor (video, timeStamp, sender, receiver) 
+    {
+        this.video = new video;
+        this.timeStamp = new timeStamp;
+        this.sender = new sender;
+        this.receiver = new receiver; 
+    }
+
+    getVideo(video)
+    {
+        return video;
+    }
+}
+    */
+    const txt = new TextMessage ("HelloWorld", "me", "you", new Date());
+    console.log(txt.getTimeStamp());
+    console.log(txt.getSender());
+    console.log(txt.getReceiver());
+    console.log(txt.getContent());
+
+    </script>
+</html>
