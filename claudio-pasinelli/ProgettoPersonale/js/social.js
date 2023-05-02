@@ -294,7 +294,7 @@ function creaSocial(social)
 {
     let userIsCompositore = false;
 
-    if(localStorage.getItem("Nome") != null || localStorage.getItem("Nome") != "undefined")
+    if(window.location.pathname === "/html/editorCompositori.html")
     {
         userIsCompositore = true;
     }
@@ -319,10 +319,13 @@ function creaSocial(social)
     }
 
     //array di oggetti che contiene i social
-    if(!userIsCompositore)
+    let oggetti;
+    
+    if(userIsCompositore)
     {
-        const oggetti = document.forms["social"].getElementsByTagName("input");
+        oggetti = document.forms["social"].getElementsByTagName("input");
     }
+
     const listaSocial = document.getElementById("listaSocial");
 
     listaSocial.style.marginTop = "1.5rem";
@@ -354,7 +357,7 @@ function creaSocial(social)
     let figcaption = document.createElement("figcaption");
     let linkTesto = document.createElement("a");
 
-    if(!userIsCompositore)
+    if(userIsCompositore)
     {
         for (let i = 0; i < oggetti.length; i++)
         {
@@ -401,13 +404,12 @@ function creaSocial(social)
         figureSocial.appendChild(figcaption);
     }
 
-
     //resetto il valore del contenuto del form dopo che è stato utilizzato per creare il link social
 
     figureSocial.style.animation = "fadeIn 1.2s";
     figureSocial.style.animationIterationCount = "1";
 
-    if(!userIsCompositore)
+    if(userIsCompositore)
     {
         document.getElementById('nomeSocial').value = '';
         document.getElementById('link').value = '';

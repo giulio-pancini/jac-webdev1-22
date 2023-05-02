@@ -245,7 +245,7 @@ function creaCartaJson()
 function creaCartaHTML(carta)
 {
     let userIsCompositore = false;
-    if(window.location.href === "http://127.0.0.1:5555/html/editorCompositori.html")
+    if(window.location.pathname === "/html/editorCompositori.html")
     {
         userIsCompositore = true;
     }
