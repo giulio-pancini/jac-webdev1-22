@@ -329,7 +329,7 @@ public class CompositoreDao extends Dao<Compositore>
 		}
 		catch(SQLException e)
 		{
-			throw new DaoException("Error loading Timbratura", e);
+			throw new DaoException("Error loading Compositore", e);
 		}
 		
 		return resultList;

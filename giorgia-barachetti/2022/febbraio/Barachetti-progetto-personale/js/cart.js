@@ -2,7 +2,7 @@ const products = [
   //JUMPING  
     {
       id: 1,
-      image:'',
+      image:'jump.jpg',
       name: 'SUPREME SADDLE',
       description: 'EQUIPE',
       price: 958.99
@@ -85,28 +85,66 @@ const products = [
   
   const emptyArray = [];
   function addToCart(product) {
-    const cart = document.querySelector('#cart ul');
+    const cart = document.querySelector('#sectionCart table');
     
-    const cartItem = document.createElement('li');
+    const cartItem = document.createElement('tr');
     //creo la section del carrello che sarà visualizzata nel cart
     cartItem.innerHTML = `
-      <div id="productsInTheCart">      
-        <span>${product.name}</span>
-        <span>${product.description}</span>
-        <span>${product.price} €</span>
-      </div>
+        
+          <td>${product.name}</td>
+          <td>${product.description}</td>
+          <td>${product.price} €</td>
+          <img src="${"
+        
       `;
     
     cart.appendChild(cartItem);
     alert('Product added in the cart')
     emptyArray.push(cartItem);
     console.log(emptyArray);
-    
-    if(!emptyArray.isEmpty){
-      for(prodotto of emptyArray){
-        const sum =+ prodotto.price;
-        console.log(sum)
+   
+    sumOfCart()
+  }
+
+//TOTAL PRICE OF THE CART
+  function sumOfCart() {
+    const priceDiv = document.querySelector('#divPrice')
+    if (emptyArray.length > 0) {
+      let sum = 0;
+      for (const product of emptyArray) {
+        sum += parseFloat(product.querySelector('td:nth-child(3)').textContent.replace(' €', ''));
       }
+      console.log(sum.toFixed(2));
+      return priceDiv.innerHTML= `TOTAL PRICE: € ${sum.toFixed(2)}
+      <br>
+      <button id="buttonContinueWithPayment" onClick="showFormToPay()">CONTINUE WITH PAYMENT</button>`
+    }
+    return 0;
+  }
+
+//SHOWING THE FORM TO SIGN TO DO THE PAYMENT
+  function showFormToPay(){
+    const showTheForm = document.getElementById("containerFormCostumer");
+    showTheForm.style.display='block';
+  }
+
+  function decidePayment(){
+    const paypal = document.querySelector('input[name="CpagamentoPaypal"]')
+    const visa = document.querySelector('input[name="CpagamentoVisa"]')
+    if(paypal.checked){
+      showModal('ppl')
+    }else if(visa.checked){
+      showModal('vs')
     }
   }
-  
+
+function showModal(paymentMethod){
+  if(paymentMethod==='ppl'){
+    const modalPaypal = document.getElementById('modalForPaymentPaypal')
+    modalPaypal.style.display='block'
+  }else if(paymentMethod==='vs'){
+    const modalVisa = document.getElementById('modalForPaymentVisa')
+    modalVisa.style.display='block'
+  }
+
+}

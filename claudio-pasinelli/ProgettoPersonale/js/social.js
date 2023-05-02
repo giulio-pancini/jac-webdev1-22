@@ -74,6 +74,7 @@ function setIdSocialGlobale(maxId)
 {
     idSocial = maxId + 1;
 }
+
 async function trovaMaxIdSocial()
 {
     const idCompositore = localStorage.getItem("idCompositore");
@@ -517,6 +518,8 @@ function salvaSocial(getSocialsJson)
     
             for(socialCompositore of getSocialsJson)
             {
+                continua = false;
+                
                 const idSocial = socialCompositore.idSocial;
                 const idCompositore = socialCompositore.idCompositore;
                 const dataTooltip = socialCompositore.dataTooltip;
@@ -526,19 +529,14 @@ function salvaSocial(getSocialsJson)
 
                 if(social.getIdSocial() === idSocial)
                 {
-
                     if(social.getIdCompositore() === idCompositore)
                     {
-                        
                         if(social.getDataTooltip() === dataTooltip)
                         {
-                            
                             if(social.getImg() === img)
                             {
-                                
                                 if(social.getLink() === link)
                                 {
-                                    
                                     if(social.getMedia() === media)
                                     {
                                         continua = true;
@@ -568,7 +566,7 @@ function salvaSocial(getSocialsJson)
 
 async function postaSocial(body)
 {
-    const postSocial = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + social.getIdCompositore(),
+    const postSocial = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + localStorage.getItem("idCompositore"),
     {
         method: "POST",
         headers:

@@ -259,7 +259,7 @@ form {
     width: fit-content;
     padding: 0 3em;
     border: var(--border);
-    border-radius: 50px;
+    border-radius: var(--b-radius);
     background-color: var(--blue04);
     color: var(--white);
 }
