@@ -245,7 +245,7 @@ function creaCartaJson()
 function creaCartaHTML(carta)
 {
     let userIsCompositore = false;
-    if(localStorage.getItem("Nome") != null || localStorage.getItem("Nome") != "undefined")
+    if(window.location.href === "http://127.0.0.1:5555/html/editorCompositori.html")
     {
         userIsCompositore = true;
     }
@@ -269,17 +269,23 @@ function creaCartaHTML(carta)
     mese.innerText = carta.mese;
     title.appendChild(mese);
 
-    let elimina = document.createElement("button");
-    elimina.setAttribute("class","elimina");
-    elimina.setAttribute("onclick","eliminaCarta("+carta.getIdCarta()+")");
+    let elimina;
+    let cestino;
 
-    const cestino = document.createElement("img");
-    cestino.setAttribute("src","../img/cestino.png");
-    cestino.setAttribute("class","cestinoCard");
-    cestino.setAttribute("title","Elimina la traccia");
-    elimina.appendChild(cestino);
-
-    title.appendChild(elimina);
+    if(userIsCompositore)
+    {
+        elimina = document.createElement("button");
+        elimina.setAttribute("class","elimina");
+        elimina.setAttribute("onclick","eliminaCarta("+carta.getIdCarta()+")");
+    
+        cestino = document.createElement("img");
+        cestino.setAttribute("src","../img/cestino.png");
+        cestino.setAttribute("class","cestinoCard");
+        cestino.setAttribute("title","Elimina la traccia");
+        elimina.appendChild(cestino);
+    
+        title.appendChild(elimina);
+    }
 
     const imgContainer = document.createElement("section");
     imgContainer.setAttribute("class","img-container");
@@ -308,7 +314,7 @@ function creaCartaHTML(carta)
 
     card.setAttribute("data-tooltip",`${carta.getTitolo()} ${carta.getPrezzo()}€ | ${carta.getMese()}`);
 
-    if(!userIsCompositore)
+    if(userIsCompositore)
     {
         document.getElementById('meseSort').value = '0';
     }
@@ -322,14 +328,14 @@ function creaCartaHTML(carta)
     card.style.animation = "fadeIn 1.2s";
     card.style.animationIterationCount = "1";
     
-    if(arrayCarte.length==0)
+    if(!arrayCarte.length==0)
     {
         tracksContainer.style.display = "block";
     }
 
     arrayCarte.push(carta);
 
-    if(!userIsCompositore)
+    if(userIsCompositore)
     {
         sortMeseScelto();
         const incasso = document.getElementById("incasso").innerText = incassoTotale();
