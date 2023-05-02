@@ -1,4 +1,4 @@
-const y = document.getElementById("inpDicesNumber").value;
+//crea la sezione della lista con al suo interno i tiri
 function CreateNewRollSection(finalResult) {
    const ul = document.getElementById("DiceRolls");
    const li = document.createElement("li");
@@ -19,7 +19,7 @@ function CreateNewRollSection(finalResult) {
    result.innerHTML = "Result: " + finalResult[0].join(", ");
    sum.innerHTML = "Sum: " + finalResult[1];
 }
-
+//genera il lancio
 function generateRoll(diceRolled, diceNumber) 
 {
    let results = [];
@@ -32,11 +32,26 @@ function generateRoll(diceRolled, diceNumber)
    return [results, sum];
 }
 
+//interazioni con la pagina
 const button = document.getElementById("RollIt");
-button.addEventListener("click", function(event) {
+var maxinput = document.getElementById("inpDicesNumber");
+const arrayRisultati= [];
+//avvia il lancio dei dadi quando si preme il bottone e controlla che il numero di dadi massimo sia nei limiti consentiti
+button.addEventListener("click", function(event) 
+{
    event.preventDefault();
+   /*if (maxinput.value > 25) 
+            {
+               setCustomValidity("Max Value Allowed is 25");
+               return;
+            } else 
+            {
+               setCustomValidity("");
+            }*/      
    const diceRolled = document.getElementById("inpDice").value;
    const diceNumber = document.getElementById("inpDicesNumber").value;
    let finalResult = generateRoll(diceRolled, diceNumber);
+   arrayRisultati.push(finalResult);
    CreateNewRollSection(finalResult);
 });
+//creare funzione che prima di tutto svuota la UL e poi cicla su tutto l'array arrayRisultati e crea la sezione a destra

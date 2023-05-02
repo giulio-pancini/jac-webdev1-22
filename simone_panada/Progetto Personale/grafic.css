@@ -1,5 +1,6 @@
-  *{
+  body{
     background-color:#66ff99;
+    background-image: "img/bgtry2.jpeg";
    }
 
 @media (max-width:960px) {
@@ -133,7 +134,15 @@
 
     #RollIt
     {
+        height: 2rem;
+        width: 4rem;
         background-color: #009933;
+        border: 0px;
+    }
+
+    #RollIt:hover 
+    {
+        background-color: orangered;
     }
 
     input 
