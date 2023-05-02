@@ -1,11 +1,5 @@
 @media (max-width: 960px) {
-   #logoFooterImage{
-      width:100px;
-      height: 100px;
-      border-radius:47%;
-  }
-
-  #imgDescriptionWebsite{
+   #imgDescriptionWebsite{
      max-height: 240px;
    }
 

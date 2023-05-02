@@ -178,7 +178,7 @@
       <section id="liste">
 
       
-
+       
       </section>
 
   </main>
@@ -357,6 +357,10 @@
               alert("inserire la destinazione")
               return;
             }
+
+            
+
+
              const section= document.createElement("section");
              const p= document.createElement("p");
              const p2 = document.createElement("p");
@@ -365,6 +369,7 @@
              const p5 = document.createElement("p");
              const p6 = document.createElement("p");
              const p7 = document.createElement("p");
+            // const bot = document.createElement("button");
 
              p.innerText= "Pacchetto: "+pacc.value;
              p2.innerText= "Compagnia aerea: "+ag.value;
@@ -373,7 +378,10 @@
              p5.innerText= "Email: "+email.value;
              p6.innerText= "Telefono: "+tel.value;
              p7.innerText= "Destinazione: "+m.value;
-           
+            // bot.innerHTML= "Rimuovi";
+
+           //  bot.addEventListener("click", removeSection() );
+
              const sec= document.getElementById("liste");
          
             
@@ -385,11 +393,18 @@
              section.appendChild(p5);
              section.appendChild(p6);
              section.appendChild(p7);
+            // section.appendChild(bot);
              section.setAttribute('id','lista1');
 
-            
+          
           
           }
+
+          function removeSection() {
+               const elem = document.getElementById('lista1');
+               elem.parentNode.removeChild(elem);
+                return false;
+           }
          
 
       </script>
