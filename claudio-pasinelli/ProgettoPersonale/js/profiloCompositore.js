@@ -126,14 +126,8 @@ function creaProfilo()
         testoDescrizione.innerText = testo.value;
     }
 
-    profiloAutore = 
-    {
-        nickname: testoNomeArtista.innerText,
-        description: testoDescrizione.innerText,
-        profilePic: immagine.innerText
-    }
-
-    const profilo = document.getElementById("profilo");
+    const profili = document.getElementsByClassName("profilo");
+    const profilo = profili[0];
     profilo.style.display = "grid";
     inviaBtn.style.display = "none";
     annullaBtn.style.display = "inline";
@@ -144,8 +138,41 @@ function creaProfilo()
     nomeArtista.value = "";
     testo.value = "";
     input.value = "";
+}
 
-    testo.style.height = "59px";
+function creaProfiloFromCompositore(profiloAutore)
+{
+    const input = document.getElementById("imageProfileInput");
+    const nomeArtista = document.getElementById("nomeArtista");
+    const testo = document.getElementById("descrizione");
+
+    const nomeCompositore = profiloAutore.getNomeArtista();
+    const descrizione = profiloAutore.getDescrizione();
+    const urlPic = profiloAutore.getUrlPic();
+
+    const testoNomeArtista = document.getElementById("nomeArt");
+    const testoDescrizione = document.getElementById("testoDescrizione");
+    const immagine = document.getElementById("immagineProfilo");
+
+    immagine.setAttribute("src", urlPic);
+    testoDescrizione.innerText = descrizione;
+    testoNomeArtista.innerText = nomeCompositore;
+
+    const inviaBtn = document.getElementById("inviaProfilo");
+    const annullaBtn = document.getElementById("annullaModifica");
+
+    const profili = document.getElementsByClassName("profilo");
+    const profilo = profili[0];
+    profilo.style.display = "grid";
+    inviaBtn.style.display = "none";
+    annullaBtn.style.display = "inline";
+
+    const formProfilo = document.getElementById("formProfilo");
+    formProfilo.style.display = "none";
+
+    nomeArtista.value = "";
+    testo.value = "";
+    input.value = "";
 }
 
 function isImgSet()
@@ -166,7 +193,12 @@ function isNameSet()
 {
     const nomeArtista = document.getElementById("nomeArtista");
 
-    if (nomeArtista.value === "" && document.getElementById("nomeArt").innerText !== "")
+    if(nomeArtista.value.trim().length === 0)
+    {
+        return true;
+    }
+
+    else if (nomeArtista.value === "" && document.getElementById("nomeArt").innerText !== "")
     {
         return true;
     }
@@ -178,7 +210,12 @@ function isTextSet()
 {
     const testo = document.getElementById("descrizione");
 
-    if (testo.value === "" && document.getElementById("testoDescrizione").innerText !== "")
+    if(testo.value.trim().length === 0)
+    {
+        return true;
+    }
+
+    else if (testo.value === "" && document.getElementById("testoDescrizione").innerText !== "")
     {
         return true;
     }
@@ -193,10 +230,15 @@ function modificaProfilo()
 
     const formProfilo = document.getElementById("formProfilo");
     formProfilo.style.display="flex";
+    const inviaBtn = document.getElementById("inviaProfilo");
+    inviaBtn.style.display = "inline";
 }
 
 function annullaModificaProfilo()
 {
+    const inviaBtn = document.getElementById("inviaProfilo");
+    inviaBtn.style.display = "none";
+
     const nomeArtista = document.getElementById("nomeArtista");
     const testo = document.getElementById("descrizione");
     const input = document.getElementById("imageProfileInput");
