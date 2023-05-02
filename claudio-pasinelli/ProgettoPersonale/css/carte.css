@@ -86,6 +86,12 @@ form#formCard button#btnCard
     margin: auto;
 }
 
+#titoloTracce
+{
+    color: var(--colore-chiaro);
+    text-align: center;
+}
+
 .card
 {
     min-height: 350px;

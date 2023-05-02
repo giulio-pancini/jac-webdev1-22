@@ -82,10 +82,11 @@ function showImage(index)
     const currentImage = document.getElementById("currentImage");
     const precedente = document.getElementById("prevImage");
     const successivo = document.getElementById("nextImage");
+    let cancella;
 
     if(localStorage.getItem("NomeUser") === null || localStorage.getItem("NomeUser") === "undefined")
     {
-        const cancella = document.getElementById("deleteImage");
+        cancella = document.getElementById("deleteImage");
         userIsCompositore = true;
     }
 

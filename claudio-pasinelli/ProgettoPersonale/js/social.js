@@ -284,8 +284,6 @@ async function creaSocialJson()
     const idCompositore = localStorage.getItem("idCompositore");
 
     const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img);
-    
-    arraySocial.push(social);
 
     idSocial++;
 
@@ -294,6 +292,13 @@ async function creaSocialJson()
 
 function creaSocial(social)
 {
+    let userIsCompositore = false;
+
+    if(localStorage.getItem("Nome") != null || localStorage.getItem("Nome") != "undefined")
+    {
+        userIsCompositore = true;
+    }
+
     let soundcloud;
     let itunes;
     let tiktok;
@@ -314,7 +319,10 @@ function creaSocial(social)
     }
 
     //array di oggetti che contiene i social
-    const oggetti = document.forms["social"].getElementsByTagName("input");
+    if(!userIsCompositore)
+    {
+        const oggetti = document.forms["social"].getElementsByTagName("input");
+    }
     const listaSocial = document.getElementById("listaSocial");
 
     listaSocial.style.marginTop = "1.5rem";
@@ -341,51 +349,77 @@ function creaSocial(social)
         }
     }
 
-    for (let i = 0; i < oggetti.length; i++)
+    let linkImmagine = document.createElement("a");
+    let immagine = document.createElement("img");
+    let figcaption = document.createElement("figcaption");
+    let linkTesto = document.createElement("a");
+
+    if(!userIsCompositore)
     {
-        let linkImmagine = document.createElement("a");
-        let immagine = document.createElement("img");
-        let figcaption = document.createElement("figcaption");
-        let linkTesto = document.createElement("a");
-        
-        if(oggetti[i].id === "nomeSocial")
+        for (let i = 0; i < oggetti.length; i++)
         {
-                immagine.setAttribute("src", social.getImg());
-                immagine.setAttribute("alt","Logo di " + social.getMedia());
-                immagine.setAttribute("class","zoom");
-                
-                if(oggetti[i+1].id === "link")
-                {
-                    linkImmagine.setAttribute("href", social.getLink());
-                    linkImmagine.setAttribute("target","_blank");
-                    linkImmagine.appendChild(immagine);
-                }
-
-                figureSocial.appendChild(linkImmagine);
-        }
-
-        else if(oggetti[i].id === "link")
-        {
-            linkTesto.innerText = social.getMedia(); 
-            linkTesto.setAttribute("href", social.getLink());
-            linkTesto.setAttribute("target", "_blank");
-            figcaption.appendChild(linkTesto);
-            figureSocial.appendChild(figcaption);
+            if(oggetti[i].id === "nomeSocial")
+            {
+                    immagine.setAttribute("src", social.getImg());
+                    immagine.setAttribute("alt","Logo di " + social.getMedia());
+                    immagine.setAttribute("class","zoom");
+                    
+                    if(oggetti[i+1].id === "link")
+                    {
+                        linkImmagine.setAttribute("href", social.getLink());
+                        linkImmagine.setAttribute("target","_blank");
+                        linkImmagine.appendChild(immagine);
+                    }
+    
+                    figureSocial.appendChild(linkImmagine);
+            }
+    
+            else if(oggetti[i].id === "link")
+            {
+                linkTesto.innerText = social.getMedia(); 
+                linkTesto.setAttribute("href", social.getLink());
+                linkTesto.setAttribute("target", "_blank");
+                figcaption.appendChild(linkTesto);
+                figureSocial.appendChild(figcaption);
+            }
         }
     }
+
+    else
+    {
+        immagine.setAttribute("src", social.getImg());
+        immagine.setAttribute("alt","Logo di " + social.getMedia());
+        immagine.setAttribute("class","zoom");
+        linkImmagine.setAttribute("href", social.getLink());
+        linkImmagine.setAttribute("target","_blank");
+        linkImmagine.appendChild(immagine);
+        figureSocial.appendChild(linkImmagine);
+        linkTesto.innerText = social.getMedia(); 
+        linkTesto.setAttribute("href", social.getLink());
+        linkTesto.setAttribute("target", "_blank");
+        figcaption.appendChild(linkTesto);
+        figureSocial.appendChild(figcaption);
+    }
+
 
     //resetto il valore del contenuto del form dopo che è stato utilizzato per creare il link social
 
     figureSocial.style.animation = "fadeIn 1.2s";
     figureSocial.style.animationIterationCount = "1";
-    document.getElementById('nomeSocial').value = '';
-    document.getElementById('link').value = '';
+
+    if(!userIsCompositore)
+    {
+        document.getElementById('nomeSocial').value = '';
+        document.getElementById('link').value = '';
+    }
 
     figureSocial.scrollIntoView(
         {
             behavior: 'smooth',
             block: 'end'
         });
+        
+    arraySocial.push(social);
 
     if(arraySocial.length !== 0)
     {

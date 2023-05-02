@@ -244,6 +244,12 @@ function creaCartaJson()
 
 function creaCartaHTML(carta)
 {
+    let userIsCompositore = false;
+    if(localStorage.getItem("Nome") != null || localStorage.getItem("Nome") != "undefined")
+    {
+        userIsCompositore = true;
+    }
+
     const imgBackground = document.createElement("section");
     imgBackground.setAttribute("class","imgBackground");
     imgBackground.style.backgroundImage = carta.getImg();
@@ -301,7 +307,11 @@ function creaCartaHTML(carta)
     footer.appendChild(cost);
 
     card.setAttribute("data-tooltip",`${carta.getTitolo()} ${carta.getPrezzo()}€ | ${carta.getMese()}`);
-    document.getElementById('meseSort').value = '0';
+
+    if(!userIsCompositore)
+    {
+        document.getElementById('meseSort').value = '0';
+    }
 
     card.scrollIntoView(
         {
@@ -318,10 +328,12 @@ function creaCartaHTML(carta)
     }
 
     arrayCarte.push(carta);
-    
-    sortMeseScelto();
 
-    const incasso = document.getElementById("incasso").innerText = incassoTotale();
+    if(!userIsCompositore)
+    {
+        sortMeseScelto();
+        const incasso = document.getElementById("incasso").innerText = incassoTotale();
+    }
 
     sortListaCarte();
     coloraCarte();
@@ -513,7 +525,7 @@ function coloraCarte()
 
     for (let i = 0; i<carte.length; i++)
     {
-        if(carte[i] != null && carte[i].style.display === "flex")
+        if(carte[i] != null && carte[i].style.display != "none")
         {
             if(bianco)
             {
