@@ -86,6 +86,7 @@ function showImage(index)
 
     if(window.location.pathname === "/html/editorCompositori.html")
     {
+        cancella = document.getElementById("deleteImage");
         userIsCompositore = true;
     }
 

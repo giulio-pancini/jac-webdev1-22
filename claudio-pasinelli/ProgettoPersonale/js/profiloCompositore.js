@@ -126,8 +126,8 @@ function creaProfilo()
         testoDescrizione.innerText = testo.value;
     }
 
-    const profili = document.getElementsByClassName("profilo");
-    const profilo = profili[0];
+    const profiloArray = document.getElementsByClassName("profilo");
+    const profilo = profiloArray[0].firstElementChild;
     profilo.style.display = "grid";
     inviaBtn.style.display = "none";
     annullaBtn.style.display = "inline";
@@ -225,7 +225,8 @@ function isTextSet()
 
 function modificaProfilo()
 {
-    const profilo = document.getElementById("profilo");
+    const profiloArray = document.getElementsByClassName("profilo");
+    const profilo = profiloArray[0].firstElementChild;
     profilo.style.display = "none";
 
     const formProfilo = document.getElementById("formProfilo");
@@ -243,7 +244,8 @@ function annullaModificaProfilo()
     const testo = document.getElementById("descrizione");
     const input = document.getElementById("imageProfileInput");
 
-    const profilo = document.getElementById("profilo");
+    const profiloArray = document.getElementsByClassName("profilo");
+    const profilo = profiloArray[0].firstElementChild;
     profilo.style.display = "grid";
 
     const formProfilo = document.getElementById("formProfilo");
