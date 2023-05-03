@@ -28,8 +28,9 @@ class Social
     media;
     link;
     img;
+    eliminata;
 
-    constructor(idSocial, idCompositore, dataTooltip, media, link, img)
+    constructor(idSocial, idCompositore, dataTooltip, media, link, img, eliminata)
     {
         this.idSocial = idSocial;
         this.idCompositore = idCompositore;
@@ -37,6 +38,7 @@ class Social
         this.media = media;
         this.link = link;
         this.img = img;
+        this.eliminata = eliminata;
     }
 
     getIdSocial()
@@ -68,11 +70,16 @@ class Social
     {
         return this.dataTooltip;
     }
-}
 
-function setIdSocialGlobale(maxId)
-{
-    idSocial = maxId + 1;
+    isEliminata()
+    {
+        return this.eliminata;
+    }
+
+    setEliminata(eliminata)
+    {
+        this.eliminata = eliminata;
+    }
 }
 
 async function trovaMaxIdSocial()
@@ -93,7 +100,7 @@ async function trovaMaxIdSocial()
 
     if(maxId != 1)
     {
-        setIdSocialGlobale(maxId);
+        idSocial = maxId + 1;
     }
 }
 
@@ -283,9 +290,7 @@ async function creaSocialJson()
     img = "../iconeSocial/" + mediaLowerCase + ".png";
     const idCompositore = localStorage.getItem("idCompositore");
 
-    const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img);
-
-    idSocial++;
+    const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img, false);
 
     creaSocial(social);
 }
@@ -317,9 +322,6 @@ function creaSocial(social)
     {
         tiktok = true;
     }
-
-    //array di oggetti che contiene i social
-    let oggetti;
     
     if(userIsCompositore)
     {
@@ -331,7 +333,18 @@ function creaSocial(social)
     listaSocial.style.marginTop = "1.5rem";
 
     const figureSocial = document.createElement("figure");
-    figureSocial.setAttribute("id","social" + idSocial);
+
+    if(social.getIdSocial() > idSocial)
+    {
+        figureSocial.setAttribute("id","social" + social.getIdSocial());
+    }
+    
+    else
+    {
+        figureSocial.setAttribute("id","social" + idSocial);
+    }
+
+    figureSocial.setAttribute("class","social");
     // figureSocial.setAttribute('class','canzone');
     listaSocial.appendChild(figureSocial);
 
@@ -351,58 +364,55 @@ function creaSocial(social)
             break;
         }
     }
-
-    let linkImmagine = document.createElement("a");
-    let immagine = document.createElement("img");
-    let figcaption = document.createElement("figcaption");
-    let linkTesto = document.createElement("a");
+    
+    let sectionElimina;
+    let elimina;
+    let cestino;
 
     if(userIsCompositore)
     {
-        for (let i = 0; i < oggetti.length; i++)
-        {
-            if(oggetti[i].id === "nomeSocial")
-            {
-                    immagine.setAttribute("src", social.getImg());
-                    immagine.setAttribute("alt","Logo di " + social.getMedia());
-                    immagine.setAttribute("class","zoom");
-                    
-                    if(oggetti[i+1].id === "link")
-                    {
-                        linkImmagine.setAttribute("href", social.getLink());
-                        linkImmagine.setAttribute("target","_blank");
-                        linkImmagine.appendChild(immagine);
-                    }
+        sectionElimina = document.createElement("section");
+        sectionElimina.setAttribute("class","eliminaSocial");
+        elimina = document.createElement("button");
+        cestino = document.createElement("img");
     
-                    figureSocial.appendChild(linkImmagine);
-            }
+        elimina = document.createElement("button");
+        elimina.setAttribute("class","elimina");
+        elimina.setAttribute("onclick","eliminaSocial("+social.getIdSocial()+")");
     
-            else if(oggetti[i].id === "link")
-            {
-                linkTesto.innerText = social.getMedia(); 
-                linkTesto.setAttribute("href", social.getLink());
-                linkTesto.setAttribute("target", "_blank");
-                figcaption.appendChild(linkTesto);
-                figureSocial.appendChild(figcaption);
-            }
-        }
+        cestino = document.createElement("img");
+        cestino.setAttribute("src","../img/cestino.png");
+        cestino.setAttribute("class","cestinoSocial");
+        cestino.setAttribute("title","Elimina social");
+        elimina.appendChild(cestino);
+    
+        sectionElimina.appendChild(elimina);
+    
+        figureSocial.appendChild(sectionElimina);
     }
 
-    else
-    {
-        immagine.setAttribute("src", social.getImg());
-        immagine.setAttribute("alt","Logo di " + social.getMedia());
-        immagine.setAttribute("class","zoom");
-        linkImmagine.setAttribute("href", social.getLink());
-        linkImmagine.setAttribute("target","_blank");
-        linkImmagine.appendChild(immagine);
-        figureSocial.appendChild(linkImmagine);
-        linkTesto.innerText = social.getMedia(); 
-        linkTesto.setAttribute("href", social.getLink());
-        linkTesto.setAttribute("target", "_blank");
-        figcaption.appendChild(linkTesto);
-        figureSocial.appendChild(figcaption);
-    }
+
+    const linkImmagine = document.createElement("a");
+    const immagine = document.createElement("img");
+    const figcaption = document.createElement("figcaption");
+    const linkTesto = document.createElement("a");
+
+    immagine.setAttribute("src", social.getImg());
+    immagine.setAttribute("alt","Logo di " + social.getMedia());
+    immagine.setAttribute("class","zoom");
+
+    linkImmagine.setAttribute("href", social.getLink());
+    linkImmagine.setAttribute("target","_blank");
+    linkImmagine.appendChild(immagine);
+
+    figureSocial.appendChild(linkImmagine);
+
+    linkTesto.innerText = social.getMedia(); 
+    linkTesto.setAttribute("href", social.getLink());
+    linkTesto.setAttribute("target", "_blank");
+    figcaption.appendChild(linkTesto);
+    figureSocial.appendChild(figcaption);
+    // }
 
     //resetto il valore del contenuto del form dopo che è stato utilizzato per creare il link social
 
@@ -422,6 +432,7 @@ function creaSocial(social)
         });
         
     arraySocial.push(social);
+    idSocial++;
 
     if(arraySocial.length !== 0)
     {
@@ -469,6 +480,65 @@ function isURLValid(urlStr)
     }
 
     return true;
+}
+
+function eliminaSocial(id)
+{
+    let isSocialTrovato = false;
+    const listaSocial = document.getElementById("listaSocial");
+
+    for (const social of arraySocial)
+    {
+        if(social.getIdSocial() === parseInt(id))
+        {
+            const socialDaEliminare = document.getElementById("social"+id.toString());
+            social.setEliminata(true);
+    
+            socialDaEliminare.style.animation = "fadeOut 1.2s";
+            socialDaEliminare.style.animationIterationCount = "1";
+
+            setTimeout(() =>
+            {
+                socialDaEliminare.remove();
+
+                const socials = document.getElementsByClassName("socialContainer");
+                
+                if(socials.length == 0)
+                {
+                    listaSocial.style.border = "none";
+                    listaSocial.style.borderWidth = "0px 0px 0px 0px";
+                }
+            }, 1200);
+
+            isSocialTrovato = true;
+        }
+    }
+
+    if(!isSocialTrovato)
+    {
+        alert(`Il social "${id}" non è stato trovato!`);
+    }
+}
+
+function eliminaDefinitivamenteSocial(id)
+{
+    let isSocialTrovato = false;
+
+    for (const social of arraySocial)
+    {
+        if(social.getIdSocial() === parseInt(id))
+        {
+            const indice = arraySocial.indexOf(social);
+
+            arraySocial.splice(indice,1);
+            isSocialTrovato = true;
+        }
+    }
+
+    if(!isSocialTrovato)
+    {
+        alert(`La traccia "${id}" non è stata trovata!`);
+    }
 }
 
 function similarity(s1, s2)
@@ -542,9 +612,30 @@ function everyLetterUpperCase(str)
     return str2 = arr.join(" ");
 }
 
-function salvaSocial(getSocialsJson)
+async function salvaSocial(getSocialsJson)
 {
     let continua = false;
+
+    let idSocial;
+    let idCompositore;
+    let dataTooltip;
+    let img;
+    let link;
+    let media;
+    let eliminata;
+
+    if(arraySocial.length != 0)
+    {
+        for(social of arraySocial)
+        {
+            const body = JSON.stringify(social);
+            
+            if(social.isEliminata() === true)
+            {
+                await cancellaSocial(social, body);
+            }
+        }
+    }
     
     if(arraySocial.length != 0)
     {
@@ -556,12 +647,13 @@ function salvaSocial(getSocialsJson)
             {
                 continua = false;
                 
-                const idSocial = socialCompositore.idSocial;
-                const idCompositore = socialCompositore.idCompositore;
-                const dataTooltip = socialCompositore.dataTooltip;
-                const img = socialCompositore.img;
-                const link = socialCompositore.link;
-                const media = socialCompositore.media;
+                idSocial = socialCompositore.idSocial;
+                idCompositore = socialCompositore.idCompositore;
+                dataTooltip = socialCompositore.dataTooltip;
+                img = socialCompositore.img;
+                link = socialCompositore.link;
+                media = socialCompositore.media;
+                eliminata = socialCompositore.eliminata
 
                 if(social.getIdSocial() === idSocial)
                 {
@@ -611,4 +703,22 @@ async function postaSocial(body)
         },
         body: body
     });
+}
+
+async function cancellaSocial(social, body)
+{
+    const idSocial = social.getIdSocial().toString();
+    eliminaDefinitivamenteSocial(idSocial);
+    
+    const cancellaSocial = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + idSocial,
+    {
+        method: "DELETE",
+        headers:
+        {
+            "content-type":'application/json'
+        },
+        body: body
+    });
+
+    return true;
 }

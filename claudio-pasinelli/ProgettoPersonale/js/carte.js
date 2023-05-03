@@ -67,11 +67,6 @@ class Carta
     }
 }
 
-function setIdCartaGlobale(maxId)
-{
-    idCarta = maxId + 1;
-}
-
 async function trovaMaxIdCarta()
 {
     const idCompositore = localStorage.getItem("idCompositore");
@@ -90,7 +85,7 @@ async function trovaMaxIdCarta()
 
     if(maxId != 1)
     {
-        setIdCartaGlobale(maxId);
+        idCarta = maxId + 1;
     }
 }
 
@@ -231,8 +226,7 @@ function creaCartaJson()
                 tracksContainer.style.display = "block";
             }
 
-            creaCartaHTML(carta)
-            idCarta++    
+            creaCartaHTML(carta);
 
             document.getElementById('nome').value = '';
             document.getElementById('prezzo').value = '';
@@ -258,7 +252,18 @@ function creaCartaHTML(carta)
 
     const card = document.createElement("section");
     card.setAttribute("class","card");
-    card.setAttribute("id","carta"+carta.getIdCarta());
+
+    if(carta.getIdCarta() > idCarta)
+    {
+        card.setAttribute("id","carta" + carta.getIdCarta());
+    }
+    
+    else
+    {
+        card.setAttribute("id","carta" + idCarta);
+    }
+
+
     lista.appendChild(card);
 
     const title = document.createElement("section");
@@ -334,6 +339,7 @@ function creaCartaHTML(carta)
     }
 
     arrayCarte.push(carta);
+    idCarta++;
 
     if(userIsCompositore)
     {
@@ -355,7 +361,6 @@ function eliminaCarta(id)
         if(carta.getIdCarta() === parseInt(id))
         {
             const cartaDaEliminare = document.getElementById("carta"+id.toString());
-            const indice = arrayCarte.indexOf(carta);
             carta.setEliminata(true);
     
             cartaDaEliminare.style.animation = "fadeOut 1.2s";
@@ -363,7 +368,6 @@ function eliminaCarta(id)
 
             setTimeout(() =>
             {
-                // arrayCarte.splice(indice,1);
                 cartaDaEliminare.remove();
                 coloraCarte();
 
@@ -528,6 +532,7 @@ function coloraCarte()
     const carte = document.getElementsByClassName("card");
     let bianco = true;
     let titolo;
+    let footer;
 
     for (let i = 0; i<carte.length; i++)
     {
@@ -536,7 +541,9 @@ function coloraCarte()
             if(bianco)
             {
                 titolo = carte[i].firstElementChild;
+                footer = carte[i].childNodes[2];
                 titolo.style.backgroundColor = "rgb(255, 255, 255)";
+                footer.style.backgroundColor = "rgb(242, 242, 242)";
                 carte[i].style.backgroundColor = "rgb(255, 255, 255)";
                 carte[i].style.color = "rgb(0, 0, 0)";
                 bianco = false;
@@ -544,7 +551,9 @@ function coloraCarte()
             else
             {
                 titolo = carte[i].firstElementChild;
+                footer = carte[i].childNodes[2];
                 titolo.style.backgroundColor = "rgb(68, 72, 87)";
+                footer.style.backgroundColor = "rgb(50, 54, 67)";
                 carte[i].style.backgroundColor = "rgb(68, 72, 87)";
                 carte[i].style.color = "rgb(255, 255, 255)";
                 bianco = true;

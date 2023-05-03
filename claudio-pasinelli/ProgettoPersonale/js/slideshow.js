@@ -49,11 +49,6 @@ class Foto
     }
 }
 
-function setIdFotoGlobale(maxId)
-{
-    idFoto = maxId + 1;
-}
-
 async function trovaMaxIdFoto()
 {
     const idCompositore = localStorage.getItem("idCompositore");
@@ -72,7 +67,7 @@ async function trovaMaxIdFoto()
 
     if(maxId != 1)
     {
-        setIdFotoGlobale(maxId);
+        idFoto = maxId + 1;
     }
 }
 

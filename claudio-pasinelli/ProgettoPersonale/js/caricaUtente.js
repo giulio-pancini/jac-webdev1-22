@@ -123,6 +123,7 @@ async function caricaDatiFoto()
         //carico le foto e le creo
         const getFoto = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/foto/" + idCompositore + "/compositori");
         const getFotoJson = await getFoto.json();
+        trovaMaxIdFoto();
     
         for(fotoCompositore of getFotoJson)
         {
@@ -134,8 +135,6 @@ async function caricaDatiFoto()
             const foto = new Foto(idFoto, idCompositore, urlFoto, eliminata);
             addImageObj(foto);
         }
-    
-        trovaMaxIdFoto();
     }
     catch(err)
     {
@@ -150,6 +149,7 @@ async function caricaDatiCarte()
         //carico le carte e le creo
         const getCarte = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + idCompositore + "/compositori");
         const getCarteJson = await getCarte.json();
+        trovaMaxIdCarta();
 
         for(let i = 0; i < getCarteJson.length; i++)
         {
@@ -170,6 +170,7 @@ async function caricaDatiSocial()
         //carico i social e li creo
         const getSocials = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + idCompositore + "/compositori");
         const getSocialsJson = await getSocials.json();
+        trovaMaxIdSocial();
     
         for(socialCompositore of getSocialsJson)
         {
@@ -179,13 +180,12 @@ async function caricaDatiSocial()
             const img = socialCompositore.img;
             const link = socialCompositore.link;
             const media = socialCompositore.media;
+            const eliminata = socialCompositore.eliminata;
     
-            const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img);
+            const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img, eliminata);
     
             creaSocial(social);
         }
-    
-        trovaMaxIdSocial();
     }
     catch(err)
     {

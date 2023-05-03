@@ -333,7 +333,7 @@ section#listaSocial
 
 section#listaSocial section
 {
-    margin-bottom: 15%;
+    margin-bottom: 5px;
 }
 
 #listaSocial a
@@ -418,6 +418,23 @@ section#listaSocial img.zoom:hover
     border: var(--arrow-size) solid transparent;
     border-top-color: var(--colore-arancio);
     transform-origin: top center;
+}
+
+.eliminaSocial
+{
+    text-align: right;
+}
+
+.eliminaSocial .elimina
+{
+    height: 20px;
+}
+
+.cestinoSocial
+{
+    height: 15px;
+    width: auto;
+    transition: all 0.2s ease-in-out;
 }
 
 /* SECTION SOCIAL  */
@@ -924,7 +941,7 @@ p.socialContainerDescrizione
 {
     section#listaSocial section
     {
-        margin-bottom: 8%;
+        margin-bottom: 2.5px;
     }
 
     section#listaSocial img.zoom
@@ -1026,7 +1043,7 @@ p.socialContainerDescrizione
 
     section#listaSocial section
     {
-        margin-bottom: 15%;
+        margin-bottom: 5px;
     }
 
     section#listaSocial img.zoom
