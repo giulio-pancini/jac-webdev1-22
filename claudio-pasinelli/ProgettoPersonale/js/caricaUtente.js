@@ -40,22 +40,15 @@ async function caricaUtente()
 {
     let userNickname = document.getElementById("userNickname");
 
-    if(localStorage.getItem("Nome") === null || localStorage.getItem("Cognome") === null && localStorage.getItem("NomeUser") === null && localStorage.getItem("CognomeUser") === null)
+    if(localStorage.getItem("Nome") === null || localStorage.getItem("Cognome") === null && localStorage.getItem("NomeUser") === null && localStorage.getItem("CognomeUser") === null || localStorage.getItem("Nome") != "undefined" || localStorage.getItem("Cognome") != "undefined" && localStorage.getItem("NomeUser") != "undefined" && localStorage.getItem("CognomeUser") != "undefined")
     {
         userNickname.innerText = "Impossibile caricare il nome dell'utente";
     }
 
-    else if(localStorage.getItem("Nome") != "undefined" || localStorage.getItem("Cognome") != "undefined" && localStorage.getItem("NomeUser") != "undefined" && localStorage.getItem("CognomeUser") != "undefined")
+    if((localStorage.getItem("Nome") != "undefined" && localStorage.getItem("Cognome") != "undefined" || localStorage.getItem("Nome") != null && localStorage.getItem("Cognome") != null) && (localStorage.getItem("NomeUser") === null || localStorage.getItem("CognomeUser") === null) || localStorage.getItem("NomeUser") === "undefined" || localStorage.getItem("CognomeUser") === "undefined")
     {
-        userNickname.innerText = "Impossibile caricare il nome dell'utente";
-    }
-
-    if(!(localStorage.getItem("NomeUser") != "undefined" && localStorage.getItem("CognomeUser") != "undefined"))
-    {
-        const userSpecifico = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/users/" + localStorage.getItem("idUser"));
-        const userSpecificoJson = await userSpecifico.json();
-        const nome = userSpecificoJson.nome;
-        const cognome = userSpecificoJson.cognome;
+        const nome = localStorage.getItem("Nome");
+        const cognome = localStorage.getItem("Cognome");
         userNickname.innerText = nome + " " + cognome;
     }
 
@@ -82,10 +75,6 @@ async function compositoreSpecifico()
     catch(err)
     {
         console.log(err.message);
-    }
-
-    if(compositoreByIdUserSpecifico.status === 404 || compositoreByIdUserSpecifico === null)
-    {
         //il compositore ha l'account ma non ha un profilo (ha fatto da poco il login, quindi ha appena creato il suo account)
     }
 
@@ -104,24 +93,10 @@ async function compositoreSpecifico()
 
 async function caricaTuttiIDati()
 {
-    let risultatoCaricamentoProfilo = false;
-    let risultatoCaricamentoFoto = false;
-    let risultatoCaricamentoCarte = false;
-    let risultatoCaricamentoSocial = false;
-
-    risultatoCaricamentoProfilo = await caricaDatiProfilo();
-    risultatoCaricamentoFoto = await caricaDatiFoto();
-    risultatoCaricamentoCarte = await caricaDatiCarte();
-    risultatoCaricamentoSocial = await caricaDatiSocial();
-
-    if(risultatoCaricamentoProfilo && risultatoCaricamentoFoto && risultatoCaricamentoCarte && risultatoCaricamentoSocial)
-    {
-        setTimeout(() =>
-        {
-            localStorage.clear();
-            window.location.href = "index.html";
-        }, 1000);
-    }
+    await caricaDatiProfilo();
+    await caricaDatiFoto();
+    await caricaDatiCarte();
+    await caricaDatiSocial();
 }
 
 async function caricaDatiProfilo()
@@ -137,7 +112,7 @@ async function caricaDatiProfilo()
     }
     catch(err)
     {
-        console.error(err.message);
+
     }
 }
 
@@ -148,6 +123,7 @@ async function caricaDatiFoto()
         //carico le foto e le creo
         const getFoto = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/foto/" + idCompositore + "/compositori");
         const getFotoJson = await getFoto.json();
+        trovaMaxIdFoto();
     
         for(fotoCompositore of getFotoJson)
         {
@@ -159,13 +135,10 @@ async function caricaDatiFoto()
             const foto = new Foto(idFoto, idCompositore, urlFoto, eliminata);
             addImageObj(foto);
         }
-    
-        trovaMaxIdFoto();
-        return true;
     }
     catch(err)
     {
-        console.error(err.message);
+
     }
 }
 
@@ -176,27 +149,17 @@ async function caricaDatiCarte()
         //carico le carte e le creo
         const getCarte = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/carte/" + idCompositore + "/compositori");
         const getCarteJson = await getCarte.json();
-    
-        for(cartaCompositore of getCarteJson)
+        trovaMaxIdCarta();
+
+        for(let i = 0; i < getCarteJson.length; i++)
         {
-            const idCarta = cartaCompositore.idCarta;
-            const idCompositore = cartaCompositore.idCompositore;
-            const titolo = cartaCompositore.titolo;
-            const prezzo = cartaCompositore.prezzo;
-            const mese = cartaCompositore.mese;
-            const img = cartaCompositore.img;
-            const eliminata = cartaCompositore.eliminata;
-    
-            const carta = new Carta(idCarta, idCompositore, titolo, prezzo, mese, img, eliminata);
+            const carta = new Carta(getCarteJson[i].idCarta, getCarteJson[i].idCompositore, getCarteJson[i].titolo, getCarteJson[i].prezzo, getCarteJson[i].mese, getCarteJson[i].img, getCarteJson[i].eliminata)
             creaCartaHTML(carta);
         }
-    
-        trovaMaxIdCarta();
-        return true;
     }
     catch(err)
     {
-        console.error(err.message);
+
     }
 }
 
@@ -207,6 +170,7 @@ async function caricaDatiSocial()
         //carico i social e li creo
         const getSocials = await fetch("http://localhost:8080/progettoPersonaleJava/api/v1/socials/" + idCompositore + "/compositori");
         const getSocialsJson = await getSocials.json();
+        trovaMaxIdSocial();
     
         for(socialCompositore of getSocialsJson)
         {
@@ -216,17 +180,15 @@ async function caricaDatiSocial()
             const img = socialCompositore.img;
             const link = socialCompositore.link;
             const media = socialCompositore.media;
+            const eliminata = socialCompositore.eliminata;
     
-            const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img);
+            const social = new Social(idSocial, idCompositore, dataTooltip, media, link, img, eliminata);
     
             creaSocial(social);
         }
-    
-        trovaMaxIdSocial();
-        return true;
     }
     catch(err)
     {
-        console.error(err.message);
+        
     }
 }
