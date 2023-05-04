@@ -37,7 +37,7 @@ public class SocialDao extends Dao<Social>
 	{
 		sb.append("SELECT id_Social, id_compositore, dataTooltip, media, link, img, ");
 		sb.append(" utente_ins, utente_mod, data_ins, data_mod");
-		sb.append(" FROM Socials");
+		sb.append(" FROM socials");
 	}
 	
 	@Override
@@ -73,7 +73,7 @@ public class SocialDao extends Dao<Social>
 	{
 		sb.append("SELECT id_social, id_compositore, dataTooltip, media, link, img, ");
 		sb.append(" utente_ins, utente_mod, data_ins, data_mod");
-		sb.append(" FROM Socials");
+		sb.append(" FROM socials");
 		sb.append(" WHERE id_compositore = ?");
 	}
 	
@@ -308,7 +308,7 @@ public class SocialDao extends Dao<Social>
 		delete(entity.getIdSocial());
 	}
 	
-	public List<Social> findSocialByIdCompositore(long idUser)
+	public List<Social> findSocialByIdCompositore(long idCompositore)
 	{
 		List<Social> resultList = new ArrayList<>();
 		
@@ -321,7 +321,7 @@ public class SocialDao extends Dao<Social>
 			PreparedStatement pstm = conn.prepareStatement(sb.toString());
 			
 			int i = 1;
-			pstm.setLong(i++, idUser);
+			pstm.setLong(i++, idCompositore);
 			
 			ResultSet rs = pstm.executeQuery();
 			
@@ -334,7 +334,7 @@ public class SocialDao extends Dao<Social>
 		}
 		catch(SQLException e)
 		{
-			throw new DaoException("Error loading Timbratura", e);
+			throw new DaoException("Error loading Social", e);
 		}
 		
 		return resultList;

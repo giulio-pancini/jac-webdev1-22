@@ -11,10 +11,10 @@ function creaProfilo()
     const input = document.getElementById("imageProfileInput");
     const file = input.files[0];
     
-    const contenutoImg = document.getElementById("immagineProfilo").src;
+    let contenutoImg = document.getElementById("immagineProfilo").src;
     const testoNomeArtista = document.getElementById("nomeArt");
     const testoDescrizione = document.getElementById("testoDescrizione");
-    const immagine = document.getElementById("immagineProfilo");
+    let immagine = document.getElementById("immagineProfilo");
 
     const inviaBtn = document.getElementById("inviaProfilo");
     const annullaBtn = document.getElementById("annullaModifica");
@@ -112,8 +112,13 @@ function creaProfilo()
         reader.onload = function()
         {
             // const image = reader.result;
-            immagine.src=reader.result;
+            immagine.src = reader.result;
         }
+    }
+
+    else if(immagineGiaPresente)
+    {
+        document.getElementById("immagineProfilo").src = contenutoImg;
     }
 
     if(!titoloGiaPresente)
@@ -126,7 +131,7 @@ function creaProfilo()
         testoDescrizione.innerText = testo.value;
     }
 
-    const profilo = document.getElementById("profilo");
+    const profilo = document.getElementById("profiloCompositore");
     profilo.style.display = "grid";
     inviaBtn.style.display = "none";
     annullaBtn.style.display = "inline";
@@ -160,7 +165,8 @@ function creaProfiloFromCompositore(profiloAutore)
     const inviaBtn = document.getElementById("inviaProfilo");
     const annullaBtn = document.getElementById("annullaModifica");
 
-    const profilo = document.getElementById("profilo");
+    const profili = document.getElementsByClassName("profilo");
+    const profilo = profili[0];
     profilo.style.display = "grid";
     inviaBtn.style.display = "none";
     annullaBtn.style.display = "inline";
@@ -223,7 +229,7 @@ function isTextSet()
 
 function modificaProfilo()
 {
-    const profilo = document.getElementById("profilo");
+    const profilo = document.getElementById("profiloCompositore");
     profilo.style.display = "none";
 
     const formProfilo = document.getElementById("formProfilo");
@@ -241,7 +247,7 @@ function annullaModificaProfilo()
     const testo = document.getElementById("descrizione");
     const input = document.getElementById("imageProfileInput");
 
-    const profilo = document.getElementById("profilo");
+    const profilo = document.getElementById("profiloCompositore");
     profilo.style.display = "grid";
 
     const formProfilo = document.getElementById("formProfilo");
