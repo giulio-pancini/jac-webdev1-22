@@ -184,6 +184,9 @@ function addExe() {
     }
 }
 
+/* 
+? Funzione che DOVREBBE fare la fetch degli esercizi dalla mia API in Eclipse
+
 async function fetchEsercizi() {
     const response = await fetch("http://localhost:8080/esercizioAPI/listaesercizi");
     const jsonResponse = await response.json();
@@ -195,6 +198,7 @@ async function fetchEsercizi() {
         elemento.innerHTML = product;
     });
 }
+*/
 
 function calcolaBMI() {
 

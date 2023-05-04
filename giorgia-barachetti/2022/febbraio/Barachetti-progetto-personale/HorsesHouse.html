@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/aboutUs.css">
+
     <!--js-->
     <script src="./js/functions.js"></script>
     <script src="./js/cart.js"></script>
@@ -20,29 +22,19 @@
 </head>
 
 <body>
+    
     <div id="mainPage">
-
-        <header>
-            <nav>
-
-                <h2>T&G</h2><!--<div> <img id="logoHeader" src="images/img-header/logo2.jpg"></div>-->
-                <div class="wrapper">
-                    <a href="#contactsFooter"><div class="headerOption">CONTACTS</div></a>
-                    <div class="headerOption">ABOUT US</div>
-                    <div><button class="headerOption" type="button" id="shoppingCartButtonHome" onclick="showCart()">SHOPPING CART</button></div>
-                </div>
-                  
-                <!-- <li>CHI SIAMO</li>
-                    <section>
-                        <li id="logoIniziale"><img id="logoHeader" src="images/img-header/logo.png"></li>
-                    </section>
-                    <li>CONTACTS</li> LINKA ILFOOTER
-                    <li>ABOUT US</li>
-                    <li><button type="button" id="shoppingCartButtonHome" onclick="showCart()">SHOPPING CART</button></li>
-                    CARRELLO //IMMAGINE //// BUTTON LINKAA PAGINA DI SHOP
-                -->
-                </nav>
-        </header>
+    <header>
+        <nav>
+            
+            <h2>T&G</h2><!--<div> <img id="logoHeader" src="images/img-header/logo2.jpg"></div>-->
+            <div class="wrapper">
+                <a href="#contactsFooter"><div class="headerOption">CONTACTS</div></a>
+                <button id="AboutUsButton" type="button" class="headerOption" onclick="showAboutUs()">ABOUT US</button>
+                <div><button class="headerOption" type="button" id="shoppingCartButtonHome" onclick="showCart()">SHOPPING CART</button></div>
+            </div>
+        </nav>
+    </header>
 
         <article>
             <section id="gif">
@@ -238,25 +230,15 @@
             </section>
             
         </article>
-
+<!--BOT TALKS-->
         <section id="boxWrite">
             <div>
                 <span class="material-symbols-outlined" onclick="showBox()">keyboard</span>
             </div>
-            <!--
-
-                <div id="box">
-                    <section>
-                        <h1>Ask me!</h1>
-                        <section></section>
-                        <form>
-                            <input > <button onclick="sendMessage()"><span class="material-symbols-outlined"></span>send</span></button>
-                        </form>
-                    </section>
-                </div>
-            -->
         </section>
 
+
+<!--FOOTER-->
         <footer>
             <div class="wrapperFooter" id="footer">
 
@@ -292,61 +274,111 @@
     </div>
 
 
+    <div id="AboutUsParagraph">
+        <button onclick="showHomeFromAboutUs()">HOME</button>
+        <div id="centerGrid">
 
+            <div id="grid">
+              
+              <div class="divGrid" id="gridOne"><p>Welcome to our online saddle shop! The first italian saddle shop that uses Italian's products and sell all around the world.</p></div>
+              <div class="divGrid" id="gridTwo"><img src="images/img-article/img_text/giphy (1).gif"></div>
+              <div class="divGrid" id="gridTree"><img src="images/img-article/img_text/john.jpeg" style="max-width:100%"></div>
+              <div class="divGrid" id="gridFour"> <p>We're a family-owned business that's been making high-quality saddles for over 50 years.Our story began when our founder, John Smith, started crafting saddles by hand in his small workshop. He had a passion for horses and wanted to create saddles that were not only comfortable for riders, but also provided the best support for their equine partners.</p></div>
+            
+            </div>
+            
+          </div>
+        <hr id="hr">
+    </div>
 
     <div id="shoppingCartMenu">
 
-
-
         <button type="button" id="buttonHome" onclick="showHome()">HOME</button>
         <section id="sectionCart">
-            <!-- 
-                <img class="cartthings" id="imagecart">
-                <h1 class="cartthings" id="h1cart"></h1>
-                <p id="marcacart"></p>
-                <p class="cartthings" id="pricecart"></p>
-            -->
-            
-            <div id="cart">
+            <div>
                 <h2>YOUR SHOPPING CART</h2>
                     <p>Take a look at all the products you want to buy</p>
-                <ul>
-                  
-                </ul>
+                    <table>    
+                        <tr>
+                          <th class="a">PRODUCT</th>
+                          <th class="a">PRODUCT'S DESCRIPTION</th>
+                          <th class="a">PRICE</th>
+                        </tr>
+                    </table>
               </div>
+                <div id="divPrice"></div>
+                <hr>
         </section>
 
-        <form id="container">
-            <br>
+        <form>
 
-            <label class="label">Name: <input id="name" type="text" placeholder="Donald"></label>
-            <label class="label">Surname: <input id="surname" type="text" placeholder="Trump"></label>
-            <br>
-            <label class="label">Address: <input id="address" type="text"
-                    placeholder="132, My Street, Kingston"></label>
-            <label class="label">E-mail: <input id="mail" type="email" placeholder="john@example.com"></label>
-            <label class="label">Phone number: <input id="phone" type="tel" placeholder="(555) 555-1234"></label>
-
-            <section>
-                <div class="label">How would you like to pay?
-                    <div>
-                        <label for="paypal">Paypal<input name="Cpagamento" type="radio" value="paypal"
-                                id="paypal"></label>
-                        <label for="visa">Visa<input name="Cpagamento" type="radio" value="visa" id="visa"></label>
-                    </div>
-                </div>
+            <section id="containerFormCostumer">
+                
                 <br>
-                <label> <input class="label" id="cond" type="checkbox">I have read and agree to the Terms of Service and
-                    Privacy Policy</label>
+                <div>
+                    
+                    <label class="label">Name: <input class="g" id="name" type="text" placeholder="Donald"></label>
+                    <label class="label">Surname: <input class="g" id="surname" type="text" placeholder="Trump" ></label>
+                    <label class="label" style="grid-column: 1/3;">Address: <input class="g" id="address" type="text"placeholder="132, My Street, Kingston" ></label>
+                    <label class="label">E-mail: <input class="g" id="mail" type="email" placeholder="john@example.com" ></label>
+                    <label class="label">Phone number: <input class="g" id="phone" type="tel" placeholder="(555) 555-1234" ></label>
+                </div>
+                
+                <section>
+                    <br>
+                    <label> <input class="label" id="cond" type="checkbox" >I have read and agree to the Terms of Service and
+                        Privacy Policy</label>
+                    </section>
+                    <button type="button" id="shopButton" onclick="checkInfos()">CONTINUE</button>
+                    <!--stampa in una section le scritte come fosse pacco amazon e chiedi se va bene o se c'e da cambaire qualcosa-->
+                    
+                    <dl id="dl"></dl><!--userInformations-->
             </section>
-            <button type="button" id="shopButton" onclick="user()">BUY</button>
-            <!--stampa in una section le scritte come fosse pacco amazon e chiedi se va bene o se c'e da cambaire qualcosa-->
 
-            <dl id="dl"></dl><!--userInformations-->
-        </form>
+            
+            
+            <section id="formPayment">
+                    <div>How would you like to pay?
+                        <div>
+                            <label for="paypal">Paypal<input onclick="decidePayment()" name="CpagamentoPaypal" type="radio" value="paypal" id="paypal"></label>
+                            <label for="visa">Visa<input onclick="decidePayment()" name="CpagamentoVisa" type="radio" value="visa" id="visa"></label>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="modalForPaymentPaypal" style="padding:10px; background-color:white; border:1px solid white; width:500px">
+                    <img src="./images/img-formPayment/paypal.webp" style="height:50px">
+                    <p style="margin:5px; padding: 10px; border-top:1px solid black; border-bottom:1px solid black;background-color:#50bbea29; ">Hi! To continue the order you must choose the payment method</p>
+                    <div style="padding:5px; display:flex; flex-direction:row; align-items: center;">
+                        <label for="account1"><input onclick="decidePayment()" name="mastercard" type="radio" value="paypal" id="mastercard"> </label>
+                        <img src="./images/img-formPayment/MasterCard_Logo.svg.png" style="width:50px">
+                        <div style="padding-left:10px"><p>Mastercard</p><p>Credit ••••7845</p></div>
+                    </div>
+                    <div style="padding:5px; display:flex; flex-direction:row; align-items: center;">
+                        <label for="account2"><input  name="mastercard" type="radio" value="paypal" id="mastercard"> </label>
+                        <img src="./images/img-formPayment/partnersandsponsors_bankofamerica.jpg" style="width:50px">
+                        <div style="padding-left:10px"><p>Bank of America</p><p>Credit ••••1639</p></div>
+                    </div>
+                </section>
 
+                <section id="modalForPaymentVisa"  style="padding:10px; background-color:white; border:1px solid white; width:300px">
+                    <img src="./images/img-formPayment/visa.png"  style="height:50px">
+                    <div style="display: flex; flex-direction: column">
+                        <label>Card number</label>
+                        <input>
+                        <label>Expiration Date</label>
+                        <input type="date">
+                        <label>CVV</label>
+                        <input>
+                    </div>
+                </section>
+                
     </div>
-
-</body>
-
-</html>
+    </form>
+            
+            
+            
+            
+            
+        </body>
+        </html>
