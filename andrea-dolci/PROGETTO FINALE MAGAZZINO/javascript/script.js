@@ -1,4 +1,12 @@
+let contAliExpress = 0;
+let contAmazon = 0;
+let contBarilla = 0;
+
 function toggle(idSection){
+
+    contAliExpress = 0;
+    contAmazon = 0;
+    contBarilla  = 0;
 
     const sectionInvisible = document.getElementById(idSection);
     const sectionLogin = document.getElementById('login');
@@ -33,8 +41,7 @@ function toggle(idSection){
 
 
     for(let i = 0; i<arrayToIterate.length; i++) {
-        if(arrayToIterate[i] != null)
-            createRow(arrayToIterate, i, tableId);
+        createRow(arrayToIterate, i, tableId);
     }
     
     sectionInvisible.style.display = 'block';
@@ -42,9 +49,6 @@ function toggle(idSection){
 
 }
 
-let contAliExpressTrash = 0;
-let contAmazonTrash = 0;
-let contBarillaTrash = 0;
 
 function createRow(arrayToShow, index, tableId){
 
@@ -71,21 +75,18 @@ function createRow(arrayToShow, index, tableId){
 
     switch(tableId){
         case 'aliExpressTab': {
-            iconTrash.setAttribute('data-id', contAliExpressTrash);
-            iconTrash.setAttribute('onclick', 'deleteRow(contAliExpressTrash, tableId)');
-            contAliExpressTrash++;
+            iconTrash.setAttribute('data-id', arrayToShow[index].id);
+            iconTrash.setAttribute('onclick', `deleteRow(${arrayToShow[index].id}, "${tableId}")`);
             break;
         }
         case 'amazonTab': {
-            iconTrash.setAttribute('data-id', contAmazonTrash);
-            iconTrash.setAttribute('onclick', 'deleteRow(contAmazonTrash, tableId)');
-            contAmazonTrash++;
+            iconTrash.setAttribute('data-id', arrayToShow[index].id);
+            iconTrash.setAttribute('onclick', `deleteRow(${arrayToShow[index].id}, "${tableId}")`);
             break;
         }
         case 'barillaTab': {
-            iconTrash.setAttribute('data-id', contBarillaTrash);
-            iconTrash.setAttribute('onclick', 'deleteRow(contBarillaTrash, tableId)');
-            contBarillaTrash;
+            iconTrash.setAttribute('data-id', arrayToShow[index].id);
+            iconTrash.setAttribute('onclick', `deleteRow(${arrayToShow[index].id}, "${tableId}")`);
             break;
         }
         
@@ -112,32 +113,43 @@ function home(idSection){
 
     const sectionToMakeInvisible = document.getElementById(idSection);
     const sectionLogin = document.getElementById('login');
-
+       
     sectionLogin.style.display = 'flex';
     sectionToMakeInvisible.style.display = 'none';
 
 }
 
 function deleteRow(idTrash, tableId){
-
+    let arrayToDeleteFrom=[];
+    
     switch(tableId){
         case 'aliExpressTab': {
-            arrayObjAliExpress[idTrash] = null;
+            arrayToDeleteFrom = arrayObjAliExpress;
+            idSection = 'aliExpress';
             break;
         }
         case 'amazonTab': {
-            
+            arrayToDeleteFrom = arrayObjAmazon;
+            idSection = 'amazon';
             break;
         }
         case 'barillaTab': {
-            
+            arrayToDeleteFrom = arrayObjBarilla;
+            idSection = 'barilla';
             break;
         }
-        
     }
+
+    for(let i = 0; i < arrayToDeleteFrom.length; i++){
+        if(arrayToDeleteFrom[i].id === parseInt(idTrash)){
+            arrayToDeleteFrom.splice(i, 1);
+            
+        }
+    }
+    toggle(idSection);
+
 }
 
-let contAliExpress = 0;
 const arrayObjAliExpress = [
     {
         id: contAliExpress++,
@@ -178,7 +190,7 @@ const arrayObjAliExpress = [
 
 
 
-let contAmazon = 0;
+
 const arrayObjAmazon = [
     {
         id: contAmazon++,
@@ -215,7 +227,6 @@ const arrayObjAmazon = [
     
 ];
 
-let contBarilla = 0;
 const arrayObjBarilla = [
     {
         id: contBarilla++,
