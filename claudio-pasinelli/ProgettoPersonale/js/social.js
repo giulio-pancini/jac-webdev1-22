@@ -668,6 +668,7 @@ async function salvaSocial(getSocialsJson)
                                     if(social.getMedia() === media)
                                     {
                                         continua = true;
+                                        break;
                                     }
                                     continue;
                                 }

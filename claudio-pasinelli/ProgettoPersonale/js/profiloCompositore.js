@@ -1,6 +1,6 @@
 let profiloAutore;
 
-function creaProfilo()
+function creaProfiloHtml()
 {
     let immagineGiaPresente;             //bolean
     let titoloGiaPresente;               //bolean
